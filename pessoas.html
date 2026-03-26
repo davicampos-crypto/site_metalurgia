@@ -188,18 +188,18 @@
       top: calc(var(--header-h) + var(--progress-h));
       left: 0; right: 0;
       bottom: 0;
-      display: flex;
       overflow: hidden;
     }
 
     /* Each panel */
     .panel {
-      min-width: var(--section-w);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
       height: 100%;
       display: grid;
       place-items: center;
       padding: 3rem 2rem;
-      position: relative;
       overflow: hidden;
       transition: transform 0.7s cubic-bezier(0.77, 0, 0.18, 1);
     }
@@ -725,11 +725,6 @@
         dx > 0 ? next() : prev();
       }
     }, { passive: true });
-
-    /* ── panel transitions CSS ── */
-    panels.forEach(p => {
-      p.style.transition = 'transform 0.7s cubic-bezier(0.77, 0, 0.18, 1)';
-    });
 
     /* ── INIT ── */
     updateUI();
