@@ -5,14 +5,1080 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
 
 <style>
+/* =========================================
+   CONFIGURAÇÕES GERAIS E RESETS
+   ========================================= */
+:root {
+    /* Paleta de Cores FerroTech */
+    --color-navy: #1B263B;        /* Azul Profundo (Identidade) */
+    --color-gold: #FFB703;        /* Amarelo Ouro (Destaque/Ação) */
+    --color-graphite: #415A77;    /* Cinza Grafite (Secundária) */
+    --color-platinum: #E0E1DD;    /* Cinza Platina (Apoio) */
+    --color-white: #F8F9FA;      /* Branco Gelo (Fundo Texto) */
+    --color-text-body: #0D1B2A;  /* Preto Antracite (Leitura) */
+    --color-metallic: #778DA9;   /* Cinza Metálico (Marcos) */
 
-</style>    
+    /* Fontes */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
 
-</body>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-white);
+    color: var(--color-text-body);
+    overflow-x: hidden;
+}
+
+/* =========================================
+   ESTILOS DO SECTION HERO
+   ========================================= */
+.hero {
+    width: 100%;
+    height: 100vh; /* Ocupa a altura total da tela */
+    display: flex;
+    overflow: hidden;
+}
+
+.hero-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- BLOCO ESQUERDO: VISUAL --- */
+.hero-visual {
+    flex: 0 0 60%; /* 60% da largura em desktop */
+    position: relative;
+    background-color: #222; /* Fundo de segurança caso a imagem falhe */
+}
+
+.hero-worker-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
+    display: block;
+}
+
+.hero-identity-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+.worker-credit {
+    font-family: var(--font-body);
+    color: var(--color-platinum);
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+/* --- BLOCO DIREITO: CONTEÚDO --- */
+.hero-content {
+    flex: 0 0 40%; /* 40% da largura em desktop */
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    justify-content: center;
+    padding: 60px 40px; /* Padding interno para o wrapper */
+    position: relative;
+}
+
+.content-wrapper {
+    max-width: 500px; /* Impede o texto de ficar muito largo */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espaçamento entre os elementos */
+}
+
+.hero-headline {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.hero-headline .highlight {
+    color: var(--color-gold);
+}
+
+.hero-subtext {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--color-metallic);
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+/* --- SEÇÃO MARCO DE TEMPO (Adaptado do Layout Gerdau) --- */
+.hero-milestone {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.milestone-text {
+    display: flex;
+    flex-direction: column;
+    border-left: 3px solid var(--color-gold); /* Barra vertical dourada à esquerda */
+    padding-left: 15px;
+}
+
+.company-name {
+    font-family: var(--font-heading);
+    color: var(--color-platinum);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.milestone-year {
+    font-family: var(--font-heading);
+    font-size: 6rem;
+    font-weight: 800;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--color-platinum); /* Efeito de borda */
+    letter-spacing: -4px;
+    margin: 5px 0;
+}
+
+.milestone-label {
+    font-family: var(--font-heading);
+    color: var(--color-gold);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* --- RODAPÉ DO CONTEÚDO --- */
+.hero-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.btn-cta {
+    font-family: var(--font-heading);
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+}
+
+.btn-cta:hover {
+    background-color: #FFC340; /* Dourado ligeiramente mais claro no hover */
+    transform: translateY(-2px);
+}
+
+.hero-logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.hero-logo {
+    max-height: 50px;
+    width: auto;
+}
+
+/* =========================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================= */
+
+/* Tablets e Laptops Pequenos (até 1024px) */
+@media (max-width: 1024px) {
+    .hero-headline {
+        font-size: 2.2rem;
+    }
+    .milestone-year {
+        font-size: 5rem;
+    }
+}
+
+/* Smartphones e Tablets em Retrato (até 768px) - LAYOUT EMPILHADO */
+@media (max-width: 768px) {
+    .hero {
+        height: auto; /* Permite que a seção cresça com o conteúdo */
+    }
+
+    .hero-container {
+        flex-direction: column; /* Empilha visual e conteúdo */
+    }
+
+    .hero-visual {
+        flex: 0 0 100%;
+        height: 50vh; /* Define uma altura fixa para a imagem no mobile */
+    }
+
+    .hero-content {
+        flex: 0 0 100%;
+        padding: 40px 20px;
+    }
+
+    .hero-headline {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .hero-subtext {
+        font-size: 1rem;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .hero-milestone {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .milestone-text {
+        border-left: none;
+        border-bottom: 3px solid var(--color-gold);
+        padding-left: 0;
+        padding-bottom: 10px;
+    }
+
+    .hero-footer {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .btn-cta {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* --- HEADER STYLES --- */
+.header-main {
+    background-color: var(--color-navy); /* Azul Marinho Profundo */
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid var(--color-gold); /* Linha fina dourada para separar do Hero */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Lado Esquerdo */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-desktop ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-desktop ul li a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: var(--font-body);
+    transition: color 0.3s ease;
+}
+
+.nav-desktop ul li a:hover {
+    color: var(--color-gold);
+}
+
+/* Lado Direito */
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.top-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.action-link {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 0.8rem;
+    border: 1px solid var(--color-white);
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.action-link:hover {
+    background-color: var(--color-white);
+    color: var(--color-navy);
+}
+
+.lang-selector {
+    color: var(--color-white);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.lang-selector .active {
+    color: var(--color-gold);
+}
+
+/* Botão Principal Estilo Gerdau */
+.btn-business {
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 12px 30px;
+    border-radius: 30px;
+    transition: transform 0.2s ease, filter 0.3s ease;
+}
+
+.btn-business:hover {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+}
+
+/* Responsividade Básica */
+@media (max-width: 1024px) {
+    .nav-desktop { display: none; } /* Em um site real, você faria um menu hambúrguer aqui */
+}
+
+/* =========================================
+   ESTILOS DA SEÇÃO DE BOAS PRÁTICAS
+   ========================================= */
+.ferrotech-practices {
+    background-color: var(--color-platinum); /* Fundo Cinza Platina (Respiro Visual) */
+    color: var(--color-navy); /* Texto em Azul Marinho Profundo */
+    padding: 100px 0;
+    font-family: var(--font-body);
+}
+
+.practices-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+/* Cabeçalho da Seção */
+.section-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    color: var(--color-navy);
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-graphite); /* Cinza Grafite para o subtítulo */
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+/* Estrutura do Slide */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.practice-slide {
+    display: none; /* Esconde os slides por padrão */
+    grid-template-columns: 1fr 1fr; /* Layout Gerdau: Visual à Esquerda, Texto à Direita */
+    gap: 60px;
+    align-items: center;
+}
+
+.practice-slide.active {
+    display: grid; /* Mostra o slide com a classe 'active' */
+}
+
+/* Visual do Slide */
+.practice-visual {
+    width: 100%;
+    height: 100%;
+}
+
+.visual-banner {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px; /* Pequeno arredondamento para acabamento industrial */
+}
+
+/* Conteúdo do Slide */
+.practice-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 550px;
+}
+
+.practice-category {
+    font-family: var(--font-heading);
+    color: var(--color-gold); /* Destaque da categoria em Amarelo Ouro */
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.practice-headline {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    line-height: 1.2;
+}
+
+.practice-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-graphite);
+}
+
+.btn-more {
+    font-family: var(--font-heading);
+    color: var(--color-white);
+    background-color: var(--color-navy); /* Botão em Azul Marinho */
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 25px; /* Arredondamento Gerdau */
+    transition: transform 0.2s, background-color 0.3s;
+    width: fit-content;
+    text-transform: uppercase;
+}
+
+.btn-more:hover {
+    background-color: var(--color-graphite); /* Hover para o cinza grafite */
+    transform: translateY(-2px);
+}
+
+/* Controles do Carrossel */
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Alinha à direita como na Gerdau */
+    gap: 40px;
+    padding-right: 5%;
+}
+
+.control-arrows {
+    display: flex;
+    gap: 15px;
+}
+
+.arrow {
+    background: transparent;
+    border: 2px solid var(--color-graphite);
+    color: var(--color-graphite);
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.arrow:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+}
+
+/* Contador (Onde adaptamos o visual da Gerdau) */
+.control-counter {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.counter-current {
+    color: var(--color-gold); /* Número atual em Amarelo Ouro */
+}
+
+.counter-divider {
+    color: var(--color-graphite);
+    font-weight: 400;
+    margin: 0 5px;
+}
+
+.counter-total {
+    color: var(--color-graphite);
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 900px) {
+    .practice-slide {
+        grid-template-columns: 1fr; /* Empilha visual e texto no mobile */
+        gap: 30px;
+    }
+    .section-title { font-size: 2rem; }
+    .practice-headline { font-size: 1.6rem; }
+    .carousel-controls { justify-content: center; padding-right: 0; }
+}
+
+/* --- FOOTER STYLES --- */
+.footer-main {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    padding: 80px 0 20px 0;
+    font-family: var(--font-body);
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* Newsletter */
+.footer-newsletter {
+    flex: 1;
+    max-width: 400px;
+}
+
+.footer-title {
+    color: var(--color-gold);
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.newsletter-form input[type="email"] {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--color-platinum);
+    padding: 10px 0;
+    color: white;
+    margin: 20px 0;
+    outline: none;
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 0.8rem;
+    color: var(--color-platinum);
+    margin-bottom: 25px;
+}
+
+.btn-send {
+    background-color: var(--color-gold);
+    border: none;
+    padding: 12px 40px;
+    border-radius: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-send:hover { transform: scale(1.05); }
+
+/* --- SECTION GENTE DA FERROTECH --- */
+.ferrotech-team {
+    background-color: var(--color-gold); /* Fundo vibrante da referência */
+    padding: 100px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.team-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.team-info {
+    flex: 1;
+    z-index: 2;
+}
+
+.team-title {
+    font-family: var(--font-heading);
+    color: var(--color-navy);
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.team-description {
+    font-size: 1.2rem;
+    color: var(--color-navy);
+    line-height: 1.5;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.team-question {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--color-navy);
+    margin-bottom: 35px;
+}
+
+/* Botões */
+.team-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.btn-team {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-team:hover {
+    background-color: var(--color-graphite);
+    transform: translateY(-3px);
+}
+
+.link-vagas {
+    color: var(--color-navy);
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+    transition: border 0.3s;
+}
+
+.link-vagas:hover {
+    border-bottom: 2px solid var(--color-navy);
+}
+
+/* Composição Visual */
+.team-visual-composition {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.img-workers {
+    width: 110%; /* Ligeiramente maior para sair da borda como na ref */
+    height: auto;
+    z-index: 2;
+}
+
+/* Linha decorativa branca que "abraça" a foto */
+.visual-accent {
+    position: absolute;
+    bottom: -50px;
+    right: -20px;
+    width: 100%;
+    height: 10px;
+    background-color: var(--color-white);
+    transform: rotate(-2deg);
+    z-index: 1;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .team-container { flex-direction: column; text-align: center; }
+    .team-info { display: flex; flex-direction: column; align-items: center; }
+    .team-title { font-size: 2.5rem; }
+}
+
+/* Links e Colunas */
+.footer-links-wrapper {
+    flex: 2;
+}
+
+.social-icons {
+    margin-bottom: 40px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid white;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-col a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-col a:hover { color: var(--color-gold); }
+
+.col-title {
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+/* Barra Final */
+.footer-bottom {
+    margin-top: 60px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+}
+
+.bottom-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--color-platinum);
+}
+
+.privacy-link { color: white; text-decoration: none; font-weight: bold; }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .footer-container { flex-direction: column; }
+    .footer-columns { grid-template-columns: 1fr; }
+}
+</style> 
+<body>
+
+
+
+<header class="header-main">
+    <div class="header-container">
+        <div class="header-left">
+            <div class="logo">
+                <img src="https://via.placeholder.com/180x45/1B263B/FFFFFF?text=FERROTECH" alt="Logo FerroTech">
+            </div>
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="#">Sobre Nós <i class="chevron"></i></a></li>
+                    <li><a href="#">Sustentabilidade <i class="chevron"></i></a></li>
+                    <li><a href="#">Pessoas <i class="chevron"></i></a></li>
+                    <li><a href="#">Comunicação <i class="chevron"></i></a></li>
+                    <li><a href="#">Serviços <i class="chevron"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <div class="top-actions">
+                <a href="#" class="action-link"><span class="icon">🛒</span> Fornecedor</a>
+                <a href="#" class="action-link"><span class="icon">📈</span> Investidor</a>
+                <div class="lang-selector">
+                    <span class="active">PT</span> | <span>EN</span>
+                </div>
+            </div>
+            <a href="#contato" class="btn-business">FAÇA NEGÓCIO COM A FERROTECH</a>
+        </div>
+    </div>
+</header>
+
+
+<section class="hero" id="hero-ferrotech">
+        <div class="hero-container">
+            
+            <div class="hero-visual">
+                <img src="https://via.placeholder.com/1200x800/1B263B/778DA9?text=Operario+com+Capacete+FerroTech" alt="Operário da FerroTech Industrial com capacete amarelo e uniforme azul em uma fundição" class="hero-worker-img">
+                
+                <div class="hero-identity-overlay">
+                    <p class="worker-credit">Leandro Silva – FerroTech Industrial</p>
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <div class="content-wrapper">
+                    
+                    <h1 class="hero-headline">
+                        A FORÇA QUE MOLDAMOS<br>
+                        <span class="highlight">É FEITA DE RESPEITO.</span>
+                    </h1>
+
+                    <p class="hero-subtext">
+                        A FerroTech Industrial une a tradição da engenharia com o compromisso inabalável com a precisão, a segurança e a ética operacional.
+                    </p>
+
+                    <div class="hero-milestone">
+                        <div class="milestone-text">
+                            <span class="company-name">FERROTECH INDUSTRIAL</span>
+                            <span class="milestone-year">15</span>
+                            <span class="milestone-label">ANOS DE EXCELÊNCIA</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-footer">
+                        <a href="#contato" class="btn-cta">SAIBA MAIS</a>
+                        
+                        <div class="hero-logo-container">
+                            <img src="https://via.placeholder.com/150x50/1B263B/FFB703?text=Logo+FerroTech" alt="Logotipo FerroTech Industrial" class="hero-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+<section class="ferrotech-practices" id="boas-praticas">
+    <div class="practices-container">
+        
+        <header class="section-header">
+            <h2 class="section-title">Integridade na Indústria</h2>
+            <p class="section-subtitle">Nossas boas práticas para uma metalurgia responsável e ética.</p>
+        </header>
+
+        <div class="carousel-wrapper">
+            
+    <div class="practice-slide active">
+        <div class="practice-visual">
+            <img src="https://via.placeholder.com/600x300/1B263B/FFB703?text=Segurança+Operacional" alt="Segurança FerroTech" class="visual-banner">
+        </div>
+        <div class="practice-content">
+            <h3 class="practice-category">Operações e Segurança</h3>
+            <h4 class="practice-headline">Tolerância Zero para Riscos Ocupacionais</h4>
+            <p class="practice-text">
+                Nossas instalações seguem os mais rigorosos padrões internacionais de segurança. Investimos em treinamento contínuo e monitoramento em tempo real para garantir que todos retornem em segurança para casa.
+            </p>
+            <a href="#" class="btn-more">Certificações ISO</a>
+        </div>
+    </div>
+
+    <div class="practice-slide">
+        <div class="practice-visual">
+            <img src="https://via.placeholder.com/600x300/1B263B/FFB703?text=Impacto+Social" alt="Projetos Sociais FerroTech" class="visual-banner">
+        </div>
+        <div class="practice-content">
+            <h3 class="practice-category">Social</h3>
+            <h4 class="practice-headline">Transformando Comunidades Locais</h4>
+            <p class="practice-text">
+                A FerroTech Industrial acredita no desenvolvimento mútuo. Apoiamos projetos de educação técnica em Carapicuíba e região, capacitando jovens para o mercado de trabalho industrial e fomentando a economia local através de parcerias com fornecedores regionais.
+            </p>
+            <a href="#" class="btn-more">Nossos Projetos</a>
+        </div>
+    </div>
+
+    <div class="practice-slide">
+        <div class="practice-visual">
+            <img src="https://via.placeholder.com/600x300/1B263B/FFB703?text=Ética+e+Governança" alt="Governança FerroTech" class="visual-banner">
+        </div>
+        <div class="practice-content">
+            <h3 class="practice-category">Governança</h3>
+            <h4 class="practice-headline">Ética e Transparência Radical</h4>
+            <p class="practice-text">
+                Nossa governança é pautada pela transparência absoluta. Possuímos um canal de ética independente e conselhos de administração que asseguram que cada contrato da FerroTech Industrial seja pautado pela legalidade e pelo respeito aos nossos investidores e parceiros.
+            </p>
+            <a href="#" class="btn-more">Código de Ética</a>
+        </div>
+    </div>
+
+    <div class="practice-slide">
+        <div class="practice-visual">
+            <img src="https://via.placeholder.com/600x300/1B263B/FFB703?text=Sustentabilidade" alt="Meio Ambiente FerroTech" class="visual-banner">
+        </div>
+        <div class="practice-content">
+            <h3 class="practice-category">Meio Ambiente</h3>
+            <h4 class="practice-headline">Metalurgia de Baixo Impacto</h4>
+            <p class="practice-text">
+                Compromisso com o futuro. Implementamos sistemas de filtragem de resíduos de última geração e reciclagem de 95% da água utilizada em nossos processos. A FerroTech busca constantemente a redução da pegada de carbono em toda a cadeia produtiva.
+            </p>
+            <a href="#" class="btn-more">Relatório ESG</a>
+        </div>
+    </div>
+
+</div>
+            </div>
+            
+            </div>
+
+        <div class="carousel-controls">
+            
+            <div class="control-arrows">
+                <button class="arrow prev" aria-label="Slide anterior">←</button>
+                <button class="arrow next" aria-label="Próximo slide">→</button>
+            </div>
+
+            <div class="control-counter">
+                <span class="counter-current">01</span> <span class="counter-divider">/</span> <span class="counter-total">04</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+    <footer class="footer-main">
+    <div class="footer-container">
+        
+        <div class="footer-newsletter">
+            <h2 class="footer-title">Não perca nada</h2>
+            <p>Receba em seu e-mail as novidades da FerroTech Industrial</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Informe seu e-mail" required>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="lgpd" required>
+                    <label for="lgpd">Estou de acordo em fornecer meu e-mail para receber comunicações da FerroTech Industrial.</label>
+                </div>
+                <button type="submit" class="btn-send">Enviar</button>
+            </form>
+        </div>
+
+        <div class="footer-links-wrapper">
+            <div class="social-icons">
+                <a href="#">FB</a> <a href="#">IG</a> <a href="#">LI</a> <a href="#">TW</a>
+            </div>
+
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <a href="#">Cotação</a>
+                    <a href="#">Blog FerroTech</a>
+                    <a href="#">Catálogos e Manuais</a>
+                    <a href="#">Seja fornecedor</a>
+                    <a href="#">Trabalhe conosco</a>
+                </div>
+                <div class="footer-col">
+                    <span class="col-title">Presença Regional</span>
+                    <a href="#">São Paulo</a>
+                    <a href="#">Minas Gerais</a>
+                    <a href="#">Paraná</a>
+                    <a href="#">Rio de Janeiro</a>
+                </div>
+                <div class="footer-col">
+                    <span class="col-title">Outros sites</span>
+                    <a href="#">Portal do Aço</a>
+                    <a href="#">Treinamentos Internos</a>
+                    <a href="#">Canal de Ética</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="bottom-container">
+            <a href="#" class="privacy-link">Política de Privacidade</a>
+            <p class="copyright">© Copyright FerroTech Industrial S/A 2026</p>
+        </div>
+    </div>
+</footer>
 <script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Seleciona os elementos
+    const slides = document.querySelectorAll('.practice-slide');
+    const btnNext = document.querySelector('.arrow.next'); // Adicionei .arrow para garantir
+    const btnPrev = document.querySelector('.arrow.prev'); // Adicionei .arrow para garantir
+    const currentCounter = document.querySelector('.counter-current');
+    
+    let currentIdx = 0;
 
+    // Função de atualização
+    function updateCarousel() {
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+            slide.style.display = 'none';
+        });
+        
+        if (slides[currentIdx]) {
+            slides[currentIdx].classList.add('active');
+            slides[currentIdx].style.display = 'grid';
+            currentCounter.textContent = (currentIdx + 1).toString().padStart(2, '0');
+        }
+    }
+
+    // Eventos de Clique
+    if (btnNext && btnPrev) {
+        btnNext.addEventListener('click', function() {
+            currentIdx = (currentIdx + 1) % slides.length;
+            updateCarousel();
+        });
+
+        btnPrev.addEventListener('click', function() {
+            currentIdx = (currentIdx - 1 + slides.length) % slides.length;
+            updateCarousel();
+        });
+    } else {
+        console.error("Botões não encontrados. Verifique se as classes 'next' e 'prev' existem no HTML.");
+    }
+
+    // Inicializa o primeiro slide
+    updateCarousel();
+});
 </script>
+</body>
+
 </html>
