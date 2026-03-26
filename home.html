@@ -815,6 +815,108 @@ body {
     .footer-container { flex-direction: column; }
     .footer-columns { grid-template-columns: 1fr; }
 }
+
+/* --- GRID DE SERVIÇOS FERROTECH --- */
+.ferrotech-grid-services {
+    background-color: #001219; /* Um azul quase preto para dar profundidade */
+    padding: 80px 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.grid-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.grid-header {
+    margin-bottom: 50px;
+    border-left: 4px solid var(--color-gold); /* Seu Amarelo Ouro */
+    padding-left: 20px;
+}
+
+.grid-tag {
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.grid-main-title {
+    color: var(--color-white);
+    font-size: 2.5rem;
+    margin-top: 10px;
+}
+
+/* Bento Grid */
+.services-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.service-card {
+    background-color: #0077B6; /* Seu Azul Real */
+    height: 400px;
+    position: relative;
+    padding: 40px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-gold);
+}
+
+.card-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.05); /* Número fantasma ao fundo */
+    transition: color 0.3s;
+}
+
+.service-card:hover .card-number {
+    color: var(--color-gold);
+    opacity: 0.2;
+}
+
+.card-content h3 {
+    color: var(--color-gold);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.card-content p {
+    color: var(--color-platinum);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    opacity: 0.8;
+}
+
+.btn-card {
+    display: inline-block;
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--color-gold);
+    padding-bottom: 5px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .services-bento-grid { grid-template-columns: 1fr; }
+}
 </style> 
 <body>
 
@@ -1003,6 +1105,47 @@ body {
             <div class="visual-accent"></div>
         </div>
 
+    </div>
+</section>
+
+<section class="ferrotech-grid-services" id="servicos">
+    <div class="grid-container">
+        <div class="grid-header">
+            <span class="grid-tag">Soluções em Metalurgia</span>
+            <h2 class="grid-main-title">Excelência Operacional</h2>
+        </div>
+
+        <div class="services-bento-grid">
+            <div class="service-card laser">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <span class="card-number">01</span>
+                    <h3>Corte a Laser</h3>
+                    <p>Precisão milimétrica em chapas de aço carbono e inox com tecnologia de fibra ótica.</p>
+                    <a href="#" class="btn-card">Especificações Técnicas</a>
+                </div>
+            </div>
+
+            <div class="service-card cnc">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <span class="card-number">02</span>
+                    <h3>Usinagem CNC</h3>
+                    <p>Peças complexas com tolerâncias rigorosas para os setores automotivo e aeroespacial.</p>
+                    <a href="#" class="btn-card">Ver Maquinário</a>
+                </div>
+            </div>
+
+            <div class="service-card welding">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <span class="card-number">03</span>
+                    <h3>Soldagem Industrial</h3>
+                    <p>Solda MIG/TIG robotizada garantindo integridade estrutural em grandes montagens.</p>
+                    <a href="#" class="btn-card">Certificações de Qualidade</a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
