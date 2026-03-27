@@ -371,51 +371,640 @@ body.high-contrast .btn-primary {
     color: #000 !important;
     border: 2px solid #FFFF00 !important;
 }
+
+.hero-servicos {
+    display: flex;
+    min-height: 90vh;
+    background-color: #0f172a;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+/* Esquerda - Intro */
+.servicos-intro {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 80px 5%;
+    background: linear-gradient(90deg, #0f172a 80%, rgba(15, 23, 42, 0));
+    z-index: 2;
+}
+
+.servicos-intro h1 {
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+}
+
+.servicos-intro .highlight {
+    color: #ffb800; /* Amarelo FerroTech */
+}
+
+.servicos-intro p {
+    color: #94a3b8;
+    margin: 25px 0 40px;
+    font-size: 1.1rem;
+    max-width: 500px;
+}
+
+/* Mini Links de Serviços */
+.servicos-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.s-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s;
+}
+
+.s-link i {
+    color: #ffb800;
+    width: 20px;
+}
+
+.s-link:hover {
+    color: #ffb800;
+    transform: translateX(10px);
+}
+
+/* Direita - Visual */
+.servicos-visual {
+    flex: 1.2;
+    position: relative;
+}
+
+.servicos-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #0f172a, transparent 30%);
+}
+
+/* Badge de Precisão */
+.precision-badge {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    background: rgba(255, 184, 0, 0.9);
+    padding: 20px;
+    border-radius: 4px;
+    color: #000;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    animation: float 3s ease-in-out infinite;
+}
+
+.precision-badge .value {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+.precision-badge .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Botão */
+.btn-primary {
+    display: inline-block;
+    padding: 15px 35px;
+    background: #ffb800;
+    color: #000;
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #e6a600;
+    box-shadow: 0 10px 20px rgba(255, 184, 0, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .hero-servicos { flex-direction: column; }
+    .servicos-visual { min-height: 400px; }
+    .servicos-intro { padding: 40px 20px; text-align: center; }
+    .servicos-links { align-items: center; }
+}
+
+.servico-detalhe {
+    padding: 100px 5%;
+    background-color: #0f172a;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Fundo alternado para dar ritmo */
+.servico-detalhe:nth-child(even) {
+    background-color: #111d35;
+}
+
+.servico-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+/* Layout Invertido */
+.servico-detalhe.reverse .servico-container {
+    flex-direction: row-reverse;
+}
+
+.servico-image {
+    flex: 1;
+    position: relative;
+}
+
+.servico-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 20px 20px 0px -5px #ffb800; /* Detalhe em amarelo */
+}
+
+.tech-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #ffb800;
+    color: #000;
+    padding: 5px 15px;
+    font-weight: 800;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+.servico-info {
+    flex: 1;
+}
+
+.servico-info .numero {
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.05);
+    display: block;
+    line-height: 1;
+}
+
+.servico-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    margin-top: -30px;
+}
+
+.servico-info .highlight {
+    color: #ffb800;
+}
+
+.servico-info p {
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.check-list {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.check-list li {
+    margin-bottom: 12px;
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.check-list i {
+    color: #ffb800;
+}
+
+/* CTA Estilizado */
+.cta-servico {
+    display: inline-block;
+    padding: 18px 35px;
+    background: transparent;
+    border: 2px solid #ffb800;
+    color: #ffb800;
+    text-decoration: none;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    border-radius: 4px;
+}
+
+.cta-servico:hover {
+    background: #ffb800;
+    color: #000;
+    box-shadow: 0 0 20px rgba(255, 184, 0, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .servico-container, .servico-detalhe.reverse .servico-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    .servico-info .numero { margin-top: 0; }
+    .check-list li { justify-content: center; }
+}
+
+.intro-break {
+    background-color: #1e293b; /* Cinza azulado profundo para quebrar o azul marinho */
+    padding: 80px 5%;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.intro-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 184, 0, 0.1);
+    color: #ffb800;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 184, 0, 0.2);
+}
+
+.intro-break h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.intro-break h2 span {
+    color: #ffb800;
+}
+
+.intro-break p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.divider-line {
+    width: 60px;
+    height: 4px;
+    background-color: #ffb800;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Efeito de detalhe nas laterais */
+.intro-break::before, .intro-break::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 184, 0, 0.05) 0%, transparent 70%);
+    z-index: 1;
+}
+
+.intro-break::before { top: -50px; left: -50px; }
+.intro-break::after { bottom: -50px; right: -50px; }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Evita que o site "dance" para os lados */
+}
+
+/* Header Fixo */
+.header-main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(15, 23, 42, 0.95); /* Azul marinho com leve transparência */
+    backdrop-filter: blur(10px); /* Efeito de vidro moderno */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Container alinhado */
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilização dos Links */
+.nav-desktop ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #ffb800; /* Amarelo FerroTech */
+}
+
+/* Linha animada embaixo do link ativo */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffb800;
+    transition: 0.3s;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+/* Espaçamento para o conteúdo não ficar embaixo do header */
+body {
+    padding-top: 80px; 
+}
+
+/* Header Fixo */
+.header-main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(15, 23, 42, 0.95); /* Azul marinho com leve transparência */
+    backdrop-filter: blur(10px); /* Efeito de vidro moderno */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Container alinhado */
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilização dos Links */
+.nav-desktop ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #ffb800; /* Amarelo FerroTech */
+}
+
+/* Linha animada embaixo do link ativo */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffb800;
+    transition: 0.3s;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+/* Espaçamento para o conteúdo não ficar embaixo do header */
+body {
+    padding-top: 80px; 
+}
 </style>
 
 <body>
 
 
 
-    <header class="header-main">
-        <div class="header-container">
-            <div class="header-left">
-                <div class="logo">
-                    <img src="https://via.placeholder.com/180x45/1B263B/FFFFFF?text=FERROTECH" alt="Logo FerroTech">
+  <header class="header-main">
+    <div class="header-container">
+        <div class="header-left">
+            <div class="logo">
+                <a href="home.html">
+                    <img src="logo-ferrotech.png" alt="Logo FerroTech">
+                </a>
+            </div>
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="sobrenos.html" class="nav-link">Sobre Nós</a></li>
+                    <li><a href="sustentabilidade.html" class="nav-link">Sustentabilidade</a></li>
+                    <li><a href="pessoas.html" class="nav-link">Pessoas</a></li>
+                    <li><a href="comunicacao.html" class="nav-link">Comunicação</a></li>
+                    <li><a href="servicos.html" class="nav-link">Serviços</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <div class="top-actions">
+                <div class="header-accessibility">
+                    <button onclick="toggleContrast()" class="access-btn">
+                        <i class="fas fa-adjust"></i> CONTRASTE
+                    </button>
+                    <div class="font-controls">
+                        <button onclick="changeFontSize(-1)" class="access-btn">A-</button>
+                        <button onclick="changeFontSize(1)" class="access-btn">A+</button>
+                    </div>
                 </div>
-                <nav class="nav-desktop">
-                    <ul>
-                        <li><a href="sobrenos.html">Sobre Nós <i class="chevron"></i></a></li>
-                        <li><a href="sustentabilidade.html">Sustentabilidade <i class="chevron"></i></a></li>
-                        <li><a href="pessoas.html">Pessoas <i class="chevron"></i></a></li>
-                        <li><a href="comunicacao.html">Comunicação <i class="chevron"></i></a></li>
-                        <li><a href="servicos.html">Serviços <i class="chevron"></i></a></li>
-                    </ul>
-                </nav>
+                <div class="lang-selector">
+                    <span class="lang active">PT</span> | <span class="lang">EN</span>
+                </div>
+            </div>
+            <a href="comunicacao.html" class="btn-business">FAÇA NEGÓCIO COM A FERROTECH</a>
+        </div>
+    </div>
+</header>
+
+<section class="hero-servicos">
+    <div class="servicos-intro">
+        <div class="content-wrapper">
+            <span class="tag">NOSSA EXPERTISE</span>
+            <h1>ENGENHARIA DE <br><span class="highlight">ALTA PERFORMANCE</span></h1>
+            <p>
+                Transformamos matéria-prima em componentes de precisão com tecnologia de ponta. 
+                Soluções customizadas para demandas industriais complexas.
+            </p>
+            
+            <div class="servicos-links">
+                <a href="#corte-laser" class="s-link">
+                    <i class="fas fa-bolt"></i> Corte a Laser
+                </a>
+                <a href="#usinagem-cnc" class="s-link">
+                    <i class="fas fa-microchip"></i> Usinagem CNC
+                </a>
+                <a href="#soldagem" class="s-link">
+                    <i class="fas fa-fire"></i> Soldagem High-Tech
+                </a>
             </div>
 
-            <div class="header-right">
-                <div class="top-actions">
-                    <div class="header-accessibility">
-                        <button onclick="toggleContrast()" class="access-btn" title="Alto Contraste">
-                            <i class="fas fa-adjust"></i> Contraste
-                        </button>
-                        <div class="font-controls">
-                            <button onclick="changeFontSize(-1)" class="access-btn" title="Diminuir Fonte">A-</button>
-                            <button onclick="changeFontSize(1)" class="access-btn" title="Aumentar Fonte">A+</button>
-                        </div>
-                    </div>
-                    <div class="lang-selector">
-                        <span class="active">PT</span> | <span>EN</span>
-                    </div>
-                </div>
-                <a href="#contato" class="btn-business">FAÇA NEGÓCIO COM A FERROTECH</a>
-            </div>
+            <a href="#" class="btn-primary">VER CATÁLOGO TÉCNICO</a>
         </div>
-    </header>
+    </div>
 
 
     
+    <div class="servicos-visual">
+        <div class="image-overlay"></div>
+        <img src="sua-imagem-industrial.jpg" alt="Maquinário FerroTech">
+        
+        <div class="precision-badge">
+            <span class="value">0.01mm</span>
+            <span class="label">Tolerância Máxima</span>
+        </div>
+    </div>
+</section>
+    
+<section class="intro-break">
+    <div class="intro-container">
+        <div class="intro-badge">
+            <i class="fas fa-microchip"></i>
+            <span>TECNOLOGIA 4.0</span>
+        </div>
+        
+        <h2>MAIS QUE USINAGEM, <br><span>ENTREGAMOS ESTRATÉGIA.</span></h2>
+        
+        <p>
+            Na FerroTech, unimos a força da indústria pesada com a inteligência de dados. 
+            Nossa planta em Sorocaba é equipada para atender desde protótipos rápidos até linhas de produção em escala.
+        </p>
+
+        <div class="divider-line"></div>
+    </div>
+</section>
+
+<section id="corte-laser" class="servico-detalhe">
+    <div class="servico-container">
+        <div class="servico-image">
+            <img src="caminho-laser.jpg" alt="Máquina de Corte a Laser">
+            <div class="tech-tag">Fibra Óptica</div>
+        </div>
+        <div class="servico-info">
+            <span class="numero">01</span>
+            <h2>Corte a <span class="highlight">Laser</span></h2>
+            <p>Utilizamos tecnologia de fibra óptica de última geração, permitindo cortes extremamente complexos em chapas de aço carbono, inox e alumínio com bordas perfeitas e sem necessidade de acabamento posterior.</p>
+            <ul class="check-list">
+                <li><i class="fas fa-check"></i> Espessuras de até 25mm</li>
+                <li><i class="fas fa-check"></i> Aproveitamento máximo de matéria-prima</li>
+                <li><i class="fas fa-check"></i> Velocidade industrial superior</li>
+            </ul>
+            <a href="#" class="cta-servico" data-firebase="interesse_laser">SOLICITAR ORÇAMENTO LASER</a>
+        </div>
+    </div>
+</section>
+
+<section id="usinagem-cnc" class="servico-detalhe reverse">
+    <div class="servico-container">
+        <div class="servico-image">
+            <img src="caminho-cnc.jpg" alt="Centro de Usinagem CNC">
+            <div class="tech-tag">4 Eixos</div>
+        </div>
+        <div class="servico-info">
+            <span class="numero">02</span>
+            <h2>Usinagem <span class="highlight">CNC</span></h2>
+            <p>Nossos centros de usinagem operam com tolerâncias decimais para a criação de moldes, matrizes e componentes mecânicos de alta complexidade geométrica.</p>
+            <ul class="check-list">
+                <li><i class="fas fa-check"></i> Fresagem e Torneamento</li>
+                <li><i class="fas fa-check"></i> Repetibilidade garantida</li>
+                <li><i class="fas fa-check"></i> Acabamento de superfície premium</li>
+            </ul>
+            <a href="#" class="cta-servico" data-firebase="interesse_cnc">PROJETAR MINHA PEÇA</a>
+        </div>
+    </div>
+</section>
+
+<section id="soldagem" class="servico-detalhe">
+    <div class="servico-container">
+        <div class="servico-image">
+            <img src="caminho-solda.jpg" alt="Soldagem Industrial">
+            <div class="tech-tag">TIG / MIG / MAG</div>
+        </div>
+        <div class="servico-info">
+            <span class="numero">03</span>
+            <h2>Soldagem <span class="highlight">Especializada</span></h2>
+            <p>Unimos resistência e estética. Processos de soldagem certificados para garantir que a estrutura suporte as cargas mais severas da indústria pesada.</p>
+            <ul class="check-list">
+                <li><i class="fas fa-check"></i> Inspeção de qualidade rigorosa</li>
+                <li><i class="fas fa-check"></i> Soldas limpas e estruturais</li>
+                <li><i class="fas fa-check"></i> Especialistas em Inox e Ligas Leves</li>
+            </ul>
+            <a href="#" class="cta-servico" data-firebase="interesse_solda">FALAR COM ENGENHEIRO</a>
+        </div>
+    </div>
+</section>
 
     <footer class="footer-main">
         <div class="footer-container">
@@ -472,6 +1061,21 @@ body.high-contrast .btn-primary {
         </div>
     </footer>
     <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+    // Pega o nome do arquivo atual (ex: servicos.html)
+    const currentPage = window.location.pathname.split("/").pop();
+    
+    // Seleciona todos os links da nav
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach(link => {
+        // Se o href do link for igual à página atual, adiciona a classe active
+        if (link.getAttribute("href") === currentPage) {
+            link.classList.add("active");
+        }
+    });
+});
      
 // 1. Controle de Contraste
 const btnContrast = document.querySelector('[onclick="toggleContrast()"]');

@@ -895,43 +895,113 @@
             font-size: 1.5rem;
         }
     }
+
+    /* Header Fixo */
+.header-main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(15, 23, 42, 0.95); /* Azul marinho com leve transparência */
+    backdrop-filter: blur(10px); /* Efeito de vidro moderno */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Container alinhado */
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilização dos Links */
+.nav-desktop ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #ffb800; /* Amarelo FerroTech */
+}
+
+/* Linha animada embaixo do link ativo */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffb800;
+    transition: 0.3s;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+/* Espaçamento para o conteúdo não ficar embaixo do header */
+body {
+    padding-top: 80px; 
+}
     </style>
 </head>
 <body>
 
     <header class="header-main">
-        <div class="header-container">
-            <div class="header-left">
-                <div class="logo">
-                    <img src="https://via.placeholder.com/180x45/1B263B/FFFFFF?text=FERROTECH" alt="Logo FerroTech">
-                </div>
-                <nav class="nav-desktop">
-                    <ul>
-                        <li><a href="sobrenos.html">Sobre Nós</a></li>
-                        <li><a href="sustentabilidade.html">Sustentabilidade</a></li>
-                        <li><a href="pessoas.html" style="color: var(--color-gold);">Pessoas</a></li>
-                        <li><a href="comunicacao.html">Comunicação</a></li>
-                        <li><a href="servicos.html">Serviços</a></li>
-                    </ul>
-                </nav>
+    <div class="header-container">
+        <div class="header-left">
+            <div class="logo">
+                <a href="home.html">
+                    <img src="logo-ferrotech.png" alt="Logo FerroTech">
+                </a>
             </div>
-            <div class="header-right">
-                <div class="top-actions">
-                    <div class="header-accessibility">
-                        <button onclick="toggleContrast()" class="access-btn" title="Alto Contraste">Contraste</button>
-                        <div class="font-controls">
-                            <button onclick="changeFontSize(-1)" class="access-btn" title="Diminuir Fonte">A-</button>
-                            <button onclick="changeFontSize(1)" class="access-btn" title="Aumentar Fonte">A+</button>
-                        </div>
-                    </div>
-                    <div class="lang-selector">
-                        <span class="active">PT</span> | <span>EN</span>
-                    </div>
-                </div>
-                <a href="#contato" class="btn-business">FAÇA NEGÓCIO COM A FERROTECH</a>
-            </div>
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="sobrenos.html" class="nav-link">Sobre Nós</a></li>
+                    <li><a href="sustentabilidade.html" class="nav-link">Sustentabilidade</a></li>
+                    <li><a href="pessoas.html" class="nav-link">Pessoas</a></li>
+                    <li><a href="comunicacao.html" class="nav-link">Comunicação</a></li>
+                    <li><a href="servicos.html" class="nav-link">Serviços</a></li>
+                </ul>
+            </nav>
         </div>
-    </header>
+
+        <div class="header-right">
+            <div class="top-actions">
+                <div class="header-accessibility">
+                    <button onclick="toggleContrast()" class="access-btn">
+                        <i class="fas fa-adjust"></i> CONTRASTE
+                    </button>
+                    <div class="font-controls">
+                        <button onclick="changeFontSize(-1)" class="access-btn">A-</button>
+                        <button onclick="changeFontSize(1)" class="access-btn">A+</button>
+                    </div>
+                </div>
+                <div class="lang-selector">
+                    <span class="lang active">PT</span> | <span class="lang">EN</span>
+                </div>
+            </div>
+            <a href="comunicacao.html" class="btn-business">FAÇA NEGÓCIO COM A FERROTECH</a>
+        </div>
+    </div>
+</header>
 
     <section class="hero-people">
         <div class="hero-people-container">
