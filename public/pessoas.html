@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FerroTech Industrial | Pessoas</title>
+</head>
+<style>
+    /* =========================================
+           CONFIGURAÇÕES GERAIS E RESETS (mesmo da main)
+        ========================================= */
+    :root {
+        --color-navy: #1B263B;
+        --color-gold: #FFB703;
+        --color-graphite: #415A77;
+        --color-platinum: #E0E1DD;
+        --color-white: #F8F9FA;
+        --color-text-body: #0D1B2A;
+        --color-metallic: #778DA9;
+        --font-heading: 'Montserrat', sans-serif;
+        --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: var(--font-body);
+        background-color: var(--color-white);
+        color: var(--color-text-body);
+        overflow-x: hidden;
+    }
+
+    /* --- HEADER STYLES (idêntico ao da main) --- */
+    .header-main {
+        background-color: var(--color-navy);
+        width: 100%;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid var(--color-gold);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .header-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 95%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .nav-desktop ul {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+    }
+
+    .nav-desktop ul li a {
+        color: var(--color-white);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        font-family: var(--font-body);
+        transition: color 0.3s ease;
+    }
+
+    .nav-desktop ul li a:hover {
+        color: var(--color-gold);
+    }
+
+    .header-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+    }
+
+    .top-actions {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .header-accessibility {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 0.8rem;
+        color: var(--color-white);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        padding-right: 15px;
+        margin-right: 15px;
+    }
+
+    .access-btn {
+        background: none;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+    }
+
+    .access-btn:hover {
+        color: var(--color-gold);
+    }
+
+    .lang-selector {
+        color: var(--color-white);
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+
+    .lang-selector .active {
+        color: var(--color-gold);
+    }
+
+    .btn-business {
+        background-color: var(--color-gold);
+        color: var(--color-navy);
+        text-decoration: none;
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 0.85rem;
+        padding: 12px 30px;
+        border-radius: 30px;
+        transition: transform 0.2s ease, filter 0.3s ease;
+    }
+
+    .btn-business:hover {
+        filter: brightness(1.1);
+        transform: scale(1.02);
+    }
+
+    @media (max-width: 1024px) {
+        .nav-desktop {
+            display: none;
+        }
+    }
+
+    /* --- HERO DA PÁGINA PESSOAS --- */
+    .hero-people {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, var(--color-navy) 0%, #0F172A 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-people::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://via.placeholder.com/1920x1080/1B263B/FFFFFF?text=Equipe+FerroTech');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.15;
+        z-index: 1;
+    }
+
+    .hero-people-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 60px;
+        position: relative;
+        z-index: 2;
+        padding: 100px 0;
+    }
+
+    .hero-people-content {
+        flex: 1;
+        color: var(--color-white);
+    }
+
+    .hero-people-tag {
+        font-family: var(--font-heading);
+        color: var(--color-gold);
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    .hero-people-title {
+        font-family: var(--font-heading);
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 30px;
+    }
+
+    .hero-people-title span {
+        color: var(--color-gold);
+    }
+
+    .hero-people-description {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        opacity: 0.9;
+        margin-bottom: 40px;
+        max-width: 550px;
+    }
+
+    .hero-people-stats {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 50px;
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stat-number {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--color-gold);
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .hero-people-buttons {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .btn-primary {
+        background-color: var(--color-gold);
+        color: var(--color-navy);
+        padding: 15px 35px;
+        text-decoration: none;
+        font-weight: 700;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .btn-primary:hover {
+        background-color: #FFC340;
+        transform: translateY(-2px);
+    }
+
+    .btn-outline {
+        border: 2px solid var(--color-gold);
+        color: var(--color-white);
+        padding: 13px 35px;
+        text-decoration: none;
+        font-weight: 700;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .btn-outline:hover {
+        background-color: var(--color-gold);
+        color: var(--color-navy);
+    }
+
+    .hero-people-visual {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
+    .team-photo-stack {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .main-photo {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3);
+        border: 3px solid var(--color-gold);
+    }
+
+    .accent-photo {
+        position: absolute;
+        bottom: -30px;
+        left: -30px;
+        width: 40%;
+        border-radius: 8px;
+        border: 3px solid var(--color-gold);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Seção adicional (exemplo de valores) */
+    .values-section {
+        padding: 100px 0;
+        background-color: var(--color-platinum);
+    }
+
+    .values-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 90%;
+        text-align: center;
+    }
+
+    .section-title {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        color: var(--color-navy);
+        margin-bottom: 20px;
+    }
+
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+        margin-top: 60px;
+    }
+
+    .value-card {
+        background: var(--color-white);
+        padding: 40px 30px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s;
+    }
+
+    .value-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .value-icon {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .value-card h3 {
+        font-family: var(--font-heading);
+        color: var(--color-gold);
+        margin-bottom: 15px;
+    }
+
+    /* Footer Estilizado */
+    .footer-main {
+        background-color: #0f172a;
+        color: #fff;
+        padding: 80px 5% 20px;
+        margin-top: 100px;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 60px;
+    }
+
+    .footer-brand img {
+        height: 40px;
+        margin-bottom: 20px;
+    }
+
+    .footer-brand p {
+        color: #94a3b8;
+        line-height: 1.6;
+        max-width: 300px;
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .footer-social a {
+        color: #ffb800;
+        font-size: 1.2rem;
+        transition: 0.3s;
+    }
+
+    .footer-social a:hover {
+        color: #fff;
+        transform: translateY(-3px);
+    }
+
+    .footer-links h3,
+    .footer-contact h3 {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        color: #ffb800;
+    }
+
+    .footer-links ul {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+
+    .footer-links a {
+        color: #cbd5e1;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+        color: #fff;
+        padding-left: 5px;
+    }
+
+    .footer-contact p {
+        color: #cbd5e1;
+        margin-bottom: 15px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .footer-contact i {
+        color: #ffb800;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 60px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 0.8rem;
+        color: #64748b;
+    }
+
+    /* Footer (mesmo estilo) */
+    .footer-main {
+        background-color: var(--color-navy);
+        color: var(--color-white);
+        padding: 80px 0 20px 0;
+        font-family: var(--font-body);
+    }
+
+    .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        gap: 60px;
+    }
+
+    .footer-newsletter {
+        flex: 1;
+        max-width: 400px;
+    }
+
+    .footer-title {
+        color: var(--color-gold);
+        font-family: var(--font-heading);
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+
+    .newsletter-form input[type="email"] {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid var(--color-platinum);
+        padding: 10px 0;
+        color: white;
+        margin: 20px 0;
+        outline: none;
+    }
+
+    .checkbox-group {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        font-size: 0.8rem;
+        color: var(--color-platinum);
+        margin-bottom: 25px;
+    }
+
+    .btn-send {
+        background-color: var(--color-gold);
+        border: none;
+        padding: 12px 40px;
+        border-radius: 25px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    .btn-send:hover {
+        transform: scale(1.05);
+    }
+
+    .footer-links-wrapper {
+        flex: 2;
+    }
+
+    .social-icons {
+        margin-bottom: 40px;
+        display: flex;
+        gap: 15px;
+    }
+
+    .social-icons a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border: 1px solid white;
+        padding: 8px;
+        border-radius: 5px;
+    }
+
+    .footer-columns {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .footer-col a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s;
+    }
+
+    .footer-col a:hover {
+        color: var(--color-gold);
+    }
+
+    .col-title {
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .footer-bottom {
+        margin-top: 60px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+    }
+
+    .bottom-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        color: var(--color-platinum);
+    }
+
+    .privacy-link {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        .hero-people-container {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .hero-people-title {
+            font-size: 2.2rem;
+        }
+
+        .hero-people-description {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-people-stats {
+            justify-content: center;
+        }
+
+        .hero-people-buttons {
+            justify-content: center;
+        }
+
+        .footer-container {
+            flex-direction: column;
+        }
+
+        .footer-columns {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Alto contraste */
+    body.high-contrast {
+        background-color: #000 !important;
+        color: #FFF !important;
+    }
+
+    body.high-contrast .header-main,
+    body.high-contrast .hero-people,
+    body.high-contrast .values-section,
+    body.high-contrast .footer-main {
+        background-color: #000 !important;
+        border-color: #FFF !important;
+    }
+
+    body.high-contrast a,
+    body.high-contrast .hero-people-title span,
+    body.high-contrast .stat-number {
+        color: #FFFF00 !important;
+    }
+
+    body.high-contrast .btn-primary {
+        background-color: #FFF !important;
+        color: #000 !important;
+    }
+
+    body.high-contrast .btn-outline {
+        border-color: #FFFF00;
+        color: #FFFF00;
+    }
+
+    /* =========================================
+   SEÇÃO PADRÃO DE FUNCIONÁRIOS (AJUSTADA)
+   ========================================= */
+    .team-member-card {
+        padding: 80px 0;
+        background-color: var(--color-white);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        transition: background 0.3s;
+    }
+
+    /* Pequeno destaque ao passar o mouse */
+    .team-member-card:hover {
+        background-color: #fefefe;
+    }
+
+    .member-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 90%;
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        flex-wrap: wrap;
+    }
+
+    .member-image {
+        flex: 1;
+        min-width: 280px;
+        text-align: center;
+    }
+
+    .member-image img {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--color-gold);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .member-image img:hover {
+        transform: scale(1.02);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .member-info {
+        flex: 2;
+    }
+
+    .member-cargo {
+        display: inline-block;
+        font-family: var(--font-heading);
+        color: var(--color-gold);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+
+    .member-nome {
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--color-navy);
+        margin-bottom: 20px;
+    }
+
+    .member-descricao {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--color-graphite);
+        margin-bottom: 20px;
+    }
+
+    .member-especialidades {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+
+    .member-especialidades span {
+        background-color: var(--color-navy);
+        color: var(--color-white);
+        padding: 5px 15px;
+        border-radius: 30px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+    }
+
+    .member-citacao {
+        font-style: italic;
+        font-size: 1.1rem;
+        color: var(--color-metallic);
+        border-left: 4px solid var(--color-gold);
+        padding-left: 20px;
+        margin-top: 10px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+        .member-container {
+            flex-direction: column;
+            text-align: center;
+            gap: 30px;
+        }
+
+        .member-info {
+            text-align: center;
+        }
+
+        .member-especialidades {
+            justify-content: center;
+        }
+
+        .member-citacao {
+            text-align: left;
+        }
+    }
+
+    /* SEÇÃO CONVITE */
+    .career-invite {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--color-navy) 0%, #0F172A 100%);
+        color: var(--color-white);
+    }
+
+    .career-invite-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 90%;
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        flex-wrap: wrap;
+    }
+
+    .invite-content {
+        flex: 1;
+    }
+
+    .invite-tag {
+        font-family: var(--font-heading);
+        color: var(--color-gold);
+        letter-spacing: 2px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+
+    .invite-title {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        line-height: 1.2;
+    }
+
+    .invite-description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        opacity: 0.9;
+    }
+
+    .invite-highlight {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin-bottom: 35px;
+    }
+
+    .invite-highlight span {
+        font-size: 2rem;
+    }
+
+    .invite-highlight p {
+        font-weight: 500;
+    }
+
+    .btn-candidatar {
+        background-color: var(--color-gold);
+        color: var(--color-navy);
+        border: none;
+        padding: 15px 40px;
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: transform 0.2s, filter 0.2s;
+    }
+
+    .btn-candidatar:hover {
+        filter: brightness(1.05);
+        transform: translateY(-2px);
+    }
+
+    .invite-image {
+        flex: 1;
+        text-align: center;
+    }
+
+    .invite-image img {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* MODAL */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        overflow-y: auto;
+        padding: 20px;
+    }
+
+    .modal-content {
+        background-color: var(--color-white);
+        margin: 50px auto;
+        max-width: 600px;
+        border-radius: 8px;
+        padding: 30px;
+        position: relative;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        color: var(--color-graphite);
+    }
+
+    .close-modal:hover {
+        color: var(--color-gold);
+    }
+
+    .modal-title {
+        font-family: var(--font-heading);
+        font-size: 1.8rem;
+        color: var(--color-navy);
+        margin-bottom: 10px;
+    }
+
+    .modal-sub {
+        color: var(--color-graphite);
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: var(--color-navy);
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: var(--font-body);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+        outline: none;
+        border-color: var(--color-gold);
+    }
+
+    .checkbox-group {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .checkbox-group input {
+        width: auto;
+        margin-top: 3px;
+    }
+
+    .checkbox-group label {
+        font-weight: normal;
+        font-size: 0.85rem;
+    }
+
+    .btn-submit {
+        background-color: var(--color-navy);
+        color: var(--color-white);
+        border: none;
+        padding: 12px 25px;
+        border-radius: 4px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s;
+        width: 100%;
+    }
+
+    .btn-submit:hover {
+        background-color: var(--color-graphite);
+    }
+
+    .form-feedback {
+        margin-top: 15px;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+        .career-invite-container {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .invite-highlight {
+            text-align: left;
+        }
+
+        .modal-content {
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+        }
+    }
+
+    /* Header Fixo */
+    .header-main {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(15, 23, 42, 0.95);
+        /* Azul marinho com leve transparência */
+        backdrop-filter: blur(10px);
+        /* Efeito de vidro moderno */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    /* Container alinhado */
+    .header-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 15px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Estilização dos Links */
+    .nav-desktop ul {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: #cbd5e1;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: 0.3s;
+        position: relative;
+        padding: 5px 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        color: #ffb800;
+        /* Amarelo FerroTech */
+    }
+
+    /* Linha animada embaixo do link ativo */
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #ffb800;
+        transition: 0.3s;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        width: 100%;
+    }
+
+    /* Espaçamento para o conteúdo não ficar embaixo do header */
+    body {
+        padding-top: 80px;
+    }
+</style>
+
+<body>
+
+    <header class="header-main">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <a href="home.html">
+                        <img src="logo-ferrotech.png" alt="Logo FerroTech">
+                    </a>
+                </div>
+                <nav class="nav-desktop">
+                    <ul>
+                        <li><a href="sobrenos.html" class="nav-link">Sobre Nós</a></li>
+                        <li><a href="sustentabilidade.html" class="nav-link">Sustentabilidade</a></li>
+                        <li><a href="pessoas.html" class="nav-link">Pessoas</a></li>
+                        <li><a href="comunicacao.html" class="nav-link">Comunicação</a></li>
+                        <li><a href="servicos.html" class="nav-link">Serviços</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="header-right">
+                <div class="top-actions">
+                    <div class="header-accessibility">
+                        <button onclick="toggleContrast()" class="access-btn">
+                            <i class="fas fa-adjust"></i> CONTRASTE
+                        </button>
+                        <div class="font-controls">
+                            <button onclick="changeFontSize(-1)" class="access-btn">A-</button>
+                            <button onclick="changeFontSize(1)" class="access-btn">A+</button>
+                        </div>
+                    </div>
+                    <div class="lang-selector">
+                        <span class="lang active">PT</span> | <span class="lang">EN</span>
+                    </div>
+                </div>
+                <a href="comunicacao.html" class="btn-business">FAÇA NEGÓCIO COM A FERROTECH</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-people">
+        <div class="hero-people-container">
+            <div class="hero-people-content">
+                <span class="hero-people-tag">Gente que transforma metal em excelência</span>
+                <h1 class="hero-people-title">
+                    Nossa maior matéria-prima<br>
+                    <span>são as pessoas</span>
+                </h1>
+                <p class="hero-people-description">
+                    Na FerroTech, cada solda, cada corte e cada projeto carrega a dedicação de quem faz a indústria
+                    acontecer. Conheça os talentos que constroem o futuro da metalurgia com precisão, ética e paixão.
+                </p>
+                <div class="hero-people-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">350+</span>
+                        <span class="stat-label">Colaboradores diretos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15%</span>
+                        <span class="stat-label">Mulheres na liderança</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">Núcleos de especialização</span>
+                    </div>
+                </div>
+                <div class="hero-people-buttons">
+                    <a href="#equipe" class="btn-primary">Conheça nossa equipe</a>
+                    <a href="#vagas" class="btn-outline">Faça parte →</a>
+                </div>
+            </div>
+            <div class="hero-people-visual">
+                <div class="team-photo-stack">
+                    <img src="https://via.placeholder.com/500x600/415A77/FFB703?text=Equipe+no+ch%C3%A3o+de+f%C3%A1brica"
+                        alt="Equipe FerroTech em operação" class="main-photo">
+                    <img src="https://via.placeholder.com/200x250/FFB703/1B263B?text=Capacitação"
+                        alt="Treinamento técnico" class="accent-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section" id="equipe">
+        <div class="values-container">
+            <h2 class="section-title">Valores que nos unem</h2>
+            <p style="max-width: 700px; margin: 0 auto; color: var(--color-graphite);">Mais do que máquinas, acreditamos
+                que o desenvolvimento humano é a base da inovação e da segurança.</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🔧</div>
+                    <h3>Protagonismo Técnico</h3>
+                    <p>Valorizamos a autonomia e a qualificação contínua, garantindo que cada colaborador seja
+                        referência em sua área.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Diversidade e Inclusão</h3>
+                    <p>Ambiente que acolhe talentos de todas as origens, promovendo equipes mais criativas e
+                        resilientes.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3>Segurança e Bem-estar</h3>
+                    <p>Investimos em programas de saúde física e mental, porque nossa gente é prioridade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção padrão para um funcionário (versão integrada) -->
+    <section class="team-member-card">
+        <div class="member-container">
+            <div class="member-image">
+                <img src="https://via.placeholder.com/400x400/415A77/FFB703?text=Nome+do+Profissional"
+                    alt="Nome do Profissional">
+            </div>
+            <div class="member-info">
+                <span class="member-cargo">Diretor de Operações</span>
+                <h3 class="member-nome">Carlos Mendes</h3>
+                <p class="member-descricao">
+                    Com mais de 20 anos de experiência em usinagem de precisão e gestão industrial, Carlos lidera a área
+                    de produção da FerroTech.
+                    Especialista em manufatura enxuta e inovação de processos, é responsável por garantir que cada peça
+                    entregue atenda ao padrão
+                    "tolerância zero ao erro".
+                </p>
+                <div class="member-especialidades">
+                    <span>Excelência em CNC</span>
+                    <span>Lean Manufacturing</span>
+                    <span>Liderança Técnica</span>
+                </div>
+                <div class="member-citacao">
+                    “Na FerroTech, não construímos apenas peças; construímos confiança. Cada detalhe importa.”
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="team-member-card">
+        <div class="member-container">
+            <div class="member-image">
+                <img src="https://via.placeholder.com/400x400/415A77/FFB703?text=Nome+do+Profissional"
+                    alt="Nome do Profissional">
+            </div>
+            <div class="member-info">
+                <span class="member-cargo">Diretor de Operações</span>
+                <h3 class="member-nome">Carlos Mendes</h3>
+                <p class="member-descricao">
+                    Com mais de 20 anos de experiência em usinagem de precisão e gestão industrial, Carlos lidera a área
+                    de produção da FerroTech.
+                    Especialista em manufatura enxuta e inovação de processos, é responsável por garantir que cada peça
+                    entregue atenda ao padrão
+                    "tolerância zero ao erro".
+                </p>
+                <div class="member-especialidades">
+                    <span>Excelência em CNC</span>
+                    <span>Lean Manufacturing</span>
+                    <span>Liderança Técnica</span>
+                </div>
+                <div class="member-citacao">
+                    “Na FerroTech, não construímos apenas peças; construímos confiança. Cada detalhe importa.”
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="team-member-card">
+        <div class="member-container">
+            <div class="member-image">
+                <img src="https://via.placeholder.com/400x400/415A77/FFB703?text=Nome+do+Profissional"
+                    alt="Nome do Profissional">
+            </div>
+            <div class="member-info">
+                <span class="member-cargo">Diretor de Operações</span>
+                <h3 class="member-nome">Carlos Mendes</h3>
+                <p class="member-descricao">
+                    Com mais de 20 anos de experiência em usinagem de precisão e gestão industrial, Carlos lidera a área
+                    de produção da FerroTech.
+                    Especialista em manufatura enxuta e inovação de processos, é responsável por garantir que cada peça
+                    entregue atenda ao padrão
+                    "tolerância zero ao erro".
+                </p>
+                <div class="member-especialidades">
+                    <span>Excelência em CNC</span>
+                    <span>Lean Manufacturing</span>
+                    <span>Liderança Técnica</span>
+                </div>
+                <div class="member-citacao">
+                    “Na FerroTech, não construímos apenas peças; construímos confiança. Cada detalhe importa.”
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO CONVITE PARA CANDIDATURA -->
+    <section class="career-invite">
+        <div class="career-invite-container">
+            <div class="invite-content">
+                <span class="invite-tag">Faça parte do nosso time</span>
+                <h2 class="invite-title">Vem forjar o futuro com a gente</h2>
+                <p class="invite-description">
+                    Na FerroTech, você encontra um ambiente de inovação, segurança e crescimento.
+                    Estamos sempre em busca de talentos que queiram transformar a indústria com precisão e propósito.
+                </p>
+                <div class="invite-highlight">
+                    <span>🔧</span>
+                    <p>+ de 20 vagas abertas em diversas áreas: produção, engenharia, qualidade e muito mais.</p>
+                </div>
+                <button id="openApplicationModal" class="btn-candidatar">Quero me candidatar →</button>
+            </div>
+            <div class="invite-image">
+                <img src="https://via.placeholder.com/500x400/1B263B/FFB703?text=Junte-se+a+nós" alt="Equipe FerroTech">
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DO FORMULÁRIO DE CANDIDATURA -->
+    <div id="applicationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 class="modal-title">Formulário de Candidatura</h3>
+            <p class="modal-sub">Preencha seus dados e anexe seu currículo. Entraremos em contato em breve.</p>
+            <form id="candidateForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="nome">Nome completo *</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone">
+                </div>
+                <div class="form-group">
+                    <label for="vaga">Vaga de interesse *</label>
+                    <select id="vaga" name="vaga" required>
+                        <option value="">Selecione uma vaga</option>
+                        <option>Operador de CNC</option>
+                        <option>Técnico de Manutenção</option>
+                        <option>Engenheiro de Produção</option>
+                        <option>Soldador Industrial</option>
+                        <option>Analista de Qualidade</option>
+                        <option>Assistente de RH</option>
+                        <option>Outra (especifique)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="outraVaga">Se outra, especifique</label>
+                    <input type="text" id="outraVaga" name="outraVaga">
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <label>Link do Curriculo (Google Drive / WeTransfer)</label>
+                        <input type="url" name="link_curriculo" placeholder="https://drive.google.com/..." required>
+                    </div>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="lgpd_candidate" required>
+                    <label for="lgpd_candidate">Concordo com a Política de Privacidade e autorizo o uso dos meus dados
+                        para processo seletivo.</label>
+                </div>
+                <button type="submit" class="btn-submit">Enviar candidatura</button>
+            </form>
+            <div id="formFeedback" class="form-feedback"></div>
+        </div>
+    </div>
+    <footer class="footer-main">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="logo-ferrotech-white.png" alt="FerroTech">
+                <p>Excelência em metalurgia de precisão e soluções industriais sustentáveis.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Serviços</h3>
+                <ul>
+                    <li><a href="servicos.html#corte-laser">Corte a Laser</a></li>
+                    <li><a href="servicos.html#usinagem-cnc">Usinagem CNC</a></li>
+                    <li><a href="servicos.html#soldagem">Soldagem Especializada</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contato Direto</h3>
+                <p><i class="fas fa-phone"></i> (15) 3224-XXXX</p>
+                <p><i class="fas fa-envelope"></i> comercial@ferrotech.com.br</p>
+                <p><i class="fas fa-map-marker-alt"></i> Sorocaba, SP - Distrito Industrial</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FerroTech Industrial - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+<script type="module" src="js/main.js"></script>
+<script>//pessoas script
+
+// Abrir e fechar modal
+        const modal = document.getElementById('applicationModal');
+        const openBtn = document.getElementById('openApplicationModal');
+        const closeBtn = document.querySelector('.close-modal');
+
+        openBtn.onclick = function () {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // evitar scroll do fundo
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        closeBtn.onclick = closeModal;
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        
+        // Acessibilidade (mesmo script da main)
+        let fontSizePercent = parseInt(localStorage.getItem('ferrotech-fontsize')) || 100;
+        function applyFontSize() {
+            document.documentElement.style.fontSize = `${fontSizePercent}%`;
+            localStorage.setItem('ferrotech-fontsize', fontSizePercent);
+        }
+        function changeFontSize(delta) {
+            if ((delta > 0 && fontSizePercent < 150) || (delta < 0 && fontSizePercent > 80)) {
+                fontSizePercent += delta * 10;
+                applyFontSize();
+            }
+        }
+        function toggleContrast() {
+            document.body.classList.toggle('high-contrast');
+            localStorage.setItem('ferrotech-contrast', document.body.classList.contains('high-contrast') ? 'enabled' : 'disabled');
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('ferrotech-contrast') === 'enabled') {
+                document.body.classList.add('high-contrast');
+            }
+            applyFontSize();
+        });
+</script>
+    
+</body>
+
+</html>
