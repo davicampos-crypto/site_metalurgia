@@ -1,43 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FerroTech Industrial — Template</title>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>FerroTech | Sobre Nós – 18 anos de precisão industrial</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* ── RESET & TOKENS ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     :root {
-      --black:   #0d0d0d;
-      --yellow:  #F5C200;
-      --white:   #F2F0EB;
-      --gray:    #1a1a1a;
-      --gray2:   #2a2a2a;
+      --black: #0d0d0d;
+      --yellow: #F5C200;
+      --white: #F2F0EB;
+      --gray: #1a1a1a;
+      --gray2: #2a2a2a;
       --text-muted: #888;
-
       --font-display: 'Barlow Condensed', sans-serif;
-      --font-body:    'Barlow', sans-serif;
-
+      --font-body: 'Barlow', sans-serif;
       --header-h: 64px;
       --progress-h: 4px;
-      --section-w: 100vw;
     }
 
-    html, body {
-      width: 100%; height: 100%;
-      overflow: hidden;
+    body {
       background: var(--black);
-      color: var(--white);
       font-family: var(--font-body);
+      color: var(--white);
+      overflow: hidden;
+      height: 100vh;
     }
 
-    /* ── HEADER ── */
+    /* HEADER FIXO */
     header {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
+      top: 0;
+      left: 0;
+      right: 0;
       height: var(--header-h);
       background: var(--black);
       border-bottom: 1px solid var(--gray2);
@@ -45,6 +46,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 2rem;
+      z-index: 100;
     }
 
     .logo {
@@ -52,16 +54,58 @@
       font-weight: 900;
       font-size: 1.5rem;
       letter-spacing: 0.08em;
-      color: var(--white);
       text-transform: uppercase;
     }
     .logo span { color: var(--yellow); }
+    .logo small {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-left: 0.25rem;
+    }
 
-    /* progress bar */
+    .section-dots {
+      display: flex;
+      gap: 0.6rem;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gray2);
+      border: 1px solid var(--gray2);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .dot.active { background: var(--yellow); transform: scale(1.3); }
+    .dot.done { background: var(--white); }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      z-index: 200;
+    }
+    .hamburger span {
+      width: 26px;
+      height: 2px;
+      background: var(--white);
+      transition: 0.35s;
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* PROGRESS BAR */
     .progress-bar-wrap {
       position: fixed;
       top: var(--header-h);
-      left: 0; right: 0;
+      left: 0;
+      right: 0;
       height: var(--progress-h);
       background: var(--gray2);
       z-index: 101;
@@ -73,45 +117,7 @@
       transition: width 0.08s linear;
     }
 
-    /* section dots */
-    .section-dots {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--gray2);
-      border: 1px solid var(--gray2);
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .dot.active { background: var(--yellow); transform: scale(1.3); }
-    .dot.done   { background: var(--white); }
-
-    /* hamburger */
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 6px;
-      z-index: 200;
-    }
-    .hamburger span {
-      display: block;
-      width: 26px; height: 2px;
-      background: var(--white);
-      border-radius: 2px;
-      transition: transform 0.35s, opacity 0.35s, width 0.35s;
-      transform-origin: center;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* ── NAV OVERLAY ── */
+    /* NAV OVERLAY */
     .nav-overlay {
       position: fixed;
       inset: 0;
@@ -124,7 +130,7 @@
       pointer-events: none;
       opacity: 0;
       transform: translateX(-100%);
-      transition: opacity 0.4s, transform 0.4s;
+      transition: 0.4s;
     }
     .nav-overlay.open {
       opacity: 1;
@@ -143,11 +149,9 @@
       color: var(--white);
       text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      line-height: 1;
-      transition: color 0.2s, padding-left 0.2s;
       border-left: 3px solid transparent;
       padding-left: 1rem;
+      transition: 0.2s;
     }
     .nav-overlay nav a:hover {
       color: var(--yellow);
@@ -158,8 +162,8 @@
       margin-top: auto;
       font-size: 0.8rem;
       color: var(--text-muted);
-      letter-spacing: 0.1em;
       text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
     .nav-close-btn {
       position: absolute;
@@ -171,271 +175,229 @@
       font-family: var(--font-display);
       font-size: 0.72rem;
       letter-spacing: 0.2em;
-      text-transform: uppercase;
       padding: 0.5rem 1rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      transition: border-color 0.2s, color 0.2s;
+      transition: 0.2s;
     }
     .nav-close-btn:hover { border-color: var(--yellow); color: var(--yellow); }
-    .nav-close-btn svg { width: 14px; }
 
-    /* ── HORIZONTAL SCROLL CONTAINER ── */
+    /* CONTAINER HORIZONTAL */
     .scroll-container {
       position: fixed;
       top: calc(var(--header-h) + var(--progress-h));
-      left: 0; right: 0;
+      left: 0;
+      right: 0;
       bottom: 0;
       overflow: hidden;
     }
 
-    /* Each panel */
     .panel {
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      display: grid;
-      place-items: center;
-      padding: 3rem 2rem;
-      overflow: hidden;
+      overflow-y: auto;
+      padding: 2rem 1.5rem;
       transition: transform 0.7s cubic-bezier(0.77, 0, 0.18, 1);
     }
+    .panel::-webkit-scrollbar { width: 5px; background: var(--gray2); }
+    .panel::-webkit-scrollbar-thumb { background: var(--yellow); border-radius: 4px; }
 
-    /* ── PANEL 1 — INTRODUÇÃO (preto + amarelo) ── */
-    .panel-intro {
-      background: var(--black);
-    }
-    .panel-intro .bg-number {
-      position: absolute;
-      font-family: var(--font-display);
-      font-size: clamp(18rem, 40vw, 32rem);
-      font-weight: 900;
-      color: rgba(245,194,0,0.04);
-      right: -4rem;
-      bottom: -4rem;
-      line-height: 1;
-      pointer-events: none;
-      user-select: none;
-    }
-    .panel-intro .content {
-      max-width: 860px;
+    /* conteúdo centralizado */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
       width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
     }
-    .panel-intro .tag {
-      font-family: var(--font-display);
-      font-size: 0.75rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      margin-bottom: 1rem;
+
+    /* SLIDE 1 – APRESENTAÇÃO */
+    .slide1 {
+      background: var(--black);
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: center;
     }
-    .panel-intro .tag::before {
-      content: '';
-      display: block;
-      width: 24px; height: 2px;
-      background: var(--yellow);
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
     }
-    .panel-intro h1 {
+    .hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(2.4rem, 6vw, 5rem);
+      font-size: clamp(2.8rem, 6vw, 5rem);
       font-weight: 900;
       text-transform: uppercase;
       line-height: 0.92;
-      letter-spacing: -0.01em;
       margin-bottom: 1.5rem;
     }
-    .panel-intro h1 em {
-      font-style: normal;
-      color: var(--yellow);
-    }
-    .panel-intro p {
+    .hero h1 span { color: var(--yellow); }
+    .hero p {
       font-size: 1rem;
       color: #aaa;
-      line-height: 1.7;
-      font-weight: 300;
-      max-width: 36ch;
+      line-height: 1.6;
+      margin-bottom: 2rem;
     }
-    .intro-visual {
+    .stats {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.2rem;
     }
-    .stat-block {
+    .stat-item {
       border-left: 3px solid var(--yellow);
       padding-left: 1.2rem;
     }
-    .stat-block .num {
+    .stat-number {
       font-family: var(--font-display);
-      font-size: 3.5rem;
+      font-size: 2.8rem;
       font-weight: 900;
       color: var(--yellow);
       line-height: 1;
     }
-    .stat-block .label {
-      font-size: 0.78rem;
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
       letter-spacing: 0.15em;
-      text-transform: uppercase;
       color: var(--text-muted);
-      margin-top: 0.2rem;
     }
-    .scroll-hint {
-      position: absolute;
-      bottom: 2rem;
-      right: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      animation: pulse 2s ease-in-out infinite;
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; gap: 2rem; }
     }
-    .scroll-hint svg { width: 20px; opacity: 0.5; }
-    @keyframes pulse { 0%,100%{opacity:.5} 50%{opacity:1} }
 
-    /* ── PANEL 2 — DESENVOLVIMENTO (dark gray) ── */
-    .panel-dev {
+    /* SLIDE 2 – LINHA DO TEMPO */
+    .slide2 {
       background: var(--gray);
     }
-    .panel-dev .content {
-      max-width: 960px;
-      width: 100%;
-    }
-    .panel-dev .section-label {
-      font-family: var(--font-display);
-      font-size: 0.72rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .panel-dev .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--gray2);
-      max-width: 120px;
-    }
-    .panel-dev h2 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 4rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      line-height: 0.95;
-      letter-spacing: -0.01em;
-      margin-bottom: 3rem;
-    }
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--gray2);
-    }
-    .card {
-      background: var(--gray);
-      padding: 2rem;
+    .timeline {
       position: relative;
-      overflow: hidden;
-      transition: background 0.3s;
+      margin: 2rem 0;
     }
-    .card:hover { background: #222; }
-    .card::before {
+    .timeline::before {
       content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 3px; height: 0;
-      background: var(--yellow);
-      transition: height 0.4s;
-    }
-    .card:hover::before { height: 100%; }
-    .card-icon {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-    .card h3 {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.6rem;
-      color: var(--white);
-    }
-    .card p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      font-weight: 300;
-    }
-
-    /* ── PANEL 3 — CONCLUSÃO / CTA (amarelo) ── */
-    .panel-cta {
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 100%;
       background: var(--yellow);
     }
-    .panel-cta .bg-text {
-      position: absolute;
-      font-family: var(--font-display);
-      font-size: clamp(14rem, 30vw, 26rem);
-      font-weight: 900;
-      color: rgba(0,0,0,0.06);
-      bottom: -2rem;
-      left: -2rem;
-      line-height: 1;
-      pointer-events: none;
-      user-select: none;
-      text-transform: uppercase;
+    .timeline-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+      position: relative;
     }
-    .panel-cta .content {
-      max-width: 700px;
-      width: 100%;
-      text-align: center;
+    .timeline-item:nth-child(odd) .timeline-content {
+      text-align: right;
+      margin-right: 2rem;
+    }
+    .timeline-item:nth-child(even) .timeline-content {
+      text-align: left;
+      margin-left: 2rem;
+    }
+    .timeline-year {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--yellow);
+      background: var(--gray);
+      padding: 0 1rem;
       position: relative;
       z-index: 2;
     }
-    .panel-cta .cta-tag {
-      font-family: var(--font-display);
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,0.5);
-      margin-bottom: 1.5rem;
+    .timeline-content {
+      width: 45%;
+      background: var(--gray2);
+      padding: 1.2rem;
+      border-radius: 8px;
     }
-    .panel-cta h2 {
+    .timeline-content h3 {
       font-family: var(--font-display);
-      font-size: clamp(2.8rem, 7vw, 6rem);
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+    .timeline-content p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    @media (max-width: 768px) {
+      .timeline::before { left: 20px; }
+      .timeline-item { flex-direction: column; align-items: flex-start; margin-left: 30px; }
+      .timeline-item:nth-child(odd) .timeline-content,
+      .timeline-item:nth-child(even) .timeline-content {
+        width: 100%;
+        text-align: left;
+        margin: 0.5rem 0 0 0;
+      }
+      .timeline-year { margin-left: -20px; }
+    }
+
+    /* SLIDE 3 – PRINCÍPIOS */
+    .slide3 {
+      background: var(--gray);
+    }
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .principle-card {
+      background: var(--gray2);
+      padding: 2rem;
+      border-radius: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+    .principle-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+    .principle-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .principle-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--yellow);
+    }
+    .principle-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* SLIDE 4 – CTA */
+    .slide4 {
+      background: var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .cta-box h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 8vw, 5rem);
       font-weight: 900;
-      text-transform: uppercase;
-      line-height: 0.9;
-      letter-spacing: -0.02em;
       color: var(--black);
-      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
     }
-    .panel-cta p {
-      font-size: 1rem;
-      color: rgba(0,0,0,0.6);
-      line-height: 1.7;
-      font-weight: 400;
-      margin-bottom: 3rem;
-      max-width: 44ch;
+    .cta-box p {
+      font-size: 1.1rem;
+      color: rgba(0,0,0,0.7);
+      margin-bottom: 2rem;
+      max-width: 500px;
       margin-left: auto;
       margin-right: auto;
     }
-    .cta-btn {
+    .btn-cta {
       display: inline-flex;
       align-items: center;
       gap: 0.8rem;
@@ -446,288 +408,439 @@
       font-size: 1rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+      padding: 1rem 2.5rem;
       text-decoration: none;
-      padding: 1.1rem 2.6rem;
       border: none;
       cursor: pointer;
+      transition: all 0.3s;
       position: relative;
       overflow: hidden;
-      transition: color 0.3s;
     }
-    .cta-btn::before {
+    .btn-cta::before {
       content: '';
       position: absolute;
-      inset: 0;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
       background: var(--yellow);
-      transform: translateX(-101%);
-      transition: transform 0.35s cubic-bezier(0.77,0,0.18,1);
+      transition: left 0.3s;
+      z-index: 0;
     }
-    .cta-btn:hover { color: var(--black); }
-    .cta-btn:hover::before { transform: translateX(0); }
-    .cta-btn span { position: relative; z-index: 1; }
-    .cta-btn svg { position: relative; z-index: 1; width: 18px; }
-
-    .cta-secondary {
+    .btn-cta:hover::before { left: 0; }
+    .btn-cta span { position: relative; z-index: 1; }
+    .btn-cta svg { position: relative; z-index: 1; width: 18px; }
+    .btn-cta:hover { color: var(--black); }
+    .back-link {
       display: block;
-      margin-top: 1.4rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.15em;
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      color: rgba(0,0,0,0.45);
-      cursor: pointer;
+      color: rgba(0,0,0,0.5);
       text-decoration: underline;
-      text-underline-offset: 4px;
-      background: none;
-      border: none;
+      cursor: pointer;
     }
 
-    /* ── SLIDE TRANSITION ── */
-    .scroll-container { will-change: transform; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .panel-intro .content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .cards-grid {
-        grid-template-columns: 1fr;
-      }
-      .intro-visual { flex-direction: row; flex-wrap: wrap; gap: 1rem; }
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      color: var(--yellow);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
     }
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    /* Estilos específicos para timeline com fotos */
+.timeline-img {
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.timeline-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s;
+}
+.timeline-img img:hover {
+  transform: scale(1.02);
+}
+.img-caption {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  text-align: center;
+  font-style: italic;
+}
+.timeline-content {
+  width: 45%;
+  background: var(--gray2);
+  padding: 1.2rem;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+.timeline-content:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+.timeline-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0.3rem;
+}
+.timeline-content p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+@media (max-width: 768px) {
+  .timeline-content {
+    width: 100%;
+    margin: 0.5rem 0 0 0;
+  }
+}
+
+/* Estilos específicos para a linha do tempo com fotos */
+  .timeline-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: var(--gray2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .timeline-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  }
+  .timeline-left {
+    flex: 1;
+    text-align: left;
+  }
+  .timeline-year {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--yellow);
+    margin-bottom: 0.5rem;
+  }
+  .timeline-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #ccc;
+  }
+  .timeline-desc strong {
+    color: var(--yellow);
+    font-weight: 600;
+  }
+  .timeline-right {
+    flex: 1;
+    text-align: center;
+  }
+  .timeline-right img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 8px;
+    border: 1px solid var(--gray);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  .image-caption {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    letter-spacing: 0.03em;
+  }
+
+  @media (max-width: 768px) {
+    .timeline-item {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+      padding: 1.2rem;
+    }
+    .timeline-left {
+      text-align: center;
+    }
+    .timeline-right img {
+      max-width: 100%;
+    }
+  }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="logo">Ferro<span>Tech</span></div>
-
-    <div class="section-dots">
-      <div class="dot active" data-index="0" title="Introdução"></div>
-      <div class="dot" data-index="1" title="Desenvolvimento I"></div>
-      <div class="dot" data-index="2" title="Desenvolvimento II"></div>
-      <div class="dot" data-index="3" title="Conclusão"></div>
-    </div>
-
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </div>
-  </header>
-
-  <!-- PROGRESS BAR -->
-  <div class="progress-bar-wrap">
-    <div class="progress-bar-fill" id="progressBar"></div>
+<header>
+  <div class="logo">Ferro<span>Tech</span> <small>metalurgia de precisão</small></div>
+  <div class="section-dots" id="sectionDots"></div>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
   </div>
+</header>
+<div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar"></div></div>
 
-  <!-- NAV OVERLAY -->
-  <div class="nav-overlay" id="navOverlay">
-    <button class="nav-close-btn" onclick="closeMenu()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      Fechar
-    </button>
-    <nav>
-      <a href="#" onclick="closeMenu()">Sobre Nós</a>
-      <a href="#" onclick="closeMenu()">Sustentabilidade</a>
-      <a href="#" onclick="closeMenu()">Pessoas</a>
-      <a href="#" onclick="closeMenu()">Comunicação</a>
-      <a href="#" onclick="closeMenu()">Serviços</a>
-    </nav>
-    <p class="nav-footer">FerroTech Industrial © 2026</p>
-  </div>
+<div class="nav-overlay" id="navOverlay">
+  <button class="nav-close-btn" onclick="closeMenu()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    Fechar
+  </button>
+  <nav>
+    <a href="#" onclick="closeMenu()">A FerroTech</a>
+    <a href="#" onclick="closeMenu()">Nossa História</a>
+    <a href="#" onclick="closeMenu()">Princípios</a>
+    <a href="#" onclick="closeMenu()">Orçamento</a>
+  </nav>
+  <p class="nav-footer">Sorocaba/SP • 18 anos • Excelência em metalurgia</p>
+</div>
 
-  <!-- HORIZONTAL SCROLL CONTAINER -->
-  <div class="scroll-container" id="scrollContainer">
-
-    <!-- PANEL 1 — INTRODUÇÃO -->
-    <div class="panel panel-intro">
-      <span class="bg-number">01</span>
-      <div class="content">
+<div class="scroll-container" id="scrollContainer">
+  <!-- SLIDE 1 – APRESENTAÇÃO -->
+  <div class="panel slide1">
+    <div class="container">
+      <div class="hero">
         <div>
-          <div class="tag">Introdução</div>
-          <h1>Título<br>da <em>Seção</em><br>Aqui.</h1>
-          <p>Subtítulo ou breve descrição introdutória. Contextualize o tema desta seção em duas ou três linhas objetivas.</p>
+          <div class="section-label">Desde 2008 em Sorocaba</div>
+          <h1>Precisão que <span>move</span> a indústria</h1>
+          <p>A FerroTech nasceu com o propósito de entregar soluções em corte a laser, usinagem CNC e soldagem de alta performance. Com 18 anos de história, nos tornamos referência no maior polo metalmecânico do interior paulista.</p>
         </div>
-        <div class="intro-visual">
-          <div class="stat-block">
-            <div class="num">15+</div>
-            <div class="label">Anos de Experiência</div>
-          </div>
-          <div class="stat-block">
-            <div class="num">800+</div>
-            <div class="label">Projetos Entregues</div>
-          </div>
-          <div class="stat-block">
-            <div class="num">0</div>
-            <div class="label">Tolerância ao Erro</div>
-          </div>
-        </div>
-      </div>
-      <div class="scroll-hint">
-        Role para o lado
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </div>
-    </div>
-
-    <!-- PANEL 2 — DESENVOLVIMENTO I -->
-    <div class="panel panel-dev">
-      <div class="content">
-        <div class="section-label">Desenvolvimento · 1 de 2</div>
-        <h2>O que<br>Oferecemos</h2>
-        <div class="cards-grid">
-          <div class="card">
-            <span class="card-icon">⚡</span>
-            <h3>Tópico Um</h3>
-            <p>Descrição detalhada do primeiro item ou serviço. Destaque os diferenciais e benefícios principais.</p>
-          </div>
-          <div class="card">
-            <span class="card-icon">⚙️</span>
-            <h3>Tópico Dois</h3>
-            <p>Descrição detalhada do segundo item. Mantenha a linguagem técnica e direta ao ponto.</p>
-          </div>
-          <div class="card">
-            <span class="card-icon">🎯</span>
-            <h3>Tópico Três</h3>
-            <p>Descrição detalhada do terceiro item. Finalize com um dado ou resultado concreto.</p>
-          </div>
+        <div class="stats">
+          <div class="stat-item"><div class="stat-number">18+</div><div class="stat-label">Anos de inovação</div></div>
+          <div class="stat-item"><div class="stat-number">1.200+</div><div class="stat-label">Projetos entregues</div></div>
+          <div class="stat-item"><div class="stat-number">Sorocaba</div><div class="stat-label">Nossa casa</div></div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- PANEL 3 — DESENVOLVIMENTO II -->
-    <div class="panel panel-dev">
-      <div class="content">
-        <div class="section-label">Desenvolvimento · 2 de 2</div>
-        <h2>Como<br>Fazemos</h2>
-        <div class="cards-grid">
-          <div class="card">
-            <span class="card-icon">🔩</span>
-            <h3>Tópico Quatro</h3>
-            <p>Continue o aprofundamento do tema. Mostre processos, metodologias ou diferenciais técnicos.</p>
-          </div>
-          <div class="card">
-            <span class="card-icon">📐</span>
-            <h3>Tópico Cinco</h3>
-            <p>Detalhe mais um aspecto relevante. Use dados, certificações ou cases para reforçar credibilidade.</p>
-          </div>
-          <div class="card">
-            <span class="card-icon">✅</span>
-            <h3>Tópico Seis</h3>
-            <p>Finalize o desenvolvimento com um ponto forte que conecte naturalmente ao call to action seguinte.</p>
+ <!-- SLIDE 2 – LINHA DO TEMPO COM FOTOS E DESCRIÇÕES -->
+<div class="panel slide2">
+  <div class="container">
+    <div class="section-label">Nossa trajetória</div>
+    <h2>Linha do tempo</h2>
+    <div class="timeline-vertical">
+      
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-year">2008</div>
+          <div class="timeline-desc">
+            <strong>Fundação</strong><br>
+            Iniciamos as atividades em uma pequena oficina em Sorocaba, com foco em usinagem convencional e atendimento personalizado.
           </div>
         </div>
+        <div class="timeline-right">
+          <img src="https://picsum.photos/id/20/400/250" alt="Oficina em 2008">
+          <div class="image-caption">Primeira sede: 200 m² e 3 tornos mecânicos.</div>
+        </div>
       </div>
-    </div>
 
-    <!-- PANEL 3 — CONCLUSÃO / CTA -->
-    <div class="panel panel-cta">
-      <span class="bg-text">CTA</span>
-      <div class="content">
-        <div class="cta-tag">Próximo Passo</div>
-        <h2>Pronto<br>Para<br>Começar?</h2>
-        <p>Leve seu projeto ao próximo nível. Nossa equipe está pronta para transformar sua necessidade em precisão industrial.</p>
-        <a href="#" class="cta-btn">
-          <span>Solicitar Cotação</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <button class="cta-secondary" onclick="goToPanel(0)">← Voltar ao início</button>
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-year">2012</div>
+          <div class="timeline-desc">
+            <strong>Chegada do corte a laser</strong><br>
+            Aquisição do primeiro equipamento de corte a laser de alta potência da região, dobrando a capacidade produtiva.
+          </div>
+        </div>
+        <div class="timeline-right">
+          <img src="https://picsum.photos/id/96/400/250" alt="Máquina de corte a laser">
+          <div class="image-caption">Primeira máquina a laser – precisão e velocidade.</div>
+        </div>
       </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-year">2016</div>
+          <div class="timeline-desc">
+            <strong>Expansão da usinagem CNC</strong><br>
+            Inauguração da nova fábrica com 3.000 m² e aquisição de centros de usinagem 5 eixos.
+          </div>
+        </div>
+        <div class="timeline-right">
+          <img src="https://picsum.photos/id/42/400/250" alt="Nova fábrica">
+          <div class="image-caption">Parque fabril ampliado e equipe qualificada.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-year">2020</div>
+          <div class="timeline-desc">
+            <strong>Soldagem robotizada</strong><br>
+            Implementação de células de soldagem com robôs, garantindo repetibilidade e alta resistência estrutural.
+          </div>
+        </div>
+        <div class="timeline-right">
+          <img src="https://picsum.photos/id/31/400/250" alt="Robô de solda">
+          <div class="image-caption">Primeira célula robotizada de soldagem.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-desc">
+            <strong>18 anos de excelência</strong><br>
+            Consolidados como parceiros estratégicos das maiores indústrias do setor automotivo, agrícola e de máquinas.
+          </div>
+        </div>
+        <div class="timeline-right">
+          <img src="https://picsum.photos/id/38/400/250" alt="Equipe atual">
+          <div class="image-caption">Time atual: mais de 80 colaboradores e tecnologia de ponta.</div>
+        </div>
+      </div>
+
     </div>
+  </div>
+</div>
 
-  </div><!-- /scroll-container -->
+  <div class="panel slide3">
+  <div class="container">
+    <div class="section-label">Nossa essência</div>
+    <h2>Princípios que nos guiam</h2>
+    <div class="principles-wrapper">
+      <div class="principles-grid">
+        <div class="principle-card">
+          <div class="principle-icon">🎯</div>
+          <h3>Precisão Absoluta</h3>
+          <p>Cada peça, cada solda, cada corte executado com tolerâncias rigorosas e controle total.</p>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon">🤝</div>
+          <h3>Parceria Genuína</h3>
+          <p>Atuamos junto ao cliente desde a engenharia de aplicação até a entrega, construindo soluções sob medida.</p>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon">⚙️</div>
+          <h3>Inovação Constante</h3>
+          <p>Investimos continuamente em tecnologia de ponta e capacitação da nossa equipe.</p>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon">🌱</div>
+          <h3>Sustentabilidade</h3>
+          <p>Processos otimizados que reduzem desperdícios e respeitam o meio ambiente.</p>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon">🏭</div>
+          <h3>Excelência Operacional</h3>
+          <p>Gestão enxuta e melhoria contínua para garantir entregas no prazo com a máxima qualidade.</p>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon">💡</div>
+          <h3>Valorização Humana</h3>
+          <p>Nossos colaboradores são a base do nosso sucesso; investimos em desenvolvimento e segurança.</p>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
 
-  <script>
-    const panels = document.querySelectorAll('.panel');
-    const dots = document.querySelectorAll('.dot');
-    const progressBar = document.getElementById('progressBar');
-    const hamburger = document.getElementById('hamburger');
-    const navOverlay = document.getElementById('navOverlay');
-    const scrollContainer = document.getElementById('scrollContainer');
+  <!-- SLIDE 4 – CALL TO ACTION -->
+  <div class="panel slide4">
+    <div class="cta-box">
+      <h2>Vamos produzir<br>juntos?</h2>
+      <p>Solicite um orçamento e descubra por que a FerroTech é a escolha certa para seus projetos de precisão.</p>
+      <a href="#" class="btn-cta"><span>Solicitar Cotação</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      
+    </div>
+  </div>
+</div>
 
-    let current = 0;
-    let isAnimating = false;
-    const total = panels.length;
+<script>
+  const panels = document.querySelectorAll('.panel');
+  const container = document.getElementById('scrollContainer');
+  const progressBar = document.getElementById('progressBar');
+  const dotsContainer = document.getElementById('sectionDots');
+  const hamburger = document.getElementById('hamburger');
+  const navOverlay = document.getElementById('navOverlay');
 
-    /* ── update UI ── */
-    function updateUI() {
-      // progress
-      const pct = total === 1 ? 100 : (current / (total - 1)) * 100;
-      progressBar.style.width = pct + '%';
+  let current = 0;
+  let isAnimating = false;
+  const total = panels.length;
 
-      // dots
-      dots.forEach((d, i) => {
-        d.classList.toggle('active', i === current);
-        d.classList.toggle('done', i < current);
-      });
+  // criar dots dinamicamente
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.dataset.index = i;
+    dot.addEventListener('click', () => goToPanel(i));
+    dotsContainer.appendChild(dot);
+  }
+  const dots = document.querySelectorAll('.dot');
 
-      // slide panels
-      panels.forEach((p, i) => {
-        p.style.transform = `translateX(${(i - current) * 100}vw)`;
-      });
-    }
-
-    /* ── navigate ── */
-    function goToPanel(index) {
-      if (isAnimating) return;
-      if (index < 0 || index >= total) return;
-      isAnimating = true;
-      current = index;
-      updateUI();
-      setTimeout(() => { isAnimating = false; }, 750);
-    }
-
-    function next() { goToPanel(current + 1); }
-    function prev() { goToPanel(current - 1); }
-
-    /* ── dots click ── */
-    dots.forEach(d => {
-      d.addEventListener('click', () => goToPanel(+d.dataset.index));
+  function updateUI() {
+    const pct = total === 1 ? 100 : (current / (total - 1)) * 100;
+    progressBar.style.width = pct + '%';
+    dots.forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+      d.classList.toggle('done', i < current);
     });
-
-    /* ── hamburger ── */
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      navOverlay.classList.toggle('open');
+    panels.forEach((p, i) => {
+      p.style.transform = `translateX(${(i - current) * 100}vw)`;
     });
-    function closeMenu() {
-      hamburger.classList.remove('open');
-      navOverlay.classList.remove('open');
-    }
+  }
 
-    /* ── wheel scroll ── */
-    let wheelTimer = null;
-    window.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      clearTimeout(wheelTimer);
-      wheelTimer = setTimeout(() => {
-        if (e.deltaX > 40 || e.deltaY > 40) next();
-        else if (e.deltaX < -40 || e.deltaY < -40) prev();
-      }, 30);
-    }, { passive: false });
-
-    /* ── keyboard ── */
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next();
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prev();
-      if (e.key === 'Escape') closeMenu();
-    });
-
-    /* ── touch ── */
-    let touchStartX = 0, touchStartY = 0;
-    window.addEventListener('touchstart', (e) => {
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-    window.addEventListener('touchend', (e) => {
-      const dx = touchStartX - e.changedTouches[0].clientX;
-      const dy = touchStartY - e.changedTouches[0].clientY;
-      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
-        dx > 0 ? next() : prev();
-      }
-    }, { passive: true });
-
-    /* ── INIT ── */
+  function goToPanel(index) {
+    if (isAnimating) return;
+    if (index < 0 || index >= total) return;
+    isAnimating = true;
+    current = index;
     updateUI();
-  </script>
+    setTimeout(() => { isAnimating = false; }, 750);
+  }
+
+  function next() { goToPanel(current + 1); }
+  function prev() { goToPanel(current - 1); }
+
+  // navegação por wheel, teclado e touch
+  let wheelTimer;
+  window.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    clearTimeout(wheelTimer);
+    wheelTimer = setTimeout(() => {
+      if (e.deltaX > 40 || e.deltaY > 40) next();
+      else if (e.deltaX < -40 || e.deltaY < -40) prev();
+    }, 30);
+  }, { passive: false });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next();
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prev();
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  let touchStartX = 0;
+  window.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+  window.addEventListener('touchend', (e) => {
+    const dx = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 50) dx > 0 ? next() : prev();
+  });
+
+  // menu
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navOverlay.classList.toggle('open');
+  });
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    navOverlay.classList.remove('open');
+  }
+
+  updateUI();
+</script>
 </body>
 </html>

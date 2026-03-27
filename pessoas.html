@@ -1,733 +1,1262 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FerroTech Industrial — Template</title>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    /* ── RESET & TOKENS ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FerroTech Industrial | Pessoas</title>
+    <style>
+        /* =========================================
+           CONFIGURAÇÕES GERAIS E RESETS (mesmo da main)
+        ========================================= */
+        :root {
+            --color-navy: #1B263B;
+            --color-gold: #FFB703;
+            --color-graphite: #415A77;
+            --color-platinum: #E0E1DD;
+            --color-white: #F8F9FA;
+            --color-text-body: #0D1B2A;
+            --color-metallic: #778DA9;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
 
-    :root {
-      --black:   #0d0d0d;
-      --yellow:  #F5C200;
-      --white:   #F2F0EB;
-      --gray:    #1a1a1a;
-      --gray2:   #2a2a2a;
-      --text-muted: #888;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      --font-display: 'Barlow Condensed', sans-serif;
-      --font-body:    'Barlow', sans-serif;
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-white);
+            color: var(--color-text-body);
+            overflow-x: hidden;
+        }
 
-      --header-h: 64px;
-      --progress-h: 4px;
-      --section-w: 100vw;
+        /* --- HEADER STYLES (idêntico ao da main) --- */
+        .header-main {
+            background-color: var(--color-navy);
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--color-gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-desktop ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-desktop ul li a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: var(--font-body);
+            transition: color 0.3s ease;
+        }
+
+        .nav-desktop ul li a:hover {
+            color: var(--color-gold);
+        }
+
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+        }
+
+        .top-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .header-accessibility {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: var(--color-white);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            padding-right: 15px;
+            margin-right: 15px;
+        }
+
+        .access-btn {
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .access-btn:hover {
+            color: var(--color-gold);
+        }
+
+        .lang-selector {
+            color: var(--color-white);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .lang-selector .active {
+            color: var(--color-gold);
+        }
+
+        .btn-business {
+            background-color: var(--color-gold);
+            color: var(--color-navy);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 12px 30px;
+            border-radius: 30px;
+            transition: transform 0.2s ease, filter 0.3s ease;
+        }
+
+        .btn-business:hover {
+            filter: brightness(1.1);
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 1024px) {
+            .nav-desktop { display: none; }
+        }
+
+        /* --- HERO DA PÁGINA PESSOAS --- */
+        .hero-people {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--color-navy) 0%, #0F172A 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-people::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://via.placeholder.com/1920x1080/1B263B/FFFFFF?text=Equipe+FerroTech');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .hero-people-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            position: relative;
+            z-index: 2;
+            padding: 100px 0;
+        }
+
+        .hero-people-content {
+            flex: 1;
+            color: var(--color-white);
+        }
+
+        .hero-people-tag {
+            font-family: var(--font-heading);
+            color: var(--color-gold);
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .hero-people-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .hero-people-title span {
+            color: var(--color-gold);
+        }
+
+        .hero-people-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 550px;
+        }
+
+        .hero-people-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--color-gold);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-people-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: var(--color-gold);
+            color: var(--color-navy);
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: #FFC340;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--color-gold);
+            color: var(--color-white);
+            padding: 13px 35px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-gold);
+            color: var(--color-navy);
+        }
+
+        .hero-people-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .team-photo-stack {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .main-photo {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.3);
+            border: 3px solid var(--color-gold);
+        }
+
+        .accent-photo {
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 40%;
+            border-radius: 8px;
+            border: 3px solid var(--color-gold);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Seção adicional (exemplo de valores) */
+        .values-section {
+            padding: 100px 0;
+            background-color: var(--color-platinum);
+        }
+
+        .values-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 90%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--color-navy);
+            margin-bottom: 20px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .value-card {
+            background: var(--color-white);
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-family: var(--font-heading);
+            color: var(--color-gold);
+            margin-bottom: 15px;
+        }
+
+        /* Footer (mesmo estilo) */
+        .footer-main {
+            background-color: var(--color-navy);
+            color: var(--color-white);
+            padding: 80px 0 20px 0;
+            font-family: var(--font-body);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .footer-newsletter {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .footer-title {
+            color: var(--color-gold);
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form input[type="email"] {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--color-platinum);
+            padding: 10px 0;
+            color: white;
+            margin: 20px 0;
+            outline: none;
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 0.8rem;
+            color: var(--color-platinum);
+            margin-bottom: 25px;
+        }
+
+        .btn-send {
+            background-color: var(--color-gold);
+            border: none;
+            padding: 12px 40px;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .btn-send:hover {
+            transform: scale(1.05);
+        }
+
+        .footer-links-wrapper {
+            flex: 2;
+        }
+
+        .social-icons {
+            margin-bottom: 40px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid white;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .footer-columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-col a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--color-gold);
+        }
+
+        .col-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .footer-bottom {
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+
+        .bottom-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--color-platinum);
+        }
+
+        .privacy-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .hero-people-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-people-title {
+                font-size: 2.2rem;
+            }
+            .hero-people-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-people-stats {
+                justify-content: center;
+            }
+            .hero-people-buttons {
+                justify-content: center;
+            }
+            .footer-container {
+                flex-direction: column;
+            }
+            .footer-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Alto contraste */
+        body.high-contrast {
+            background-color: #000 !important;
+            color: #FFF !important;
+        }
+        body.high-contrast .header-main,
+        body.high-contrast .hero-people,
+        body.high-contrast .values-section,
+        body.high-contrast .footer-main {
+            background-color: #000 !important;
+            border-color: #FFF !important;
+        }
+        body.high-contrast a,
+        body.high-contrast .hero-people-title span,
+        body.high-contrast .stat-number {
+            color: #FFFF00 !important;
+        }
+        body.high-contrast .btn-primary {
+            background-color: #FFF !important;
+            color: #000 !important;
+        }
+        body.high-contrast .btn-outline {
+            border-color: #FFFF00;
+            color: #FFFF00;
+        }
+
+    /* =========================================
+   SEÇÃO PADRÃO DE FUNCIONÁRIOS (AJUSTADA)
+   ========================================= */
+.team-member-card {
+    padding: 80px 0;
+    background-color: var(--color-white);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: background 0.3s;
+}
+
+/* Pequeno destaque ao passar o mouse */
+.team-member-card:hover {
+    background-color: #fefefe;
+}
+
+.member-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.member-image {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+}
+
+.member-image img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--color-gold);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.member-image img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+}
+
+.member-info {
+    flex: 2;
+}
+
+.member-cargo {
+    display: inline-block;
+    font-family: var(--font-heading);
+    color: var(--color-gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.member-nome {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 20px;
+}
+
+.member-descricao {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-graphite);
+    margin-bottom: 20px;
+}
+
+.member-especialidades {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.member-especialidades span {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.member-citacao {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--color-metallic);
+    border-left: 4px solid var(--color-gold);
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .member-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .member-info {
+        text-align: center;
+    }
+    .member-especialidades {
+        justify-content: center;
+    }
+    .member-citacao {
+        text-align: left;
+    }
+}
+
+ /* SEÇÃO CONVITE */
+    .career-invite {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--color-navy) 0%, #0F172A 100%);
+        color: var(--color-white);
     }
 
-    html, body {
-      width: 100%; height: 100%;
-      overflow: hidden;
-      background: var(--black);
-      color: var(--white);
-      font-family: var(--font-body);
+    .career-invite-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 90%;
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        flex-wrap: wrap;
     }
 
-    /* ── HEADER ── */
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      height: var(--header-h);
-      background: var(--black);
-      border-bottom: 1px solid var(--gray2);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2rem;
+    .invite-content {
+        flex: 1;
     }
 
-    .logo {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 1.5rem;
-      letter-spacing: 0.08em;
-      color: var(--white);
-      text-transform: uppercase;
-    }
-    .logo span { color: var(--yellow); }
-
-    /* progress bar */
-    .progress-bar-wrap {
-      position: fixed;
-      top: var(--header-h);
-      left: 0; right: 0;
-      height: var(--progress-h);
-      background: var(--gray2);
-      z-index: 101;
-    }
-    .progress-bar-fill {
-      height: 100%;
-      width: 0%;
-      background: var(--yellow);
-      transition: width 0.08s linear;
+    .invite-tag {
+        font-family: var(--font-heading);
+        color: var(--color-gold);
+        letter-spacing: 2px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-bottom: 20px;
     }
 
-    /* section dots */
-    .section-dots {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--gray2);
-      border: 1px solid var(--gray2);
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .dot.active { background: var(--yellow); transform: scale(1.3); }
-    .dot.done   { background: var(--white); }
-
-    /* hamburger */
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 6px;
-      z-index: 200;
-    }
-    .hamburger span {
-      display: block;
-      width: 26px; height: 2px;
-      background: var(--white);
-      border-radius: 2px;
-      transition: transform 0.35s, opacity 0.35s, width 0.35s;
-      transform-origin: center;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* ── NAV OVERLAY ── */
-    .nav-overlay {
-      position: fixed;
-      inset: 0;
-      background: var(--black);
-      z-index: 150;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 3rem;
-      pointer-events: none;
-      opacity: 0;
-      transform: translateX(-100%);
-      transition: opacity 0.4s, transform 0.4s;
-    }
-    .nav-overlay.open {
-      opacity: 1;
-      transform: translateX(0);
-      pointer-events: all;
-    }
-    .nav-overlay nav {
-      display: flex;
-      flex-direction: column;
-      gap: 1.8rem;
-    }
-    .nav-overlay nav a {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: clamp(2rem, 6vw, 4rem);
-      color: var(--white);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      line-height: 1;
-      transition: color 0.2s, padding-left 0.2s;
-      border-left: 3px solid transparent;
-      padding-left: 1rem;
-    }
-    .nav-overlay nav a:hover {
-      color: var(--yellow);
-      border-left-color: var(--yellow);
-      padding-left: 1.6rem;
-    }
-    .nav-overlay .nav-footer {
-      margin-top: auto;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .nav-close-btn {
-      position: absolute;
-      top: 1.4rem;
-      right: 2rem;
-      background: none;
-      border: 1px solid var(--gray2);
-      color: var(--white);
-      font-family: var(--font-display);
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .nav-close-btn:hover { border-color: var(--yellow); color: var(--yellow); }
-    .nav-close-btn svg { width: 14px; }
-
-    /* ── HORIZONTAL SCROLL CONTAINER ── */
-    .scroll-container {
-      position: fixed;
-      top: calc(var(--header-h) + var(--progress-h));
-      left: 0; right: 0;
-      bottom: 0;
-      overflow: hidden;
+    .invite-title {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        line-height: 1.2;
     }
 
-    /* Each panel */
-    .panel {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      padding: 3rem 2rem;
-      overflow: hidden;
-      transition: transform 0.7s cubic-bezier(0.77, 0, 0.18, 1);
+    .invite-description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        opacity: 0.9;
     }
 
-    /* ── PANEL 1 — INTRODUÇÃO (preto + amarelo) ── */
-    .panel-intro {
-      background: var(--black);
-    }
-    .panel-intro .bg-number {
-      position: absolute;
-      font-family: var(--font-display);
-      font-size: clamp(18rem, 40vw, 32rem);
-      font-weight: 900;
-      color: rgba(245,194,0,0.04);
-      right: -4rem;
-      bottom: -4rem;
-      line-height: 1;
-      pointer-events: none;
-      user-select: none;
-    }
-    .panel-intro .content {
-      max-width: 860px;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .panel-intro .tag {
-      font-family: var(--font-display);
-      font-size: 0.75rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .panel-intro .tag::before {
-      content: '';
-      display: block;
-      width: 24px; height: 2px;
-      background: var(--yellow);
-    }
-    .panel-intro h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2.4rem, 6vw, 5rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      line-height: 0.92;
-      letter-spacing: -0.01em;
-      margin-bottom: 1.5rem;
-    }
-    .panel-intro h1 em {
-      font-style: normal;
-      color: var(--yellow);
-    }
-    .panel-intro p {
-      font-size: 1rem;
-      color: #aaa;
-      line-height: 1.7;
-      font-weight: 300;
-      max-width: 36ch;
-    }
-    .intro-visual {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .stat-block {
-      border-left: 3px solid var(--yellow);
-      padding-left: 1.2rem;
-    }
-    .stat-block .num {
-      font-family: var(--font-display);
-      font-size: 3.5rem;
-      font-weight: 900;
-      color: var(--yellow);
-      line-height: 1;
-    }
-    .stat-block .label {
-      font-size: 0.78rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-top: 0.2rem;
-    }
-    .scroll-hint {
-      position: absolute;
-      bottom: 2rem;
-      right: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      animation: pulse 2s ease-in-out infinite;
-    }
-    .scroll-hint svg { width: 20px; opacity: 0.5; }
-    @keyframes pulse { 0%,100%{opacity:.5} 50%{opacity:1} }
-
-    /* ── PANEL 2 — DESENVOLVIMENTO (dark gray) ── */
-    .panel-dev {
-      background: var(--gray);
-    }
-    .panel-dev .content {
-      max-width: 960px;
-      width: 100%;
-    }
-    .panel-dev .section-label {
-      font-family: var(--font-display);
-      font-size: 0.72rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .panel-dev .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--gray2);
-      max-width: 120px;
-    }
-    .panel-dev h2 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 4rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      line-height: 0.95;
-      letter-spacing: -0.01em;
-      margin-bottom: 3rem;
-    }
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--gray2);
-    }
-    .card {
-      background: var(--gray);
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s;
-    }
-    .card:hover { background: #222; }
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px; height: 0;
-      background: var(--yellow);
-      transition: height 0.4s;
-    }
-    .card:hover::before { height: 100%; }
-    .card-icon {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-    .card h3 {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.6rem;
-      color: var(--white);
-    }
-    .card p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      font-weight: 300;
+    .invite-highlight {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin-bottom: 35px;
     }
 
-    /* ── PANEL 3 — CONCLUSÃO / CTA (amarelo) ── */
-    .panel-cta {
-      background: var(--yellow);
-    }
-    .panel-cta .bg-text {
-      position: absolute;
-      font-family: var(--font-display);
-      font-size: clamp(14rem, 30vw, 26rem);
-      font-weight: 900;
-      color: rgba(0,0,0,0.06);
-      bottom: -2rem;
-      left: -2rem;
-      line-height: 1;
-      pointer-events: none;
-      user-select: none;
-      text-transform: uppercase;
-    }
-    .panel-cta .content {
-      max-width: 700px;
-      width: 100%;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-    .panel-cta .cta-tag {
-      font-family: var(--font-display);
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,0.5);
-      margin-bottom: 1.5rem;
-    }
-    .panel-cta h2 {
-      font-family: var(--font-display);
-      font-size: clamp(2.8rem, 7vw, 6rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      line-height: 0.9;
-      letter-spacing: -0.02em;
-      color: var(--black);
-      margin-bottom: 1.5rem;
-    }
-    .panel-cta p {
-      font-size: 1rem;
-      color: rgba(0,0,0,0.6);
-      line-height: 1.7;
-      font-weight: 400;
-      margin-bottom: 3rem;
-      max-width: 44ch;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      background: var(--black);
-      color: var(--yellow);
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 1.1rem 2.6rem;
-      border: none;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: color 0.3s;
-    }
-    .cta-btn::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--yellow);
-      transform: translateX(-101%);
-      transition: transform 0.35s cubic-bezier(0.77,0,0.18,1);
-    }
-    .cta-btn:hover { color: var(--black); }
-    .cta-btn:hover::before { transform: translateX(0); }
-    .cta-btn span { position: relative; z-index: 1; }
-    .cta-btn svg { position: relative; z-index: 1; width: 18px; }
-
-    .cta-secondary {
-      display: block;
-      margin-top: 1.4rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,0.45);
-      cursor: pointer;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      background: none;
-      border: none;
+    .invite-highlight span {
+        font-size: 2rem;
     }
 
-    /* ── SLIDE TRANSITION ── */
-    .scroll-container { will-change: transform; }
+    .invite-highlight p {
+        font-weight: 500;
+    }
 
-    /* ── RESPONSIVE ── */
+    .btn-candidatar {
+        background-color: var(--color-gold);
+        color: var(--color-navy);
+        border: none;
+        padding: 15px 40px;
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: transform 0.2s, filter 0.2s;
+    }
+
+    .btn-candidatar:hover {
+        filter: brightness(1.05);
+        transform: translateY(-2px);
+    }
+
+    .invite-image {
+        flex: 1;
+        text-align: center;
+    }
+
+    .invite-image img {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+
+    /* MODAL */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        overflow-y: auto;
+        padding: 20px;
+    }
+
+    .modal-content {
+        background-color: var(--color-white);
+        margin: 50px auto;
+        max-width: 600px;
+        border-radius: 8px;
+        padding: 30px;
+        position: relative;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        color: var(--color-graphite);
+    }
+
+    .close-modal:hover {
+        color: var(--color-gold);
+    }
+
+    .modal-title {
+        font-family: var(--font-heading);
+        font-size: 1.8rem;
+        color: var(--color-navy);
+        margin-bottom: 10px;
+    }
+
+    .modal-sub {
+        color: var(--color-graphite);
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: var(--color-navy);
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: var(--font-body);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+        outline: none;
+        border-color: var(--color-gold);
+    }
+
+    .checkbox-group {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .checkbox-group input {
+        width: auto;
+        margin-top: 3px;
+    }
+
+    .checkbox-group label {
+        font-weight: normal;
+        font-size: 0.85rem;
+    }
+
+    .btn-submit {
+        background-color: var(--color-navy);
+        color: var(--color-white);
+        border: none;
+        padding: 12px 25px;
+        border-radius: 4px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s;
+        width: 100%;
+    }
+
+    .btn-submit:hover {
+        background-color: var(--color-graphite);
+    }
+
+    .form-feedback {
+        margin-top: 15px;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
     @media (max-width: 768px) {
-      .panel-intro .content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .cards-grid {
-        grid-template-columns: 1fr;
-      }
-      .intro-visual { flex-direction: row; flex-wrap: wrap; gap: 1rem; }
+        .career-invite-container {
+            flex-direction: column;
+            text-align: center;
+        }
+        .invite-highlight {
+            text-align: left;
+        }
+        .modal-content {
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .modal-title {
+            font-size: 1.5rem;
+        }
     }
-  </style>
+    </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="logo">Ferro<span>Tech</span></div>
-
-    <div class="section-dots">
-      <div class="dot active" data-index="0" title="Introdução"></div>
-      <div class="dot" data-index="1" title="Desenvolvimento I"></div>
-      <div class="dot" data-index="2" title="Desenvolvimento II"></div>
-      <div class="dot" data-index="3" title="Conclusão"></div>
-    </div>
-
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </div>
-  </header>
-
-  <!-- PROGRESS BAR -->
-  <div class="progress-bar-wrap">
-    <div class="progress-bar-fill" id="progressBar"></div>
-  </div>
-
-  <!-- NAV OVERLAY -->
-  <div class="nav-overlay" id="navOverlay">
-    <button class="nav-close-btn" onclick="closeMenu()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      Fechar
-    </button>
-    <nav>
-      <a href="#" onclick="closeMenu()">Sobre Nós</a>
-      <a href="#" onclick="closeMenu()">Sustentabilidade</a>
-      <a href="#" onclick="closeMenu()">Pessoas</a>
-      <a href="#" onclick="closeMenu()">Comunicação</a>
-      <a href="#" onclick="closeMenu()">Serviços</a>
-    </nav>
-    <p class="nav-footer">FerroTech Industrial © 2026</p>
-  </div>
-
-  <!-- HORIZONTAL SCROLL CONTAINER -->
-  <div class="scroll-container" id="scrollContainer">
-
-    <!-- PANEL 1 — INTRODUÇÃO -->
-    <div class="panel panel-intro">
-      <span class="bg-number">01</span>
-      <div class="content">
-        <div>
-          <div class="tag">Introdução</div>
-          <h1>Título<br>da <em>Seção</em><br>Aqui.</h1>
-          <p>Subtítulo ou breve descrição introdutória. Contextualize o tema desta seção em duas ou três linhas objetivas.</p>
+    <header class="header-main">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="https://via.placeholder.com/180x45/1B263B/FFFFFF?text=FERROTECH" alt="Logo FerroTech">
+                </div>
+                <nav class="nav-desktop">
+                    <ul>
+                        <li><a href="sobrenos.html">Sobre Nós</a></li>
+                        <li><a href="sustentabilidade.html">Sustentabilidade</a></li>
+                        <li><a href="pessoas.html" style="color: var(--color-gold);">Pessoas</a></li>
+                        <li><a href="comunicacao.html">Comunicação</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="top-actions">
+                    <div class="header-accessibility">
+                        <button onclick="toggleContrast()" class="access-btn" title="Alto Contraste">Contraste</button>
+                        <div class="font-controls">
+                            <button onclick="changeFontSize(-1)" class="access-btn" title="Diminuir Fonte">A-</button>
+                            <button onclick="changeFontSize(1)" class="access-btn" title="Aumentar Fonte">A+</button>
+                        </div>
+                    </div>
+                    <div class="lang-selector">
+                        <span class="active">PT</span> | <span>EN</span>
+                    </div>
+                </div>
+                <a href="#contato" class="btn-business">FAÇA NEGÓCIO COM A FERROTECH</a>
+            </div>
         </div>
-        <div class="intro-visual">
-          <div class="stat-block">
-            <div class="num">15+</div>
-            <div class="label">Anos de Experiência</div>
-          </div>
-          <div class="stat-block">
-            <div class="num">800+</div>
-            <div class="label">Projetos Entregues</div>
-          </div>
-          <div class="stat-block">
-            <div class="num">0</div>
-            <div class="label">Tolerância ao Erro</div>
-          </div>
+    </header>
+
+    <section class="hero-people">
+        <div class="hero-people-container">
+            <div class="hero-people-content">
+                <span class="hero-people-tag">Gente que transforma metal em excelência</span>
+                <h1 class="hero-people-title">
+                    Nossa maior matéria-prima<br>
+                    <span>são as pessoas</span>
+                </h1>
+                <p class="hero-people-description">
+                    Na FerroTech, cada solda, cada corte e cada projeto carrega a dedicação de quem faz a indústria acontecer. Conheça os talentos que constroem o futuro da metalurgia com precisão, ética e paixão.
+                </p>
+                <div class="hero-people-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">350+</span>
+                        <span class="stat-label">Colaboradores diretos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15%</span>
+                        <span class="stat-label">Mulheres na liderança</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">Núcleos de especialização</span>
+                    </div>
+                </div>
+                <div class="hero-people-buttons">
+                    <a href="#equipe" class="btn-primary">Conheça nossa equipe</a>
+                    <a href="#vagas" class="btn-outline">Faça parte →</a>
+                </div>
+            </div>
+            <div class="hero-people-visual">
+                <div class="team-photo-stack">
+                    <img src="https://via.placeholder.com/500x600/415A77/FFB703?text=Equipe+no+ch%C3%A3o+de+f%C3%A1brica" alt="Equipe FerroTech em operação" class="main-photo">
+                    <img src="https://via.placeholder.com/200x250/FFB703/1B263B?text=Capacitação" alt="Treinamento técnico" class="accent-photo">
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="scroll-hint">
-        Role para o lado
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </div>
-    </div>
+    </section>
 
-    <!-- PANEL 2 — DESENVOLVIMENTO I -->
-    <div class="panel panel-dev">
-      <div class="content">
-        <div class="section-label">Desenvolvimento · 1 de 2</div>
-        <h2>O que<br>Oferecemos</h2>
-        <div class="cards-grid">
-          <div class="card">
-            <span class="card-icon">⚡</span>
-            <h3>Tópico Um</h3>
-            <p>Descrição detalhada do primeiro item ou serviço. Destaque os diferenciais e benefícios principais.</p>
-          </div>
-          <div class="card">
-            <span class="card-icon">⚙️</span>
-            <h3>Tópico Dois</h3>
-            <p>Descrição detalhada do segundo item. Mantenha a linguagem técnica e direta ao ponto.</p>
-          </div>
-          <div class="card">
-            <span class="card-icon">🎯</span>
-            <h3>Tópico Três</h3>
-            <p>Descrição detalhada do terceiro item. Finalize com um dado ou resultado concreto.</p>
-          </div>
+    <section class="values-section" id="equipe">
+        <div class="values-container">
+            <h2 class="section-title">Valores que nos unem</h2>
+            <p style="max-width: 700px; margin: 0 auto; color: var(--color-graphite);">Mais do que máquinas, acreditamos que o desenvolvimento humano é a base da inovação e da segurança.</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🔧</div>
+                    <h3>Protagonismo Técnico</h3>
+                    <p>Valorizamos a autonomia e a qualificação contínua, garantindo que cada colaborador seja referência em sua área.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Diversidade e Inclusão</h3>
+                    <p>Ambiente que acolhe talentos de todas as origens, promovendo equipes mais criativas e resilientes.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3>Segurança e Bem-estar</h3>
+                    <p>Investimos em programas de saúde física e mental, porque nossa gente é prioridade.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-
-    <!-- PANEL 3 — DESENVOLVIMENTO II -->
-    <div class="panel panel-dev">
-      <div class="content">
-        <div class="section-label">Desenvolvimento · 2 de 2</div>
-        <h2>Como<br>Fazemos</h2>
-        <div class="cards-grid">
-          <div class="card">
-            <span class="card-icon">🔩</span>
-            <h3>Tópico Quatro</h3>
-            <p>Continue o aprofundamento do tema. Mostre processos, metodologias ou diferenciais técnicos.</p>
-          </div>
-          <div class="card">
-            <span class="card-icon">📐</span>
-            <h3>Tópico Cinco</h3>
-            <p>Detalhe mais um aspecto relevante. Use dados, certificações ou cases para reforçar credibilidade.</p>
-          </div>
-          <div class="card">
-            <span class="card-icon">✅</span>
-            <h3>Tópico Seis</h3>
-            <p>Finalize o desenvolvimento com um ponto forte que conecte naturalmente ao call to action seguinte.</p>
-          </div>
+    </section>
+  
+<!-- Seção padrão para um funcionário (versão integrada) -->
+<section class="team-member-card">
+    <div class="member-container">
+        <div class="member-image">
+            <img src="https://via.placeholder.com/400x400/415A77/FFB703?text=Nome+do+Profissional" alt="Nome do Profissional">
         </div>
-      </div>
+        <div class="member-info">
+            <span class="member-cargo">Diretor de Operações</span>
+            <h3 class="member-nome">Carlos Mendes</h3>
+            <p class="member-descricao">
+                Com mais de 20 anos de experiência em usinagem de precisão e gestão industrial, Carlos lidera a área de produção da FerroTech. 
+                Especialista em manufatura enxuta e inovação de processos, é responsável por garantir que cada peça entregue atenda ao padrão 
+                "tolerância zero ao erro".
+            </p>
+            <div class="member-especialidades">
+                <span>Excelência em CNC</span>
+                <span>Lean Manufacturing</span>
+                <span>Liderança Técnica</span>
+            </div>
+            <div class="member-citacao">
+                “Na FerroTech, não construímos apenas peças; construímos confiança. Cada detalhe importa.”
+            </div>
+        </div>
     </div>
-
-    <!-- PANEL 3 — CONCLUSÃO / CTA -->
-    <div class="panel panel-cta">
-      <span class="bg-text">CTA</span>
-      <div class="content">
-        <div class="cta-tag">Próximo Passo</div>
-        <h2>Pronto<br>Para<br>Começar?</h2>
-        <p>Leve seu projeto ao próximo nível. Nossa equipe está pronta para transformar sua necessidade em precisão industrial.</p>
-        <a href="#" class="cta-btn">
-          <span>Solicitar Cotação</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <button class="cta-secondary" onclick="goToPanel(0)">← Voltar ao início</button>
-      </div>
+</section>
+<section class="team-member-card">
+    <div class="member-container">
+        <div class="member-image">
+            <img src="https://via.placeholder.com/400x400/415A77/FFB703?text=Nome+do+Profissional" alt="Nome do Profissional">
+        </div>
+        <div class="member-info">
+            <span class="member-cargo">Diretor de Operações</span>
+            <h3 class="member-nome">Carlos Mendes</h3>
+            <p class="member-descricao">
+                Com mais de 20 anos de experiência em usinagem de precisão e gestão industrial, Carlos lidera a área de produção da FerroTech. 
+                Especialista em manufatura enxuta e inovação de processos, é responsável por garantir que cada peça entregue atenda ao padrão 
+                "tolerância zero ao erro".
+            </p>
+            <div class="member-especialidades">
+                <span>Excelência em CNC</span>
+                <span>Lean Manufacturing</span>
+                <span>Liderança Técnica</span>
+            </div>
+            <div class="member-citacao">
+                “Na FerroTech, não construímos apenas peças; construímos confiança. Cada detalhe importa.”
+            </div>
+        </div>
     </div>
+</section>
+<section class="team-member-card">
+    <div class="member-container">
+        <div class="member-image">
+            <img src="https://via.placeholder.com/400x400/415A77/FFB703?text=Nome+do+Profissional" alt="Nome do Profissional">
+        </div>
+        <div class="member-info">
+            <span class="member-cargo">Diretor de Operações</span>
+            <h3 class="member-nome">Carlos Mendes</h3>
+            <p class="member-descricao">
+                Com mais de 20 anos de experiência em usinagem de precisão e gestão industrial, Carlos lidera a área de produção da FerroTech. 
+                Especialista em manufatura enxuta e inovação de processos, é responsável por garantir que cada peça entregue atenda ao padrão 
+                "tolerância zero ao erro".
+            </p>
+            <div class="member-especialidades">
+                <span>Excelência em CNC</span>
+                <span>Lean Manufacturing</span>
+                <span>Liderança Técnica</span>
+            </div>
+            <div class="member-citacao">
+                “Na FerroTech, não construímos apenas peças; construímos confiança. Cada detalhe importa.”
+            </div>
+        </div>
+    </div>
+</section>
 
-  </div><!-- /scroll-container -->
+<!-- SEÇÃO CONVITE PARA CANDIDATURA -->
+<section class="career-invite">
+    <div class="career-invite-container">
+        <div class="invite-content">
+            <span class="invite-tag">Faça parte do nosso time</span>
+            <h2 class="invite-title">Vem forjar o futuro com a gente</h2>
+            <p class="invite-description">
+                Na FerroTech, você encontra um ambiente de inovação, segurança e crescimento. 
+                Estamos sempre em busca de talentos que queiram transformar a indústria com precisão e propósito.
+            </p>
+            <div class="invite-highlight">
+                <span>🔧</span>
+                <p>+ de 20 vagas abertas em diversas áreas: produção, engenharia, qualidade e muito mais.</p>
+            </div>
+            <button id="openApplicationModal" class="btn-candidatar">Quero me candidatar →</button>
+        </div>
+        <div class="invite-image">
+            <img src="https://via.placeholder.com/500x400/1B263B/FFB703?text=Junte-se+a+nós" alt="Equipe FerroTech">
+        </div>
+    </div>
+</section>
 
-  <script>
-    const panels = document.querySelectorAll('.panel');
-    const dots = document.querySelectorAll('.dot');
-    const progressBar = document.getElementById('progressBar');
-    const hamburger = document.getElementById('hamburger');
-    const navOverlay = document.getElementById('navOverlay');
-    const scrollContainer = document.getElementById('scrollContainer');
+<!-- MODAL DO FORMULÁRIO DE CANDIDATURA -->
+<div id="applicationModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3 class="modal-title">Formulário de Candidatura</h3>
+        <p class="modal-sub">Preencha seus dados e anexe seu currículo. Entraremos em contato em breve.</p>
+        <form id="candidateForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="nome">Nome completo *</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone">
+            </div>
+            <div class="form-group">
+                <label for="vaga">Vaga de interesse *</label>
+                <select id="vaga" name="vaga" required>
+                    <option value="">Selecione uma vaga</option>
+                    <option>Operador de CNC</option>
+                    <option>Técnico de Manutenção</option>
+                    <option>Engenheiro de Produção</option>
+                    <option>Soldador Industrial</option>
+                    <option>Analista de Qualidade</option>
+                    <option>Assistente de RH</option>
+                    <option>Outra (especifique)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="outraVaga">Se outra, especifique</label>
+                <input type="text" id="outraVaga" name="outraVaga">
+            </div>
+            <div class="form-group">
+                <label for="curriculo">Currículo (PDF ou DOC) *</label>
+                <input type="file" id="curriculo" name="curriculo" accept=".pdf,.doc,.docx" required>
+                <small>Máx. 5MB</small>
+            </div>
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="lgpd_candidate" required>
+                <label for="lgpd_candidate">Concordo com a Política de Privacidade e autorizo o uso dos meus dados para processo seletivo.</label>
+            </div>
+            <button type="submit" class="btn-submit">Enviar candidatura</button>
+        </form>
+        <div id="formFeedback" class="form-feedback"></div>
+    </div>
+</div>
+    <footer class="footer-main">
+        <div class="footer-container">
+            <div class="footer-newsletter">
+                <h2 class="footer-title">Não perca nada</h2>
+                <p>Receba em seu e-mail as novidades da FerroTech Industrial</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Informe seu e-mail" required>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="lgpd" required>
+                        <label for="lgpd">Estou de acordo em fornecer meu e-mail para receber comunicações da FerroTech Industrial.</label>
+                    </div>
+                    <button type="submit" class="btn-send">Enviar</button>
+                </form>
+            </div>
+            <div class="footer-links-wrapper">
+                <div class="social-icons">
+                    <a href="#">FB</a> <a href="#">IG</a> <a href="#">LI</a> <a href="#">TW</a>
+                </div>
+                <div class="footer-columns">
+                    <div class="footer-col">
+                        <a href="#">Cotação</a>
+                        <a href="#">Blog FerroTech</a>
+                        <a href="#">Catálogos e Manuais</a>
+                        <a href="#">Seja fornecedor</a>
+                        <a href="#">Trabalhe conosco</a>
+                    </div>
+                    <div class="footer-col">
+                        <span class="col-title">Presença Regional</span>
+                        <a href="#">São Paulo</a>
+                        <a href="#">Minas Gerais</a>
+                        <a href="#">Paraná</a>
+                        <a href="#">Rio de Janeiro</a>
+                    </div>
+                    <div class="footer-col">
+                        <span class="col-title">Outros sites</span>
+                        <a href="#">Portal do Aço</a>
+                        <a href="#">Treinamentos Internos</a>
+                        <a href="#">Canal de Ética</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="bottom-container">
+                <a href="#" class="privacy-link">Política de Privacidade</a>
+                <p class="copyright">© Copyright FerroTech Industrial S/A 2026</p>
+            </div>
+        </div>
 
-    let current = 0;
-    let isAnimating = false;
-    const total = panels.length;
+      
+    </footer>
 
-    /* ── update UI ── */
-    function updateUI() {
-      // progress
-      const pct = total === 1 ? 100 : (current / (total - 1)) * 100;
-      progressBar.style.width = pct + '%';
+    <script>
 
-      // dots
-      dots.forEach((d, i) => {
-        d.classList.toggle('active', i === current);
-        d.classList.toggle('done', i < current);
-      });
+         // Abrir e fechar modal
+    const modal = document.getElementById('applicationModal');
+    const openBtn = document.getElementById('openApplicationModal');
+    const closeBtn = document.querySelector('.close-modal');
 
-      // slide panels
-      panels.forEach((p, i) => {
-        p.style.transform = `translateX(${(i - current) * 100}vw)`;
-      });
+    openBtn.onclick = function() {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // evitar scroll do fundo
     }
 
-    /* ── navigate ── */
-    function goToPanel(index) {
-      if (isAnimating) return;
-      if (index < 0 || index >= total) return;
-      isAnimating = true;
-      current = index;
-      updateUI();
-      setTimeout(() => { isAnimating = false; }, 750);
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
     }
 
-    function next() { goToPanel(current + 1); }
-    function prev() { goToPanel(current - 1); }
-
-    /* ── dots click ── */
-    dots.forEach(d => {
-      d.addEventListener('click', () => goToPanel(+d.dataset.index));
-    });
-
-    /* ── hamburger ── */
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      navOverlay.classList.toggle('open');
-    });
-    function closeMenu() {
-      hamburger.classList.remove('open');
-      navOverlay.classList.remove('open');
+    closeBtn.onclick = closeModal;
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
     }
 
-    /* ── wheel scroll ── */
-    let wheelTimer = null;
-    window.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      clearTimeout(wheelTimer);
-      wheelTimer = setTimeout(() => {
-        if (e.deltaX > 40 || e.deltaY > 40) next();
-        else if (e.deltaX < -40 || e.deltaY < -40) prev();
-      }, 30);
-    }, { passive: false });
+    // Submissão do formulário (simulada - ajuste conforme backend)
+    const form = document.getElementById('candidateForm');
+    const feedback = document.getElementById('formFeedback');
 
-    /* ── keyboard ── */
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next();
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prev();
-      if (e.key === 'Escape') closeMenu();
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Simular envio - você pode substituir por fetch para um endpoint real
+        feedback.innerHTML = '<p style="color: green;">✓ Candidatura enviada com sucesso! Entraremos em contato em breve.</p>';
+        feedback.style.color = 'green';
+        // Limpar form após alguns segundos? Opcional
+        setTimeout(() => {
+            closeModal();
+            form.reset();
+            feedback.innerHTML = '';
+        }, 3000);
+        // Se quiser realmente enviar via AJAX, use fetch aqui
     });
-
-    /* ── touch ── */
-    let touchStartX = 0, touchStartY = 0;
-    window.addEventListener('touchstart', (e) => {
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-    window.addEventListener('touchend', (e) => {
-      const dx = touchStartX - e.changedTouches[0].clientX;
-      const dy = touchStartY - e.changedTouches[0].clientY;
-      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
-        dx > 0 ? next() : prev();
-      }
-    }, { passive: true });
-
-    /* ── INIT ── */
-    updateUI();
-  </script>
+        // Acessibilidade (mesmo script da main)
+        let fontSizePercent = parseInt(localStorage.getItem('ferrotech-fontsize')) || 100;
+        function applyFontSize() {
+            document.documentElement.style.fontSize = `${fontSizePercent}%`;
+            localStorage.setItem('ferrotech-fontsize', fontSizePercent);
+        }
+        function changeFontSize(delta) {
+            if ((delta > 0 && fontSizePercent < 150) || (delta < 0 && fontSizePercent > 80)) {
+                fontSizePercent += delta * 10;
+                applyFontSize();
+            }
+        }
+        function toggleContrast() {
+            document.body.classList.toggle('high-contrast');
+            localStorage.setItem('ferrotech-contrast', document.body.classList.contains('high-contrast') ? 'enabled' : 'disabled');
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('ferrotech-contrast') === 'enabled') {
+                document.body.classList.add('high-contrast');
+            }
+            applyFontSize();
+        });
+    </script>
 </body>
 </html>

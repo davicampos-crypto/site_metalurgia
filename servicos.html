@@ -1,733 +1,513 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FerroTech Industrial — Template</title>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    /* ── RESET & TOKENS ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --black:   #0d0d0d;
-      --yellow:  #F5C200;
-      --white:   #F2F0EB;
-      --gray:    #1a1a1a;
-      --gray2:   #2a2a2a;
-      --text-muted: #888;
-
-      --font-display: 'Barlow Condensed', sans-serif;
-      --font-body:    'Barlow', sans-serif;
-
-      --header-h: 64px;
-      --progress-h: 4px;
-      --section-w: 100vw;
-    }
-
-    html, body {
-      width: 100%; height: 100%;
-      overflow: hidden;
-      background: var(--black);
-      color: var(--white);
-      font-family: var(--font-body);
-    }
-
-    /* ── HEADER ── */
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      height: var(--header-h);
-      background: var(--black);
-      border-bottom: 1px solid var(--gray2);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2rem;
-    }
-
-    .logo {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 1.5rem;
-      letter-spacing: 0.08em;
-      color: var(--white);
-      text-transform: uppercase;
-    }
-    .logo span { color: var(--yellow); }
-
-    /* progress bar */
-    .progress-bar-wrap {
-      position: fixed;
-      top: var(--header-h);
-      left: 0; right: 0;
-      height: var(--progress-h);
-      background: var(--gray2);
-      z-index: 101;
-    }
-    .progress-bar-fill {
-      height: 100%;
-      width: 0%;
-      background: var(--yellow);
-      transition: width 0.08s linear;
-    }
-
-    /* section dots */
-    .section-dots {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--gray2);
-      border: 1px solid var(--gray2);
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .dot.active { background: var(--yellow); transform: scale(1.3); }
-    .dot.done   { background: var(--white); }
-
-    /* hamburger */
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 6px;
-      z-index: 200;
-    }
-    .hamburger span {
-      display: block;
-      width: 26px; height: 2px;
-      background: var(--white);
-      border-radius: 2px;
-      transition: transform 0.35s, opacity 0.35s, width 0.35s;
-      transform-origin: center;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* ── NAV OVERLAY ── */
-    .nav-overlay {
-      position: fixed;
-      inset: 0;
-      background: var(--black);
-      z-index: 150;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 3rem;
-      pointer-events: none;
-      opacity: 0;
-      transform: translateX(-100%);
-      transition: opacity 0.4s, transform 0.4s;
-    }
-    .nav-overlay.open {
-      opacity: 1;
-      transform: translateX(0);
-      pointer-events: all;
-    }
-    .nav-overlay nav {
-      display: flex;
-      flex-direction: column;
-      gap: 1.8rem;
-    }
-    .nav-overlay nav a {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: clamp(2rem, 6vw, 4rem);
-      color: var(--white);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      line-height: 1;
-      transition: color 0.2s, padding-left 0.2s;
-      border-left: 3px solid transparent;
-      padding-left: 1rem;
-    }
-    .nav-overlay nav a:hover {
-      color: var(--yellow);
-      border-left-color: var(--yellow);
-      padding-left: 1.6rem;
-    }
-    .nav-overlay .nav-footer {
-      margin-top: auto;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .nav-close-btn {
-      position: absolute;
-      top: 1.4rem;
-      right: 2rem;
-      background: none;
-      border: 1px solid var(--gray2);
-      color: var(--white);
-      font-family: var(--font-display);
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .nav-close-btn:hover { border-color: var(--yellow); color: var(--yellow); }
-    .nav-close-btn svg { width: 14px; }
-
-    /* ── HORIZONTAL SCROLL CONTAINER ── */
-    .scroll-container {
-      position: fixed;
-      top: calc(var(--header-h) + var(--progress-h));
-      left: 0; right: 0;
-      bottom: 0;
-      overflow: hidden;
-    }
-
-    /* Each panel */
-    .panel {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      padding: 3rem 2rem;
-      overflow: hidden;
-      transition: transform 0.7s cubic-bezier(0.77, 0, 0.18, 1);
-    }
-
-    /* ── PANEL 1 — INTRODUÇÃO (preto + amarelo) ── */
-    .panel-intro {
-      background: var(--black);
-    }
-    .panel-intro .bg-number {
-      position: absolute;
-      font-family: var(--font-display);
-      font-size: clamp(18rem, 40vw, 32rem);
-      font-weight: 900;
-      color: rgba(245,194,0,0.04);
-      right: -4rem;
-      bottom: -4rem;
-      line-height: 1;
-      pointer-events: none;
-      user-select: none;
-    }
-    .panel-intro .content {
-      max-width: 860px;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .panel-intro .tag {
-      font-family: var(--font-display);
-      font-size: 0.75rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .panel-intro .tag::before {
-      content: '';
-      display: block;
-      width: 24px; height: 2px;
-      background: var(--yellow);
-    }
-    .panel-intro h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2.4rem, 6vw, 5rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      line-height: 0.92;
-      letter-spacing: -0.01em;
-      margin-bottom: 1.5rem;
-    }
-    .panel-intro h1 em {
-      font-style: normal;
-      color: var(--yellow);
-    }
-    .panel-intro p {
-      font-size: 1rem;
-      color: #aaa;
-      line-height: 1.7;
-      font-weight: 300;
-      max-width: 36ch;
-    }
-    .intro-visual {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .stat-block {
-      border-left: 3px solid var(--yellow);
-      padding-left: 1.2rem;
-    }
-    .stat-block .num {
-      font-family: var(--font-display);
-      font-size: 3.5rem;
-      font-weight: 900;
-      color: var(--yellow);
-      line-height: 1;
-    }
-    .stat-block .label {
-      font-size: 0.78rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-top: 0.2rem;
-    }
-    .scroll-hint {
-      position: absolute;
-      bottom: 2rem;
-      right: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      animation: pulse 2s ease-in-out infinite;
-    }
-    .scroll-hint svg { width: 20px; opacity: 0.5; }
-    @keyframes pulse { 0%,100%{opacity:.5} 50%{opacity:1} }
-
-    /* ── PANEL 2 — DESENVOLVIMENTO (dark gray) ── */
-    .panel-dev {
-      background: var(--gray);
-    }
-    .panel-dev .content {
-      max-width: 960px;
-      width: 100%;
-    }
-    .panel-dev .section-label {
-      font-family: var(--font-display);
-      font-size: 0.72rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .panel-dev .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--gray2);
-      max-width: 120px;
-    }
-    .panel-dev h2 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 4rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      line-height: 0.95;
-      letter-spacing: -0.01em;
-      margin-bottom: 3rem;
-    }
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--gray2);
-    }
-    .card {
-      background: var(--gray);
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s;
-    }
-    .card:hover { background: #222; }
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px; height: 0;
-      background: var(--yellow);
-      transition: height 0.4s;
-    }
-    .card:hover::before { height: 100%; }
-    .card-icon {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-    .card h3 {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.6rem;
-      color: var(--white);
-    }
-    .card p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      font-weight: 300;
-    }
-
-    /* ── PANEL 3 — CONCLUSÃO / CTA (amarelo) ── */
-    .panel-cta {
-      background: var(--yellow);
-    }
-    .panel-cta .bg-text {
-      position: absolute;
-      font-family: var(--font-display);
-      font-size: clamp(14rem, 30vw, 26rem);
-      font-weight: 900;
-      color: rgba(0,0,0,0.06);
-      bottom: -2rem;
-      left: -2rem;
-      line-height: 1;
-      pointer-events: none;
-      user-select: none;
-      text-transform: uppercase;
-    }
-    .panel-cta .content {
-      max-width: 700px;
-      width: 100%;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-    .panel-cta .cta-tag {
-      font-family: var(--font-display);
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,0.5);
-      margin-bottom: 1.5rem;
-    }
-    .panel-cta h2 {
-      font-family: var(--font-display);
-      font-size: clamp(2.8rem, 7vw, 6rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      line-height: 0.9;
-      letter-spacing: -0.02em;
-      color: var(--black);
-      margin-bottom: 1.5rem;
-    }
-    .panel-cta p {
-      font-size: 1rem;
-      color: rgba(0,0,0,0.6);
-      line-height: 1.7;
-      font-weight: 400;
-      margin-bottom: 3rem;
-      max-width: 44ch;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      background: var(--black);
-      color: var(--yellow);
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 1.1rem 2.6rem;
-      border: none;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: color 0.3s;
-    }
-    .cta-btn::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--yellow);
-      transform: translateX(-101%);
-      transition: transform 0.35s cubic-bezier(0.77,0,0.18,1);
-    }
-    .cta-btn:hover { color: var(--black); }
-    .cta-btn:hover::before { transform: translateX(0); }
-    .cta-btn span { position: relative; z-index: 1; }
-    .cta-btn svg { position: relative; z-index: 1; width: 18px; }
-
-    .cta-secondary {
-      display: block;
-      margin-top: 1.4rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,0.45);
-      cursor: pointer;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      background: none;
-      border: none;
-    }
-
-    /* ── SLIDE TRANSITION ── */
-    .scroll-container { will-change: transform; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .panel-intro .content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .cards-grid {
-        grid-template-columns: 1fr;
-      }
-      .intro-visual { flex-direction: row; flex-wrap: wrap; gap: 1rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
+
+<style>
+    /* =========================================
+   CONFIGURAÇÕES GERAIS E RESETS
+   ========================================= */
+    :root {
+        /* Paleta de Cores FerroTech */
+        --color-navy: #1B263B;
+        /* Azul Profundo (Identidade) */
+        --color-gold: #FFB703;
+        /* Amarelo Ouro (Destaque/Ação) */
+        --color-graphite: #415A77;
+        /* Cinza Grafite (Secundária) */
+        --color-platinum: #E0E1DD;
+        /* Cinza Platina (Apoio) */
+        --color-white: #F8F9FA;
+        /* Branco Gelo (Fundo Texto) */
+        --color-text-body: #0D1B2A;
+        /* Preto Antracite (Leitura) */
+        --color-metallic: #778DA9;
+        /* Cinza Metálico (Marcos) */
+
+        /* Fontes */
+        --font-heading: 'Montserrat', sans-serif;
+        --font-body: 'Inter', sans-serif;
+    }
+
+    
+
+    /* --- HEADER STYLES --- */
+    .header-main {
+        background-color: var(--color-navy);
+        /* Azul Marinho Profundo */
+        width: 100%;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid var(--color-gold);
+        /* Linha fina dourada para separar do Hero */
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .header-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 95%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Lado Esquerdo */
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .nav-desktop ul {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+    }
+
+    .nav-desktop ul li a {
+        color: var(--color-white);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        font-family: var(--font-body);
+        transition: color 0.3s ease;
+    }
+
+    .nav-desktop ul li a:hover {
+        color: var(--color-gold);
+    }
+
+    /* Lado Direito */
+    .header-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+    }
+
+    .top-actions {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .action-link {
+        color: var(--color-white);
+        text-decoration: none;
+        font-size: 0.8rem;
+        border: 1px solid var(--color-white);
+        padding: 4px 12px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .action-link:hover {
+        background-color: var(--color-white);
+        color: var(--color-navy);
+    }
+
+    .lang-selector {
+        color: var(--color-white);
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+
+    .lang-selector .active {
+        color: var(--color-gold);
+    }
+
+    /* Botão Principal Estilo Gerdau */
+    .btn-business {
+        background-color: var(--color-gold);
+        color: var(--color-navy);
+        text-decoration: none;
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 0.85rem;
+        padding: 12px 30px;
+        border-radius: 30px;
+        transition: transform 0.2s ease, filter 0.3s ease;
+    }
+
+    .btn-business:hover {
+        filter: brightness(1.1);
+        transform: scale(1.02);
+    }
+
+    /* Responsividade Básica */
+    @media (max-width: 1024px) {
+        .nav-desktop {
+            display: none;
+        }
+
+        /* Em um site real, você faria um menu hambúrguer aqui */
+    }
+
+   
+    /* --- FOOTER STYLES --- */
+    .footer-main {
+        background-color: var(--color-navy);
+        color: var(--color-white);
+        padding: 80px 0 20px 0;
+        font-family: var(--font-body);
+    }
+
+    .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        gap: 60px;
+    }
+
+    /* Newsletter */
+    .footer-newsletter {
+        flex: 1;
+        max-width: 400px;
+    }
+
+    .footer-title {
+        color: var(--color-gold);
+        font-family: var(--font-heading);
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+
+    .newsletter-form input[type="email"] {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid var(--color-platinum);
+        padding: 10px 0;
+        color: white;
+        margin: 20px 0;
+        outline: none;
+    }
+
+    .checkbox-group {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        font-size: 0.8rem;
+        color: var(--color-platinum);
+        margin-bottom: 25px;
+    }
+
+    .btn-send {
+        background-color: var(--color-gold);
+        border: none;
+        padding: 12px 40px;
+        border-radius: 25px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    .btn-send:hover {
+        transform: scale(1.05);
+    }
+
+    
+
+    /* Links e Colunas */
+    .footer-links-wrapper {
+        flex: 2;
+    }
+
+    .social-icons {
+        margin-bottom: 40px;
+        display: flex;
+        gap: 15px;
+    }
+
+    .social-icons a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border: 1px solid white;
+        padding: 8px;
+        border-radius: 5px;
+    }
+
+    .footer-columns {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .footer-col a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s;
+    }
+
+    .footer-col a:hover {
+        color: var(--color-gold);
+    }
+
+    .col-title {
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    /* Barra Final */
+    .footer-bottom {
+        margin-top: 60px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+    }
+
+    .bottom-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        color: var(--color-platinum);
+    }
+
+    .privacy-link {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+        .footer-container {
+            flex-direction: column;
+        }
+
+        .footer-columns {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    
+    .header-accessibility {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.8rem;
+    color: var(--color-white);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    padding-right: 15px;
+    margin-right: 15px;
+}
+
+.access-btn {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.access-btn:hover {
+    color: var(--color-gold); /* Seu Amarelo Ouro #FFB703 */
+}
+
+/* Classe de Alto Contraste que o JS vai ativar */
+.high-contrast {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.high-contrast .ferrotech-grid-services, 
+.high-contrast .navbar {
+    background-color: #000 !important;
+    border: 1px solid #fff;
+}
+
+/* Estilo Base para Acessibilidade */
+.access-btn {
+    transition: transform 0.2s ease;
+}
+.access-btn:active {
+    transform: scale(0.9);
+}
+
+/* Regras de Alto Contraste */
+body.high-contrast {
+    background-color: #000 !important;
+    color: #FFF !important;
+}
+
+body.high-contrast .navbar, 
+body.high-contrast footer,
+body.high-contrast .ferrotech-grid-services {
+    background-color: #000 !important;
+    border: 2px solid #FFF !important;
+}
+
+body.high-contrast a, 
+body.high-contrast .highlight {
+    color: #FFFF00 !important; /* Amarelo puro para máxima leitura */
+    text-decoration: underline;
+}
+
+body.high-contrast .btn-nav-gold,
+body.high-contrast .btn-primary {
+    background-color: #FFF !important;
+    color: #000 !important;
+    border: 2px solid #FFFF00 !important;
+}
+</style>
+
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="logo">Ferro<span>Tech</span></div>
 
-    <div class="section-dots">
-      <div class="dot active" data-index="0" title="Introdução"></div>
-      <div class="dot" data-index="1" title="Desenvolvimento I"></div>
-      <div class="dot" data-index="2" title="Desenvolvimento II"></div>
-      <div class="dot" data-index="3" title="Conclusão"></div>
-    </div>
 
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </div>
-  </header>
+    <header class="header-main">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="https://via.placeholder.com/180x45/1B263B/FFFFFF?text=FERROTECH" alt="Logo FerroTech">
+                </div>
+                <nav class="nav-desktop">
+                    <ul>
+                        <li><a href="sobrenos.html">Sobre Nós <i class="chevron"></i></a></li>
+                        <li><a href="sustentabilidade.html">Sustentabilidade <i class="chevron"></i></a></li>
+                        <li><a href="pessoas.html">Pessoas <i class="chevron"></i></a></li>
+                        <li><a href="comunicacao.html">Comunicação <i class="chevron"></i></a></li>
+                        <li><a href="servicos.html">Serviços <i class="chevron"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
 
-  <!-- PROGRESS BAR -->
-  <div class="progress-bar-wrap">
-    <div class="progress-bar-fill" id="progressBar"></div>
-  </div>
-
-  <!-- NAV OVERLAY -->
-  <div class="nav-overlay" id="navOverlay">
-    <button class="nav-close-btn" onclick="closeMenu()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      Fechar
-    </button>
-    <nav>
-      <a href="#" onclick="closeMenu()">Sobre Nós</a>
-      <a href="#" onclick="closeMenu()">Sustentabilidade</a>
-      <a href="#" onclick="closeMenu()">Pessoas</a>
-      <a href="#" onclick="closeMenu()">Comunicação</a>
-      <a href="#" onclick="closeMenu()">Serviços</a>
-    </nav>
-    <p class="nav-footer">FerroTech Industrial © 2026</p>
-  </div>
-
-  <!-- HORIZONTAL SCROLL CONTAINER -->
-  <div class="scroll-container" id="scrollContainer">
-
-    <!-- PANEL 1 — INTRODUÇÃO -->
-    <div class="panel panel-intro">
-      <span class="bg-number">01</span>
-      <div class="content">
-        <div>
-          <div class="tag">Introdução</div>
-          <h1>Título<br>da <em>Seção</em><br>Aqui.</h1>
-          <p>Subtítulo ou breve descrição introdutória. Contextualize o tema desta seção em duas ou três linhas objetivas.</p>
+            <div class="header-right">
+                <div class="top-actions">
+                    <div class="header-accessibility">
+                        <button onclick="toggleContrast()" class="access-btn" title="Alto Contraste">
+                            <i class="fas fa-adjust"></i> Contraste
+                        </button>
+                        <div class="font-controls">
+                            <button onclick="changeFontSize(-1)" class="access-btn" title="Diminuir Fonte">A-</button>
+                            <button onclick="changeFontSize(1)" class="access-btn" title="Aumentar Fonte">A+</button>
+                        </div>
+                    </div>
+                    <div class="lang-selector">
+                        <span class="active">PT</span> | <span>EN</span>
+                    </div>
+                </div>
+                <a href="#contato" class="btn-business">FAÇA NEGÓCIO COM A FERROTECH</a>
+            </div>
         </div>
-        <div class="intro-visual">
-          <div class="stat-block">
-            <div class="num">15+</div>
-            <div class="label">Anos de Experiência</div>
-          </div>
-          <div class="stat-block">
-            <div class="num">800+</div>
-            <div class="label">Projetos Entregues</div>
-          </div>
-          <div class="stat-block">
-            <div class="num">0</div>
-            <div class="label">Tolerância ao Erro</div>
-          </div>
+    </header>
+
+
+    
+
+    <footer class="footer-main">
+        <div class="footer-container">
+
+            <div class="footer-newsletter">
+                <h2 class="footer-title">Não perca nada</h2>
+                <p>Receba em seu e-mail as novidades da FerroTech Industrial</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Informe seu e-mail" required>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="lgpd" required>
+                        <label for="lgpd">Estou de acordo em fornecer meu e-mail para receber comunicações da FerroTech
+                            Industrial.</label>
+                    </div>
+                    <button type="submit" class="btn-send">Enviar</button>
+                </form>
+            </div>
+
+            <div class="footer-links-wrapper">
+                <div class="social-icons">
+                    <a href="#">FB</a> <a href="#">IG</a> <a href="#">LI</a> <a href="#">TW</a>
+                </div>
+
+                <div class="footer-columns">
+                    <div class="footer-col">
+                        <a href="#">Cotação</a>
+                        <a href="#">Blog FerroTech</a>
+                        <a href="#">Catálogos e Manuais</a>
+                        <a href="#">Seja fornecedor</a>
+                        <a href="#">Trabalhe conosco</a>
+                    </div>
+                    <div class="footer-col">
+                        <span class="col-title">Presença Regional</span>
+                        <a href="#">São Paulo</a>
+                        <a href="#">Minas Gerais</a>
+                        <a href="#">Paraná</a>
+                        <a href="#">Rio de Janeiro</a>
+                    </div>
+                    <div class="footer-col">
+                        <span class="col-title">Outros sites</span>
+                        <a href="#">Portal do Aço</a>
+                        <a href="#">Treinamentos Internos</a>
+                        <a href="#">Canal de Ética</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="scroll-hint">
-        Role para o lado
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </div>
-    </div>
 
-    <!-- PANEL 2 — DESENVOLVIMENTO I -->
-    <div class="panel panel-dev">
-      <div class="content">
-        <div class="section-label">Desenvolvimento · 1 de 2</div>
-        <h2>O que<br>Oferecemos</h2>
-        <div class="cards-grid">
-          <div class="card">
-            <span class="card-icon">⚡</span>
-            <h3>Tópico Um</h3>
-            <p>Descrição detalhada do primeiro item ou serviço. Destaque os diferenciais e benefícios principais.</p>
-          </div>
-          <div class="card">
-            <span class="card-icon">⚙️</span>
-            <h3>Tópico Dois</h3>
-            <p>Descrição detalhada do segundo item. Mantenha a linguagem técnica e direta ao ponto.</p>
-          </div>
-          <div class="card">
-            <span class="card-icon">🎯</span>
-            <h3>Tópico Três</h3>
-            <p>Descrição detalhada do terceiro item. Finalize com um dado ou resultado concreto.</p>
-          </div>
+        <div class="footer-bottom">
+            <div class="bottom-container">
+                <a href="#" class="privacy-link">Política de Privacidade</a>
+                <p class="copyright">© Copyright FerroTech Industrial S/A 2026</p>
+            </div>
         </div>
-      </div>
-    </div>
+    </footer>
+    <script>
+     
+// 1. Controle de Contraste
+const btnContrast = document.querySelector('[onclick="toggleContrast()"]');
 
-    <!-- PANEL 3 — DESENVOLVIMENTO II -->
-    <div class="panel panel-dev">
-      <div class="content">
-        <div class="section-label">Desenvolvimento · 2 de 2</div>
-        <h2>Como<br>Fazemos</h2>
-        <div class="cards-grid">
-          <div class="card">
-            <span class="card-icon">🔩</span>
-            <h3>Tópico Quatro</h3>
-            <p>Continue o aprofundamento do tema. Mostre processos, metodologias ou diferenciais técnicos.</p>
-          </div>
-          <div class="card">
-            <span class="card-icon">📐</span>
-            <h3>Tópico Cinco</h3>
-            <p>Detalhe mais um aspecto relevante. Use dados, certificações ou cases para reforçar credibilidade.</p>
-          </div>
-          <div class="card">
-            <span class="card-icon">✅</span>
-            <h3>Tópico Seis</h3>
-            <p>Finalize o desenvolvimento com um ponto forte que conecte naturalmente ao call to action seguinte.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+function toggleContrast() {
+    const isHighContrast = document.body.classList.toggle('high-contrast');
+    // Salva a preferência do usuário
+    localStorage.setItem('ferrotech-contrast', isHighContrast ? 'enabled' : 'disabled');
+}
 
-    <!-- PANEL 3 — CONCLUSÃO / CTA -->
-    <div class="panel panel-cta">
-      <span class="bg-text">CTA</span>
-      <div class="content">
-        <div class="cta-tag">Próximo Passo</div>
-        <h2>Pronto<br>Para<br>Começar?</h2>
-        <p>Leve seu projeto ao próximo nível. Nossa equipe está pronta para transformar sua necessidade em precisão industrial.</p>
-        <a href="#" class="cta-btn">
-          <span>Solicitar Cotação</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <button class="cta-secondary" onclick="goToPanel(0)">← Voltar ao início</button>
-      </div>
-    </div>
+// 2. Controle de Tamanho de Fonte
+let fontSizePercent = parseInt(localStorage.getItem('ferrotech-fontsize')) || 100;
 
-  </div><!-- /scroll-container -->
+function applyFontSize() {
+    document.documentElement.style.fontSize = `${fontSizePercent}%`;
+    localStorage.setItem('ferrotech-fontsize', fontSizePercent);
+}
 
-  <script>
-    const panels = document.querySelectorAll('.panel');
-    const dots = document.querySelectorAll('.dot');
-    const progressBar = document.getElementById('progressBar');
-    const hamburger = document.getElementById('hamburger');
-    const navOverlay = document.getElementById('navOverlay');
-    const scrollContainer = document.getElementById('scrollContainer');
-
-    let current = 0;
-    let isAnimating = false;
-    const total = panels.length;
-
-    /* ── update UI ── */
-    function updateUI() {
-      // progress
-      const pct = total === 1 ? 100 : (current / (total - 1)) * 100;
-      progressBar.style.width = pct + '%';
-
-      // dots
-      dots.forEach((d, i) => {
-        d.classList.toggle('active', i === current);
-        d.classList.toggle('done', i < current);
-      });
-
-      // slide panels
-      panels.forEach((p, i) => {
-        p.style.transform = `translateX(${(i - current) * 100}vw)`;
-      });
+function changeFontSize(delta) {
+    // Limites de segurança para não quebrar o layout (80% a 150%)
+    if ((delta > 0 && fontSizePercent < 150) || (delta < 0 && fontSizePercent > 80)) {
+        fontSizePercent += delta * 10;
+        applyFontSize();
     }
+}
 
-    /* ── navigate ── */
-    function goToPanel(index) {
-      if (isAnimating) return;
-      if (index < 0 || index >= total) return;
-      isAnimating = true;
-      current = index;
-      updateUI();
-      setTimeout(() => { isAnimating = false; }, 750);
+// 3. Ao carregar a página: Recuperar preferências
+window.addEventListener('DOMContentLoaded', () => {
+    // Recupera Contraste
+    if (localStorage.getItem('ferrotech-contrast') === 'enabled') {
+        document.body.classList.add('high-contrast');
     }
-
-    function next() { goToPanel(current + 1); }
-    function prev() { goToPanel(current - 1); }
-
-    /* ── dots click ── */
-    dots.forEach(d => {
-      d.addEventListener('click', () => goToPanel(+d.dataset.index));
-    });
-
-    /* ── hamburger ── */
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      navOverlay.classList.toggle('open');
-    });
-    function closeMenu() {
-      hamburger.classList.remove('open');
-      navOverlay.classList.remove('open');
-    }
-
-    /* ── wheel scroll ── */
-    let wheelTimer = null;
-    window.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      clearTimeout(wheelTimer);
-      wheelTimer = setTimeout(() => {
-        if (e.deltaX > 40 || e.deltaY > 40) next();
-        else if (e.deltaX < -40 || e.deltaY < -40) prev();
-      }, 30);
-    }, { passive: false });
-
-    /* ── keyboard ── */
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next();
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prev();
-      if (e.key === 'Escape') closeMenu();
-    });
-
-    /* ── touch ── */
-    let touchStartX = 0, touchStartY = 0;
-    window.addEventListener('touchstart', (e) => {
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-    window.addEventListener('touchend', (e) => {
-      const dx = touchStartX - e.changedTouches[0].clientX;
-      const dy = touchStartY - e.changedTouches[0].clientY;
-      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
-        dx > 0 ? next() : prev();
-      }
-    }, { passive: true });
-
-    /* ── INIT ── */
-    updateUI();
-  </script>
+    // Recupera Tamanho da Fonte
+    applyFontSize();
+});
+    </script>
 </body>
+
 </html>
