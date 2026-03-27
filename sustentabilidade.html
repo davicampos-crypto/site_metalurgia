@@ -152,70 +152,51 @@
     }
 
    
-    /* --- FOOTER STYLES --- */
-    .footer-main {
-        background-color: var(--color-navy);
-        color: var(--color-white);
-        padding: 80px 0 20px 0;
-        font-family: var(--font-body);
-    }
+    /* Footer Estilizado */
+.footer-main {
+    background-color: #0f172a;
+    color: #fff;
+    padding: 80px 5% 20px;
+    margin-top: 100px;
+}
 
-    .footer-container {
-        max-width: 1400px;
-        margin: 0 auto;
-        width: 90%;
-        display: flex;
-        justify-content: space-between;
-        gap: 60px;
-    }
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+}
 
-    /* Newsletter */
-    .footer-newsletter {
-        flex: 1;
-        max-width: 400px;
-    }
+.footer-brand img { height: 40px; margin-bottom: 20px; }
+.footer-brand p { color: #94a3b8; line-height: 1.6; max-width: 300px; }
 
-    .footer-title {
-        color: var(--color-gold);
-        font-family: var(--font-heading);
-        font-size: 2.2rem;
-        margin-bottom: 20px;
-    }
+.footer-social { display: flex; gap: 15px; margin-top: 20px; }
+.footer-social a { color: #ffb800; font-size: 1.2rem; transition: 0.3s; }
+.footer-social a:hover { color: #fff; transform: translateY(-3px); }
 
-    .newsletter-form input[type="email"] {
-        width: 100%;
-        background: transparent;
-        border: none;
-        border-bottom: 1px solid var(--color-platinum);
-        padding: 10px 0;
-        color: white;
-        margin: 20px 0;
-        outline: none;
-    }
+.footer-links h3, .footer-contact h3 { 
+    font-size: 1.1rem; 
+    margin-bottom: 25px; 
+    color: #ffb800; 
+}
 
-    .checkbox-group {
-        display: flex;
-        gap: 10px;
-        align-items: flex-start;
-        font-size: 0.8rem;
-        color: var(--color-platinum);
-        margin-bottom: 25px;
-    }
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { color: #cbd5e1; text-decoration: none; transition: 0.3s; }
+.footer-links a:hover { color: #fff; padding-left: 5px; }
 
-    .btn-send {
-        background-color: var(--color-gold);
-        border: none;
-        padding: 12px 40px;
-        border-radius: 25px;
-        font-weight: 700;
-        cursor: pointer;
-        transition: transform 0.2s;
-    }
+.footer-contact p { color: #cbd5e1; margin-bottom: 15px; display: flex; gap: 10px; }
+.footer-contact i { color: #ffb800; }
 
-    .btn-send:hover {
-        transform: scale(1.05);
-    }
-
+.footer-bottom {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.8rem;
+    color: #64748b;
+}
     
 
     /* Links e Colunas */
@@ -822,56 +803,34 @@ body {
 
     <footer class="footer-main">
         <div class="footer-container">
-
-            <div class="footer-newsletter">
-                <h2 class="footer-title">Não perca nada</h2>
-                <p>Receba em seu e-mail as novidades da FerroTech Industrial</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Informe seu e-mail" required>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="lgpd" required>
-                        <label for="lgpd">Estou de acordo em fornecer meu e-mail para receber comunicações da FerroTech
-                            Industrial.</label>
-                    </div>
-                    <button type="submit" class="btn-send">Enviar</button>
-                </form>
+            <div class="footer-brand">
+                <img src="logo-ferrotech-white.png" alt="FerroTech">
+                <p>Excelência em metalurgia de precisão e soluções industriais sustentáveis.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Serviços</h3>
+                <ul>
+                    <li><a href="servicos.html#corte-laser">Corte a Laser</a></li>
+                    <li><a href="servicos.html#usinagem-cnc">Usinagem CNC</a></li>
+                    <li><a href="servicos.html#soldagem">Soldagem Especializada</a></li>
+                </ul>
             </div>
 
-            <div class="footer-links-wrapper">
-                <div class="social-icons">
-                    <a href="#">FB</a> <a href="#">IG</a> <a href="#">LI</a> <a href="#">TW</a>
-                </div>
-
-                <div class="footer-columns">
-                    <div class="footer-col">
-                        <a href="#">Cotação</a>
-                        <a href="#">Blog FerroTech</a>
-                        <a href="#">Catálogos e Manuais</a>
-                        <a href="#">Seja fornecedor</a>
-                        <a href="#">Trabalhe conosco</a>
-                    </div>
-                    <div class="footer-col">
-                        <span class="col-title">Presença Regional</span>
-                        <a href="#">São Paulo</a>
-                        <a href="#">Minas Gerais</a>
-                        <a href="#">Paraná</a>
-                        <a href="#">Rio de Janeiro</a>
-                    </div>
-                    <div class="footer-col">
-                        <span class="col-title">Outros sites</span>
-                        <a href="#">Portal do Aço</a>
-                        <a href="#">Treinamentos Internos</a>
-                        <a href="#">Canal de Ética</a>
-                    </div>
-                </div>
+            <div class="footer-contact">
+                <h3>Contato Direto</h3>
+                <p><i class="fas fa-phone"></i> (15) 3224-XXXX</p>
+                <p><i class="fas fa-envelope"></i> comercial@ferrotech.com.br</p>
+                <p><i class="fas fa-map-marker-alt"></i> Sorocaba, SP - Distrito Industrial</p>
             </div>
         </div>
-
         <div class="footer-bottom">
-            <div class="bottom-container">
-                <a href="#" class="privacy-link">Política de Privacidade</a>
-                <p class="copyright">© Copyright FerroTech Industrial S/A 2026</p>
-            </div>
+            <p>&copy; 2026 FerroTech Industrial - Todos os direitos reservados.</p>
         </div>
     </footer>
     <script>

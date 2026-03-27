@@ -1,1 +1,266 @@
 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Cotação | FerroTech Industrial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+ </head>
+
+ <style>
+  /* Reset e Base da Página */
+.page-cotacao {
+    background-color: #f8fafc; /* Cinza bem clarinho/branco industrial */
+    color: #1e293b;
+}
+
+/* Ajuste do Header para fundo claro */
+.header-light {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.header-light .nav-link {
+    color: #1e293b;
+}
+
+.header-light .btn-back {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.header-light .btn-back:hover {
+    background: #0f172a;
+    color: #fff;
+}
+
+/* Footer Estilizado */
+.footer-main {
+    background-color: #0f172a;
+    color: #fff;
+    padding: 80px 5% 20px;
+    margin-top: 100px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+}
+
+.footer-brand img { height: 40px; margin-bottom: 20px; }
+.footer-brand p { color: #94a3b8; line-height: 1.6; max-width: 300px; }
+
+.footer-social { display: flex; gap: 15px; margin-top: 20px; }
+.footer-social a { color: #ffb800; font-size: 1.2rem; transition: 0.3s; }
+.footer-social a:hover { color: #fff; transform: translateY(-3px); }
+
+.footer-links h3, .footer-contact h3 { 
+    font-size: 1.1rem; 
+    margin-bottom: 25px; 
+    color: #ffb800; 
+}
+
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { color: #cbd5e1; text-decoration: none; transition: 0.3s; }
+.footer-links a:hover { color: #fff; padding-left: 5px; }
+
+.footer-contact p { color: #cbd5e1; margin-bottom: 15px; display: flex; gap: 10px; }
+.footer-contact i { color: #ffb800; }
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+/* 1. Reset para garantir que o header ocupe a largura total */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header-main {
+    width: 100%;
+    background-color: #0f172a; /* Azul marinho FerroTech */
+    padding: 10px 0;
+    position: fixed; /* Fixa no topo */
+    top: 0;
+    z-index: 1000;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* 2. Container Flexbox para alinhar tudo em uma linha */
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+/* 3. Lado Esquerdo: Logo e Nav */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Espaço entre logo e menu */
+}
+
+.logo img {
+    height: 45px;
+    display: block;
+}
+
+.nav-desktop ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #ffb800; /* Amarelo */
+}
+
+/* 4. Lado Direito: Ações de Acessibilidade e Botão Business */
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.75rem;
+    color: #ffffff;
+}
+
+.access-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.btn-business {
+    background-color: #ffb800;
+    color: #000000;
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 50px; /* Arredondado igual ao seu print */
+    font-weight: 800;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.btn-business:hover {
+    background-color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* 5. Ajuste para o conteúdo não subir */
+body {
+    padding-top: 100px;
+}
+ </style>
+<body class="page-cotacao">
+
+    <header class="header-main header-light">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <a href="home.html">
+                        <img src="logo-ferrotech-dark.png" alt="FerroTech Metalurgia de Precisão">
+                    </a>
+                </div>
+                <nav class="nav-desktop">
+                    <ul>
+                        <li><a href="sobrenos.html" class="nav-link">Sobre Nós</a></li>
+                        <li><a href="sustentabilidade.html" class="nav-link">Sustentabilidade</a></li>
+                        <li><a href="servicos.html" class="nav-link">Serviços</a></li>
+                        <li><a href="comunicacao.html" class="nav-link">Comunicação</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="top-actions">
+                    <div class="lang-selector">
+                        <span class="active">PT</span> | <span>EN</span>
+                    </div>
+                </div>
+            <a href="home.html" class="btn-back" style="background-color: #ffb800;">FAZER COTAÇÃO</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="cotacao-main">
+        </main>
+
+    <footer class="footer-main">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="logo-ferrotech-white.png" alt="FerroTech">
+                <p>Excelência em metalurgia de precisão e soluções industriais sustentáveis.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Serviços</h3>
+                <ul>
+                    <li><a href="servicos.html#corte-laser">Corte a Laser</a></li>
+                    <li><a href="servicos.html#usinagem-cnc">Usinagem CNC</a></li>
+                    <li><a href="servicos.html#soldagem">Soldagem Especializada</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contato Direto</h3>
+                <p><i class="fas fa-phone"></i> (15) 3224-XXXX</p>
+                <p><i class="fas fa-envelope"></i> comercial@ferrotech.com.br</p>
+                <p><i class="fas fa-map-marker-alt"></i> Sorocaba, SP - Distrito Industrial</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FerroTech Industrial - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+
+        
+    </script>
+</body>
+</html>
