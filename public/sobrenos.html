@@ -33,7 +33,6 @@
       height: 100vh;
     }
 
-    /* HEADER FIXO */
     header {
       position: fixed;
       top: 0;
@@ -55,7 +54,10 @@
       font-size: 1.5rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
     }
+    .logo:hover { opacity: 0.8; }
     .logo span { color: var(--yellow); }
     .logo small {
       font-size: 0.7rem;
@@ -100,7 +102,6 @@
     .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* PROGRESS BAR */
     .progress-bar-wrap {
       position: fixed;
       top: var(--header-h);
@@ -117,7 +118,6 @@
       transition: width 0.08s linear;
     }
 
-    /* NAV OVERLAY */
     .nav-overlay {
       position: fixed;
       inset: 0;
@@ -152,6 +152,7 @@
       border-left: 3px solid transparent;
       padding-left: 1rem;
       transition: 0.2s;
+      cursor: pointer;
     }
     .nav-overlay nav a:hover {
       color: var(--yellow);
@@ -184,7 +185,6 @@
     }
     .nav-close-btn:hover { border-color: var(--yellow); color: var(--yellow); }
 
-    /* CONTAINER HORIZONTAL */
     .scroll-container {
       position: fixed;
       top: calc(var(--header-h) + var(--progress-h));
@@ -207,14 +207,12 @@
     .panel::-webkit-scrollbar { width: 5px; background: var(--gray2); }
     .panel::-webkit-scrollbar-thumb { background: var(--yellow); border-radius: 4px; }
 
-    /* conteúdo centralizado */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       width: 100%;
     }
 
-    /* SLIDE 1 – APRESENTAÇÃO */
     .slide1 {
       background: var(--black);
       display: flex;
@@ -268,78 +266,61 @@
       .hero { grid-template-columns: 1fr; gap: 2rem; }
     }
 
-    /* SLIDE 2 – LINHA DO TEMPO */
-    .slide2 {
-      background: var(--gray);
-    }
-    .timeline {
-      position: relative;
-      margin: 2rem 0;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 3px;
-      height: 100%;
-      background: var(--yellow);
+    .slide2 { background: var(--gray); }
+    .timeline-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      margin-top: 2rem;
     }
     .timeline-item {
       display: flex;
-      justify-content: space-between;
-      margin-bottom: 3rem;
-      position: relative;
+      align-items: center;
+      gap: 2rem;
+      background: var(--gray2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .timeline-item:nth-child(odd) .timeline-content {
-      text-align: right;
-      margin-right: 2rem;
+    .timeline-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
-    .timeline-item:nth-child(even) .timeline-content {
-      text-align: left;
-      margin-left: 2rem;
-    }
+    .timeline-left { flex: 1; text-align: left; }
     .timeline-year {
       font-family: var(--font-display);
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 800;
       color: var(--yellow);
-      background: var(--gray);
-      padding: 0 1rem;
-      position: relative;
-      z-index: 2;
+      margin-bottom: 0.5rem;
     }
-    .timeline-content {
-      width: 45%;
-      background: var(--gray2);
-      padding: 1.2rem;
+    .timeline-desc {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #ccc;
+    }
+    .timeline-desc strong { color: var(--yellow); font-weight: 600; }
+    .timeline-right { flex: 1; text-align: center; }
+    .timeline-right img {
+      width: 100%;
+      max-width: 350px;
       border-radius: 8px;
+      border: 1px solid var(--gray);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-    .timeline-content h3 {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-    }
-    .timeline-content p {
-      font-size: 0.85rem;
+    .image-caption {
+      font-size: 0.7rem;
       color: var(--text-muted);
+      margin-top: 0.5rem;
+      letter-spacing: 0.03em;
     }
     @media (max-width: 768px) {
-      .timeline::before { left: 20px; }
-      .timeline-item { flex-direction: column; align-items: flex-start; margin-left: 30px; }
-      .timeline-item:nth-child(odd) .timeline-content,
-      .timeline-item:nth-child(even) .timeline-content {
-        width: 100%;
-        text-align: left;
-        margin: 0.5rem 0 0 0;
-      }
-      .timeline-year { margin-left: -20px; }
+      .timeline-item { flex-direction: column; text-align: center; gap: 1rem; padding: 1.2rem; }
+      .timeline-left { text-align: center; }
+      .timeline-right img { max-width: 100%; }
     }
 
-    /* SLIDE 3 – PRINCÍPIOS */
-    .slide3 {
-      background: var(--gray);
-    }
+    .slide3 { background: var(--gray); }
     .principles-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -357,10 +338,7 @@
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
-    .principle-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
+    .principle-icon { font-size: 2.5rem; margin-bottom: 1rem; }
     .principle-card h3 {
       font-family: var(--font-display);
       font-size: 1.5rem;
@@ -373,7 +351,6 @@
       line-height: 1.5;
     }
 
-    /* SLIDE 4 – CTA */
     .slide4 {
       background: var(--yellow);
       display: flex;
@@ -431,15 +408,6 @@
     .btn-cta span { position: relative; z-index: 1; }
     .btn-cta svg { position: relative; z-index: 1; width: 18px; }
     .btn-cta:hover { color: var(--black); }
-    .back-link {
-      display: block;
-      margin-top: 1.5rem;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      color: rgba(0,0,0,0.5);
-      text-decoration: underline;
-      cursor: pointer;
-    }
 
     .section-label {
       font-family: var(--font-display);
@@ -456,136 +424,12 @@
       text-transform: uppercase;
       margin-bottom: 2rem;
     }
-
-    /* Estilos específicos para timeline com fotos */
-.timeline-img {
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  overflow: hidden;
-}
-.timeline-img img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.3s;
-}
-.timeline-img img:hover {
-  transform: scale(1.02);
-}
-.img-caption {
-  display: block;
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  margin-top: 0.5rem;
-  text-align: center;
-  font-style: italic;
-}
-.timeline-content {
-  width: 45%;
-  background: var(--gray2);
-  padding: 1.2rem;
-  border-radius: 8px;
-  transition: all 0.3s;
-}
-.timeline-content:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-.timeline-content h3 {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  margin: 0.5rem 0 0.3rem;
-}
-.timeline-content p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-}
-@media (max-width: 768px) {
-  .timeline-content {
-    width: 100%;
-    margin: 0.5rem 0 0 0;
-  }
-}
-
-/* Estilos específicos para a linha do tempo com fotos */
-  .timeline-vertical {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    margin-top: 2rem;
-  }
-  .timeline-item {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    background: var(--gray2);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .timeline-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-  }
-  .timeline-left {
-    flex: 1;
-    text-align: left;
-  }
-  .timeline-year {
-    font-family: var(--font-display);
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: var(--yellow);
-    margin-bottom: 0.5rem;
-  }
-  .timeline-desc {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #ccc;
-  }
-  .timeline-desc strong {
-    color: var(--yellow);
-    font-weight: 600;
-  }
-  .timeline-right {
-    flex: 1;
-    text-align: center;
-  }
-  .timeline-right img {
-    width: 100%;
-    max-width: 350px;
-    border-radius: 8px;
-    border: 1px solid var(--gray);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
-  .image-caption {
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    margin-top: 0.5rem;
-    letter-spacing: 0.03em;
-  }
-
-  @media (max-width: 768px) {
-    .timeline-item {
-      flex-direction: column;
-      text-align: center;
-      gap: 1rem;
-      padding: 1.2rem;
-    }
-    .timeline-left {
-      text-align: center;
-    }
-    .timeline-right img {
-      max-width: 100%;
-    }
-  }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo" onclick="window.location.href='home.html'">Ferro<span>Tech</span> <small>metalurgia de precisão</small></div>
+  <div class="logo" id="logoLink">Ferro<span>Tech</span> <small>metalurgia de precisão</small></div>
   <div class="section-dots" id="sectionDots"></div>
   <div class="hamburger" id="hamburger">
     <span></span><span></span><span></span>
@@ -594,22 +438,22 @@
 <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar"></div></div>
 
 <div class="nav-overlay" id="navOverlay">
-  <button class="nav-close-btn" onclick="closeMenu()">
+  <button class="nav-close-btn" id="closeNavBtn">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><path d="M18 6L6 18M6 6l12 12"/></svg>
     Fechar
   </button>
   <nav>
-    <a href="#" onclick="closeMenu()">A FerroTech</a>
-    <a href="#" onclick="closeMenu()">Nossa História</a>
-    <a href="#" onclick="closeMenu()">Princípios</a>
-    <a href="#" onclick="closeMenu()">Orçamento</a>
+    <a data-nav="1">A FerroTech</a>
+    <a data-nav="2">Nossa História</a>
+    <a data-nav="3">Princípios</a>
+    <a data-nav="4">Orçamento</a>
   </nav>
   <p class="nav-footer">Sorocaba/SP • 18 anos • Excelência em metalurgia</p>
 </div>
 
 <div class="scroll-container" id="scrollContainer">
-  <!-- SLIDE 1 – APRESENTAÇÃO -->
-  <div class="panel slide1">
+  <!-- SLIDE 1 -->
+  <div class="panel slide1" id="slide1">
     <div class="container">
       <div class="hero">
         <div>
@@ -626,152 +470,105 @@
     </div>
   </div>
 
- <!-- SLIDE 2 – LINHA DO TEMPO COM FOTOS E DESCRIÇÕES -->
-<div class="panel slide2">
-  <div class="container">
-    <div class="section-label">Nossa trajetória</div>
-    <h2>Linha do tempo</h2>
-    <div class="timeline-vertical">
-      
-      <div class="timeline-item">
-        <div class="timeline-left">
-          <div class="timeline-year">2008</div>
-          <div class="timeline-desc">
-            <strong>Fundação</strong><br>
-            Iniciamos as atividades em uma pequena oficina em Sorocaba, com foco em usinagem convencional e atendimento personalizado.
+  <!-- SLIDE 2 – TIMELINE COM FOTOS -->
+  <div class="panel slide2">
+    <div class="container">
+      <div class="section-label">Nossa trajetória</div>
+      <h2>Linha do tempo</h2>
+      <div class="timeline-vertical">
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-year">2008</div>
+            <div class="timeline-desc"><strong>Fundação</strong><br>Iniciamos as atividades em uma pequena oficina em Sorocaba, com foco em usinagem convencional e atendimento personalizado.</div>
+          </div>
+          <div class="timeline-right">
+            <img src="https://picsum.photos/id/20/400/250" alt="Oficina em 2008">
+            <div class="image-caption">Primeira sede: 200 m² e 3 tornos mecânicos.</div>
           </div>
         </div>
-        <div class="timeline-right">
-          <img src="https://picsum.photos/id/20/400/250" alt="Oficina em 2008">
-          <div class="image-caption">Primeira sede: 200 m² e 3 tornos mecânicos.</div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-left">
-          <div class="timeline-year">2012</div>
-          <div class="timeline-desc">
-            <strong>Chegada do corte a laser</strong><br>
-            Aquisição do primeiro equipamento de corte a laser de alta potência da região, dobrando a capacidade produtiva.
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-year">2012</div>
+            <div class="timeline-desc"><strong>Chegada do corte a laser</strong><br>Aquisição do primeiro equipamento de corte a laser de alta potência da região, dobrando a capacidade produtiva.</div>
+          </div>
+          <div class="timeline-right">
+            <img src="https://picsum.photos/id/96/400/250" alt="Máquina de corte a laser">
+            <div class="image-caption">Primeira máquina a laser – precisão e velocidade.</div>
           </div>
         </div>
-        <div class="timeline-right">
-          <img src="https://picsum.photos/id/96/400/250" alt="Máquina de corte a laser">
-          <div class="image-caption">Primeira máquina a laser – precisão e velocidade.</div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-left">
-          <div class="timeline-year">2016</div>
-          <div class="timeline-desc">
-            <strong>Expansão da usinagem CNC</strong><br>
-            Inauguração da nova fábrica com 3.000 m² e aquisição de centros de usinagem 5 eixos.
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-year">2016</div>
+            <div class="timeline-desc"><strong>Expansão da usinagem CNC</strong><br>Inauguração da nova fábrica com 3.000 m² e aquisição de centros de usinagem 5 eixos.</div>
+          </div>
+          <div class="timeline-right">
+            <img src="https://picsum.photos/id/42/400/250" alt="Nova fábrica">
+            <div class="image-caption">Parque fabril ampliado e equipe qualificada.</div>
           </div>
         </div>
-        <div class="timeline-right">
-          <img src="https://picsum.photos/id/42/400/250" alt="Nova fábrica">
-          <div class="image-caption">Parque fabril ampliado e equipe qualificada.</div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-left">
-          <div class="timeline-year">2020</div>
-          <div class="timeline-desc">
-            <strong>Soldagem robotizada</strong><br>
-            Implementação de células de soldagem com robôs, garantindo repetibilidade e alta resistência estrutural.
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-year">2020</div>
+            <div class="timeline-desc"><strong>Soldagem robotizada</strong><br>Implementação de células de soldagem com robôs, garantindo repetibilidade e alta resistência estrutural.</div>
+          </div>
+          <div class="timeline-right">
+            <img src="https://picsum.photos/id/31/400/250" alt="Robô de solda">
+            <div class="image-caption">Primeira célula robotizada de soldagem.</div>
           </div>
         </div>
-        <div class="timeline-right">
-          <img src="https://picsum.photos/id/31/400/250" alt="Robô de solda">
-          <div class="image-caption">Primeira célula robotizada de soldagem.</div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-left">
-          <div class="timeline-year">2025</div>
-          <div class="timeline-desc">
-            <strong>18 anos de excelência</strong><br>
-            Consolidados como parceiros estratégicos das maiores indústrias do setor automotivo, agrícola e de máquinas.
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-desc"><strong>18 anos de excelência</strong><br>Consolidados como parceiros estratégicos das maiores indústrias do setor automotivo, agrícola e de máquinas.</div>
+          </div>
+          <div class="timeline-right">
+            <img src="https://picsum.photos/id/38/400/250" alt="Equipe atual">
+            <div class="image-caption">Time atual: mais de 80 colaboradores e tecnologia de ponta.</div>
           </div>
         </div>
-        <div class="timeline-right">
-          <img src="https://picsum.photos/id/38/400/250" alt="Equipe atual">
-          <div class="image-caption">Time atual: mais de 80 colaboradores e tecnologia de ponta.</div>
-        </div>
       </div>
-
     </div>
   </div>
-</div>
 
+  <!-- SLIDE 3 – PRINCÍPIOS -->
   <div class="panel slide3">
-  <div class="container">
-    <div class="section-label">Nossa essência</div>
-    <h2>Princípios que nos guiam</h2>
-    <div class="principles-wrapper">
+    <div class="container">
+      <div class="section-label">Nossa essência</div>
+      <h2>Princípios que nos guiam</h2>
       <div class="principles-grid">
-        <div class="principle-card">
-          <div class="principle-icon">🎯</div>
-          <h3>Precisão Absoluta</h3>
-          <p>Cada peça, cada solda, cada corte executado com tolerâncias rigorosas e controle total.</p>
-        </div>
-        <div class="principle-card">
-          <div class="principle-icon">🤝</div>
-          <h3>Parceria Genuína</h3>
-          <p>Atuamos junto ao cliente desde a engenharia de aplicação até a entrega, construindo soluções sob medida.</p>
-        </div>
-        <div class="principle-card">
-          <div class="principle-icon">⚙️</div>
-          <h3>Inovação Constante</h3>
-          <p>Investimos continuamente em tecnologia de ponta e capacitação da nossa equipe.</p>
-        </div>
-        <div class="principle-card">
-          <div class="principle-icon">🌱</div>
-          <h3>Sustentabilidade</h3>
-          <p>Processos otimizados que reduzem desperdícios e respeitam o meio ambiente.</p>
-        </div>
-        <div class="principle-card">
-          <div class="principle-icon">🏭</div>
-          <h3>Excelência Operacional</h3>
-          <p>Gestão enxuta e melhoria contínua para garantir entregas no prazo com a máxima qualidade.</p>
-        </div>
-        <div class="principle-card">
-          <div class="principle-icon">💡</div>
-          <h3>Valorização Humana</h3>
-          <p>Nossos colaboradores são a base do nosso sucesso; investimos em desenvolvimento e segurança.</p>
-        </div>
+        <div class="principle-card"><div class="principle-icon">🎯</div><h3>Precisão Absoluta</h3><p>Cada peça, cada solda, cada corte executado com tolerâncias rigorosas e controle total.</p></div>
+        <div class="principle-card"><div class="principle-icon">🤝</div><h3>Parceria Genuína</h3><p>Atuamos junto ao cliente desde a engenharia de aplicação até a entrega, construindo soluções sob medida.</p></div>
+        <div class="principle-card"><div class="principle-icon">⚙️</div><h3>Inovação Constante</h3><p>Investimos continuamente em tecnologia de ponta e capacitação da nossa equipe.</p></div>
+        <div class="principle-card"><div class="principle-icon">🌱</div><h3>Sustentabilidade</h3><p>Processos otimizados que reduzem desperdícios e respeitam o meio ambiente.</p></div>
+        <div class="principle-card"><div class="principle-icon">🏭</div><h3>Excelência Operacional</h3><p>Gestão enxuta e melhoria contínua para garantir entregas no prazo com a máxima qualidade.</p></div>
+        <div class="principle-card"><div class="principle-icon">💡</div><h3>Valorização Humana</h3><p>Nossos colaboradores são a base do nosso sucesso; investimos em desenvolvimento e segurança.</p></div>
       </div>
-      </div>
-      </div>
-      </div>
+    </div>
+  </div>
 
-  <!-- SLIDE 4 – CALL TO ACTION -->
+  <!-- SLIDE 4 – CALL TO ACTION COM LINK PARA paginaNegocios.html -->
   <div class="panel slide4">
     <div class="cta-box">
       <h2>Vamos produzir<br>juntos?</h2>
       <p>Solicite um orçamento e descubra por que a FerroTech é a escolha certa para seus projetos de precisão.</p>
-      <a href="#" class="btn-cta"><span>Solicitar Cotação</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      
+      <a href="paginaNegocios.html" class="btn-cta" id="quoteLink"><span>Solicitar Cotação</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </div>
 
 <script>
   const panels = document.querySelectorAll('.panel');
-  const container = document.getElementById('scrollContainer');
   const progressBar = document.getElementById('progressBar');
   const dotsContainer = document.getElementById('sectionDots');
   const hamburger = document.getElementById('hamburger');
   const navOverlay = document.getElementById('navOverlay');
+  const logoLink = document.getElementById('logoLink');
 
   let current = 0;
   let isAnimating = false;
   const total = panels.length;
 
-  // criar dots dinamicamente
+  // Criar dots
   for (let i = 0; i < total; i++) {
     const dot = document.createElement('div');
     dot.classList.add('dot');
@@ -806,7 +603,7 @@
   function next() { goToPanel(current + 1); }
   function prev() { goToPanel(current - 1); }
 
-  // navegação por wheel, teclado e touch
+  // Navegação por wheel e touch
   let wheelTimer;
   window.addEventListener('wheel', (e) => {
     e.preventDefault();
@@ -830,15 +627,35 @@
     if (Math.abs(dx) > 50) dx > 0 ? next() : prev();
   });
 
-  // menu
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    navOverlay.classList.toggle('open');
-  });
+  // Menu overlay
   function closeMenu() {
     hamburger.classList.remove('open');
     navOverlay.classList.remove('open');
   }
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navOverlay.classList.toggle('open');
+  });
+  document.getElementById('closeNavBtn').addEventListener('click', closeMenu);
+
+  // Navegação via menu overlay
+  document.querySelectorAll('.nav-overlay nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const targetIdx = parseInt(link.getAttribute('data-nav'), 10) - 1;
+      if (!isNaN(targetIdx) && targetIdx >= 0 && targetIdx < total) {
+        goToPanel(targetIdx);
+        closeMenu();
+      }
+    });
+  });
+
+  // Logo: redireciona para página inicial (ou recarrega)
+  logoLink.addEventListener('click', () => {
+    window.location.href = './';
+  });
+
+  // O botão "Solicitar Cotação" já é um link <a> com href="paginaNegocios.html"
+  // Portanto, funcionará normalmente sem necessidade de JavaScript adicional.
 
   updateUI();
 </script>
