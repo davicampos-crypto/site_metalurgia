@@ -1,826 +1,1340 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Sustentabilidade | FerroTech Industrial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* =========================================
+           CONFIGURAÇÕES GERAIS E RESETS
+        ========================================= */
+        :root {
+            --color-navy: #1B263B;
+            --color-gold: #FFB703;
+            --color-graphite: #415A77;
+            --color-platinum: #E0E1DD;
+            --color-white: #F8F9FA;
+            --color-text-body: #0D1B2A;
+            --color-metallic: #778DA9;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
 
-<style>
-    /* =========================================
-   CONFIGURAÇÕES GERAIS E RESETS
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-white);
+            color: var(--color-text-body);
+            padding-top: 80px;
+        }
+
+        /* =========================================
+           HEADER FIXO (JÁ EXISTENTE)
+        ========================================= */
+        .header-main {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-desktop ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #cbd5e1;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--color-gold);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-gold);
+            transition: 0.3s;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+        }
+
+        .top-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .header-accessibility {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: var(--color-white);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            padding-right: 15px;
+            margin-right: 15px;
+        }
+
+        .access-btn {
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .access-btn:hover {
+            color: var(--color-gold);
+        }
+
+        .lang-selector {
+            color: var(--color-white);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .lang-selector .active {
+            color: var(--color-gold);
+        }
+
+        .btn-business {
+            background-color: var(--color-gold);
+            color: var(--color-navy);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 12px 30px;
+            border-radius: 30px;
+            transition: transform 0.2s ease, filter 0.3s ease;
+        }
+
+        .btn-business:hover {
+            filter: brightness(1.1);
+            transform: scale(1.02);
+        }
+
+        header img {
+            height: 100px;
+        }
+
+        /* =========================================
+           HERO SUSTENTABILIDADE
+        ========================================= */
+        .hero-sustainability {
+            display: flex;
+            min-height: 80vh;
+            background-color: #0f172a;
+            color: #ffffff;
+        }
+
+        .hero-image-container {
+            flex: 1.2;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 60px;
+            background-color: #111d35;
+        }
+
+        .text-wrapper {
+            max-width: 500px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .highlight-green {
+            color: #4ade80;
+            display: block;
+        }
+
+        .hero-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 40px;
+        }
+
+        .stats-container {
+            margin-bottom: 40px;
+        }
+
+        .stats-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #4ade80;
+        }
+
+        .stats-value {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 10px 0;
+        }
+
+        .icon-leaf {
+            width: 40px;
+            height: 40px;
+            color: #4ade80;
+        }
+
+        .stats-value .number {
+            font-size: 4rem;
+            font-weight: 300;
+            color: #ffffff;
+            border-bottom: 2px solid #4ade80;
+        }
+
+        .stats-subtext {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #94a3b8;
+        }
+
+        .cta-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .btn-solicitar {
+            background-color: var(--color-gold);
+            color: #000;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            transition: transform 0.2s;
+        }
+
+        .btn-solicitar:hover {
+            transform: scale(1.05);
+        }
+
+        .mini-logo {
+            height: 25px;
+            opacity: 0.8;
+        }
+
+        /* =========================================
+           MÉTRICAS (STATS)
+        ========================================= */
+        .sustentabilidade-stats {
+            background: var(--color-navy);
+            padding: 80px 5%;
+        }
+
+        .sustentabilidade-stats .container {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+            border-bottom: 4px solid transparent;
+            transition: 0.3s;
+        }
+
+        .stat-card:hover {
+            border-bottom: 4px solid #4ade80;
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            color: #4ade80;
+            margin: 15px 0;
+        }
+
+        /* =========================================
+           PILARES
+        ========================================= */
+        .sustentabilidade-pilares {
+            background: #f8fafc;
+            padding: 100px 5%;
+            color: var(--color-navy);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header .subtitle {
+            color: #4ade80;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .section-header h2 span {
+            color: #4ade80;
+        }
+
+        .grid-pilares {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .pilar-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .pilar-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .pilar-info {
+            padding: 30px;
+        }
+
+        .pilar-info h3 {
+            margin-bottom: 15px;
+            color: var(--color-navy);
+        }
+
+        /* =========================================
+           TIMELINE
+        ========================================= */
+        .sustentabilidade-timeline {
+            background: var(--color-navy);
+            padding: 100px 5%;
+        }
+
+        .timeline-container {
+            display: flex;
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            justify-content: space-between;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #334155;
+        }
+
+        .timeline-box {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .timeline-box .year {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .timeline-box .dot {
+            width: 15px;
+            height: 15px;
+            background: #334155;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-box.active .year {
+            color: #4ade80;
+        }
+
+        .timeline-box.active .dot {
+            background: #4ade80;
+            box-shadow: 0 0 15px #4ade80;
+        }
+
+        .timeline-box p {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+        .footer-main {
+            background-color: #0f172a;
+            color: #fff;
+            padding: 80px 5% 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+        }
+
+        .footer-brand img {
+            height: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: #94a3b8;
+            line-height: 1.6;
+            max-width: 300px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            color: var(--color-gold);
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: var(--color-gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: var(--color-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+          /* =========================================
+   MELHORIAS DE RESPONSIVIDADE PARA CELULAR
    ========================================= */
-    :root {
-        /* Paleta de Cores FerroTech */
-        --color-navy: #1B263B;
-        /* Azul Profundo (Identidade) */
-        --color-gold: #FFB703;
-        /* Amarelo Ouro (Destaque/Ação) */
-        --color-graphite: #415A77;
-        /* Cinza Grafite (Secundária) */
-        --color-platinum: #E0E1DD;
-        /* Cinza Platina (Apoio) */
-        --color-white: #F8F9FA;
-        /* Branco Gelo (Fundo Texto) */
-        --color-text-body: #0D1B2A;
-        /* Preto Antracite (Leitura) */
-        --color-metallic: #778DA9;
-        /* Cinza Metálico (Marcos) */
+    @media (max-width: 768px) {
+        body {
+            padding-top: 70px;
+            /* Ajuste para header menor */
+        }
 
-        /* Fontes */
-        --font-heading: 'Montserrat', sans-serif;
-        --font-body: 'Inter', sans-serif;
+        /* HEADER */
+        .header-main {
+            height: auto;
+            padding: 10px 0;
+        }
+
+        .header-container {
+            padding: 10px 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .header-left .logo img {
+            height: 50px !important;
+            width: auto;
+        }
+
+        .top-actions {
+            gap: 10px;
+        }
+
+        .header-accessibility {
+            gap: 8px;
+            padding-right: 8px;
+            margin-right: 8px;
+        }
+
+        .access-btn {
+            font-size: 0.7rem;
+        }
+
+        .btn-business {
+            padding: 8px 16px;
+            font-size: 0.75rem;
+        }
+
+        /* HERO */
+        .hero-visual {
+            height: 40vh;
+        }
+
+        .hero-content {
+            padding: 30px 20px;
+        }
+
+        .hero-headline {
+            font-size: 1.5rem;
+        }
+
+        .hero-subtext {
+            font-size: 0.9rem;
+        }
+
+        .milestone-year {
+            font-size: 3rem;
+            -webkit-text-stroke: 0.5px var(--color-platinum);
+        }
+
+        .hero-logo {
+            max-height: 80px !important;
+        }
+
+        .hero-footer {
+            gap: 15px;
+        }
+
+        .btn-cta {
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            font-size: 0.9rem;
+        }
+
+        /* SEÇÃO BOAS PRÁTICAS */
+        .ferrotech-practices {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+        }
+
+        .practice-headline {
+            font-size: 1.4rem;
+        }
+
+        .practice-text {
+            font-size: 0.95rem;
+        }
+
+        .btn-more {
+            padding: 10px 20px;
+            font-size: 0.8rem;
+        }
+
+        .arrow {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+
+        .control-counter {
+            font-size: 1.4rem;
+        }
+
+        /* SEÇÃO GENTE DA FERROTECH */
+        .ferrotech-team {
+            padding: 60px 0;
+        }
+
+        .team-title {
+            font-size: 2rem;
+        }
+
+        .team-description {
+            font-size: 1rem;
+        }
+
+        .team-question {
+            font-size: 1.1rem;
+        }
+
+        .team-actions {
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .btn-team {
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+        }
+
+        .team-visual-composition {
+            margin-top: 30px;
+        }
+
+        .img-workers {
+            width: 100%;
+        }
+
+        /* GRID DE SERVIÇOS */
+        .ferrotech-grid-services {
+            padding: 60px 0;
+        }
+
+        .grid-main-title {
+            font-size: 1.8rem;
+        }
+
+        .service-card {
+            height: auto;
+            min-height: 320px;
+            padding: 30px 20px;
+        }
+
+        .card-number {
+            font-size: 3rem;
+        }
+
+        .card-content h3 {
+            font-size: 1.3rem;
+        }
+
+        .card-content p {
+            font-size: 0.9rem;
+        }
+
+        /* FOOTER */
+        .footer-main {
+            padding: 50px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand p {
+            max-width: 100%;
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-contact p {
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            font-size: 0.7rem;
+        }
     }
 
-    
+    /* Telas muito pequenas (<=480px) */
+    @media (max-width: 480px) {
+        .header-container {
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
 
-    /* --- HEADER STYLES --- */
-    .header-main {
-        background-color: var(--color-navy);
-        /* Azul Marinho Profundo */
-        width: 100%;
-        height: 100px;
-        display: flex;
-        align-items: center;
-        border-bottom: 2px solid var(--color-gold);
-        /* Linha fina dourada para separar do Hero */
-        position: sticky;
-        top: 0;
-        z-index: 1000;
+        .header-left {
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .header-right {
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-actions {
+            order: 2;
+        }
+
+        .btn-business {
+            order: 1;
+        }
+
+        .hero-headline {
+            font-size: 1.3rem;
+        }
+
+        .hero-subtext {
+            font-size: 0.85rem;
+        }
+
+        .milestone-year {
+            font-size: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+        }
+
+        .practice-headline {
+            font-size: 1.2rem;
+        }
+
+        .arrow {
+            width: 35px;
+            height: 35px;
+        }
+
+        .team-title {
+            font-size: 1.8rem;
+        }
     }
 
+    footer{
+margin-top: 0px !important;
+
+    }
+
+/* --- CONFIGURAÇÃO PARA DESKTOP (IGUAL AO SEU) --- */
+.menu-mobile-btn {
+    display: none; /* Esconde o botão no PC */
+}
+
+@media (max-width: 768px) {
+    /* 1. Ajuste do Container para não quebrar o layout */
     .header-container {
-        max-width: 1400px;
-        margin: 0 auto;
-        width: 95%;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 10px 20px;
     }
 
-    /* Lado Esquerdo */
-    .header-left {
+    /* 2. Botão Hambúrguer - Ajustando cores */
+    .menu-mobile-btn {
         display: flex;
-        align-items: center;
-        gap: 40px;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        order: 2; /* Garante que fique na direita */
+    }
+
+    .menu-mobile-btn span {
+        width: 100%;
+        height: 3px;
+        background-color: #ffcc00; /* Amarelo da logo para destaque */
+        border-radius: 2px;
+    }
+
+    /* 3. O Menu em si (A parte que estava branca) */
+    .nav-desktop {
+        display: none; 
+        position: absolute;
+        top: 70px; /* Ajuste para ficar logo abaixo do header */
+        left: 0;
+        width: 100%;
+        background-color: #1a2433; /* Azul escuro combinando com a marca */
+        z-index: 1000;
+        border-bottom: 3px solid #ffcc00;
+    }
+
+    .nav-desktop.open {
+        display: block;
     }
 
     .nav-desktop ul {
-        display: flex;
-        list-style: none;
-        gap: 20px;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
     }
 
+    .nav-desktop ul li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* 4. Ajuste dos links (Para ficarem visíveis) */
     .nav-desktop ul li a {
-        color: var(--color-white);
+        display: block;
+        padding: 15px;
+        color: #ffffff !important; /* Texto branco */
         text-decoration: none;
-        font-size: 0.9rem;
-        font-weight: 500;
-        font-family: var(--font-body);
-        transition: color 0.3s ease;
+        font-weight: bold;
+        text-align: center;
     }
 
     .nav-desktop ul li a:hover {
-        color: var(--color-gold);
+        background-color: #253244;
+        color: #ffcc00 !important; /* Amarelo ao passar o mouse */
     }
 
-    /* Lado Direito */
+    /* 5. Esconder elementos que não cabem no mobile */
     .header-right {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 12px;
+        display: none; 
     }
-
-    .top-actions {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-    }
-
-    .action-link {
-        color: var(--color-white);
-        text-decoration: none;
-        font-size: 0.8rem;
-        border: 1px solid var(--color-white);
-        padding: 4px 12px;
-        border-radius: 20px;
-        transition: all 0.3s ease;
-    }
-
-    .action-link:hover {
-        background-color: var(--color-white);
-        color: var(--color-navy);
-    }
-
-    .lang-selector {
-        color: var(--color-white);
-        font-size: 0.8rem;
-        font-weight: 700;
-    }
-
-    .lang-selector .active {
-        color: var(--color-gold);
-    }
-
-    /* Botão Principal Estilo Gerdau */
-    .btn-business {
-        background-color: var(--color-gold);
-        color: var(--color-navy);
-        text-decoration: none;
-        font-family: var(--font-heading);
-        font-weight: 700;
-        font-size: 0.85rem;
-        padding: 12px 30px;
-        border-radius: 30px;
-        transition: transform 0.2s ease, filter 0.3s ease;
-    }
-
-    .btn-business:hover {
-        filter: brightness(1.1);
-        transform: scale(1.02);
-    }
-
-    /* Responsividade Básica */
-    @media (max-width: 1024px) {
-        .nav-desktop {
-            display: none;
+}
+        /* Alto Contraste */
+        body.high-contrast {
+            background-color: #000 !important;
+            color: #FFF !important;
         }
 
-        /* Em um site real, você faria um menu hambúrguer aqui */
-    }
-
-   
-    /* Footer Estilizado */
-.footer-main {
-    background-color: #0f172a;
-    color: #fff;
-    padding: 80px 5% 20px;
-    margin-top: 100px;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 60px;
-}
-
-.footer-brand img { height: 40px; margin-bottom: 20px; }
-.footer-brand p { color: #94a3b8; line-height: 1.6; max-width: 300px; }
-
-.footer-social { display: flex; gap: 15px; margin-top: 20px; }
-.footer-social a { color: #ffb800; font-size: 1.2rem; transition: 0.3s; }
-.footer-social a:hover { color: #fff; transform: translateY(-3px); }
-
-.footer-links h3, .footer-contact h3 { 
-    font-size: 1.1rem; 
-    margin-bottom: 25px; 
-    color: #ffb800; 
-}
-
-.footer-links ul { list-style: none; }
-.footer-links li { margin-bottom: 12px; }
-.footer-links a { color: #cbd5e1; text-decoration: none; transition: 0.3s; }
-.footer-links a:hover { color: #fff; padding-left: 5px; }
-
-.footer-contact p { color: #cbd5e1; margin-bottom: 15px; display: flex; gap: 10px; }
-.footer-contact i { color: #ffb800; }
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 60px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.8rem;
-    color: #64748b;
-}
-    
-
-    /* Links e Colunas */
-    .footer-links-wrapper {
-        flex: 2;
-    }
-
-    .social-icons {
-        margin-bottom: 40px;
-        display: flex;
-        gap: 15px;
-    }
-
-    .social-icons a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        border: 1px solid white;
-        padding: 8px;
-        border-radius: 5px;
-    }
-
-    .footer-columns {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-
-    .footer-col {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .footer-col a {
-        color: white;
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: color 0.3s;
-    }
-
-    .footer-col a:hover {
-        color: var(--color-gold);
-    }
-
-    .col-title {
-        font-weight: 700;
-        margin-bottom: 5px;
-    }
-
-    /* Barra Final */
-    .footer-bottom {
-        margin-top: 60px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 20px;
-    }
-
-    .bottom-container {
-        max-width: 1400px;
-        margin: 0 auto;
-        width: 90%;
-        display: flex;
-        justify-content: space-between;
-        font-size: 0.8rem;
-        color: var(--color-platinum);
-    }
-
-    .privacy-link {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    /* Responsividade */
-    @media (max-width: 768px) {
-        .footer-container {
-            flex-direction: column;
+        body.high-contrast .navbar,
+        body.high-contrast footer,
+        body.high-contrast .ferrotech-grid-services {
+            background-color: #000 !important;
+            border: 2px solid #FFF !important;
         }
 
-        .footer-columns {
-            grid-template-columns: 1fr;
+        body.high-contrast a,
+        body.high-contrast .highlight {
+            color: #FFFF00 !important;
+            text-decoration: underline;
         }
-    }
 
-    
-    .header-accessibility {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 0.8rem;
-    color: var(--color-white);
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
-    padding-right: 15px;
-    margin-right: 15px;
-}
+        body.high-contrast .btn-nav-gold,
+        body.high-contrast .btn-primary {
+            background-color: #FFF !important;
+            color: #000 !important;
+            border: 2px solid #FFFF00 !important;
+        }
 
-.access-btn {
-    background: none;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
-}
+        /* =========================================
+   RESPONSIVIDADE: AJUSTES PARA IMAGENS E LAYOUT EM DISPOSITIVOS MÓVEIS
+   ========================================= */
 
-.access-btn:hover {
-    color: var(--color-gold); /* Seu Amarelo Ouro #FFB703 */
-}
-
-/* Classe de Alto Contraste que o JS vai ativar */
-.high-contrast {
-    background-color: #000 !important;
-    color: #fff !important;
-}
-
-.high-contrast .ferrotech-grid-services, 
-.high-contrast .navbar {
-    background-color: #000 !important;
-    border: 1px solid #fff;
-}
-
-/* Estilo Base para Acessibilidade */
-.access-btn {
-    transition: transform 0.2s ease;
-}
-.access-btn:active {
-    transform: scale(0.9);
-}
-
-/* Regras de Alto Contraste */
-body.high-contrast {
-    background-color: #000 !important;
-    color: #FFF !important;
-}
-
-body.high-contrast .navbar, 
-body.high-contrast footer,
-body.high-contrast .ferrotech-grid-services {
-    background-color: #000 !important;
-    border: 2px solid #FFF !important;
-}
-
-body.high-contrast a, 
-body.high-contrast .highlight {
-    color: #FFFF00 !important; /* Amarelo puro para máxima leitura */
-    text-decoration: underline;
-}
-
-body.high-contrast .btn-nav-gold,
-body.high-contrast .btn-primary {
-    background-color: #FFF !important;
-    color: #000 !important;
-    border: 2px solid #FFFF00 !important;
-}
-
-/* Configurações Gerais da Seção */
-.hero-sustainability {
-    display: flex;
-    min-height: 80vh; /* Ajuste conforme a necessidade da dobra */
-    background-color: #0f172a; /* Azul escuro do seu site */
-    color: #ffffff;
-    font-family: 'Montserrat', sans-serif; /* Ou a fonte que você estiver usando */
-}
-
-/* Lado Esquerdo */
-.hero-image-container {
-    flex: 1.2; /* Um pouco maior que o texto */
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* Lado Direito */
-.hero-content {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    padding: 60px;
-    background-color: #111d35; /* Leve variação do azul para profundidade */
-}
-
-.text-wrapper {
-    max-width: 500px;
-}
-
-.hero-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-}
-
-.highlight-green {
-    color: #4ade80; /* Verde neon para o tema sustentável */
-    display: block;
-}
-
-.hero-description {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #cbd5e1;
-    margin-bottom: 40px;
-}
-
-/* Bloco de Estatística */
-.stats-container {
-    margin-bottom: 40px;
-}
-
-.stats-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: #4ade80;
-}
-
-.stats-value {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin: 10px 0;
-}
-
-.icon-leaf {
-    width: 40px;
-    height: 40px;
-    color: #4ade80;
-}
-
-.stats-value .number {
-    font-size: 4rem;
-    font-weight: 300; /* Estilo outline se preferir */
-    color: #ffffff;
-    border-bottom: 2px solid #4ade80;
-}
-
-.stats-subtext {
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: #94a3b8;
-}
-
-/* Botão e Rodapé do Hero */
-.cta-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.btn-solicitar {
-    background-color: #ffb800; /* Amarelo FerroTech */
-    color: #000;
-    padding: 12px 30px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.9rem;
-    border-radius: 4px;
-    transition: transform 0.2s;
-}
-
-.btn-solicitar:hover {
-    transform: scale(1.05);
-}
-
-.mini-logo {
-    height: 25px;
-    opacity: 0.8;
-}
-
-/* Responsividade Básica */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
+    /* Hero Sustentabilidade: imagem e conteúdo em coluna */
     .hero-sustainability {
         flex-direction: column;
+        min-height: auto;
     }
+
+    .hero-image-container {
+        flex: auto;
+        height: 45vh;
+        min-height: 280px;
+    }
+
+    .hero-image-container img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
     .hero-content {
-        padding: 40px 20px;
+        flex: auto;
+        padding: 40px 24px;
+    }
+
+    .text-wrapper {
+        max-width: 100%;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+    }
+
+    .stats-container {
+        margin-bottom: 30px;
+    }
+
+    .stats-value .number {
+        font-size: 3rem;
+    }
+
+    .cta-wrapper {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .btn-solicitar {
+        width: 100%;
+        text-align: center;
+    }
+
+    .mini-logo {
+        height: 20px;
+    }
+
+    /* Cards de estatísticas */
+    .sustentabilidade-stats .container {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .stat-card {
+        padding: 30px 20px;
+        min-width: auto;
+    }
+
+    .stat-number {
+        font-size: 2.8rem;
+    }
+
+    /* Pilares da indústria verde */
+    .grid-pilares {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .pilar-info {
+        padding: 20px;
+    }
+
+    .pilar-info h3 {
+        font-size: 1.3rem;
+    }
+
+    /* Timeline */
+    .timeline-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .timeline-container::before {
+        display: none;
+    }
+
+    .timeline-box {
+        padding: 0;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .timeline-box .year {
+        margin-bottom: 0;
+        font-size: 1.3rem;
+        width: 70px;
+        font-weight: 700;
+    }
+
+    .timeline-box .dot {
+        margin: 0;
+        width: 12px;
+        height: 12px;
+    }
+
+    .timeline-box p {
+        flex: 1;
+        margin: 0;
+        font-size: 0.85rem;
+    }
+
+    /* Ajustes gerais para imagens que podem ficar pequenas */
+    .pilar-img img,
+    .hero-image-container img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+        object-fit: cover;
+    }
+
+    /* Evita overflow de imagens em containers flexíveis */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Espaçamento entre seções */
+    .sustentabilidade-stats,
+    .sustentabilidade-pilares,
+    .sustentabilidade-timeline {
+        padding: 60px 5%;
     }
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Telas muito pequenas (<=480px) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-image-container {
+        height: 35vh;
+        min-height: 220px;
+    }
+
+    .hero-content {
+        padding: 30px 16px;
+    }
+
+    .stats-value .number {
+        font-size: 2.5rem;
+    }
+
+    .stat-number {
+        font-size: 2.2rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+
+    .timeline-box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .timeline-box .year {
+        width: auto;
+    }
+
+    .timeline-box .dot {
+        display: none;
+    }
+
+    .timeline-box p {
+        font-size: 0.8rem;
+    }
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden; /* Evita que o site "dance" para os lados */
-}
-
-/* Variáveis para facilitar */
-:root {
-    --azul-dark: #0f172a;
-    --azul-card: #1e293b;
-    --verde-sustentavel: #4ade80;
-    --amarelo-ferrotech: #ffb800;
-}
-
-/* 1. MÉTRIQUES */
-.sustentabilidade-stats {
-    background: var(--azul-dark);
-    padding: 80px 5%;
-}
-
-.sustentabilidade-stats .container {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.stat-card {
-    background: var(--azul-card);
-    padding: 40px;
-    border-radius: 12px;
-    text-align: center;
-    flex: 1;
-    min-width: 250px;
-    border-bottom: 4px solid transparent;
-    transition: 0.3s;
-}
-
-.stat-card:hover {
-    border-bottom: 4px solid var(--verde-sustentavel);
-    transform: translateY(-10px);
-}
-
-.stat-number {
-    font-size: 3.5rem;
-    color: var(--verde-sustentavel);
-    margin: 15px 0;
-}
-
-/* 2. PILARES */
-.sustentabilidade-pilares {
-    background: #f8fafc; /* Fundo claro para contraste */
-    padding: 100px 5%;
-    color: var(--azul-dark);
-}
-
-.section-header { text-align: center; margin-bottom: 60px; }
-.section-header span { color: var(--verde-sustentavel); font-weight: 700; letter-spacing: 2px; }
-.section-header h2 span { color: var(--verde-sustentavel); }
-
-.grid-pilares { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-.pilar-item { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-.pilar-img { height: 250px; background: #ddd; }
-.pilar-info { padding: 30px; }
-.pilar-info h3 { margin-bottom: 15px; color: var(--azul-dark); }
-
-/* 3. TIMELINE */
-.sustentabilidade-timeline {
-    background: var(--azul-dark);
-    padding: 100px 5%;
-}
-
-.timeline-container {
-    display: flex;
-    position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.timeline-container::before {
-    content: '';
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: #334155;
-}
-
-.timeline-box { flex: 1; text-align: center; position: relative; padding: 20px; }
-.timeline-box .year { font-size: 1.5rem; font-weight: 800; color: #64748b; margin-bottom: 20px; }
-.timeline-box .dot { width: 15px; height: 15px; background: #334155; border-radius: 50%; margin: 0 auto 30px; position: relative; z-index: 2; }
-
-.timeline-box.active .year { color: var(--verde-sustentavel); }
-.timeline-box.active .dot { background: var(--verde-sustentavel); box-shadow: 0 0 15px var(--verde-sustentavel); }
-.timeline-box p { font-size: 0.9rem; color: #cbd5e1; }
-
-/* Header Fixo */
-.header-main {
+/* Botão flutuante para cotação (mobile) */
+.fab-cotacao {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: rgba(15, 23, 42, 0.95); /* Azul marinho com leve transparência */
-    backdrop-filter: blur(10px); /* Efeito de vidro moderno */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
-
-/* Container alinhado */
-.header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 15px 40px;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    background-color: var(--color-gold, #FFB703);
+    color: #1B263B;
+    border-radius: 50%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-}
-
-/* Estilização dos Links */
-.nav-desktop ul {
-    display: flex;
-    gap: 25px;
-    list-style: none;
-}
-
-.nav-link {
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 999;
     text-decoration: none;
-    color: #cbd5e1;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: 0.3s;
-    position: relative;
-    padding: 5px 0;
 }
 
-.nav-link:hover, .nav-link.active {
-    color: #ffb800; /* Amarelo FerroTech */
+.fab-cotacao:hover {
+    transform: scale(1.1);
+    background-color: #e6a500;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
-/* Linha animada embaixo do link ativo */
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #ffb800;
-    transition: 0.3s;
+/* Esconde o botão em telas maiores que 768px (desktop) */
+@media (min-width: 769px) {
+    .fab-cotacao {
+        display: none;
+    }
 }
 
-.nav-link:hover::after, .nav-link.active::after {
-    width: 100%;
+/* Ajuste para dispositivos muito pequenos */
+@media (max-width: 480px) {
+    .fab-cotacao {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+        bottom: 16px;
+        right: 16px;
+    }
 }
 
-/* Espaçamento para o conteúdo não ficar embaixo do header */
-body {
-    padding-top: 80px; 
+/* Suporte para alto contraste */
+body.high-contrast .fab-cotacao {
+    background-color: #fff !important;
+    color: #000 !important;
+    border: 2px solid #ff0 !important;
 }
-
-/* Remova o espaço da seção de cima */
-.secao-servicos {
-    margin-bottom: 0 !important;
-    padding-bottom: 20px; /* Ajuste conforme necessário */
-}
-
-/* Remova o espaço do topo do footer */
-footer {
-    margin-top: 0px !important;
-}
-
-header img{
-    height: 150px;
-}
-</style>
+    </style>
+</head>
 
 <body>
 
-
-
-    <header class="header-main">
-    <div class="header-container">
-        <div class="header-left">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="imagens/logo-ferrotech.png" alt="Logo FerroTech">
-                </a>
+   <header class="header-main">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="imagens/logo-ferrotech.png" alt="Logo FerroTech">
+                    </a>
+                </div>
+                <nav class="nav-desktop">
+                    <ul>
+                        <li><a href="sobrenos.html" class="nav-link">Sobre Nós</a></li>
+                        <li><a href="sustentabilidade.html" class="nav-link">Sustentabilidade</a></li>
+                        <li><a href="pessoas.html" class="nav-link">Pessoas</a></li>
+                        <li><a href="comunicacao.html" class="nav-link">Comunicação</a></li>
+                        <li><a href="servicos.html" class="nav-link">Serviços</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-mobile-btn" onclick="toggleMobileMenu()">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+</button>
             </div>
-            <nav class="nav-desktop">
-                <ul>
-                    <li><a href="sobrenos.html" class="nav-link">Sobre Nós</a></li>
-                    <li><a href="sustentabilidade.html" class="nav-link">Sustentabilidade</a></li>
-                    <li><a href="pessoas.html" class="nav-link">Pessoas</a></li>
-                    <li><a href="comunicacao.html" class="nav-link">Comunicação</a></li>
-                    <li><a href="servicos.html" class="nav-link">Serviços</a></li>
-                </ul>
-            </nav>
-        </div>
 
-        <div class="header-right">
-            <div class="top-actions">
-                <div class="header-accessibility">
-                    <button onclick="toggleContrast()" class="access-btn">
-                        <i class="fas fa-adjust"></i> CONTRASTE
-                    </button>
-                    <div class="font-controls">
-                        <button onclick="changeFontSize(-1)" class="access-btn">A-</button>
-                        <button onclick="changeFontSize(1)" class="access-btn">A+</button>
+
+            <div class="header-right">
+                <div class="top-actions">
+                    <div class="header-accessibility">
+                        <button onclick="toggleContrast()" class="access-btn">
+                            <i class="fas fa-adjust"></i> CONTRASTE
+                        </button>
+                        <div class="font-controls">
+                            <button onclick="changeFontSize(-1)" class="access-btn">A-</button>
+                            <button onclick="changeFontSize(1)" class="access-btn">A+</button>
+                        </div>
+                    </div>
+                    <div class="lang-selector">
+                        <span class="lang active">PT</span> | <span class="lang">EN</span>
                     </div>
                 </div>
-                <div class="lang-selector">
-                    <span class="lang active">PT</span> | <span class="lang">EN</span>
-                </div>
+                <a href="paginaNegocios.html" class="btn-business">FAÇA NEGÓCIO COM A FERROTECH</a>
             </div>
-            <a href="paginaNegocios.html" class="btn-business">FAÇA NEGÓCIO COM A FERROTECH</a>
         </div>
-    </div>
-</header>
+    </header>
 
     <section class="hero-sustainability">
-    <div class="hero-image-container">
-        <img src="imagens/hero_sustentabilidade.png" alt="Sustentabilidade FerroTech">
-    </div>
+        <div class="hero-image-container">
+            <img src="imagens/hero_sustentabilidade.png" alt="Sustentabilidade FerroTech">
+        </div>
 
-    <div class="hero-content">
-        <div class="text-wrapper">
-            <h1 class="hero-title">
-                INOVAÇÃO INDUSTRIAL COM 
-                <span class="highlight-green">RESPEITO AO MEIO AMBIENTE</span>
-            </h1>
-            
-            <p class="hero-description">
-                Na FerroTech, acreditamos que a precisão industrial e a sustentabilidade devem caminhar juntas. 
-                Desenvolvemos processos de baixo impacto, otimização energética e reuso inteligente de materiais.
-            </p>
+        <div class="hero-content">
+            <div class="text-wrapper">
+                <h1 class="hero-title">
+                    INOVAÇÃO INDUSTRIAL COM
+                    <span class="highlight-green">RESPEITO AO MEIO AMBIENTE</span>
+                </h1>
 
-            <div class="stats-container">
-                <span class="stats-label">PEGADA DE CARBONO REDUZIDA</span>
-                <div class="stats-value">
-                    <svg class="icon-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8a8 8 0 0 1-8 8h-2z" stroke-width="2"/>
-                        <path d="M11 20c0-2.5 2-5 2-5" stroke-width="2"/>
-                    </svg>
-                    <span class="number">22%</span>
+                <p class="hero-description">
+                    Na FerroTech, acreditamos que a precisão industrial e a sustentabilidade devem caminhar juntas.
+                    Desenvolvemos processos de baixo impacto, otimização energética e reuso inteligente de materiais.
+                </p>
+
+                <div class="stats-container">
+                    <span class="stats-label">PEGADA DE CARBONO REDUZIDA</span>
+                    <div class="stats-value">
+                        <svg class="icon-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8a8 8 0 0 1-8 8h-2z"
+                                stroke-width="2" />
+                            <path d="M11 20c0-2.5 2-5 2-5" stroke-width="2" />
+                        </svg>
+                        <span class="number">22%</span>
+                    </div>
+                    <span class="stats-subtext">NA PRODUÇÃO EM 2025</span>
                 </div>
-                <span class="stats-subtext">NA PRODUÇÃO EM 2025</span>
-            </div>
 
-            <div class="cta-wrapper">
-                <a href="paginaNegocios.html" class="btn-solicitar">SOLICITAR COTAÇÃO</a>
-                <img src="logo-ferrotech-minimal.png" alt="Logo FerroTech" class="mini-logo">
+                <div class="cta-wrapper">
+                    <a href="paginaNegocios.html" class="btn-solicitar">SOLICITAR COTAÇÃO</a>
+                    <img src="imagens/logo-ferrotech-minimal.png" alt="Logo FerroTech" class="mini-logo">
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section class="sustentabilidade-stats">
-    <div class="container">
-        <div class="stat-card">
-            <div class="stat-icon">🍃</div>
-            <h2 class="stat-number">450t</h2>
-            <p class="stat-desc">CO2 neutralizado anualmente em nossas operações de corte.</p>
+        <div class="container">
+            <div class="stat-card">
+                <div class="stat-icon">🍃</div>
+                <h2 class="stat-number">450t</h2>
+                <p class="stat-desc">CO2 neutralizado anualmente em nossas operações de corte.</p>
+            </div>
+            <div class="stat-card highlighted">
+                <div class="stat-icon">💧</div>
+                <h2 class="stat-number">98%</h2>
+                <p class="stat-desc">De reaproveitamento de água nos sistemas de resfriamento CNC.</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">♻️</div>
+                <h2 class="stat-number">100%</h2>
+                <p class="stat-desc">Das sobras de aço e metal são destinadas à reciclagem certificada.</p>
+            </div>
         </div>
-        <div class="stat-card highlighted">
-            <div class="stat-icon">💧</div>
-            <h2 class="stat-number">98%</h2>
-            <p class="stat-desc">De reaproveitamento de água nos sistemas de resfriamento CNC.</p>
-        </div>
-        <div class="stat-card">
-            <div class="stat-icon">♻️</div>
-            <h2 class="stat-number">100%</h2>
-            <p class="stat-desc">Das sobras de aço e metal são destinadas à reciclagem certificada.</p>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section class="sustentabilidade-pilares">
-    <div class="section-header">
-        <span class="subtitle">NOSSO COMPROMISSO</span>
-        <h2 class="title">PILARES DA <span>INDÚSTRIA VERDE</span></h2>
-    </div>
-    
-    <div class="grid-pilares">
-        <div class="pilar-item">
-            <div class="pilar-img">
-                <img src="energia-limpa.jpg" alt="Energia Solar">
-            </div>
-            <div class="pilar-info">
-                <h3>Energia Renovável</h3>
-                <p>Nossa planta industrial é 60% alimentada por matriz solar própria, reduzindo a dependência de fontes fósseis.</p>
-            </div>
+    <section class="sustentabilidade-pilares">
+        <div class="section-header">
+            <span class="subtitle">NOSSO COMPROMISSO</span>
+            <h2 class="title">PILARES DA <span>INDÚSTRIA VERDE</span></h2>
         </div>
-        <div class="pilar-item">
-            <div class="pilar-img">
-                <img src="logistica.jpg" alt="Logística Reversa">
-            </div>
-            <div class="pilar-info">
-                <h3>Logística Reversa</h3>
-                <p>Implementamos ciclos fechados com fornecedores para garantir que embalagens e resíduos retornem ao ciclo produtivo.</p>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="sustentabilidade-timeline">
-    <div class="timeline-container">
-        <div class="timeline-box">
-            <div class="year">2026</div>
-            <div class="dot"></div>
-            <p>Implementação de filtros de alta performance em toda linha de soldagem.</p>
+        <div class="grid-pilares">
+            <div class="pilar-item">
+                <div class="pilar-img">
+                    <img src="imagens/sustentabilidade1.png" alt="Energia Solar">
+                </div>
+                <div class="pilar-info">
+                    <h3>Energia Renovável</h3>
+                    <p>Nossa planta industrial é 60% alimentada por matriz solar própria, reduzindo a dependência de fontes fósseis.</p>
+                </div>
+            </div>
+            <div class="pilar-item">
+                <div class="pilar-img">
+                    <img src="imagens/sustentabilidade2.png" alt="Logística Reversa">
+                </div>
+                <div class="pilar-info">
+                    <h3>Logística Reversa</h3>
+                    <p>Implementamos ciclos fechados com fornecedores para garantir que embalagens e resíduos retornem ao ciclo produtivo.</p>
+                </div>
+            </div>
         </div>
-        <div class="timeline-box active">
-            <div class="year">2028</div>
-            <div class="dot"></div>
-            <p>Alcançar 85% de autonomia energética através de fontes renováveis.</p>
+    </section>
+
+    <section class="sustentabilidade-timeline">
+        <div class="timeline-container">
+            <div class="timeline-box">
+                <div class="year">2026</div>
+                <div class="dot"></div>
+                <p>Implementação de filtros de alta performance em toda linha de soldagem.</p>
+            </div>
+            <div class="timeline-box active">
+                <div class="year">2028</div>
+                <div class="dot"></div>
+                <p>Alcançar 85% de autonomia energética através de fontes renováveis.</p>
+            </div>
+            <div class="timeline-box">
+                <div class="year">2030</div>
+                <div class="dot"></div>
+                <p>Certificação Internacional de Empresa Zero Carbono (Net Zero).</p>
+            </div>
         </div>
-        <div class="timeline-box">
-            <div class="year">2030</div>
-            <div class="dot"></div>
-            <p>Certificação Internacional de Empresa Zero Carbono (Net Zero).</p>
-        </div>
-    </div>
-</section>
-<hr style="height:2px; background-color:rgb(26, 153, 0); border:none;">
+    </section>
+
+    <hr style="height:2px; background-color:rgb(26, 153, 0); border:none;">
 
     <footer class="footer-main">
         <div class="footer-container">
             <div class="footer-brand">
-                <img src="logo-ferrotech-white.png" alt="FerroTech">
+                <img src="imagens/logo-ferrotech.png" alt="FerroTech">
                 <p>Excelência em metalurgia de precisão e soluções industriais sustentáveis.</p>
                 <div class="footer-social">
                     <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -828,7 +1342,7 @@ header img{
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            
+
             <div class="footer-links">
                 <h3>Serviços</h3>
                 <ul>
@@ -849,41 +1363,49 @@ header img{
             <p>&copy; 2026 FerroTech Industrial - Todos os direitos reservados.</p>
         </div>
     </footer>
+<!-- Botão flutuante de cotação (visível apenas em mobile) -->
+<a href="paginaCotacao.html" class="fab-cotacao" aria-label="Solicitar cotação">
+    <i class="fas fa-dollar-sign"></i>
+</a>
     <script>
-     
-// 1. Controle de Contraste
-const btnContrast = document.querySelector('[onclick="toggleContrast()"]');
+        // Controle de Contraste
+        function toggleContrast() {
+            const isHighContrast = document.body.classList.toggle('high-contrast');
+            localStorage.setItem('ferrotech-contrast', isHighContrast ? 'enabled' : 'disabled');
+        }
 
-function toggleContrast() {
-    const isHighContrast = document.body.classList.toggle('high-contrast');
-    // Salva a preferência do usuário
-    localStorage.setItem('ferrotech-contrast', isHighContrast ? 'enabled' : 'disabled');
+        // Controle de Tamanho de Fonte
+        let fontSizePercent = parseInt(localStorage.getItem('ferrotech-fontsize')) || 100;
+
+        function applyFontSize() {
+            document.documentElement.style.fontSize = `${fontSizePercent}%`;
+            localStorage.setItem('ferrotech-fontsize', fontSizePercent);
+        }
+
+        function changeFontSize(delta) {
+            if ((delta > 0 && fontSizePercent < 150) || (delta < 0 && fontSizePercent > 80)) {
+                fontSizePercent += delta * 10;
+                applyFontSize();
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('ferrotech-contrast') === 'enabled') {
+                document.body.classList.add('high-contrast');
+            }
+            applyFontSize();
+        });
+
+         function toggleMobileMenu() {
+    const nav = document.querySelector('.nav-desktop');
+    nav.classList.toggle('open');
 }
 
-// 2. Controle de Tamanho de Fonte
-let fontSizePercent = parseInt(localStorage.getItem('ferrotech-fontsize')) || 100;
-
-function applyFontSize() {
-    document.documentElement.style.fontSize = `${fontSizePercent}%`;
-    localStorage.setItem('ferrotech-fontsize', fontSizePercent);
-}
-
-function changeFontSize(delta) {
-    // Limites de segurança para não quebrar o layout (80% a 150%)
-    if ((delta > 0 && fontSizePercent < 150) || (delta < 0 && fontSizePercent > 80)) {
-        fontSizePercent += delta * 10;
-        applyFontSize();
-    }
-}
-
-// 3. Ao carregar a página: Recuperar preferências
-window.addEventListener('DOMContentLoaded', () => {
-    // Recupera Contraste
-    if (localStorage.getItem('ferrotech-contrast') === 'enabled') {
-        document.body.classList.add('high-contrast');
-    }
-    // Recupera Tamanho da Fonte
-    applyFontSize();
+// Opcional: Fecha o menu automaticamente ao clicar em um link
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.nav-desktop').classList.remove('open');
+    });
 });
     </script>
 </body>

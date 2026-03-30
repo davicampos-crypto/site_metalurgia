@@ -1,324 +1,592 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Solicitar Cotação | FerroTech Industrial</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
- </head>
+    <style>
+        /* Reset e Base da Página */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
- <style>
-  /* Reset e Base da Página */
-.page-cotacao {
-    background-color: #f8fafc; /* Cinza bem clarinho/branco industrial */
-    color: #1e293b;
-}
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            font-family: 'Montserrat', sans-serif;
+            padding-top: 100px;
+        }
 
-/* Ajuste do Header para fundo claro */
-.header-light {
-    background-color: #ffffff !important;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-}
+        /* =========================================
+           HEADER FIXO (ESTILO CLARO)
+        ========================================= */
+        .header-main {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #ffffff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
 
-.header-light .nav-link {
-    color: #1e293b;
-}
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.header-light .btn-back {
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.8rem;
-    color: #1e293b;
-    border: 1px solid #cbd5e1;
-    padding: 10px 20px;
-    border-radius: 4px;
-    transition: 0.3s;
-}
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
 
-.header-light .btn-back:hover {
-    background: #0f172a;
-    color: #fff;
-}
+        .logo img {
+            height: 100px;
+            display: block;
+        }
 
-/* Footer Estilizado */
-.footer-main {
-    background-color: #0f172a;
-    color: #fff;
-    padding: 80px 5% 20px;
-    margin-top: 100px;
-}
+        .nav-desktop ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
 
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 60px;
-}
+        .nav-link {
+            color: #1e293b;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
 
-.footer-brand img { height: 40px; margin-bottom: 20px; }
-.footer-brand p { color: #94a3b8; line-height: 1.6; max-width: 300px; }
+        .nav-link:hover {
+            color: #ffb800;
+        }
 
-.footer-social { display: flex; gap: 15px; margin-top: 20px; }
-.footer-social a { color: #ffb800; font-size: 1.2rem; transition: 0.3s; }
-.footer-social a:hover { color: #fff; transform: translateY(-3px); }
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
 
-.footer-links h3, .footer-contact h3 { 
-    font-size: 1.1rem; 
-    margin-bottom: 25px; 
-    color: #ffb800; 
-}
+        .top-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.75rem;
+            color: #1e293b;
+        }
 
-.footer-links ul { list-style: none; }
-.footer-links li { margin-bottom: 12px; }
-.footer-links a { color: #cbd5e1; text-decoration: none; transition: 0.3s; }
-.footer-links a:hover { color: #fff; padding-left: 5px; }
+        .lang-selector .active {
+            color: #ffb800;
+            font-weight: 700;
+        }
 
-.footer-contact p { color: #cbd5e1; margin-bottom: 15px; display: flex; gap: 10px; }
-.footer-contact i { color: #ffb800; }
+        .btn-back {
+            background-color: #ffb800;
+            color: #000000;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            transition: 0.3s;
+            display: inline-block;
+        }
 
-.footer-bottom {
-    text-align: center;
-    margin-top: 60px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.8rem;
-    color: #64748b;
-}
+        .btn-back:hover {
+            background-color: #e5a900;
+            transform: scale(1.02);
+        }
 
-/* 1. Reset para garantir que o header ocupe a largura total */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        /* =========================================
+           HERO COTAÇÃO CONVITE
+        ========================================= */
+        .hero-cotacao-convite {
+            padding: 80px 5%;
+            background-color: #f8fafc;
+        }
 
-.header-main {
-    width: 100%;
-    background-color: #0f172a; /* Azul marinho FerroTech */
-    padding: 10px 0;
-    position: fixed; /* Fixa no topo */
-    top: 0;
-    z-index: 1000;
-    font-family: 'Montserrat', sans-serif;
-}
+        .container-cotacao {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-/* 2. Container Flexbox para alinhar tudo em uma linha */
-.header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-}
+        .grid-cotacao {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
 
-/* 3. Lado Esquerdo: Logo e Nav */
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 40px; /* Espaço entre logo e menu */
-}
+        .text-content {
+            flex: 1.2;
+        }
 
-.logo img {
-    height: 45px;
-    display: block;
-}
+        .badge-industrial {
+            display: inline-block;
+            padding: 6px 15px;
+            background: #e2e8f0;
+            color: #0f172a;
+            font-weight: 800;
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
 
-.nav-desktop ul {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-}
+        .text-content h1 {
+            font-size: 3.5rem;
+            color: #0f172a;
+            font-weight: 900;
+            line-height: 1.1;
+        }
 
-.nav-link {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: 0.3s;
-}
+        .text-content .highlight {
+            color: #ffb800;
+            -webkit-text-stroke: 1px #0f172a;
+        }
 
-.nav-link:hover {
-    color: #ffb800; /* Amarelo */
-}
+        .text-content p {
+            color: #475569;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin: 25px 0 35px;
+        }
 
-/* 4. Lado Direito: Ações de Acessibilidade e Botão Business */
-.header-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
-}
+        .beneficios-rapidos {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
 
-.top-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    font-size: 0.75rem;
-    color: #ffffff;
-}
+        .item-b {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
 
-.access-btn {
-    background: none;
-    border: none;
-    color: #ffffff;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-}
+        .item-b i {
+            color: #ffb800;
+            font-size: 1.2rem;
+        }
 
-.btn-business {
-    background-color: #ffb800;
-    color: #000000;
-    text-decoration: none;
-    padding: 10px 25px;
-    border-radius: 50px; /* Arredondado igual ao seu print */
-    font-weight: 800;
-    font-size: 0.8rem;
-    transition: 0.3s;
-}
+        .visual-content {
+            flex: 0.8;
+            position: relative;
+        }
 
-.btn-business:hover {
-    background-color: #ffffff;
-    transform: scale(1.05);
-}
+        .visual-content img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 30px 30px 0px -10px rgba(15, 23, 42, 0.05);
+        }
 
-/* 5. Ajuste para o conteúdo não subir */
-body {
-    padding-top: 100px;
-}
+        .card-status {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: #fff;
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
 
-.hero-cotacao-convite {
-    padding: 120px 5% 60px;
-    background-color: #f8fafc; /* Fundo claro industrial */
-    font-family: 'Montserrat', sans-serif;
-}
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
 
-.container-cotacao {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+            }
+        }
 
-.grid-cotacao {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-}
+        /* =========================================
+           TUTORIAL COTAÇÃO
+        ========================================= */
+        .tutorial-cotacao {
+            padding: 60px 5%;
+            background: #fff;
+        }
 
-/* Lado Esquerdo */
-.text-content {
-    flex: 1.2;
-}
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
-.badge-industrial {
-    display: inline-block;
-    padding: 6px 15px;
-    background: #e2e8f0;
-    color: #0f172a;
-    font-weight: 800;
-    font-size: 0.7rem;
-    letter-spacing: 1.5px;
-    margin-bottom: 20px;
-    border-radius: 4px;
-}
+        .titulo-sessao {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #001529;
+            text-transform: uppercase;
+        }
 
-.text-content h1 {
-    font-size: 3.5rem;
-    color: #0f172a;
-    font-weight: 900;
-    line-height: 1.1;
-}
+        .titulo-sessao span {
+            color: #ffbc00;
+        }
 
-.text-content .highlight {
-    color: #ffb800; /* Amarelo da logo FerroTech */
-    -webkit-text-stroke: 1px #0f172a; /* Leve contorno para destaque no fundo claro */
-}
+        .passo-item {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
 
-.text-content p {
-    color: #475569;
-    font-size: 1.15rem;
-    line-height: 1.7;
-    margin: 25px 0 35px;
-}
+        .passo-item.reverse {
+            flex-direction: row-reverse;
+        }
 
-.beneficios-rapidos {
-    display: flex;
-    gap: 30px;
-}
+        .passo-texto {
+            flex: 1;
+        }
 
-.item-b {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #0f172a;
-}
+        .passo-imagem {
+            flex: 1;
+        }
 
-.item-b i {
-    color: #ffb800;
-    font-size: 1.2rem;
-}
+        .passo-imagem img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
 
-/* Lado Direito */
-.visual-content {
-    flex: 0.8;
-    position: relative;
-}
+        .numero {
+            font-size: 3rem;
+            font-weight: bold;
+            color: rgba(255, 188, 0, 0.3);
+            display: block;
+            margin-bottom: -15px;
+        }
 
-.visual-content img {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 30px 30px 0px -10px rgba(15, 23, 42, 0.05); /* Sombra suave */
-}
+        .passo-texto h3 {
+            font-size: 1.8rem;
+            color: #001529;
+            margin-bottom: 15px;
+        }
 
-.card-status {
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    background: #fff;
-    padding: 12px 20px;
-    border-radius: 50px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 700;
-    font-size: 0.8rem;
-}
+        .passo-texto p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
 
-.status-dot {
-    width: 10px;
-    height: 10px;
-    background: #22c55e;
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-}
+        .cta-container {
+            text-align: center;
+            background: #001529;
+            padding: 50px;
+            border-radius: 15px;
+            color: #fff;
+            margin-top: 40px;
+        }
 
-@keyframes pulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-}
+        .cta-container h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
 
-/* Responsividade */
-@media (max-width: 992px) {
-    .grid-cotacao { flex-direction: column; text-align: center; }
-    .beneficios-rapidos { justify-content: center; }
-    .text-content h1 { font-size: 2.5rem; }
-}
+        .btn-cta {
+            display: inline-block;
+            background: #ffbc00;
+            color: #000;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 25px;
+            transition: transform 0.3s;
+        }
 
-footer {
-    margin-top: 0px !important;
-}
-header  img{
-    height: 100px !important;
-}
- </style>
+        .btn-cta:hover {
+            transform: scale(1.05);
+            background: #e5a900;
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+        .footer-main {
+            background-color: #0f172a;
+            color: #fff;
+            padding: 80px 5% 20px;
+            margin-top: 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+        }
+
+        .footer-brand img {
+            height: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: #94a3b8;
+            line-height: 1.6;
+            max-width: 300px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            color: #ffb800;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: #ffb800;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: #ffb800;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        /* =========================================
+           RESPONSIVIDADE MOBILE
+        ========================================= */
+        @media (max-width: 1024px) {
+            .nav-desktop {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+
+            .header-container {
+                padding: 10px 20px;
+            }
+
+            .logo img {
+                height: 80px;
+            }
+
+            .header-right {
+                flex-direction: row;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .top-actions {
+                gap: 10px;
+            }
+
+            .btn-back {
+                padding: 6px 12px;
+                font-size: 0.7rem;
+                white-space: nowrap;
+            }
+
+            /* Hero */
+            .hero-cotacao-convite {
+                padding: 60px 5%;
+            }
+
+            .grid-cotacao {
+                flex-direction: column;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .text-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .text-content p {
+                font-size: 1rem;
+            }
+
+            .beneficios-rapidos {
+                justify-content: center;
+            }
+
+            .card-status {
+                top: -10px;
+                right: -10px;
+                padding: 8px 15px;
+                font-size: 0.7rem;
+            }
+
+            /* Tutorial */
+            .tutorial-cotacao {
+                padding: 50px 5%;
+            }
+
+            .titulo-sessao {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+
+            .passo-item,
+            .passo-item.reverse {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+                margin-bottom: 50px;
+            }
+
+            .passo-texto h3 {
+                font-size: 1.5rem;
+            }
+
+            .passo-texto p {
+                font-size: 1rem;
+            }
+
+            .numero {
+                font-size: 2.5rem;
+            }
+
+            .cta-container {
+                padding: 30px 20px;
+            }
+
+            .cta-container h3 {
+                font-size: 1.5rem;
+            }
+
+            .btn-cta {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+
+            /* Footer */
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-brand p {
+                max-width: 100%;
+            }
+
+            .footer-bottom {
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .text-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .badge-industrial {
+                font-size: 0.65rem;
+            }
+
+            .beneficios-rapidos {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .card-status {
+                position: static;
+                margin-top: 20px;
+                justify-content: center;
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .titulo-sessao {
+                font-size: 1.5rem;
+            }
+
+            .passo-texto h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
 <body class="page-cotacao">
 
     <header class="header-main header-light">
@@ -344,53 +612,105 @@ header  img{
                         <span class="active">PT</span> | <span>EN</span>
                     </div>
                 </div>
-            <a href="paginaCotacao.html" class="btn-back" style="background-color: #ffb800;">FAZER COTAÇÃO</a>
+                <a href="paginaCotacao.html" class="btn-back">FAZER COTAÇÃO</a>
             </div>
         </div>
     </header>
 
-    <main class="cotacao-main">
-        </main>
+    <main>
+        <section class="hero-cotacao-convite">
+            <div class="container-cotacao">
+                <div class="grid-cotacao">
+                    <div class="text-content">
+                        <span class="badge-industrial">ORÇAMENTO TÉCNICO</span>
+                        <h1>PRECISÃO QUE <br><span class="highlight">VALORIZA SEU PROJETO</span></h1>
+                        <p>
+                            Solicite uma cotação personalizada e receba uma análise técnica detalhada da nossa equipe de engenharia em até 24h. 
+                            Estamos prontos para atender demandas de alta complexidade com tolerância zero ao erro.
+                        </p>
+                        <div class="beneficios-rapidos">
+                            <div class="item-b">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                                <span>Custo-benefício otimizado</span>
+                            </div>
+                            <div class="item-b">
+                                <i class="fas fa-clock"></i>
+                                <span>Resposta em tempo recorde</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="visual-content">
+                        <div class="card-status">
+                            <div class="status-dot"></div>
+                            <span>Engenheiros Online</span>
+                        </div>
+                        <img src="imagens/des_tec.png" alt="Desenho técnico FerroTech">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section class="hero-cotacao-convite">
-    <div class="container-cotacao">
-        <div class="grid-cotacao">
-            <div class="text-content">
-                <span class="badge-industrial">ORÇAMENTO TÉCNICO</span>
-                <h1>PRECISÃO QUE <br><span class="highlight">VALORIZA SEU PROJETO</span></h1>
-                <p>
-                    Solicite uma cotação personalizada e receba uma análise técnica detalhada da nossa equipe de engenharia em até 24h. 
-                    Estamos prontos para atender demandas de alta complexidade com tolerância zero ao erro.
-                </p>
+        <section class="tutorial-cotacao">
+            <div class="container">
+                <h2 class="titulo-sessao">Como solicitar seu <span>orçamento</span></h2>
                 
-                <div class="beneficios-rapidos">
-                    <div class="item-b">
-                        <i class="fas fa-file-invoice-dollar"></i>
-                        <span>Custo-benefício otimizado</span>
+                <div class="passo-item">
+                    <div class="passo-texto">
+                        <span class="numero">01</span>
+                        <h3>Identifique sua Necessidade</h3>
+                        <p>Tudo começa na nossa página principal. Visualize nosso compromisso com a tolerância zero ao erro e agilidade de resposta em até 24h.</p>
                     </div>
-                    <div class="item-b">
-                        <i class="fas fa-clock"></i>
-                        <span>Resposta em tempo recorde</span>
+                    <div class="passo-imagem">
+                        <img src="imagens/tutor1.png" alt="Página Inicial FerroTech">
                     </div>
                 </div>
-            </div>
 
-            <div class="visual-content">
-                <div class="card-status">
-                    <div class="status-dot"></div>
-                    <span>Engenheiros Online</span>
+                <div class="passo-item reverse">
+                    <div class="passo-texto">
+                        <span class="numero">02</span>
+                        <h3>Selecione os Processos</h3>
+                        <p>Escolha entre Corte a Laser, Usinagem CNC ou Soldagem. Você pode adicionar múltiplos serviços para uma cotação unificada.</p>
+                    </div>
+                    <div class="passo-imagem">
+                        <img src="imagens/tutor2.png" alt="Seleção de Serviços">
+                    </div>
                 </div>
-                <img src="blueprint-industrial.jpg" alt="Desenho técnico FerroTech">
-            </div>
-        </div>
-    </div>
-</section>
 
+                <div class="passo-item">
+                    <div class="passo-texto">
+                        <span class="numero">03</span>
+                        <h3>Revise e Prossiga</h3>
+                        <p>Confira os itens no check azul e utilize a barra de progresso no rodapé para avançar para os detalhes técnicos do projeto.</p>
+                    </div>
+                    <div class="passo-imagem">
+                        <img src="imagens/tutor3.png" alt="Revisão da Cotação">
+                    </div>
+                </div>
+
+                <div class="passo-item reverse">
+                    <div class="passo-texto">
+                        <span class="numero">04</span>
+                        <h3>Finalize os Dados Técnicos</h3>
+                        <p>Preencha seus dados e anexe o link do projeto (Drive/WeTransfer). Nossa engenharia fará a análise técnica imediata.</p>
+                    </div>
+                    <div class="passo-imagem">
+                        <img src="imagens/tutor4.png" alt="Formulário Final">
+                    </div>
+                </div>
+
+                <div class="cta-container">
+                    <h3>Pronto para elevar o nível da sua produção?</h3>
+                    <p>Receba sua análise técnica detalhada em até 24 horas.</p>
+                    <a href="paginaCotacao.html" class="btn-cta">SOLICITAR ORÇAMENTO AGORA</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer-main">
         <div class="footer-container">
             <div class="footer-brand">
-                <img src="logo-ferrotech-white.png" alt="FerroTech">
+                <img src="imagens/logo-ferrotech.png" alt="FerroTech">
                 <p>Excelência em metalurgia de precisão e soluções industriais sustentáveis.</p>
                 <div class="footer-social">
                     <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -419,10 +739,5 @@ header  img{
             <p>&copy; 2026 FerroTech Industrial - Todos os direitos reservados.</p>
         </div>
     </footer>
-
-    <script>
-
-        
-    </script>
 </body>
 </html>

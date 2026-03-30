@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FerroTech - Excelência em Metalurgia</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -221,7 +221,7 @@
     }
 
     .hero-logo {
-        max-height: 50px;
+        max-height: 150px;
         width: auto;
     }
 
@@ -626,50 +626,94 @@
     }
 
     /* Footer Estilizado */
-.footer-main {
-    background-color: #0f172a;
-    color: #fff;
-    padding: 80px 5% 20px;
-    margin-top: 100px;
-}
+    .footer-main {
+        background-color: #0f172a;
+        color: #fff;
+        padding: 80px 5% 20px;
+        margin-top: 100px;
+    }
 
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 60px;
-}
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 60px;
+    }
 
-.footer-brand img { height: 40px; margin-bottom: 20px; }
-.footer-brand p { color: #94a3b8; line-height: 1.6; max-width: 300px; }
+    .footer-brand img {
+        height: 40px;
+        margin-bottom: 20px;
+    }
 
-.footer-social { display: flex; gap: 15px; margin-top: 20px; }
-.footer-social a { color: #ffb800; font-size: 1.2rem; transition: 0.3s; }
-.footer-social a:hover { color: #fff; transform: translateY(-3px); }
+    .footer-brand p {
+        color: #94a3b8;
+        line-height: 1.6;
+        max-width: 300px;
+    }
 
-.footer-links h3, .footer-contact h3 { 
-    font-size: 1.1rem; 
-    margin-bottom: 25px; 
-    color: #ffb800; 
-}
+    .footer-social {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
 
-.footer-links ul { list-style: none; }
-.footer-links li { margin-bottom: 12px; }
-.footer-links a { color: #cbd5e1; text-decoration: none; transition: 0.3s; }
-.footer-links a:hover { color: #fff; padding-left: 5px; }
+    .footer-social a {
+        color: #ffb800;
+        font-size: 1.2rem;
+        transition: 0.3s;
+    }
 
-.footer-contact p { color: #cbd5e1; margin-bottom: 15px; display: flex; gap: 10px; }
-.footer-contact i { color: #ffb800; }
+    .footer-social a:hover {
+        color: #fff;
+        transform: translateY(-3px);
+    }
 
-.footer-bottom {
-    text-align: center;
-    margin-top: 60px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.8rem;
-    color: #64748b;
-}
+    .footer-links h3,
+    .footer-contact h3 {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        color: #ffb800;
+    }
+
+    .footer-links ul {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+
+    .footer-links a {
+        color: #cbd5e1;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+        color: #fff;
+        padding-left: 5px;
+    }
+
+    .footer-contact p {
+        color: #cbd5e1;
+        margin-bottom: 15px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .footer-contact i {
+        color: #ffb800;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 60px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 0.8rem;
+        color: #64748b;
+    }
 
     /* --- SECTION GENTE DA FERROTECH --- */
     .ferrotech-team {
@@ -987,199 +1031,620 @@
             grid-template-columns: 1fr;
         }
     }
+
     .header-accessibility {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 0.8rem;
-    color: var(--color-white);
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
-    padding-right: 15px;
-    margin-right: 15px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 0.8rem;
+        color: var(--color-white);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        padding-right: 15px;
+        margin-right: 15px;
+    }
+
+    .access-btn {
+        background: none;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+    }
+
+    .access-btn:hover {
+        color: var(--color-gold);
+        /* Seu Amarelo Ouro #FFB703 */
+    }
+
+    /* Classe de Alto Contraste que o JS vai ativar */
+    .high-contrast {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+
+    .high-contrast .ferrotech-grid-services,
+    .high-contrast .navbar {
+        background-color: #000 !important;
+        border: 1px solid #fff;
+    }
+
+    /* Estilo Base para Acessibilidade */
+    .access-btn {
+        transition: transform 0.2s ease;
+    }
+
+    .access-btn:active {
+        transform: scale(0.9);
+    }
+
+    /* Regras de Alto Contraste */
+    body.high-contrast {
+        background-color: #000 !important;
+        color: #FFF !important;
+    }
+
+    body.high-contrast .navbar,
+    body.high-contrast footer,
+    body.high-contrast .ferrotech-grid-services {
+        background-color: #000 !important;
+        border: 2px solid #FFF !important;
+    }
+
+    body.high-contrast a,
+    body.high-contrast .highlight {
+        color: #FFFF00 !important;
+        /* Amarelo puro para máxima leitura */
+        text-decoration: underline;
+    }
+
+    body.high-contrast .btn-nav-gold,
+    body.high-contrast .btn-primary {
+        background-color: #FFF !important;
+        color: #000 !important;
+        border: 2px solid #FFFF00 !important;
+    }
+
+    /* Header Fixo */
+    .header-main {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(15, 23, 42, 0.95);
+        /* Azul marinho com leve transparência */
+        backdrop-filter: blur(10px);
+        /* Efeito de vidro moderno */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    /* Container alinhado */
+    .header-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 15px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Estilização dos Links */
+    .nav-desktop ul {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: #cbd5e1;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: 0.3s;
+        position: relative;
+        padding: 5px 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        color: #ffb800;
+        /* Amarelo FerroTech */
+    }
+
+    /* Linha animada embaixo do link ativo */
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #ffb800;
+        transition: 0.3s;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        width: 100%;
+    }
+
+    /* Espaçamento para o conteúdo não ficar embaixo do header */
+    body {
+        padding-top: 80px;
+    }
+
+    header img {
+        height: 150px;
+    }
+
+    /* =========================================
+   MELHORIAS DE RESPONSIVIDADE PARA CELULAR
+   ========================================= */
+    @media (max-width: 768px) {
+        body {
+            padding-top: 70px;
+            /* Ajuste para header menor */
+        }
+
+        /* HEADER */
+        .header-main {
+            height: auto;
+            padding: 10px 0;
+        }
+
+        .header-container {
+            padding: 10px 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .header-left .logo img {
+            height: 50px !important;
+            width: auto;
+        }
+
+        .top-actions {
+            gap: 10px;
+        }
+
+        .header-accessibility {
+            gap: 8px;
+            padding-right: 8px;
+            margin-right: 8px;
+        }
+
+        .access-btn {
+            font-size: 0.7rem;
+        }
+
+        .btn-business {
+            padding: 8px 16px;
+            font-size: 0.75rem;
+        }
+
+        /* HERO */
+        .hero-visual {
+            height: 40vh;
+        }
+
+        .hero-content {
+            padding: 30px 20px;
+        }
+
+        .hero-headline {
+            font-size: 1.5rem;
+        }
+
+        .hero-subtext {
+            font-size: 0.9rem;
+        }
+
+        .milestone-year {
+            font-size: 3rem;
+            -webkit-text-stroke: 0.5px var(--color-platinum);
+        }
+
+        .hero-logo {
+            max-height: 80px !important;
+        }
+
+        .hero-footer {
+            gap: 15px;
+        }
+
+        .btn-cta {
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            font-size: 0.9rem;
+        }
+
+        /* SEÇÃO BOAS PRÁTICAS */
+        .ferrotech-practices {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+        }
+
+        .practice-headline {
+            font-size: 1.4rem;
+        }
+
+        .practice-text {
+            font-size: 0.95rem;
+        }
+
+        .btn-more {
+            padding: 10px 20px;
+            font-size: 0.8rem;
+        }
+
+        .arrow {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+
+        .control-counter {
+            font-size: 1.4rem;
+        }
+
+        /* SEÇÃO GENTE DA FERROTECH */
+        .ferrotech-team {
+            padding: 60px 0;
+        }
+
+        .team-title {
+            font-size: 2rem;
+        }
+
+        .team-description {
+            font-size: 1rem;
+        }
+
+        .team-question {
+            font-size: 1.1rem;
+        }
+
+        .team-actions {
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .btn-team {
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+        }
+
+        .team-visual-composition {
+            margin-top: 30px;
+        }
+
+        .img-workers {
+            width: 100%;
+        }
+
+        /* GRID DE SERVIÇOS */
+        .ferrotech-grid-services {
+            padding: 60px 0;
+        }
+
+        .grid-main-title {
+            font-size: 1.8rem;
+        }
+
+        .service-card {
+            height: auto;
+            min-height: 320px;
+            padding: 30px 20px;
+        }
+
+        .card-number {
+            font-size: 3rem;
+        }
+
+        .card-content h3 {
+            font-size: 1.3rem;
+        }
+
+        .card-content p {
+            font-size: 0.9rem;
+        }
+
+        /* FOOTER */
+        .footer-main {
+            padding: 50px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand p {
+            max-width: 100%;
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-contact p {
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            font-size: 0.7rem;
+        }
+    }
+
+    /* Telas muito pequenas (<=480px) */
+    @media (max-width: 480px) {
+        .header-container {
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-left {
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .header-right {
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-actions {
+            order: 2;
+        }
+
+        .btn-business {
+            order: 1;
+        }
+
+        .hero-headline {
+            font-size: 1.3rem;
+        }
+
+        .hero-subtext {
+            font-size: 0.85rem;
+        }
+
+        .milestone-year {
+            font-size: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+        }
+
+        .practice-headline {
+            font-size: 1.2rem;
+        }
+
+        .arrow {
+            width: 35px;
+            height: 35px;
+        }
+
+        .team-title {
+            font-size: 1.8rem;
+        }
+    }
+
+    footer{
+margin-top: 0px !important;
+
+    }
+
+/* --- CONFIGURAÇÃO PARA DESKTOP (IGUAL AO SEU) --- */
+.menu-mobile-btn {
+    display: none; /* Esconde o botão no PC */
 }
 
-.access-btn {
-    background: none;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
-}
+@media (max-width: 768px) {
+    /* 1. Ajuste do Container para não quebrar o layout */
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
 
-.access-btn:hover {
-    color: var(--color-gold); /* Seu Amarelo Ouro #FFB703 */
-}
+    /* 2. Botão Hambúrguer - Ajustando cores */
+    .menu-mobile-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        order: 2; /* Garante que fique na direita */
+    }
 
-/* Classe de Alto Contraste que o JS vai ativar */
-.high-contrast {
-    background-color: #000 !important;
-    color: #fff !important;
-}
+    .menu-mobile-btn span {
+        width: 100%;
+        height: 3px;
+        background-color: #ffcc00; /* Amarelo da logo para destaque */
+        border-radius: 2px;
+    }
 
-.high-contrast .ferrotech-grid-services, 
-.high-contrast .navbar {
-    background-color: #000 !important;
-    border: 1px solid #fff;
-}
+    /* 3. O Menu em si (A parte que estava branca) */
+    .nav-desktop {
+        display: none; 
+        position: absolute;
+        top: 70px; /* Ajuste para ficar logo abaixo do header */
+        left: 0;
+        width: 100%;
+        background-color: #1a2433; /* Azul escuro combinando com a marca */
+        z-index: 1000;
+        border-bottom: 3px solid #ffcc00;
+    }
 
-/* Estilo Base para Acessibilidade */
-.access-btn {
-    transition: transform 0.2s ease;
-}
-.access-btn:active {
-    transform: scale(0.9);
-}
+    .nav-desktop.open {
+        display: block;
+    }
 
-/* Regras de Alto Contraste */
-body.high-contrast {
-    background-color: #000 !important;
-    color: #FFF !important;
-}
+    .nav-desktop ul {
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
 
-body.high-contrast .navbar, 
-body.high-contrast footer,
-body.high-contrast .ferrotech-grid-services {
-    background-color: #000 !important;
-    border: 2px solid #FFF !important;
-}
+    .nav-desktop ul li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
 
-body.high-contrast a, 
-body.high-contrast .highlight {
-    color: #FFFF00 !important; /* Amarelo puro para máxima leitura */
-    text-decoration: underline;
-}
+    /* 4. Ajuste dos links (Para ficarem visíveis) */
+    .nav-desktop ul li a {
+        display: block;
+        padding: 15px;
+        color: #ffffff !important; /* Texto branco */
+        text-decoration: none;
+        font-weight: bold;
+        text-align: center;
+    }
 
-body.high-contrast .btn-nav-gold,
-body.high-contrast .btn-primary {
-    background-color: #FFF !important;
-    color: #000 !important;
-    border: 2px solid #FFFF00 !important;
-}
+    .nav-desktop ul li a:hover {
+        background-color: #253244;
+        color: #ffcc00 !important; /* Amarelo ao passar o mouse */
+    }
 
-/* Header Fixo */
-.header-main {
+    /* 5. Esconder elementos que não cabem no mobile */
+    .header-right {
+        display: none; 
+    }
+}
+/* Botão flutuante para cotação (mobile) */
+.fab-cotacao {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: rgba(15, 23, 42, 0.95); /* Azul marinho com leve transparência */
-    backdrop-filter: blur(10px); /* Efeito de vidro moderno */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
-
-/* Container alinhado */
-.header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 15px 40px;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    background-color: var(--color-gold, #FFB703);
+    color: #1B263B;
+    border-radius: 50%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-}
-
-/* Estilização dos Links */
-.nav-desktop ul {
-    display: flex;
-    gap: 25px;
-    list-style: none;
-}
-
-.nav-link {
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 999;
     text-decoration: none;
-    color: #cbd5e1;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: 0.3s;
-    position: relative;
-    padding: 5px 0;
 }
 
-.nav-link:hover, .nav-link.active {
-    color: #ffb800; /* Amarelo FerroTech */
+.fab-cotacao:hover {
+    transform: scale(1.1);
+    background-color: #e6a500;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
-/* Linha animada embaixo do link ativo */
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #ffb800;
-    transition: 0.3s;
+/* Esconde o botão em telas maiores que 768px (desktop) */
+@media (min-width: 769px) {
+    .fab-cotacao {
+        display: none;
+    }
 }
 
-.nav-link:hover::after, .nav-link.active::after {
-    width: 100%;
+/* Ajuste para dispositivos muito pequenos */
+@media (max-width: 480px) {
+    .fab-cotacao {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+        bottom: 16px;
+        right: 16px;
+    }
 }
 
-/* Espaçamento para o conteúdo não ficar embaixo do header */
-body {
-    padding-top: 80px; 
-}
-
-footer {
-    margin-top: 0px !important;
-}
-header img{
-    height: 150px;
+/* Suporte para alto contraste */
+body.high-contrast .fab-cotacao {
+    background-color: #fff !important;
+    color: #000 !important;
+    border: 2px solid #ff0 !important;
 }
 </style>
 
 <body>
 
-
-
     <header class="header-main">
-    <div class="header-container">
-        <div class="header-left">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="imagens/logo-ferrotech.png" alt="Logo FerroTech">
-                </a>
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="imagens/logo-ferrotech.png" alt="Logo FerroTech">
+                    </a>
+                </div>
+                <nav class="nav-desktop">
+                    <ul>
+                        <li><a href="sobrenos.html" class="nav-link">Sobre Nós</a></li>
+                        <li><a href="sustentabilidade.html" class="nav-link">Sustentabilidade</a></li>
+                        <li><a href="pessoas.html" class="nav-link">Pessoas</a></li>
+                        <li><a href="comunicacao.html" class="nav-link">Comunicação</a></li>
+                        <li><a href="servicos.html" class="nav-link">Serviços</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-mobile-btn" onclick="toggleMobileMenu()">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+</button>
             </div>
-            <nav class="nav-desktop">
-                <ul>
-                    <li><a href="sobrenos.html" class="nav-link">Sobre Nós</a></li>
-                    <li><a href="sustentabilidade.html" class="nav-link">Sustentabilidade</a></li>
-                    <li><a href="pessoas.html" class="nav-link">Pessoas</a></li>
-                    <li><a href="comunicacao.html" class="nav-link">Comunicação</a></li>
-                    <li><a href="servicos.html" class="nav-link">Serviços</a></li>
-                </ul>
-            </nav>
-        </div>
 
-        <div class="header-right">
-            <div class="top-actions">
-                <div class="header-accessibility">
-                    <button onclick="toggleContrast()" class="access-btn">
-                        <i class="fas fa-adjust"></i> CONTRASTE
-                    </button>
-                    <div class="font-controls">
-                        <button onclick="changeFontSize(-1)" class="access-btn">A-</button>
-                        <button onclick="changeFontSize(1)" class="access-btn">A+</button>
+
+            <div class="header-right">
+                <div class="top-actions">
+                    <div class="header-accessibility">
+                        <button onclick="toggleContrast()" class="access-btn">
+                            <i class="fas fa-adjust"></i> CONTRASTE
+                        </button>
+                        <div class="font-controls">
+                            <button onclick="changeFontSize(-1)" class="access-btn">A-</button>
+                            <button onclick="changeFontSize(1)" class="access-btn">A+</button>
+                        </div>
+                    </div>
+                    <div class="lang-selector">
+                        <span class="lang active">PT</span> | <span class="lang">EN</span>
                     </div>
                 </div>
-                <div class="lang-selector">
-                    <span class="lang active">PT</span> | <span class="lang">EN</span>
-                </div>
+                <a href="paginaNegocios.html" class="btn-business">FAÇA NEGÓCIO COM A FERROTECH</a>
             </div>
-            <a href="paginaNegocios.html" class="btn-business">FAÇA NEGÓCIO COM A FERROTECH</a>
         </div>
-    </div>
-</header>
-
+    </header>
 
     <section class="hero" id="hero-ferrotech">
         <div class="hero-container">
 
             <div class="hero-visual">
-                <img src="https://via.placeholder.com/1200x800/1B263B/778DA9?text=Operario+com+Capacete+FerroTech"
+                <img src="imagens/trabalhadorcapacete.png"
                     alt="Operário da FerroTech Industrial com capacete amarelo e uniforme azul em uma fundição"
                     class="hero-worker-img">
 
@@ -1213,7 +1678,7 @@ header img{
                         <a href="paginaNegocios.html" class="btn-cta">Solicitar Cotação</a>
 
                         <div class="hero-logo-container">
-                            <img src="https://via.placeholder.com/150x50/1B263B/FFB703?text=Logo+FerroTech"
+                            <img src="imagens/logo-ferrotech.png" style="height: 400px !important;"
                                 alt="Logotipo FerroTech Industrial" class="hero-logo">
                         </div>
                     </div>
@@ -1235,8 +1700,7 @@ header img{
 
                 <div class="practice-slide active">
                     <div class="practice-visual">
-                        <img src="https://via.placeholder.com/600x300/1B263B/FFB703?text=Segurança+Operacional"
-                            alt="Segurança FerroTech" class="visual-banner">
+                        <img src="imagens/segurancaocup.png" alt="Segurança FerroTech" class="visual-banner">
                     </div>
                     <div class="practice-content">
                         <h3 class="practice-category">Operações e Segurança</h3>
@@ -1246,14 +1710,13 @@ header img{
                             em treinamento contínuo e monitoramento em tempo real para garantir que todos retornem em
                             segurança para casa.
                         </p>
-                        <a href="#" class="btn-more">Certificações ISO</a>
+                        <a href="variados.html#certificacoes" class="btn-more">Certificações ISO</a>
                     </div>
                 </div>
 
                 <div class="practice-slide">
                     <div class="practice-visual">
-                        <img src="https://via.placeholder.com/600x300/1B263B/FFB703?text=Impacto+Social"
-                            alt="Projetos Sociais FerroTech" class="visual-banner">
+                        <img src="imagens/impactosocial.png" alt="Projetos Sociais FerroTech" class="visual-banner">
                     </div>
                     <div class="practice-content">
                         <h3 class="practice-category">Social</h3>
@@ -1263,14 +1726,13 @@ header img{
                             técnica em Carapicuíba e região, capacitando jovens para o mercado de trabalho industrial e
                             fomentando a economia local através de parcerias com fornecedores regionais.
                         </p>
-                        <a href="#" class="btn-more">Nossos Projetos</a>
+                        <a href="variados.html#projetos" class="btn-more">Nossos Projetos</a>
                     </div>
                 </div>
 
                 <div class="practice-slide">
                     <div class="practice-visual">
-                        <img src="https://via.placeholder.com/600x300/1B263B/FFB703?text=Ética+e+Governança"
-                            alt="Governança FerroTech" class="visual-banner">
+                        <img src="imagens/eticagovernanca.png" alt="Governança FerroTech" class="visual-banner">
                     </div>
                     <div class="practice-content">
                         <h3 class="practice-category">Governança</h3>
@@ -1280,14 +1742,13 @@ header img{
                             independente e conselhos de administração que asseguram que cada contrato da FerroTech
                             Industrial seja pautado pela legalidade e pelo respeito aos nossos investidores e parceiros.
                         </p>
-                        <a href="#" class="btn-more">Código de Ética</a>
+                        <a href="variados.html#etica" class="btn-more">Código de Ética</a>
                     </div>
                 </div>
 
                 <div class="practice-slide">
                     <div class="practice-visual">
-                        <img src="https://via.placeholder.com/600x300/1B263B/FFB703?text=Sustentabilidade"
-                            alt="Meio Ambiente FerroTech" class="visual-banner">
+                        <img src="imagens/sustentabilidade.png" alt="Meio Ambiente FerroTech" class="visual-banner">
                     </div>
                     <div class="practice-content">
                         <h3 class="practice-category">Meio Ambiente</h3>
@@ -1297,28 +1758,22 @@ header img{
                             e reciclagem de 95% da água utilizada em nossos processos. A FerroTech busca constantemente
                             a redução da pegada de carbono em toda a cadeia produtiva.
                         </p>
-                        <a href="#" class="btn-more">Relatório ESG</a>
+                        <a href="variados.html#esg" class="btn-more">Relatório ESG</a>
                     </div>
                 </div>
 
             </div>
         </div>
 
-        </div>
-
         <div class="carousel-controls">
-
             <div class="control-arrows">
                 <button class="arrow prev" aria-label="Slide anterior">←</button>
                 <button class="arrow next" aria-label="Próximo slide">→</button>
             </div>
-
             <div class="control-counter">
                 <span class="counter-current">01</span> <span class="counter-divider">/</span> <span
                     class="counter-total">04</span>
             </div>
-        </div>
-
         </div>
     </section>
 
@@ -1340,9 +1795,8 @@ header img{
             </div>
 
             <div class="team-visual-composition">
-                <img src="https://via.placeholder.com/600x400/FFB703/1B263B?text=Equipe+FerroTech"
+                <img src="imagens/equipeferrotech.png"
                     alt="Colaboradores da FerroTech sorrindo com equipamentos de proteção" class="img-workers">
-
                 <div class="visual-accent"></div>
             </div>
 
@@ -1363,7 +1817,7 @@ header img{
                         <span class="card-number">01</span>
                         <h3>Corte a Laser</h3>
                         <p>Precisão milimétrica em chapas de aço carbono e inox com tecnologia de fibra ótica.</p>
-                        <a href="#" class="btn-card">Especificações Técnicas</a>
+                        <a href="variados.html#especificacoes" class="btn-card">Especificações Técnicas</a>
                     </div>
                 </div>
 
@@ -1373,7 +1827,7 @@ header img{
                         <span class="card-number">02</span>
                         <h3>Usinagem CNC</h3>
                         <p>Peças complexas com tolerâncias rigorosas para os setores automotivo e aeroespacial.</p>
-                        <a href="#" class="btn-card">Ver Maquinário</a>
+                        <a href="variados.html#maquinario" class="btn-card">Ver Maquinário</a>
                     </div>
                 </div>
 
@@ -1383,17 +1837,17 @@ header img{
                         <span class="card-number">03</span>
                         <h3>Soldagem Industrial</h3>
                         <p>Solda MIG/TIG robotizada garantindo integridade estrutural em grandes montagens.</p>
-                        <a href="#" class="btn-card">Certificações de Qualidade</a>
+                        <a href="variados.html#certificacoes" class="btn-card">Certificações de Qualidade</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-   <footer class="footer-main">
+    <footer class="footer-main">
         <div class="footer-container">
             <div class="footer-brand">
-                <img src="logo-ferrotech-white.png" alt="FerroTech">
+                <img src="imagens/logo-ferrotech.png" alt="FerroTech">
                 <p>Excelência em metalurgia de precisão e soluções industriais sustentáveis.</p>
                 <div class="footer-social">
                     <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -1401,7 +1855,7 @@ header img{
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            
+
             <div class="footer-links">
                 <h3>Serviços</h3>
                 <ul>
@@ -1422,19 +1876,20 @@ header img{
             <p>&copy; 2026 FerroTech Industrial - Todos os direitos reservados.</p>
         </div>
     </footer>
-
+<!-- Botão flutuante de cotação (visível apenas em mobile) -->
+<a href="paginaCotacao.html" class="fab-cotacao" aria-label="Solicitar cotação">
+    <i class="fas fa-dollar-sign"></i>
+</a>
     <script type="module" src="js/main.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Seleciona os elementos
             const slides = document.querySelectorAll('.practice-slide');
-            const btnNext = document.querySelector('.arrow.next'); // Adicionei .arrow para garantir
-            const btnPrev = document.querySelector('.arrow.prev'); // Adicionei .arrow para garantir
+            const btnNext = document.querySelector('.arrow.next');
+            const btnPrev = document.querySelector('.arrow.prev');
             const currentCounter = document.querySelector('.counter-current');
 
             let currentIdx = 0;
 
-            // Função de atualização
             function updateCarousel() {
                 slides.forEach(slide => {
                     slide.classList.remove('active');
@@ -1448,7 +1903,6 @@ header img{
                 }
             }
 
-            // Eventos de Clique
             if (btnNext && btnPrev) {
                 btnNext.addEventListener('click', function () {
                     currentIdx = (currentIdx + 1) % slides.length;
@@ -1459,50 +1913,55 @@ header img{
                     currentIdx = (currentIdx - 1 + slides.length) % slides.length;
                     updateCarousel();
                 });
-            } else {
-                console.error("Botões não encontrados. Verifique se as classes 'next' e 'prev' existem no HTML.");
             }
 
-            // Inicializa o primeiro slide
             updateCarousel();
         });
-        // --- CONFIGURAÇÃO DE ACESSIBILIDADE ---
 
-// 1. Controle de Contraste
-const btnContrast = document.querySelector('[onclick="toggleContrast()"]');
+        // Controle de contraste e fonte
+        function toggleContrast() {
+            const isHighContrast = document.body.classList.toggle('high-contrast');
+            localStorage.setItem('ferrotech-contrast', isHighContrast ? 'enabled' : 'disabled');
+        }
 
-function toggleContrast() {
-    const isHighContrast = document.body.classList.toggle('high-contrast');
-    // Salva a preferência do usuário
-    localStorage.setItem('ferrotech-contrast', isHighContrast ? 'enabled' : 'disabled');
+        let fontSizePercent = parseInt(localStorage.getItem('ferrotech-fontsize')) || 100;
+
+        function applyFontSize() {
+            document.documentElement.style.fontSize = `${fontSizePercent}%`;
+            localStorage.setItem('ferrotech-fontsize', fontSizePercent);
+        }
+
+        function changeFontSize(delta) {
+            if ((delta > 0 && fontSizePercent < 150) || (delta < 0 && fontSizePercent > 80)) {
+                fontSizePercent += delta * 10;
+                applyFontSize();
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('ferrotech-contrast') === 'enabled') {
+                document.body.classList.add('high-contrast');
+            }
+            applyFontSize();
+        });
+
+     function toggleMobileMenu() {
+    const nav = document.querySelector('.nav-desktop');
+    nav.classList.toggle('open');
 }
 
-// 2. Controle de Tamanho de Fonte
-let fontSizePercent = parseInt(localStorage.getItem('ferrotech-fontsize')) || 100;
-
-function applyFontSize() {
-    document.documentElement.style.fontSize = `${fontSizePercent}%`;
-    localStorage.setItem('ferrotech-fontsize', fontSizePercent);
-}
-
-function changeFontSize(delta) {
-    // Limites de segurança para não quebrar o layout (80% a 150%)
-    if ((delta > 0 && fontSizePercent < 150) || (delta < 0 && fontSizePercent > 80)) {
-        fontSizePercent += delta * 10;
-        applyFontSize();
-    }
-}
-
-// 3. Ao carregar a página: Recuperar preferências
-window.addEventListener('DOMContentLoaded', () => {
-    // Recupera Contraste
-    if (localStorage.getItem('ferrotech-contrast') === 'enabled') {
-        document.body.classList.add('high-contrast');
-    }
-    // Recupera Tamanho da Fonte
-    applyFontSize();
+// Opcional: Fecha o menu automaticamente ao clicar em um link
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.nav-desktop').classList.remove('open');
+    });
 });
-    </script>
+
+</script>
+    
+
+  
+
 </body>
 
 </html>
