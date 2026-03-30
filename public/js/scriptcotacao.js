@@ -47,7 +47,7 @@ function toggleServico(btn) {
 }
 
 // Função para rolar até o formulário
-window.scrollParaDados = function() {
+window.scrollParaDados = function () {
     const formSecao = document.getElementById('form-detalhes');
     if (!formSecao) return;
 
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Adicionar eventos aos botões de serviço
     const btnsAddServico = document.querySelectorAll('.btn-add-servico');
     btnsAddServico.forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', function (e) {
             e.preventDefault();
             toggleServico(this);
         });

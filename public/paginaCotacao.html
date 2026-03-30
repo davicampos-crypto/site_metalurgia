@@ -433,209 +433,216 @@
     }
 
     footer {
-    margin-top: 0px !important;
-}
-header img{
-    height: 100px !important;
-}
-
-/* ========== MEDIA QUERIES: HEADER RESPONSIVO ========== */
-@media (max-width: 992px) {
-  .header-main {
-    padding: 10px 0;
-  }
-
-  .header-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    padding: 0 20px;
-  }
-
-  .header-left {
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    align-items: center;
-  }
-
-  .logo img {
-    height: 70px !important; /* Reduz tamanho da logo em tablets */
-  }
-
-  .nav-desktop ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-link {
-    font-size: 0.8rem;
-  }
-
-  .header-right {
-    align-items: center;
-    width: 100%;
-  }
-
-  .top-actions {
-    justify-content: center;
-    gap: 15px;
-  }
-
-  /* Ajusta o espaçamento do conteúdo principal para compensar a altura maior do header */
-  .selecao-servicos {
-    margin-top: 240px !important;
-  }
-}
-
-@media (max-width: 576px) {
-  .header-main {
-    padding: 8px 0;
-  }
-
-  .logo img {
-    height: 55px !important;
-  }
-
-  .nav-desktop ul {
-    gap: 10px;
-  }
-
-  .nav-link {
-    font-size: 0.7rem;
-  }
-
-  .top-actions {
-    font-size: 0.7rem;
-  }
-
-  .selecao-servicos {
-    margin-top: 210px !important;
-  }
-}
-
-/* ========== MEDIA QUERIES: FOOTER RESPONSIVO ========== */
-@media (max-width: 768px) {
-  .footer-main {
-    padding: 50px 5% 20px;
-    margin-top: 60px;
-  }
-
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
-  }
-
-  .footer-brand p {
-    margin: 0 auto;
-    max-width: 100%;
-  }
-
-  .footer-social {
-    justify-content: center;
-  }
-
-  .footer-links ul {
-    text-align: center;
-  }
-
-  .footer-contact p {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer-main {
-    padding: 40px 5% 20px;
-  }
-
-  .footer-container {
-    gap: 30px;
-  }
-
-  .footer-links h3,
-  .footer-contact h3 {
-    font-size: 1rem;
-    margin-bottom: 15px;
-  }
-
-  .footer-links li {
-    margin-bottom: 8px;
-  }
-
-  .footer-bottom {
-    margin-top: 40px;
-    font-size: 0.7rem;
-  }
-}
-
-/* Esconde o botão de voltar no computador */
-.btn-voltar-mobile {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    /* 1. Alinhamento do Header */
-    .header-container {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: flex-start !important; /* Alinha os itens à esquerda */
-        align-items: center;
-        gap: 20px; /* Espaço entre o botão e o logo */
-        padding: 10px 20px;
+        margin-top: 0px !important;
     }
 
-    /* 2. Mostra o botão de voltar no celular */
+    header img {
+        height: 100px !important;
+    }
+
+    /* ========== MEDIA QUERIES: HEADER RESPONSIVO ========== */
+    @media (max-width: 992px) {
+        .header-main {
+            padding: 10px 0;
+        }
+
+        .header-container {
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 0 20px;
+        }
+
+        .header-left {
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 70px !important;
+            /* Reduz tamanho da logo em tablets */
+        }
+
+        .nav-desktop ul {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            font-size: 0.8rem;
+        }
+
+        .header-right {
+            align-items: center;
+            width: 100%;
+        }
+
+        .top-actions {
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Ajusta o espaçamento do conteúdo principal para compensar a altura maior do header */
+        .selecao-servicos {
+            margin-top: 240px !important;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .header-main {
+            padding: 8px 0;
+        }
+
+        .logo img {
+            height: 55px !important;
+        }
+
+        .nav-desktop ul {
+            gap: 10px;
+        }
+
+        .nav-link {
+            font-size: 0.7rem;
+        }
+
+        .top-actions {
+            font-size: 0.7rem;
+        }
+
+        .selecao-servicos {
+            margin-top: 210px !important;
+        }
+    }
+
+    /* ========== MEDIA QUERIES: FOOTER RESPONSIVO ========== */
+    @media (max-width: 768px) {
+        .footer-main {
+            padding: 50px 5% 20px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .footer-brand p {
+            margin: 0 auto;
+            max-width: 100%;
+        }
+
+        .footer-social {
+            justify-content: center;
+        }
+
+        .footer-links ul {
+            text-align: center;
+        }
+
+        .footer-contact p {
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .footer-main {
+            padding: 40px 5% 20px;
+        }
+
+        .footer-container {
+            gap: 30px;
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            font-size: 0.7rem;
+        }
+    }
+
+    /* Esconde o botão de voltar no computador */
     .btn-voltar-mobile {
-        display: flex;
-        align-items: center;
-        background: transparent;
-        border: 1px solid #ffcc00; /* Borda amarela */
-        color: #ffcc00; /* Texto amarelo */
-        padding: 5px 12px;
-        border-radius: 5px;
-        font-weight: bold;
-        cursor: pointer;
-        font-size: 14px;
-        text-transform: uppercase;
+        display: none;
     }
 
-    /* 3. Esconde TUDO o que não é o Logo ou o Botão de Voltar */
-    .menu-mobile-btn, 
-    .nav-desktop, 
-    .header-right, 
-    .top-actions, 
-    .btn-business {
-        display: none !important;
+    @media (max-width: 768px) {
+
+        /* 1. Alinhamento do Header */
+        .header-container {
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: flex-start !important;
+            /* Alinha os itens à esquerda */
+            align-items: center;
+            gap: 20px;
+            /* Espaço entre o botão e o logo */
+            padding: 10px 20px;
+        }
+
+        /* 2. Mostra o botão de voltar no celular */
+        .btn-voltar-mobile {
+            display: flex;
+            align-items: center;
+            background: transparent;
+            border: 1px solid #ffcc00;
+            /* Borda amarela */
+            color: #ffcc00;
+            /* Texto amarelo */
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        /* 3. Esconde TUDO o que não é o Logo ou o Botão de Voltar */
+        .menu-mobile-btn,
+        .nav-desktop,
+        .header-right,
+        .top-actions,
+        .btn-business {
+            display: none !important;
+        }
+
+        /* 4. Ajuste do tamanho do Logo no celular */
+        .logo img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+        }
     }
 
-    /* 4. Ajuste do tamanho do Logo no celular */
-    .logo img {
-        max-width: 100px;
-        height: auto;
-    }
-
-    .header-left {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 100%;
-    }
-}
-
-.selecao-servicos {
-    margin-top: 150px ;
-}
-
-@media (max-width: 768px) {
     .selecao-servicos {
-    margin-top: 50px !important;
-}
-}
+        margin-top: 150px;
+    }
+
+    @media (max-width: 768px) {
+        .selecao-servicos {
+            margin-top: 50px !important;
+        }
+    }
 </style>
 
 <body>
@@ -643,8 +650,8 @@ header img{
         <div class="header-container">
             <div class="header-left">
                 <button class="btn-voltar-mobile" onclick="window.history.back()">
-                <i class="fas fa-arrow-left"></i> Voltar
-            </button>
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </button>
                 <div class="logo">
                     <a href="index.html">
                         <img src="imagens/logo-ferrotech.png" alt="FerroTech Metalurgia de Precisão">
@@ -665,12 +672,12 @@ header img{
                         <span class="active">PT</span> | <span>EN</span>
                     </div>
                 </div>
-               
+
             </div>
         </div>
     </header>
 
-    <section class="selecao-servicos" >
+    <section class="selecao-servicos">
         <div class="container-cotacao">
             <div class="header-selecao">
                 <h2>O que vamos <span class="highlight">produzir hoje?</span></h2>
@@ -694,7 +701,7 @@ header img{
                     <div class="card-icon"><i class="fas fa-microchip"></i></div>
                     <h3>Usinagem CNC</h3>
                     <p>Produção de peças tridimensionais, moldes e matrizes de alta complexidade.</p>
-                    <button class="btn-add-servico" >
+                    <button class="btn-add-servico">
                         <i class="fas fa-plus"></i> ADICIONAR À COTAÇÃO
                     </button>
                 </div>
@@ -704,7 +711,7 @@ header img{
                     <div class="card-icon"><i class="fas fa-fire"></i></div>
                     <h3>Soldagem Especializada</h3>
                     <p>União estrutural com processos TIG/MIG/MAG para máxima resistência.</p>
-                    <button class="btn-add-servico" >
+                    <button class="btn-add-servico">
                         <i class="fas fa-plus"></i> ADICIONAR À COTAÇÃO
                     </button>
                 </div>
@@ -800,7 +807,7 @@ header img{
 
     <script type="module" src="js/scriptcotacao.js"></script>
     <script>    //cotacao script
-           let selecionados = 0;
+        let selecionados = 0;
 
         function toggleServico(btn) {
             const card = btn.closest('.card-cotacao');
@@ -845,5 +852,5 @@ header img{
         }
 
 
-</script>
+    </script>
 </body>

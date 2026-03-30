@@ -28,7 +28,8 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             width: 100%;
             overflow-x: hidden;
         }
@@ -58,7 +59,7 @@
         .header-container {
             max-width: 1400px;
             margin: 0 auto;
-             /* padding: 15px 40px; */
+            /* padding: 15px 40px; */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -86,7 +87,8 @@
             padding: 5px 0;
         }
 
-        .nav-link:hover, .nav-link.active {
+        .nav-link:hover,
+        .nav-link.active {
             color: var(--color-gold);
         }
 
@@ -101,7 +103,8 @@
             transition: 0.3s;
         }
 
-        .nav-link:hover::after, .nav-link.active::after {
+        .nav-link:hover::after,
+        .nav-link.active::after {
             width: 100%;
         }
 
@@ -536,367 +539,376 @@
             color: #64748b;
         }
 
-          /* =========================================
+        /* =========================================
    MELHORIAS DE RESPONSIVIDADE PARA CELULAR
    ========================================= */
-    @media (max-width: 768px) {
-        body {
-            padding-top: 70px;
-            /* Ajuste para header menor */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+                /* Ajuste para header menor */
+            }
+
+            /* HEADER */
+            .header-main {
+                height: auto;
+                padding: 10px 0;
+            }
+
+            .header-container {
+                padding: 10px 20px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .header-left .logo img {
+                height: 50px !important;
+                width: auto;
+            }
+
+            .top-actions {
+                gap: 10px;
+            }
+
+            .header-accessibility {
+                gap: 8px;
+                padding-right: 8px;
+                margin-right: 8px;
+            }
+
+            .access-btn {
+                font-size: 0.7rem;
+            }
+
+            .btn-business {
+                padding: 8px 16px;
+                font-size: 0.75rem;
+            }
+
+            /* HERO */
+            .hero-visual {
+                height: 40vh;
+            }
+
+            .hero-content {
+                padding: 30px 20px;
+            }
+
+            .hero-headline {
+                font-size: 1.5rem;
+            }
+
+            .hero-subtext {
+                font-size: 0.9rem;
+            }
+
+            .milestone-year {
+                font-size: 3rem;
+                -webkit-text-stroke: 0.5px var(--color-platinum);
+            }
+
+            .hero-logo {
+                max-height: 80px !important;
+            }
+
+            .hero-footer {
+                gap: 15px;
+            }
+
+            .btn-cta {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+
+            /* SEÇÃO BOAS PRÁTICAS */
+            .ferrotech-practices {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .practice-headline {
+                font-size: 1.4rem;
+            }
+
+            .practice-text {
+                font-size: 0.95rem;
+            }
+
+            .btn-more {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+
+            .arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .control-counter {
+                font-size: 1.4rem;
+            }
+
+            /* SEÇÃO GENTE DA FERROTECH */
+            .ferrotech-team {
+                padding: 60px 0;
+            }
+
+            .team-title {
+                font-size: 2rem;
+            }
+
+            .team-description {
+                font-size: 1rem;
+            }
+
+            .team-question {
+                font-size: 1.1rem;
+            }
+
+            .team-actions {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
+
+            .btn-team {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+            }
+
+            .team-visual-composition {
+                margin-top: 30px;
+            }
+
+            .img-workers {
+                width: 100%;
+            }
+
+            /* GRID DE SERVIÇOS */
+            .ferrotech-grid-services {
+                padding: 60px 0;
+            }
+
+            .grid-main-title {
+                font-size: 1.8rem;
+            }
+
+            .service-card {
+                height: auto;
+                min-height: 320px;
+                padding: 30px 20px;
+            }
+
+            .card-number {
+                font-size: 3rem;
+            }
+
+            .card-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .card-content p {
+                font-size: 0.9rem;
+            }
+
+            /* FOOTER */
+            .footer-main {
+                padding: 50px 20px 20px;
+                margin-top: 60px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-brand p {
+                max-width: 100%;
+            }
+
+            .footer-links h3,
+            .footer-contact h3 {
+                font-size: 1rem;
+                margin-bottom: 15px;
+            }
+
+            .footer-links li {
+                margin-bottom: 8px;
+            }
+
+            .footer-contact p {
+                font-size: 0.9rem;
+            }
+
+            .footer-bottom {
+                margin-top: 40px;
+                font-size: 0.7rem;
+            }
         }
 
-        /* HEADER */
-        .header-main {
-            height: auto;
-            padding: 10px 0;
+        /* Telas muito pequenas (<=480px) */
+        @media (max-width: 480px) {
+            .header-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .header-left {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .header-right {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .top-actions {
+                order: 2;
+            }
+
+            .btn-business {
+                order: 1;
+            }
+
+            .hero-headline {
+                font-size: 1.3rem;
+            }
+
+            .hero-subtext {
+                font-size: 0.85rem;
+            }
+
+            .milestone-year {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .practice-headline {
+                font-size: 1.2rem;
+            }
+
+            .arrow {
+                width: 35px;
+                height: 35px;
+            }
+
+            .team-title {
+                font-size: 1.8rem;
+            }
         }
 
-        .header-container {
-            padding: 10px 20px;
-            flex-wrap: wrap;
-            gap: 10px;
+        footer {
+            margin-top: 0px !important;
+
         }
 
-        .header-left .logo img {
-            height: 50px !important;
-            width: auto;
+        /* --- CONFIGURAÇÃO PARA DESKTOP (IGUAL AO SEU) --- */
+        .menu-mobile-btn {
+            display: none;
+            /* Esconde o botão no PC */
         }
 
-        .top-actions {
-            gap: 10px;
+        @media (max-width: 768px) {
+
+            /* 1. Ajuste do Container para não quebrar o layout */
+            .header-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 20px;
+            }
+
+            /* 2. Botão Hambúrguer - Ajustando cores */
+            .menu-mobile-btn {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 20px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                order: 2;
+                /* Garante que fique na direita */
+            }
+
+            .menu-mobile-btn span {
+                width: 100%;
+                height: 3px;
+                background-color: #ffcc00;
+                /* Amarelo da logo para destaque */
+                border-radius: 2px;
+            }
+
+            /* 3. O Menu em si (A parte que estava branca) */
+            .nav-desktop {
+                display: none;
+                position: absolute;
+                top: 70px;
+                /* Ajuste para ficar logo abaixo do header */
+                left: 0;
+                width: 100%;
+                background-color: #1a2433;
+                /* Azul escuro combinando com a marca */
+                z-index: 1000;
+                border-bottom: 3px solid #ffcc00;
+            }
+
+            .nav-desktop.open {
+                display: block;
+            }
+
+            .nav-desktop ul {
+                flex-direction: column;
+                padding: 0;
+                margin: 0;
+            }
+
+            .nav-desktop ul li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            /* 4. Ajuste dos links (Para ficarem visíveis) */
+            .nav-desktop ul li a {
+                display: block;
+                padding: 15px;
+                color: #ffffff !important;
+                /* Texto branco */
+                text-decoration: none;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .nav-desktop ul li a:hover {
+                background-color: #253244;
+                color: #ffcc00 !important;
+                /* Amarelo ao passar o mouse */
+            }
+
+            /* 5. Esconder elementos que não cabem no mobile */
+            .header-right {
+                display: none;
+            }
         }
 
-        .header-accessibility {
-            gap: 8px;
-            padding-right: 8px;
-            margin-right: 8px;
-        }
-
-        .access-btn {
-            font-size: 0.7rem;
-        }
-
-        .btn-business {
-            padding: 8px 16px;
-            font-size: 0.75rem;
-        }
-
-        /* HERO */
-        .hero-visual {
-            height: 40vh;
-        }
-
-        .hero-content {
-            padding: 30px 20px;
-        }
-
-        .hero-headline {
-            font-size: 1.5rem;
-        }
-
-        .hero-subtext {
-            font-size: 0.9rem;
-        }
-
-        .milestone-year {
-            font-size: 3rem;
-            -webkit-text-stroke: 0.5px var(--color-platinum);
-        }
-
-        .hero-logo {
-            max-height: 80px !important;
-        }
-
-        .hero-footer {
-            gap: 15px;
-        }
-
-        .btn-cta {
-            width: 100%;
-            text-align: center;
-            padding: 12px;
-            font-size: 0.9rem;
-        }
-
-        /* SEÇÃO BOAS PRÁTICAS */
-        .ferrotech-practices {
-            padding: 60px 0;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-        }
-
-        .section-subtitle {
-            font-size: 1rem;
-        }
-
-        .practice-headline {
-            font-size: 1.4rem;
-        }
-
-        .practice-text {
-            font-size: 0.95rem;
-        }
-
-        .btn-more {
-            padding: 10px 20px;
-            font-size: 0.8rem;
-        }
-
-        .arrow {
-            width: 40px;
-            height: 40px;
-            font-size: 1.2rem;
-        }
-
-        .control-counter {
-            font-size: 1.4rem;
-        }
-
-        /* SEÇÃO GENTE DA FERROTECH */
-        .ferrotech-team {
-            padding: 60px 0;
-        }
-
-        .team-title {
-            font-size: 2rem;
-        }
-
-        .team-description {
-            font-size: 1rem;
-        }
-
-        .team-question {
-            font-size: 1.1rem;
-        }
-
-        .team-actions {
-            flex-direction: column;
-            gap: 15px;
-            width: 100%;
-        }
-
-        .btn-team {
-            width: 100%;
-            text-align: center;
-            padding: 12px;
-        }
-
-        .team-visual-composition {
-            margin-top: 30px;
-        }
-
-        .img-workers {
-            width: 100%;
-        }
-
-        /* GRID DE SERVIÇOS */
-        .ferrotech-grid-services {
-            padding: 60px 0;
-        }
-
-        .grid-main-title {
-            font-size: 1.8rem;
-        }
-
-        .service-card {
-            height: auto;
-            min-height: 320px;
-            padding: 30px 20px;
-        }
-
-        .card-number {
-            font-size: 3rem;
-        }
-
-        .card-content h3 {
-            font-size: 1.3rem;
-        }
-
-        .card-content p {
-            font-size: 0.9rem;
-        }
-
-        /* FOOTER */
-        .footer-main {
-            padding: 50px 20px 20px;
-            margin-top: 60px;
-        }
-
-        .footer-container {
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-
-        .footer-brand p {
-            max-width: 100%;
-        }
-
-        .footer-links h3,
-        .footer-contact h3 {
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
-
-        .footer-links li {
-            margin-bottom: 8px;
-        }
-
-        .footer-contact p {
-            font-size: 0.9rem;
-        }
-
-        .footer-bottom {
-            margin-top: 40px;
-            font-size: 0.7rem;
-        }
-    }
-
-    /* Telas muito pequenas (<=480px) */
-    @media (max-width: 480px) {
-        .header-container {
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .header-left {
-            width: 100%;
-            justify-content: space-between;
-        }
-
-        .header-right {
-            width: 100%;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .top-actions {
-            order: 2;
-        }
-
-        .btn-business {
-            order: 1;
-        }
-
-        .hero-headline {
-            font-size: 1.3rem;
-        }
-
-        .hero-subtext {
-            font-size: 0.85rem;
-        }
-
-        .milestone-year {
-            font-size: 2.5rem;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-        }
-
-        .practice-headline {
-            font-size: 1.2rem;
-        }
-
-        .arrow {
-            width: 35px;
-            height: 35px;
-        }
-
-        .team-title {
-            font-size: 1.8rem;
-        }
-    }
-
-    footer{
-margin-top: 0px !important;
-
-    }
-
-/* --- CONFIGURAÇÃO PARA DESKTOP (IGUAL AO SEU) --- */
-.menu-mobile-btn {
-    display: none; /* Esconde o botão no PC */
-}
-
-@media (max-width: 768px) {
-    /* 1. Ajuste do Container para não quebrar o layout */
-    .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-    }
-
-    /* 2. Botão Hambúrguer - Ajustando cores */
-    .menu-mobile-btn {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 20px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        order: 2; /* Garante que fique na direita */
-    }
-
-    .menu-mobile-btn span {
-        width: 100%;
-        height: 3px;
-        background-color: #ffcc00; /* Amarelo da logo para destaque */
-        border-radius: 2px;
-    }
-
-    /* 3. O Menu em si (A parte que estava branca) */
-    .nav-desktop {
-        display: none; 
-        position: absolute;
-        top: 70px; /* Ajuste para ficar logo abaixo do header */
-        left: 0;
-        width: 100%;
-        background-color: #1a2433; /* Azul escuro combinando com a marca */
-        z-index: 1000;
-        border-bottom: 3px solid #ffcc00;
-    }
-
-    .nav-desktop.open {
-        display: block;
-    }
-
-    .nav-desktop ul {
-        flex-direction: column;
-        padding: 0;
-        margin: 0;
-    }
-
-    .nav-desktop ul li {
-        width: 100%;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    /* 4. Ajuste dos links (Para ficarem visíveis) */
-    .nav-desktop ul li a {
-        display: block;
-        padding: 15px;
-        color: #ffffff !important; /* Texto branco */
-        text-decoration: none;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .nav-desktop ul li a:hover {
-        background-color: #253244;
-        color: #ffcc00 !important; /* Amarelo ao passar o mouse */
-    }
-
-    /* 5. Esconder elementos que não cabem no mobile */
-    .header-right {
-        display: none; 
-    }
-}
         /* Alto Contraste */
         body.high-contrast {
             background-color: #000 !important;
@@ -927,258 +939,259 @@ margin-top: 0px !important;
    RESPONSIVIDADE: AJUSTES PARA IMAGENS E LAYOUT EM DISPOSITIVOS MÓVEIS
    ========================================= */
 
-@media (max-width: 768px) {
-    /* Hero Sustentabilidade: imagem e conteúdo em coluna */
-    .hero-sustainability {
-        flex-direction: column;
-        min-height: auto;
-    }
+        @media (max-width: 768px) {
 
-    .hero-image-container {
-        flex: auto;
-        height: 45vh;
-        min-height: 280px;
-    }
+            /* Hero Sustentabilidade: imagem e conteúdo em coluna */
+            .hero-sustainability {
+                flex-direction: column;
+                min-height: auto;
+            }
 
-    .hero-image-container img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-    }
+            .hero-image-container {
+                flex: auto;
+                height: 45vh;
+                min-height: 280px;
+            }
 
-    .hero-content {
-        flex: auto;
-        padding: 40px 24px;
-    }
+            .hero-image-container img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
 
-    .text-wrapper {
-        max-width: 100%;
-    }
+            .hero-content {
+                flex: auto;
+                padding: 40px 24px;
+            }
 
-    .hero-title {
-        font-size: 1.8rem;
-    }
+            .text-wrapper {
+                max-width: 100%;
+            }
 
-    .hero-description {
-        font-size: 0.9rem;
-        margin-bottom: 30px;
-    }
+            .hero-title {
+                font-size: 1.8rem;
+            }
 
-    .stats-container {
-        margin-bottom: 30px;
-    }
+            .hero-description {
+                font-size: 0.9rem;
+                margin-bottom: 30px;
+            }
 
-    .stats-value .number {
-        font-size: 3rem;
-    }
+            .stats-container {
+                margin-bottom: 30px;
+            }
 
-    .cta-wrapper {
-        flex-wrap: wrap;
-        gap: 20px;
-    }
+            .stats-value .number {
+                font-size: 3rem;
+            }
 
-    .btn-solicitar {
-        width: 100%;
-        text-align: center;
-    }
+            .cta-wrapper {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
 
-    .mini-logo {
-        height: 60px;
-    }
+            .btn-solicitar {
+                width: 100%;
+                text-align: center;
+            }
 
-    /* Cards de estatísticas */
-    .sustentabilidade-stats .container {
-        flex-direction: column;
-        gap: 25px;
-    }
+            .mini-logo {
+                height: 60px;
+            }
 
-    .stat-card {
-        padding: 30px 20px;
-        min-width: auto;
-    }
+            /* Cards de estatísticas */
+            .sustentabilidade-stats .container {
+                flex-direction: column;
+                gap: 25px;
+            }
 
-    .stat-number {
-        font-size: 2.8rem;
-    }
+            .stat-card {
+                padding: 30px 20px;
+                min-width: auto;
+            }
 
-    /* Pilares da indústria verde */
-    .grid-pilares {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
+            .stat-number {
+                font-size: 2.8rem;
+            }
 
-    .pilar-info {
-        padding: 20px;
-    }
+            /* Pilares da indústria verde */
+            .grid-pilares {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
 
-    .pilar-info h3 {
-        font-size: 1.3rem;
-    }
+            .pilar-info {
+                padding: 20px;
+            }
 
-    /* Timeline */
-    .timeline-container {
-        flex-direction: column;
-        gap: 40px;
-    }
+            .pilar-info h3 {
+                font-size: 1.3rem;
+            }
 
-    .timeline-container::before {
-        display: none;
-    }
+            /* Timeline */
+            .timeline-container {
+                flex-direction: column;
+                gap: 40px;
+            }
 
-    .timeline-box {
-        padding: 0;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        flex-wrap: wrap;
-    }
+            .timeline-container::before {
+                display: none;
+            }
 
-    .timeline-box .year {
-        margin-bottom: 0;
-        font-size: 1.3rem;
-        width: 70px;
-        font-weight: 700;
-    }
+            .timeline-box {
+                padding: 0;
+                text-align: left;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
 
-    .timeline-box .dot {
-        margin: 0;
-        width: 12px;
-        height: 12px;
-    }
+            .timeline-box .year {
+                margin-bottom: 0;
+                font-size: 1.3rem;
+                width: 70px;
+                font-weight: 700;
+            }
 
-    .timeline-box p {
-        flex: 1;
-        margin: 0;
-        font-size: 0.85rem;
-    }
+            .timeline-box .dot {
+                margin: 0;
+                width: 12px;
+                height: 12px;
+            }
 
-    /* Ajustes gerais para imagens que podem ficar pequenas */
-    .pilar-img img,
-    .hero-image-container img {
-        display: block;
-        width: 100%;
-        height: auto;
-        max-height: 100%;
-        object-fit: cover;
-    }
+            .timeline-box p {
+                flex: 1;
+                margin: 0;
+                font-size: 0.85rem;
+            }
 
-    /* Evita overflow de imagens em containers flexíveis */
-    img {
-        max-width: 100%;
-        height: auto;
-    }
+            /* Ajustes gerais para imagens que podem ficar pequenas */
+            .pilar-img img,
+            .hero-image-container img {
+                display: block;
+                width: 100%;
+                height: auto;
+                max-height: 100%;
+                object-fit: cover;
+            }
 
-    /* Espaçamento entre seções */
-    .sustentabilidade-stats,
-    .sustentabilidade-pilares,
-    .sustentabilidade-timeline {
-        padding: 60px 5%;
-    }
-}
+            /* Evita overflow de imagens em containers flexíveis */
+            img {
+                max-width: 100%;
+                height: auto;
+            }
 
-/* Telas muito pequenas (<=480px) */
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 1.5rem;
-    }
+            /* Espaçamento entre seções */
+            .sustentabilidade-stats,
+            .sustentabilidade-pilares,
+            .sustentabilidade-timeline {
+                padding: 60px 5%;
+            }
+        }
 
-    .hero-image-container {
-        height: 35vh;
-        min-height: 220px;
-    }
+        /* Telas muito pequenas (<=480px) */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
 
-    .hero-content {
-        padding: 30px 16px;
-    }
+            .hero-image-container {
+                height: 35vh;
+                min-height: 220px;
+            }
 
-    .stats-value .number {
-        font-size: 2.5rem;
-    }
+            .hero-content {
+                padding: 30px 16px;
+            }
 
-    .stat-number {
-        font-size: 2.2rem;
-    }
+            .stats-value .number {
+                font-size: 2.5rem;
+            }
 
-    .section-header h2 {
-        font-size: 1.6rem;
-    }
+            .stat-number {
+                font-size: 2.2rem;
+            }
 
-    .timeline-box {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
 
-    .timeline-box .year {
-        width: auto;
-    }
+            .timeline-box {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
 
-    .timeline-box .dot {
-        display: none;
-    }
+            .timeline-box .year {
+                width: auto;
+            }
 
-    .timeline-box p {
-        font-size: 0.8rem;
-    }
-}
+            .timeline-box .dot {
+                display: none;
+            }
 
-/* Botão flutuante para cotação (mobile) */
-.fab-cotacao {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 56px;
-    height: 56px;
-    background-color: var(--color-gold, #FFB703);
-    color: #1B263B;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    z-index: 999;
-    text-decoration: none;
-}
+            .timeline-box p {
+                font-size: 0.8rem;
+            }
+        }
 
-.fab-cotacao:hover {
-    transform: scale(1.1);
-    background-color: #e6a500;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
+        /* Botão flutuante para cotação (mobile) */
+        .fab-cotacao {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            background-color: var(--color-gold, #FFB703);
+            color: #1B263B;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 999;
+            text-decoration: none;
+        }
 
-/* Esconde o botão em telas maiores que 768px (desktop) */
-@media (min-width: 769px) {
-    .fab-cotacao {
-        display: none;
-    }
-}
+        .fab-cotacao:hover {
+            transform: scale(1.1);
+            background-color: #e6a500;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
 
-/* Ajuste para dispositivos muito pequenos */
-@media (max-width: 480px) {
-    .fab-cotacao {
-        width: 48px;
-        height: 48px;
-        font-size: 1.4rem;
-        bottom: 16px;
-        right: 16px;
-    }
-}
+        /* Esconde o botão em telas maiores que 768px (desktop) */
+        @media (min-width: 769px) {
+            .fab-cotacao {
+                display: none;
+            }
+        }
 
-/* Suporte para alto contraste */
-body.high-contrast .fab-cotacao {
-    background-color: #fff !important;
-    color: #000 !important;
-    border: 2px solid #ff0 !important;
-}
+        /* Ajuste para dispositivos muito pequenos */
+        @media (max-width: 480px) {
+            .fab-cotacao {
+                width: 48px;
+                height: 48px;
+                font-size: 1.4rem;
+                bottom: 16px;
+                right: 16px;
+            }
+        }
+
+        /* Suporte para alto contraste */
+        body.high-contrast .fab-cotacao {
+            background-color: #fff !important;
+            color: #000 !important;
+            border: 2px solid #ff0 !important;
+        }
     </style>
 </head>
 
 <body>
 
-   <header class="header-main">
+    <header class="header-main">
         <div class="header-container">
             <div class="header-left">
                 <div class="logo">
@@ -1196,10 +1209,10 @@ body.high-contrast .fab-cotacao {
                     </ul>
                 </nav>
                 <button class="menu-mobile-btn" onclick="toggleMobileMenu()">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-</button>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
             </div>
 
 
@@ -1294,7 +1307,8 @@ body.high-contrast .fab-cotacao {
                 </div>
                 <div class="pilar-info">
                     <h3>Energia Renovável</h3>
-                    <p>Nossa planta industrial é 60% alimentada por matriz solar própria, reduzindo a dependência de fontes fósseis.</p>
+                    <p>Nossa planta industrial é 60% alimentada por matriz solar própria, reduzindo a dependência de
+                        fontes fósseis.</p>
                 </div>
             </div>
             <div class="pilar-item">
@@ -1303,7 +1317,8 @@ body.high-contrast .fab-cotacao {
                 </div>
                 <div class="pilar-info">
                     <h3>Logística Reversa</h3>
-                    <p>Implementamos ciclos fechados com fornecedores para garantir que embalagens e resíduos retornem ao ciclo produtivo.</p>
+                    <p>Implementamos ciclos fechados com fornecedores para garantir que embalagens e resíduos retornem
+                        ao ciclo produtivo.</p>
                 </div>
             </div>
         </div>
@@ -1363,10 +1378,10 @@ body.high-contrast .fab-cotacao {
             <p>&copy; 2026 FerroTech Industrial - Todos os direitos reservados.</p>
         </div>
     </footer>
-<!-- Botão flutuante de cotação (visível apenas em mobile) -->
-<a href="paginaNegocios.html" class="fab-cotacao" aria-label="Solicitar cotação">
-    <i class="fas fa-dollar-sign"></i>
-</a>
+    <!-- Botão flutuante de cotação (visível apenas em mobile) -->
+    <a href="paginaNegocios.html" class="fab-cotacao" aria-label="Solicitar cotação">
+        <i class="fas fa-dollar-sign"></i>
+    </a>
     <script>
         // Controle de Contraste
         function toggleContrast() {
@@ -1396,17 +1411,17 @@ body.high-contrast .fab-cotacao {
             applyFontSize();
         });
 
-         function toggleMobileMenu() {
-    const nav = document.querySelector('.nav-desktop');
-    nav.classList.toggle('open');
-}
+        function toggleMobileMenu() {
+            const nav = document.querySelector('.nav-desktop');
+            nav.classList.toggle('open');
+        }
 
-// Opcional: Fecha o menu automaticamente ao clicar em um link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        document.querySelector('.nav-desktop').classList.remove('open');
-    });
-});
+        // Opcional: Fecha o menu automaticamente ao clicar em um link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-desktop').classList.remove('open');
+            });
+        });
     </script>
 </body>
 

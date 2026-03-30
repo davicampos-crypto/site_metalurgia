@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,183 +10,235 @@
 </head>
 <style>
     /* Ajuste do Header para fundo claro */
-.header-light {
-    background-color: #ffffff !important;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-}
+    .header-light {
+        background-color: #ffffff !important;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    }
 
-.header-light .nav-link {
-    color: #1e293b;
-}
+    .header-light .nav-link {
+        color: #1e293b;
+    }
 
-.header-light .btn-back {
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.8rem;
-    color: #1e293b;
-    border: 1px solid #cbd5e1;
-    padding: 10px 20px;
-    border-radius: 4px;
-    transition: 0.3s;
-}
+    .header-light .btn-back {
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.8rem;
+        color: #1e293b;
+        border: 1px solid #cbd5e1;
+        padding: 10px 20px;
+        border-radius: 4px;
+        transition: 0.3s;
+    }
 
-.header-light .btn-back:hover {
-    background: #0f172a;
-    color: #fff;
-}
+    .header-light .btn-back:hover {
+        background: #0f172a;
+        color: #fff;
+    }
 
-/* Footer Estilizado */
-.footer-main {
-    background-color: #0f172a;
-    color: #fff;
-    padding: 80px 5% 20px;
-    margin-top: 100px;
-}
+    /* Footer Estilizado */
+    .footer-main {
+        background-color: #0f172a;
+        color: #fff;
+        padding: 80px 5% 20px;
+        margin-top: 100px;
+    }
 
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 60px;
-}
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 60px;
+    }
 
-.footer-brand img { height: 40px; margin-bottom: 20px; }
-.footer-brand p { color: #94a3b8; line-height: 1.6; max-width: 300px; }
+    .footer-brand img {
+        height: 40px;
+        margin-bottom: 20px;
+    }
 
-.footer-social { display: flex; gap: 15px; margin-top: 20px; }
-.footer-social a { color: #ffb800; font-size: 1.2rem; transition: 0.3s; }
-.footer-social a:hover { color: #fff; transform: translateY(-3px); }
+    .footer-brand p {
+        color: #94a3b8;
+        line-height: 1.6;
+        max-width: 300px;
+    }
 
-.footer-links h3, .footer-contact h3 { 
-    font-size: 1.1rem; 
-    margin-bottom: 25px; 
-    color: #ffb800; 
-}
+    .footer-social {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
 
-.footer-links ul { list-style: none; }
-.footer-links li { margin-bottom: 12px; }
-.footer-links a { color: #cbd5e1; text-decoration: none; transition: 0.3s; }
-.footer-links a:hover { color: #fff; padding-left: 5px; }
+    .footer-social a {
+        color: #ffb800;
+        font-size: 1.2rem;
+        transition: 0.3s;
+    }
 
-.footer-contact p { color: #cbd5e1; margin-bottom: 15px; display: flex; gap: 10px; }
-.footer-contact i { color: #ffb800; }
+    .footer-social a:hover {
+        color: #fff;
+        transform: translateY(-3px);
+    }
 
-.footer-bottom {
-    text-align: center;
-    margin-top: 60px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.8rem;
-    color: #64748b;
-}
+    .footer-links h3,
+    .footer-contact h3 {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        color: #ffb800;
+    }
 
-/* 1. Reset para garantir que o header ocupe a largura total */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    .footer-links ul {
+        list-style: none;
+    }
 
-.header-main {
-    width: 100%;
-    background-color: #0f172a; /* Azul marinho FerroTech */
-    padding: 10px 0;
-    position: fixed; /* Fixa no topo */
-    top: 0;
-    z-index: 1000;
-    font-family: 'Montserrat', sans-serif;
-}
+    .footer-links li {
+        margin-bottom: 12px;
+    }
 
-/* 2. Container Flexbox para alinhar tudo em uma linha */
-.header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-}
+    .footer-links a {
+        color: #cbd5e1;
+        text-decoration: none;
+        transition: 0.3s;
+    }
 
-/* 3. Lado Esquerdo: Logo e Nav */
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 40px; /* Espaço entre logo e menu */
-}
-.nav-desktop ul {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-}
+    .footer-links a:hover {
+        color: #fff;
+        padding-left: 5px;
+    }
 
-.nav-link {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: 0.3s;
-}
+    .footer-contact p {
+        color: #cbd5e1;
+        margin-bottom: 15px;
+        display: flex;
+        gap: 10px;
+    }
 
-.nav-link:hover {
-    color: #ffb800; /* Amarelo */
-}
+    .footer-contact i {
+        color: #ffb800;
+    }
 
-/* 4. Lado Direito: Ações de Acessibilidade e Botão Business */
-.header-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
-}
+    .footer-bottom {
+        text-align: center;
+        margin-top: 60px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 0.8rem;
+        color: #64748b;
+    }
 
-.top-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    font-size: 0.75rem;
-    color: #ffffff;
-}
+    /* 1. Reset para garantir que o header ocupe a largura total */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-.access-btn {
-    background: none;
-    border: none;
-    color: #ffffff;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-}
+    .header-main {
+        width: 100%;
+        background-color: #0f172a;
+        /* Azul marinho FerroTech */
+        padding: 10px 0;
+        position: fixed;
+        /* Fixa no topo */
+        top: 0;
+        z-index: 1000;
+        font-family: 'Montserrat', sans-serif;
+    }
 
-.btn-business {
-    background-color: #ffb800;
-    color: #000000;
-    text-decoration: none;
-    padding: 10px 25px;
-    border-radius: 50px; /* Arredondado igual ao seu print */
-    font-weight: 800;
-    font-size: 0.8rem;
-    transition: 0.3s;
-}
+    /* 2. Container Flexbox para alinhar tudo em uma linha */
+    .header-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+    }
 
-.btn-business:hover {
-    background-color: #ffffff;
-    transform: scale(1.05);
-}
+    /* 3. Lado Esquerdo: Logo e Nav */
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        /* Espaço entre logo e menu */
+    }
 
-/* 5. Ajuste para o conteúdo não subir */
-body {
-    padding-top: 100px;
-}
+    .nav-desktop ul {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+    }
 
-header img {
-    height: 80px; /* Ajuste a altura do logo conforme necessário */
-}
+    .nav-link {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: 0.3s;
+    }
+
+    .nav-link:hover {
+        color: #ffb800;
+        /* Amarelo */
+    }
+
+    /* 4. Lado Direito: Ações de Acessibilidade e Botão Business */
+    .header-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+    }
+
+    .top-actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 0.75rem;
+        color: #ffffff;
+    }
+
+    .access-btn {
+        background: none;
+        border: none;
+        color: #ffffff;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .btn-business {
+        background-color: #ffb800;
+        color: #000000;
+        text-decoration: none;
+        padding: 10px 25px;
+        border-radius: 50px;
+        /* Arredondado igual ao seu print */
+        font-weight: 800;
+        font-size: 0.8rem;
+        transition: 0.3s;
+    }
+
+    .btn-business:hover {
+        background-color: #ffffff;
+        transform: scale(1.05);
+    }
+
+    /* 5. Ajuste para o conteúdo não subir */
+    body {
+        padding-top: 100px;
+    }
+
+    header img {
+        height: 80px;
+        /* Ajuste a altura do logo conforme necessário */
+    }
 
 
     .secao-certificacoes {
         padding: 80px 20px;
-        background-color: #f8f9fa; /* Fundo levemente cinza para destacar os cards brancos */
+        background-color: #f8f9fa;
+        /* Fundo levemente cinza para destacar os cards brancos */
         font-family: 'Segoe UI', Roboto, sans-serif;
     }
 
@@ -228,7 +281,7 @@ header img {
         padding: 40px 30px;
         border-radius: 12px;
         text-align: center;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         transition: transform 0.3s ease, border-top 0.3s ease;
         border-top: 4px solid transparent;
     }
@@ -236,7 +289,7 @@ header img {
     .card-iso:hover {
         transform: translateY(-10px);
         border-top: 4px solid #ffbc00;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
     }
 
     .selo-icon {
@@ -264,8 +317,15 @@ header img {
         margin-bottom: 20px;
     }
 
-    .tag-cert.green { background: rgba(40, 167, 69, 0.1); color: #28a745; }
-    .tag-cert.blue { background: rgba(0, 123, 255, 0.1); color: #007bff; }
+    .tag-cert.green {
+        background: rgba(40, 167, 69, 0.1);
+        color: #28a745;
+    }
+
+    .tag-cert.blue {
+        background: rgba(0, 123, 255, 0.1);
+        color: #007bff;
+    }
 
     .card-iso p {
         color: #555;
@@ -274,7 +334,9 @@ header img {
     }
 
     @media (max-width: 768px) {
-        .grid-certificacoes { grid-template-columns: 1fr; }
+        .grid-certificacoes {
+            grid-template-columns: 1fr;
+        }
     }
 
     .projetos-comunidade {
@@ -327,13 +389,13 @@ header img {
         background: #fff;
         border-radius: 15px;
         overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         transition: all 0.3s ease;
     }
 
     .card-projeto:hover {
         transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     }
 
     .img-projeto {
@@ -382,13 +444,19 @@ header img {
     }
 
     @media (max-width: 768px) {
-        .header-com { text-align: center; }
-        .header-com p { margin: 0 auto; }
+        .header-com {
+            text-align: center;
+        }
+
+        .header-com p {
+            margin: 0 auto;
+        }
     }
 
     .secao-etica {
         padding: 100px 20px;
-        background-color: #001529; /* Fundo azul escuro para passar autoridade */
+        background-color: #001529;
+        /* Fundo azul escuro para passar autoridade */
         color: #fff;
         font-family: 'Segoe UI', sans-serif;
     }
@@ -462,7 +530,7 @@ header img {
         text-align: center;
         margin-top: 60px;
         padding-top: 40px;
-        border-top: 1px solid rgba(255,255,255,0.1);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .download-etica p {
@@ -484,8 +552,14 @@ header img {
     }
 
     @media (max-width: 768px) {
-        .grid-etica { grid-template-columns: 1fr; gap: 40px; }
-        .header-etica h2 { font-size: 2rem; }
+        .grid-etica {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .header-etica h2 {
+            font-size: 2rem;
+        }
     }
 
     .secao-esg {
@@ -493,56 +567,197 @@ header img {
         background-color: #f0f4f8;
         font-family: 'Segoe UI', sans-serif;
     }
-    .container-esg { max-width: 1200px; margin: 0 auto; }
-    .grid-esg { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
 
-    .tag-esg { color: #2d6a4f; font-weight: bold; text-transform: uppercase; font-size: 0.85rem; border-left: 3px solid #ffbc00; padding-left: 10px; }
-    .info-esg h2 { font-size: 2.8rem; color: #001529; margin: 15px 0; }
-    .info-esg h2 span { color: #ffbc00; }
-    .info-esg p { color: #444; font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; }
+    .container-esg {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
-    .lista-metas { margin-bottom: 40px; }
-    .meta-item { display: flex; gap: 15px; margin-bottom: 25px; }
-    .meta-icon { font-size: 1.5rem; background: #fff; padding: 10px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.05); height: fit-content; }
-    .meta-item strong { color: #001529; font-size: 1.1rem; display: block; margin-bottom: 4px; }
-    .meta-item p { font-size: 0.95rem; color: #666; margin: 0; }
+    .grid-esg {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .tag-esg {
+        color: #2d6a4f;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        border-left: 3px solid #ffbc00;
+        padding-left: 10px;
+    }
+
+    .info-esg h2 {
+        font-size: 2.8rem;
+        color: #001529;
+        margin: 15px 0;
+    }
+
+    .info-esg h2 span {
+        color: #ffbc00;
+    }
+
+    .info-esg p {
+        color: #444;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    .lista-metas {
+        margin-bottom: 40px;
+    }
+
+    .meta-item {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .meta-icon {
+        font-size: 1.5rem;
+        background: #fff;
+        padding: 10px;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        height: fit-content;
+    }
+
+    .meta-item strong {
+        color: #001529;
+        font-size: 1.1rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .meta-item p {
+        font-size: 0.95rem;
+        color: #666;
+        margin: 0;
+    }
 
     .btn-download-esg {
-        display: inline-flex; align-items: center; gap: 10px; background: #001529; color: #fff;
-        padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #001529;
+        color: #fff;
+        padding: 15px 30px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
     }
-    .btn-download-esg:hover { background: #ffbc00; color: #000; }
+
+    .btn-download-esg:hover {
+        background: #ffbc00;
+        color: #000;
+    }
 
     /* Cards Laterais */
-    .card-estatistica { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); margin-bottom: 20px; }
-    .card-estatistica.gold { border: 2px solid #ffbc00; }
-    .numero-esg { font-size: 3rem; font-weight: 800; color: #001529; margin-bottom: 5px; }
-    .card-estatistica p { font-weight: bold; color: #555; margin-bottom: 15px; }
-    .barra-progresso { height: 8px; background: #eee; border-radius: 10px; overflow: hidden; }
-    .progresso { height: 100%; background: #ffbc00; border-radius: 10px; }
-
-    @media (max-width: 992px) {
-        .grid-esg { grid-template-columns: 1fr; text-align: center; }
-        .tag-esg { border-left: none; border-bottom: 3px solid #ffbc00; padding: 0 0 5px 0; }
-        .meta-item { text-align: left; }
-        .btn-download-esg { width: 100%; justify-content: center; }
+    .card-estatistica {
+        background: #fff;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        margin-bottom: 20px;
     }
 
-    
+    .card-estatistica.gold {
+        border: 2px solid #ffbc00;
+    }
+
+    .numero-esg {
+        font-size: 3rem;
+        font-weight: 800;
+        color: #001529;
+        margin-bottom: 5px;
+    }
+
+    .card-estatistica p {
+        font-weight: bold;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .barra-progresso {
+        height: 8px;
+        background: #eee;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .progresso {
+        height: 100%;
+        background: #ffbc00;
+        border-radius: 10px;
+    }
+
+    @media (max-width: 992px) {
+        .grid-esg {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .tag-esg {
+            border-left: none;
+            border-bottom: 3px solid #ffbc00;
+            padding: 0 0 5px 0;
+        }
+
+        .meta-item {
+            text-align: left;
+        }
+
+        .btn-download-esg {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
+
     .especificacoes-tecnicas {
         padding: 80px 20px;
-        background-color: #000b14; /* Azul quase preto para visual industrial */
+        background-color: #000b14;
+        /* Azul quase preto para visual industrial */
         color: #fff;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    .container-tec { max-width: 1200px; margin: 0 auto; }
+    .container-tec {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
-    .header-tec { text-align: center; margin-bottom: 60px; }
-    .detalhe-amarelo { color: #ffbc00; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
-    .header-tec h2 { font-size: 2.5rem; margin-top: 10px; }
-    .header-tec h2 span { color: #ffbc00; }
-    .header-tec p { color: #a5b1bd; margin-top: 15px; font-size: 1.1rem; }
+    .header-tec {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .detalhe-amarelo {
+        color: #ffbc00;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+
+    .header-tec h2 {
+        font-size: 2.5rem;
+        margin-top: 10px;
+    }
+
+    .header-tec h2 span {
+        color: #ffbc00;
+    }
+
+    .header-tec p {
+        color: #a5b1bd;
+        margin-top: 15px;
+        font-size: 1.1rem;
+    }
 
     .grid-especificacoes {
         display: grid;
@@ -554,7 +769,8 @@ header img {
         background: rgba(255, 255, 255, 0.03);
         border: 1px solid rgba(255, 255, 255, 0.1);
         padding: 40px 30px;
-        border-radius: 4px; /* Bordas mais retas para ar industrial */
+        border-radius: 4px;
+        /* Bordas mais retas para ar industrial */
         transition: 0.3s;
     }
 
@@ -569,24 +785,59 @@ header img {
         background: rgba(255, 188, 0, 0.02);
     }
 
-    .topo-card { display: flex; align-items: center; gap: 15px; margin-bottom: 30px; }
-    .topo-card i { color: #ffbc00; font-size: 1.5rem; }
-    .topo-card h3 { font-size: 1.6rem; color: #fff; text-transform: uppercase; }
+    .topo-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
 
-    .lista-especs { list-style: none; padding: 0; }
+    .topo-card i {
+        color: #ffbc00;
+        font-size: 1.5rem;
+    }
+
+    .topo-card h3 {
+        font-size: 1.6rem;
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    .lista-especs {
+        list-style: none;
+        padding: 0;
+    }
+
     .lista-especs li {
         padding: 12px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         font-size: 0.95rem;
         color: #d1d9e0;
     }
-    .lista-especs li strong { color: #ffbc00; display: block; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 4px; }
 
-    .nota-tecnica { text-align: center; margin-top: 50px; }
-    .nota-tecnica p { color: #666; font-size: 0.85rem; font-style: italic; }
+    .lista-especs li strong {
+        color: #ffbc00;
+        display: block;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+
+    .nota-tecnica {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .nota-tecnica p {
+        color: #666;
+        font-size: 0.85rem;
+        font-style: italic;
+    }
 
     @media (max-width: 768px) {
-        .grid-especificacoes { grid-template-columns: 1fr; }
+        .grid-especificacoes {
+            grid-template-columns: 1fr;
+        }
     }
 
     .secao-maquinario {
@@ -595,13 +846,40 @@ header img {
         font-family: 'Segoe UI', sans-serif;
     }
 
-    .container-maq { max-width: 1200px; margin: 0 auto; }
+    .container-maq {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
-    .header-maq { text-align: center; margin-bottom: 60px; }
-    .label-tech { color: #ffbc00; font-weight: bold; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
-    .header-maq h2 { font-size: 2.5rem; color: #001529; margin-top: 10px; }
-    .header-maq h2 span { color: #ffbc00; }
-    .header-maq p { color: #666; max-width: 700px; margin: 15px auto 0; font-size: 1.1rem; }
+    .header-maq {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .label-tech {
+        color: #ffbc00;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+
+    .header-maq h2 {
+        font-size: 2.5rem;
+        color: #001529;
+        margin-top: 10px;
+    }
+
+    .header-maq h2 span {
+        color: #ffbc00;
+    }
+
+    .header-maq p {
+        color: #666;
+        max-width: 700px;
+        margin: 15px auto 0;
+        font-size: 1.1rem;
+    }
 
     .grid-maquinario {
         display: grid;
@@ -618,12 +896,20 @@ header img {
     }
 
     .card-maquina:hover {
-        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         transform: translateY(-5px);
     }
 
-    .img-maquina { position: relative; height: 240px; }
-    .img-maquina img { width: 100%; height: 100%; object-fit: cover; }
+    .img-maquina {
+        position: relative;
+        height: 240px;
+    }
+
+    .img-maquina img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
     .badge-maq {
         position: absolute;
@@ -638,11 +924,29 @@ header img {
         border-radius: 4px;
     }
 
-    .detalhes-maquina { padding: 25px; }
-    .detalhes-maquina h3 { color: #001529; font-size: 1.4rem; margin-bottom: 10px; }
-    .detalhes-maquina p { color: #555; font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px; }
+    .detalhes-maquina {
+        padding: 25px;
+    }
 
-    .tags-maq { display: flex; gap: 10px; flex-wrap: wrap; }
+    .detalhes-maquina h3 {
+        color: #001529;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    .detalhes-maquina p {
+        color: #555;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .tags-maq {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
     .tags-maq span {
         background: #fff;
         border: 1px solid #ddd;
@@ -652,184 +956,218 @@ header img {
         border-radius: 50px;
     }
 
-    .footer-maq { text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid #eee; }
-    .footer-maq p { color: #888; font-size: 0.9rem; }
-    .footer-maq strong { color: #001529; }
+    .footer-maq {
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px solid #eee;
+    }
+
+    .footer-maq p {
+        color: #888;
+        font-size: 0.9rem;
+    }
+
+    .footer-maq strong {
+        color: #001529;
+    }
 
     @media (max-width: 768px) {
-        .grid-maquinario { grid-template-columns: 1fr; }
+        .grid-maquinario {
+            grid-template-columns: 1fr;
+        }
     }
 
     /* Botão flutuante para cotação (mobile) */
-.fab-cotacao {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 56px;
-    height: 56px;
-    background-color: var(--color-gold, #FFB703);
-    color: #1B263B;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    z-index: 999;
-    text-decoration: none;
-}
-
-.fab-cotacao:hover {
-    transform: scale(1.1);
-    background-color: #e6a500;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
-/* Esconde o botão em telas maiores que 768px (desktop) */
-@media (min-width: 769px) {
     .fab-cotacao {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 56px;
+        height: 56px;
+        background-color: var(--color-gold, #FFB703);
+        color: #1B263B;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        z-index: 999;
+        text-decoration: none;
+    }
+
+    .fab-cotacao:hover {
+        transform: scale(1.1);
+        background-color: #e6a500;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Esconde o botão em telas maiores que 768px (desktop) */
+    @media (min-width: 769px) {
+        .fab-cotacao {
+            display: none;
+        }
+    }
+
+    /* Ajuste para dispositivos muito pequenos */
+    @media (max-width: 480px) {
+        .fab-cotacao {
+            width: 48px;
+            height: 48px;
+            font-size: 1.4rem;
+            bottom: 16px;
+            right: 16px;
+        }
+    }
+
+    /* Suporte para alto contraste */
+    body.high-contrast .fab-cotacao {
+        background-color: #fff !important;
+        color: #000 !important;
+        border: 2px solid #ff0 !important;
+    }
+
+    /* Configuração padrão (Desktop) */
+    .txt-mobile {
         display: none;
     }
-}
 
-/* Ajuste para dispositivos muito pequenos */
-@media (max-width: 480px) {
-    .fab-cotacao {
-        width: 48px;
-        height: 48px;
-        font-size: 1.4rem;
-        bottom: 16px;
-        right: 16px;
-    }
-}
-
-/* Suporte para alto contraste */
-body.high-contrast .fab-cotacao {
-    background-color: #fff !important;
-    color: #000 !important;
-    border: 2px solid #ff0 !important;
-}
-/* Configuração padrão (Desktop) */
-.txt-mobile { display: none; }
-.txt-desktop { display: inline; }
-
-@media (max-width: 768px) {
-    /* 1. Troca o texto para a versão curta */
-    .txt-desktop { display: none; }
-    .txt-mobile { display: inline; }
-
-    /* 2. Ajusta o Header para não deixar nada vazar */
-    .header-container {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center;
-        padding: 0 15px;
-        width: 100%;
-        box-sizing: border-box; /* Garante que o padding não aumente a largura */
+    .txt-desktop {
+        display: inline;
     }
 
-    /* 3. Estiliza o botão para ser compacto */
-    .btn-business {
-        display: block !important;
-        background-color: #ffcc00;
-        color: #1a2433;
-        padding: 8px 12px; /* Reduzimos o respiro interno */
-        border-radius: 4px;
-        font-size: 12px; /* Fonte menor para caber */
-        font-weight: bold;
-        text-decoration: none;
-        white-space: nowrap; /* Impede que o botão quebre em duas linhas */
-        margin-left: 10px;
+    @media (max-width: 768px) {
+
+        /* 1. Troca o texto para a versão curta */
+        .txt-desktop {
+            display: none;
+        }
+
+        .txt-mobile {
+            display: inline;
+        }
+
+        /* 2. Ajusta o Header para não deixar nada vazar */
+        .header-container {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center;
+            padding: 0 15px;
+            width: 100%;
+            box-sizing: border-box;
+            /* Garante que o padding não aumente a largura */
+        }
+
+        /* 3. Estiliza o botão para ser compacto */
+        .btn-business {
+            display: block !important;
+            background-color: #ffcc00;
+            color: #1a2433;
+            padding: 8px 12px;
+            /* Reduzimos o respiro interno */
+            border-radius: 4px;
+            font-size: 12px;
+            /* Fonte menor para caber */
+            font-weight: bold;
+            text-decoration: none;
+            white-space: nowrap;
+            /* Impede que o botão quebre em duas linhas */
+            margin-left: 10px;
+        }
+
+        /* 4. Esconde o que não for essencial (Acessibilidade/Idiomas) */
+        .top-actions,
+        .nav-desktop {
+            display: none !important;
+        }
+
+        /* 5. Ajusta o logo para dar espaço ao botão */
+        .logo img {
+            max-width: 90px;
+            height: auto;
+        }
     }
 
-    /* 4. Esconde o que não for essencial (Acessibilidade/Idiomas) */
-    .top-actions, .nav-desktop {
-        display: none !important;
+    @media (max-width: 768px) {
+
+        /* Esconde todos os elementos que não devem aparecer */
+        .nav-desktop,
+        .top-actions,
+        .btn-back,
+        .header-right {
+            display: none !important;
+        }
+
+        /* Reconfigura o container do header para centralizar a logo */
+        .header-container {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Garante que o lado esquerdo (que contém a logo) ocupe todo o espaço e centralize */
+        .header-left {
+            display: flex !important;
+            justify-content: center !important;
+            width: 100% !important;
+            margin: 0 !important;
+        }
+
+        /* Ajuste opcional para o tamanho da logo */
+        .logo img {
+            max-width: 100px;
+            height: auto;
+        }
     }
 
-    /* 5. Ajusta o logo para dar espaço ao botão */
-    .logo img {
-        max-width: 90px;
-        height: auto;
-    }
-}
-@media (max-width: 768px) {
-    /* Esconde todos os elementos que não devem aparecer */
-    .nav-desktop,
-    .top-actions,
-    .btn-back,
-    .header-right {
-        display: none !important;
+    /* CORREÇÃO DE OVERFLOW HORIZONTAL */
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
-    /* Reconfigura o container do header para centralizar a logo */
-    .header-container {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        width: 100%;
+    * {
+        max-width: 100%;
         box-sizing: border-box;
     }
 
-    /* Garante que o lado esquerdo (que contém a logo) ocupe todo o espaço e centralize */
-    .header-left {
-        display: flex !important;
-        justify-content: center !important;
-        width: 100% !important;
-        margin: 0 !important;
+    /* Garante que o cabeçalho não ultrapasse */
+    .header-main,
+    .header-container,
+    .header-left,
+    .logo {
+        max-width: 100%;
     }
 
-    /* Ajuste opcional para o tamanho da logo */
-    .logo img {
-        max-width: 100px;
+    /* Evita que imagens e containers internos forcem rolagem */
+    img {
+        max-width: 100%;
         height: auto;
     }
-}
 
-/* CORREÇÃO DE OVERFLOW HORIZONTAL */
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
+    .container-cert,
+    .container-com,
+    .container-etica,
+    .container-esg,
+    .container-tec,
+    .container-maq {
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        overflow-x: hidden;
+    }
 
-* {
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-/* Garante que o cabeçalho não ultrapasse */
-.header-main,
-.header-container,
-.header-left,
-.logo {
-    max-width: 100%;
-}
-
-/* Evita que imagens e containers internos forcem rolagem */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-.container-cert,
-.container-com,
-.container-etica,
-.container-esg,
-.container-tec,
-.container-maq {
-    max-width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-    overflow-x: hidden;
-}
-
-/* Se houver algum elemento com margem negativa ou padding excessivo, corrige */
-section {
-    overflow-x: hidden;
-}
+    /* Se houver algum elemento com margem negativa ou padding excessivo, corrige */
+    section {
+        overflow-x: hidden;
+    }
 </style>
 
 <body>
@@ -856,354 +1194,383 @@ section {
                         <span class="active">PT</span> | <span>EN</span>
                     </div>
                 </div>
-            <a href="paginaCotacao.html" class="btn-back" style="background-color: #ffb800;">FAZER COTAÇÃO</a>
+                <a href="paginaCotacao.html" class="btn-back" style="background-color: #ffb800;">FAZER COTAÇÃO</a>
             </div>
         </div>
     </header>
 
-<section class="secao-certificacoes" id="certificacoes">
-    <div class="container-cert">
-        <div class="header-cert">
-            <h2>Compromisso com a <span>Excelência</span></h2>
-            <p>Nossos processos seguem os mais rigorosos padrões internacionais de qualidade e gestão ambiental.</p>
-        </div>
-
-        <div class="grid-certificacoes">
-            <div class="card-iso">
-                <div class="selo-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                    </svg>
-                </div>
-                <h3>ISO 9001:2015</h3>
-                <span class="tag-cert">Qualidade</span>
-                <p>Gestão de qualidade aplicada a todos os processos de fabricação, garantindo padronização e melhoria contínua.</p>
+    <section class="secao-certificacoes" id="certificacoes">
+        <div class="container-cert">
+            <div class="header-cert">
+                <h2>Compromisso com a <span>Excelência</span></h2>
+                <p>Nossos processos seguem os mais rigorosos padrões internacionais de qualidade e gestão ambiental.</p>
             </div>
 
-            <div class="card-iso">
-                <div class="selo-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                    </svg>
-                </div>
-                <h3>ISO 14001:2015</h3>
-                <span class="tag-cert green">Ambiental</span>
-                <p>Compromisso com a redução do impacto ambiental e práticas sustentáveis na metalurgia de precisão.</p>
-            </div>
-
-            <div class="card-iso">
-                <div class="selo-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                    </svg>
-                </div>
-                <h3>ISO 45001</h3>
-                <span class="tag-cert blue">Segurança</span>
-                <p>Foco na saúde e segurança ocupacional, protegendo nosso maior ativo: as pessoas.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="projetos-comunidade" id="projetos">
-    <div class="container-com">
-        <div class="header-com">
-            <span class="subtitulo">Além da Indústria</span>
-            <h2>Compromisso com a <span>Nossa Região</span></h2>
-            <p>Acreditamos que a precisão técnica ganha ainda mais valor quando aplicada ao desenvolvimento social e educacional de Sorocaba.</p>
-        </div>
-
-        <div class="grid-projetos">
-            <div class="card-projeto">
-                <div class="img-projeto">
-                    <img src="imagens/programasoc.png" alt="Educação e Tecnologia">
-                    <div class="overlay-projeto">
-                        <span class="data-proj">Abril 2026</span>
+            <div class="grid-certificacoes">
+                <div class="card-iso">
+                    <div class="selo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
                     </div>
+                    <h3>ISO 9001:2015</h3>
+                    <span class="tag-cert">Qualidade</span>
+                    <p>Gestão de qualidade aplicada a todos os processos de fabricação, garantindo padronização e
+                        melhoria contínua.</p>
                 </div>
-                <div class="info-projeto">
-                    <h3>Portas Abertas: Educação</h3>
-                    <p>Programas de visitação técnica para estudantes de engenharia e tecnologia, incentivando a nova geração de talentos locais.</p>
-                </div>
-            </div>
 
-            <div class="card-projeto">
-                <div class="img-projeto">
-                    <img src="imagens/sustentabilidade2.png" alt="Metalurgia Sustentável">
-                    <div class="overlay-projeto">
-                        <span class="data-proj">Ativo</span>
+                <div class="card-iso">
+                    <div class="selo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
                     </div>
+                    <h3>ISO 14001:2015</h3>
+                    <span class="tag-cert green">Ambiental</span>
+                    <p>Compromisso com a redução do impacto ambiental e práticas sustentáveis na metalurgia de precisão.
+                    </p>
                 </div>
-                <div class="info-projeto">
-                    <h3>Metalurgia Verde</h3>
-                    <p>Iniciativa de descarte zero de resíduos metálicos, com logística reversa que apoia cooperativas de reciclagem da região.</p>
-                </div>
-            </div>
 
-            <div class="card-projeto">
-                <div class="img-projeto">
-                    <img src="imagens/doacao.png" alt="Apoio Social">
-                    <div class="overlay-projeto">
-                        <span class="data-proj">Sorocaba/SP</span>
+                <div class="card-iso">
+                    <div class="selo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
                     </div>
-                </div>
-                <div class="info-projeto">
-                    <h3>Apoio a Entidades Locais</h3>
-                    <p>Parcerias com instituições do Distrito Industrial para melhorias estruturais e doações técnicas de precisão.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="secao-etica" id="etica">
-    <div class="container-etica">
-        <div class="header-etica">
-            <h2>Nossa <span>Ética</span> e Conduta</h2>
-            <p>A precisão da FerroTech vai além das máquinas. Ela está presente em nossa integridade, transparência e respeito em todas as relações comerciais e humanas.</p>
-        </div>
-
-        <div class="grid-etica">
-            <div class="item-etica">
-                <div class="icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                    </svg>
-                </div>
-                <div class="texto-etica">
-                    <h3>Integridade</h3>
-                    <p>Atuamos com honestidade inegociável, garantindo que cada entrega reflita exatamente o que foi prometido tecnicamente.</p>
-                </div>
-            </div>
-
-            <div class="item-etica">
-                <div class="icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                    </svg>
-                </div>
-                <div class="texto-etica">
-                    <h3>Transparência</h3>
-                    <p>Comunicação clara em todas as etapas, desde a viabilidade técnica do orçamento até o status da produção.</p>
-                </div>
-            </div>
-
-            <div class="item-etica">
-                <div class="icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
-                </div>
-                <div class="texto-etica">
-                    <h3>Respeito às Pessoas</h3>
-                    <p>Valorizamos a diversidade e garantimos um ambiente de trabalho seguro e digno para todos os colaboradores e parceiros.</p>
-                </div>
-            </div>
-
-            <div class="item-etica">
-                <div class="icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                        <polyline points="10 9 9 9 8 9"></polyline>
-                    </svg>
-                </div>
-                <div class="texto-etica">
-                    <h3>Compliance Técnico</h3>
-                    <p>Rigoroso cumprimento das normas técnicas e leis vigentes, combatendo qualquer prática de corrupção ou negligência.</p>
+                    <h3>ISO 45001</h3>
+                    <span class="tag-cert blue">Segurança</span>
+                    <p>Foco na saúde e segurança ocupacional, protegendo nosso maior ativo: as pessoas.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="download-etica">
-            <p>Deseja ler o documento completo?</p>
-            <a href="#" class="btn-link">Baixar Código de Conduta (PDF) <i class="fas fa-file-pdf"></i></a>
-        </div>
-    </div>
-</section>
+    <section class="projetos-comunidade" id="projetos">
+        <div class="container-com">
+            <div class="header-com">
+                <span class="subtitulo">Além da Indústria</span>
+                <h2>Compromisso com a <span>Nossa Região</span></h2>
+                <p>Acreditamos que a precisão técnica ganha ainda mais valor quando aplicada ao desenvolvimento social e
+                    educacional de Sorocaba.</p>
+            </div>
 
-<section class="secao-esg" id="esg">
-    <div class="container-esg">
-        <div class="grid-esg">
-            <div class="info-esg">
-                <span class="tag-esg">Sustentabilidade em Foco</span>
-                <h2>Nossos Indicadores <span>ESG</span></h2>
-                <p>Na FerroTech, a precisão técnica caminha junto com a preservação do futuro. Nosso relatório anual detalha como transformamos metas em impacto real.</p>
-                
-                <div class="lista-metas">
-                    <div class="meta-item">
-                        <div class="meta-icon">🌱</div>
-                        <div>
-                            <strong>Ambiental (E)</strong>
-                            <p>Meta de 95% de reciclagem de cavacos e resíduos metálicos até o final de 2026.</p>
+            <div class="grid-projetos">
+                <div class="card-projeto">
+                    <div class="img-projeto">
+                        <img src="imagens/programasoc.png" alt="Educação e Tecnologia">
+                        <div class="overlay-projeto">
+                            <span class="data-proj">Abril 2026</span>
                         </div>
                     </div>
-                    <div class="meta-item">
-                        <div class="meta-icon">🤝</div>
-                        <div>
-                            <strong>Social (S)</strong>
-                            <p>Investimento em capacitação técnica para jovens da periferia de Sorocaba e Votorantim.</p>
+                    <div class="info-projeto">
+                        <h3>Portas Abertas: Educação</h3>
+                        <p>Programas de visitação técnica para estudantes de engenharia e tecnologia, incentivando a
+                            nova geração de talentos locais.</p>
+                    </div>
+                </div>
+
+                <div class="card-projeto">
+                    <div class="img-projeto">
+                        <img src="imagens/sustentabilidade2.png" alt="Metalurgia Sustentável">
+                        <div class="overlay-projeto">
+                            <span class="data-proj">Ativo</span>
                         </div>
                     </div>
-                    <div class="meta-item">
-                        <div class="meta-icon">⚖️</div>
-                        <div>
-                            <strong>Governança (G)</strong>
-                            <p>Auditoria externa independente e canal de ética 100% anônimo para colaboradores.</p>
+                    <div class="info-projeto">
+                        <h3>Metalurgia Verde</h3>
+                        <p>Iniciativa de descarte zero de resíduos metálicos, com logística reversa que apoia
+                            cooperativas de reciclagem da região.</p>
+                    </div>
+                </div>
+
+                <div class="card-projeto">
+                    <div class="img-projeto">
+                        <img src="imagens/doacao.png" alt="Apoio Social">
+                        <div class="overlay-projeto">
+                            <span class="data-proj">Sorocaba/SP</span>
+                        </div>
+                    </div>
+                    <div class="info-projeto">
+                        <h3>Apoio a Entidades Locais</h3>
+                        <p>Parcerias com instituições do Distrito Industrial para melhorias estruturais e doações
+                            técnicas de precisão.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="secao-etica" id="etica">
+        <div class="container-etica">
+            <div class="header-etica">
+                <h2>Nossa <span>Ética</span> e Conduta</h2>
+                <p>A precisão da FerroTech vai além das máquinas. Ela está presente em nossa integridade, transparência
+                    e respeito em todas as relações comerciais e humanas.</p>
+            </div>
+
+            <div class="grid-etica">
+                <div class="item-etica">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <div class="texto-etica">
+                        <h3>Integridade</h3>
+                        <p>Atuamos com honestidade inegociável, garantindo que cada entrega reflita exatamente o que foi
+                            prometido tecnicamente.</p>
+                    </div>
+                </div>
+
+                <div class="item-etica">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="texto-etica">
+                        <h3>Transparência</h3>
+                        <p>Comunicação clara em todas as etapas, desde a viabilidade técnica do orçamento até o status
+                            da produção.</p>
+                    </div>
+                </div>
+
+                <div class="item-etica">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="texto-etica">
+                        <h3>Respeito às Pessoas</h3>
+                        <p>Valorizamos a diversidade e garantimos um ambiente de trabalho seguro e digno para todos os
+                            colaboradores e parceiros.</p>
+                    </div>
+                </div>
+
+                <div class="item-etica">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="texto-etica">
+                        <h3>Compliance Técnico</h3>
+                        <p>Rigoroso cumprimento das normas técnicas e leis vigentes, combatendo qualquer prática de
+                            corrupção ou negligência.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="download-etica">
+                <p>Deseja ler o documento completo?</p>
+                <a href="#" class="btn-link">Baixar Código de Conduta (PDF) <i class="fas fa-file-pdf"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="secao-esg" id="esg">
+        <div class="container-esg">
+            <div class="grid-esg">
+                <div class="info-esg">
+                    <span class="tag-esg">Sustentabilidade em Foco</span>
+                    <h2>Nossos Indicadores <span>ESG</span></h2>
+                    <p>Na FerroTech, a precisão técnica caminha junto com a preservação do futuro. Nosso relatório anual
+                        detalha como transformamos metas em impacto real.</p>
+
+                    <div class="lista-metas">
+                        <div class="meta-item">
+                            <div class="meta-icon">🌱</div>
+                            <div>
+                                <strong>Ambiental (E)</strong>
+                                <p>Meta de 95% de reciclagem de cavacos e resíduos metálicos até o final de 2026.</p>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-icon">🤝</div>
+                            <div>
+                                <strong>Social (S)</strong>
+                                <p>Investimento em capacitação técnica para jovens da periferia de Sorocaba e
+                                    Votorantim.</p>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-icon">⚖️</div>
+                            <div>
+                                <strong>Governança (G)</strong>
+                                <p>Auditoria externa independente e canal de ética 100% anônimo para colaboradores.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn-download-esg">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                        Baixar Relatório Completo 2025/2026
+                    </a>
+                </div>
+
+                <div class="visual-esg">
+                    <div class="card-estatistica">
+                        <div class="numero-esg">-30%</div>
+                        <p>Emissão de CO₂ em 2025</p>
+                        <div class="barra-progresso">
+                            <div class="progresso" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="card-estatistica gold">
+                        <div class="numero-esg">100%</div>
+                        <p>Energia de Fontes Renováveis</p>
+                        <div class="barra-progresso">
+                            <div class="progresso" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="especificacoes-tecnicas" id="especificacoes">
+        <div class="container-tec">
+            <div class="header-tec">
+                <span class="detalhe-amarelo">Ficha Técnica</span>
+                <h2>Capacidades <span>Produtivas</span></h2>
+                <p>Conheça os limites operacionais e a precisão da nossa planta industrial em Sorocaba.</p>
+            </div>
+
+            <div class="grid-especificacoes">
+                <div class="card-tecnico">
+                    <div class="topo-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Corte a Laser</h3>
+                    </div>
+                    <ul class="lista-especs">
+                        <li><strong>Tecnologia:</strong> Fibra Óptica High-Power</li>
+                        <li><strong>Materiais:</strong> Aço Carbono, Inox e Alumínio</li>
+                        <li><strong>Espessura Máx:</strong> Até 25mm (Carbono)</li>
+                        <li><strong>Área de Mesa:</strong> 3000mm x 1500mm</li>
+                        <li><strong>Precisão:</strong> ± 0.05mm</li>
+                    </ul>
+                </div>
+
+                <div class="card-tecnico destaque-tec">
+                    <div class="topo-card">
+                        <i class="fas fa-cog"></i>
+                        <h3>Usinagem CNC</h3>
+                    </div>
+                    <ul class="lista-especs">
+                        <li><strong>Eixos:</strong> Centros de Usinagem 3 e 4 Eixos</li>
+                        <li><strong>Tolerância:</strong> ISO 2768-m (Fina)</li>
+                        <li><strong>Velocidade:</strong> High-Speed Spindle</li>
+                        <li><strong>Acabamento:</strong> Rugosidade controlada (Ra)</li>
+                        <li><strong>Complexidade:</strong> Moldes, Matrizes e Protótipos</li>
+                    </ul>
+                </div>
+
+                <div class="card-tecnico">
+                    <div class="topo-card">
+                        <i class="fas fa-fire"></i>
+                        <h3>Soldagem Industrial</h3>
+                    </div>
+                    <ul class="lista-especs">
+                        <li><strong>Processos:</strong> MIG/MAG, TIG e Eletrodo</li>
+                        <li><strong>Materiais:</strong> Ligas Especiais e Estruturais</li>
+                        <li><strong>Certificação:</strong> Inspetores de Solda Nível 1</li>
+                        <li><strong>Montagens:</strong> Conjuntos de Grande Porte</li>
+                        <li><strong>Teste:</strong> Líquido Penetrante (opcional)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="nota-tecnica">
+                <p>* Para projetos com tolerâncias fora do padrão, consulte nossa engenharia para análise de viabilidade
+                    técnica.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="secao-maquinario" id="maquinario">
+        <div class="container-maq">
+            <div class="header-maq">
+                <span class="label-tech">Tecnologia de Ponta</span>
+                <h2>Parque Fabril <span>FerroTech</span></h2>
+                <p>Infraestrutura completa com máquinas de última geração para garantir precisão e repetibilidade em
+                    larga escala.</p>
+            </div>
+
+            <div class="grid-maquinario">
+                <div class="card-maquina">
+                    <div class="img-maquina">
+                        <img src="imagens/cortelaser2.png" alt="Corte a Laser Fibra">
+                        <div class="badge-maq">Fibra Óptica</div>
+                    </div>
+                    <div class="detalhes-maquina">
+                        <h3>Corte a Laser CNC 6kW</h3>
+                        <p>Equipamento de alta potência capaz de cortar geometrias complexas com velocidade superior e
+                            bordas sem rebarbas.</p>
+                        <div class="tags-maq">
+                            <span>Alta Velocidade</span>
+                            <span>Precisão 0.01mm</span>
                         </div>
                     </div>
                 </div>
 
-                <a href="#" class="btn-download-esg">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                    Baixar Relatório Completo 2025/2026
-                </a>
-            </div>
-
-            <div class="visual-esg">
-                <div class="card-estatistica">
-                    <div class="numero-esg">-30%</div>
-                    <p>Emissão de CO₂ em 2025</p>
-                    <div class="barra-progresso"><div class="progresso" style="width: 70%;"></div></div>
+                <div class="card-maquina">
+                    <div class="img-maquina">
+                        <img src="imagens/usinagemcnc.png" alt="Centro de Usinagem">
+                        <div class="badge-maq">4 Eixos</div>
+                    </div>
+                    <div class="detalhes-maquina">
+                        <h3>Centro de Usinagem Vertical</h3>
+                        <p>Robusta e precisa, ideal para usinagem de moldes e peças de alta complexidade técnica em
+                            diversos materiais.</p>
+                        <div class="tags-maq">
+                            <span>Troca Automática</span>
+                            <span>Estabilidade Térmica</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-estatistica gold">
-                    <div class="numero-esg">100%</div>
-                    <p>Energia de Fontes Renováveis</p>
-                    <div class="barra-progresso"><div class="progresso" style="width: 100%;"></div></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="especificacoes-tecnicas" id="especificacoes">
-    <div class="container-tec">
-        <div class="header-tec">
-            <span class="detalhe-amarelo">Ficha Técnica</span>
-            <h2>Capacidades <span>Produtivas</span></h2>
-            <p>Conheça os limites operacionais e a precisão da nossa planta industrial em Sorocaba.</p>
-        </div>
-
-        <div class="grid-especificacoes">
-            <div class="card-tecnico">
-                <div class="topo-card">
-                    <i class="fas fa-bolt"></i>
-                    <h3>Corte a Laser</h3>
-                </div>
-                <ul class="lista-especs">
-                    <li><strong>Tecnologia:</strong> Fibra Óptica High-Power</li>
-                    <li><strong>Materiais:</strong> Aço Carbono, Inox e Alumínio</li>
-                    <li><strong>Espessura Máx:</strong> Até 25mm (Carbono)</li>
-                    <li><strong>Área de Mesa:</strong> 3000mm x 1500mm</li>
-                    <li><strong>Precisão:</strong> ± 0.05mm</li>
-                </ul>
-            </div>
-
-            <div class="card-tecnico destaque-tec">
-                <div class="topo-card">
-                    <i class="fas fa-cog"></i>
-                    <h3>Usinagem CNC</h3>
-                </div>
-                <ul class="lista-especs">
-                    <li><strong>Eixos:</strong> Centros de Usinagem 3 e 4 Eixos</li>
-                    <li><strong>Tolerância:</strong> ISO 2768-m (Fina)</li>
-                    <li><strong>Velocidade:</strong> High-Speed Spindle</li>
-                    <li><strong>Acabamento:</strong> Rugosidade controlada (Ra)</li>
-                    <li><strong>Complexidade:</strong> Moldes, Matrizes e Protótipos</li>
-                </ul>
-            </div>
-
-            <div class="card-tecnico">
-                <div class="topo-card">
-                    <i class="fas fa-fire"></i>
-                    <h3>Soldagem Industrial</h3>
-                </div>
-                <ul class="lista-especs">
-                    <li><strong>Processos:</strong> MIG/MAG, TIG e Eletrodo</li>
-                    <li><strong>Materiais:</strong> Ligas Especiais e Estruturais</li>
-                    <li><strong>Certificação:</strong> Inspetores de Solda Nível 1</li>
-                    <li><strong>Montagens:</strong> Conjuntos de Grande Porte</li>
-                    <li><strong>Teste:</strong> Líquido Penetrante (opcional)</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="nota-tecnica">
-            <p>* Para projetos com tolerâncias fora do padrão, consulte nossa engenharia para análise de viabilidade técnica.</p>
-        </div>
-    </div>
-</section>
-
-
-<section class="secao-maquinario" id="maquinario">
-    <div class="container-maq">
-        <div class="header-maq">
-            <span class="label-tech">Tecnologia de Ponta</span>
-            <h2>Parque Fabril <span>FerroTech</span></h2>
-            <p>Infraestrutura completa com máquinas de última geração para garantir precisão e repetibilidade em larga escala.</p>
-        </div>
-
-        <div class="grid-maquinario">
-            <div class="card-maquina">
-                <div class="img-maquina">
-                    <img src="imagens/cortelaser2.png" alt="Corte a Laser Fibra">
-                    <div class="badge-maq">Fibra Óptica</div>
-                </div>
-                <div class="detalhes-maquina">
-                    <h3>Corte a Laser CNC 6kW</h3>
-                    <p>Equipamento de alta potência capaz de cortar geometrias complexas com velocidade superior e bordas sem rebarbas.</p>
-                    <div class="tags-maq">
-                        <span>Alta Velocidade</span>
-                        <span>Precisão 0.01mm</span>
+                <div class="card-maquina">
+                    <div class="img-maquina">
+                        <img src="imagens/soldagem.png" alt="Célula de Soldagem">
+                        <div class="badge-maq">Industrial</div>
+                    </div>
+                    <div class="detalhes-maquina">
+                        <h3>Células de Soldagem MIG/TIG</h3>
+                        <p>Estações equipadas com fontes inversoras de última geração para garantir penetração e
+                            acabamento perfeitos.</p>
+                        <div class="tags-maq">
+                            <span>Solda Especial</span>
+                            <span>Controle Digital</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="card-maquina">
-                <div class="img-maquina">
-                    <img src="imagens/usinagemcnc.png" alt="Centro de Usinagem">
-                    <div class="badge-maq">4 Eixos</div>
-                </div>
-                <div class="detalhes-maquina">
-                    <h3>Centro de Usinagem Vertical</h3>
-                    <p>Robusta e precisa, ideal para usinagem de moldes e peças de alta complexidade técnica em diversos materiais.</p>
-                    <div class="tags-maq">
-                        <span>Troca Automática</span>
-                        <span>Estabilidade Térmica</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-maquina">
-                <div class="img-maquina">
-                    <img src="imagens/soldagem.png" alt="Célula de Soldagem">
-                    <div class="badge-maq">Industrial</div>
-                </div>
-                <div class="detalhes-maquina">
-                    <h3>Células de Soldagem MIG/TIG</h3>
-                    <p>Estações equipadas com fontes inversoras de última geração para garantir penetração e acabamento perfeitos.</p>
-                    <div class="tags-maq">
-                        <span>Solda Especial</span>
-                        <span>Controle Digital</span>
-                    </div>
-                </div>
+            <div class="footer-maq">
+                <p>Toda nossa manutenção é preventiva, garantindo <strong>zero paradas inesperadas</strong> no seu
+                    cronograma.</p>
             </div>
         </div>
-
-        <div class="footer-maq">
-            <p>Toda nossa manutenção é preventiva, garantindo <strong>zero paradas inesperadas</strong> no seu cronograma.</p>
-        </div>
-    </div>
-</section>
+    </section>
 
     <footer class="footer-main">
         <div class="footer-container">
@@ -1216,7 +1583,7 @@ section {
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            
+
             <div class="footer-links">
                 <h3>Serviços</h3>
                 <ul>
@@ -1238,8 +1605,9 @@ section {
         </div>
     </footer>
     <!-- Botão flutuante de cotação (visível apenas em mobile) -->
-<a href="paginaNegocios.html" class="fab-cotacao" aria-label="Solicitar cotação">
-    <i class="fas fa-dollar-sign"></i>
-</a>
+    <a href="paginaNegocios.html" class="fab-cotacao" aria-label="Solicitar cotação">
+        <i class="fas fa-dollar-sign"></i>
+    </a>
 </body>
+
 </html>

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>FerroTech | Sobre Nós – 18 anos de precisão industrial</title>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -57,8 +60,15 @@
       cursor: pointer;
       transition: opacity 0.2s;
     }
-    .logo:hover { opacity: 0.8; }
-    .logo span { color: var(--yellow); }
+
+    .logo:hover {
+      opacity: 0.8;
+    }
+
+    .logo span {
+      color: var(--yellow);
+    }
+
     .logo small {
       font-size: 0.7rem;
       font-weight: 400;
@@ -71,6 +81,7 @@
       display: flex;
       gap: 0.6rem;
     }
+
     .dot {
       width: 8px;
       height: 8px;
@@ -80,8 +91,15 @@
       cursor: pointer;
       transition: all 0.3s;
     }
-    .dot.active { background: var(--yellow); transform: scale(1.3); }
-    .dot.done { background: var(--white); }
+
+    .dot.active {
+      background: var(--yellow);
+      transform: scale(1.3);
+    }
+
+    .dot.done {
+      background: var(--white);
+    }
 
     .hamburger {
       display: flex;
@@ -91,6 +109,7 @@
       padding: 6px;
       z-index: 200;
     }
+
     .hamburger span {
       width: 26px;
       height: 2px;
@@ -98,9 +117,19 @@
       transition: 0.35s;
       transform-origin: center;
     }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+      width: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
 
     .progress-bar-wrap {
       position: fixed;
@@ -111,6 +140,7 @@
       background: var(--gray2);
       z-index: 101;
     }
+
     .progress-bar-fill {
       height: 100%;
       width: 0%;
@@ -132,16 +162,19 @@
       transform: translateX(-100%);
       transition: 0.4s;
     }
+
     .nav-overlay.open {
       opacity: 1;
       transform: translateX(0);
       pointer-events: all;
     }
+
     .nav-overlay nav {
       display: flex;
       flex-direction: column;
       gap: 1.8rem;
     }
+
     .nav-overlay nav a {
       font-family: var(--font-display);
       font-weight: 800;
@@ -154,11 +187,13 @@
       transition: 0.2s;
       cursor: pointer;
     }
+
     .nav-overlay nav a:hover {
       color: var(--yellow);
       border-left-color: var(--yellow);
       padding-left: 1.6rem;
     }
+
     .nav-overlay .nav-footer {
       margin-top: auto;
       font-size: 0.8rem;
@@ -166,6 +201,7 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
+
     .nav-close-btn {
       position: absolute;
       top: 1.4rem;
@@ -183,7 +219,11 @@
       gap: 0.5rem;
       transition: 0.2s;
     }
-    .nav-close-btn:hover { border-color: var(--yellow); color: var(--yellow); }
+
+    .nav-close-btn:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
 
     .scroll-container {
       position: fixed;
@@ -204,8 +244,16 @@
       padding: 2rem 1.5rem;
       transition: transform 0.7s cubic-bezier(0.77, 0, 0.18, 1);
     }
-    .panel::-webkit-scrollbar { width: 5px; background: var(--gray2); }
-    .panel::-webkit-scrollbar-thumb { background: var(--yellow); border-radius: 4px; }
+
+    .panel::-webkit-scrollbar {
+      width: 5px;
+      background: var(--gray2);
+    }
+
+    .panel::-webkit-scrollbar-thumb {
+      background: var(--yellow);
+      border-radius: 4px;
+    }
 
     .container {
       max-width: 1200px;
@@ -219,12 +267,14 @@
       align-items: center;
       justify-content: center;
     }
+
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
       align-items: center;
     }
+
     .hero h1 {
       font-family: var(--font-display);
       font-size: clamp(2.8rem, 6vw, 5rem);
@@ -233,22 +283,29 @@
       line-height: 0.92;
       margin-bottom: 1.5rem;
     }
-    .hero h1 span { color: var(--yellow); }
+
+    .hero h1 span {
+      color: var(--yellow);
+    }
+
     .hero p {
       font-size: 1rem;
       color: #aaa;
       line-height: 1.6;
       margin-bottom: 2rem;
     }
+
     .stats {
       display: flex;
       flex-direction: column;
       gap: 1.2rem;
     }
+
     .stat-item {
       border-left: 3px solid var(--yellow);
       padding-left: 1.2rem;
     }
+
     .stat-number {
       font-family: var(--font-display);
       font-size: 2.8rem;
@@ -256,23 +313,32 @@
       color: var(--yellow);
       line-height: 1;
     }
+
     .stat-label {
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       color: var(--text-muted);
     }
+
     @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; gap: 2rem; }
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
     }
 
-    .slide2 { background: var(--gray); }
+    .slide2 {
+      background: var(--gray);
+    }
+
     .timeline-vertical {
       display: flex;
       flex-direction: column;
       gap: 3rem;
       margin-top: 2rem;
     }
+
     .timeline-item {
       display: flex;
       align-items: center;
@@ -282,11 +348,17 @@
       padding: 1.5rem;
       transition: transform 0.2s, box-shadow 0.2s;
     }
+
     .timeline-item:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
-    .timeline-left { flex: 1; text-align: left; }
+
+    .timeline-left {
+      flex: 1;
+      text-align: left;
+    }
+
     .timeline-year {
       font-family: var(--font-display);
       font-size: 2.2rem;
@@ -294,39 +366,66 @@
       color: var(--yellow);
       margin-bottom: 0.5rem;
     }
+
     .timeline-desc {
       font-size: 0.95rem;
       line-height: 1.5;
       color: #ccc;
     }
-    .timeline-desc strong { color: var(--yellow); font-weight: 600; }
-    .timeline-right { flex: 1; text-align: center; }
+
+    .timeline-desc strong {
+      color: var(--yellow);
+      font-weight: 600;
+    }
+
+    .timeline-right {
+      flex: 1;
+      text-align: center;
+    }
+
     .timeline-right img {
       width: 100%;
       max-width: 350px;
       border-radius: 8px;
       border: 1px solid var(--gray);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
+
     .image-caption {
       font-size: 0.7rem;
       color: var(--text-muted);
       margin-top: 0.5rem;
       letter-spacing: 0.03em;
     }
+
     @media (max-width: 768px) {
-      .timeline-item { flex-direction: column; text-align: center; gap: 1rem; padding: 1.2rem; }
-      .timeline-left { text-align: center; }
-      .timeline-right img { max-width: 100%; }
+      .timeline-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.2rem;
+      }
+
+      .timeline-left {
+        text-align: center;
+      }
+
+      .timeline-right img {
+        max-width: 100%;
+      }
     }
 
-    .slide3 { background: var(--gray); }
+    .slide3 {
+      background: var(--gray);
+    }
+
     .principles-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
+
     .principle-card {
       background: var(--gray2);
       padding: 2rem;
@@ -334,17 +433,24 @@
       transition: transform 0.3s, box-shadow 0.3s;
       text-align: center;
     }
+
     .principle-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
-    .principle-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+
+    .principle-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
     .principle-card h3 {
       font-family: var(--font-display);
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
       color: var(--yellow);
     }
+
     .principle-card p {
       font-size: 0.9rem;
       color: var(--text-muted);
@@ -358,6 +464,7 @@
       justify-content: center;
       text-align: center;
     }
+
     .cta-box h2 {
       font-family: var(--font-display);
       font-size: clamp(2.5rem, 8vw, 5rem);
@@ -366,14 +473,16 @@
       text-transform: uppercase;
       margin-bottom: 1rem;
     }
+
     .cta-box p {
       font-size: 1.1rem;
-      color: rgba(0,0,0,0.7);
+      color: rgba(0, 0, 0, 0.7);
       margin-bottom: 2rem;
       max-width: 500px;
       margin-left: auto;
       margin-right: auto;
     }
+
     .btn-cta {
       display: inline-flex;
       align-items: center;
@@ -393,6 +502,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .btn-cta::before {
       content: '';
       position: absolute;
@@ -404,10 +514,25 @@
       transition: left 0.3s;
       z-index: 0;
     }
-    .btn-cta:hover::before { left: 0; }
-    .btn-cta span { position: relative; z-index: 1; }
-    .btn-cta svg { position: relative; z-index: 1; width: 18px; }
-    .btn-cta:hover { color: var(--black); }
+
+    .btn-cta:hover::before {
+      left: 0;
+    }
+
+    .btn-cta span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-cta svg {
+      position: relative;
+      z-index: 1;
+      width: 18px;
+    }
+
+    .btn-cta:hover {
+      color: var(--black);
+    }
 
     .section-label {
       font-family: var(--font-display);
@@ -417,6 +542,7 @@
       margin-bottom: 1rem;
       text-transform: uppercase;
     }
+
     h2 {
       font-family: var(--font-display);
       font-size: clamp(2rem, 5vw, 3.5rem);
@@ -424,243 +550,294 @@
       text-transform: uppercase;
       margin-bottom: 2rem;
     }
-    header img{
-    height: 150px;
-}
+
+    header img {
+      height: 150px;
+    }
   </style>
 </head>
+
 <body>
 
-<header>
-  <div class="logo" id="logoLink">Ferro<span>Tech</span> <small>metalurgia de precisão</small></div>
-  <div class="section-dots" id="sectionDots"></div>
-  <div class="hamburger" id="hamburger">
-    <span></span><span></span><span></span>
-  </div>
-</header>
-<div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar"></div></div>
-
-<div class="nav-overlay" id="navOverlay">
-  <button class="nav-close-btn" id="closeNavBtn">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    Fechar
-  </button>
-  <nav>
-    <a data-nav="1">A FerroTech</a>
-    <a data-nav="2">Nossa História</a>
-    <a data-nav="3">Princípios</a>
-    <a data-nav="4">Orçamento</a>
-  </nav>
-  <p class="nav-footer">Sorocaba/SP • 18 anos • Excelência em metalurgia</p>
-</div>
-
-<div class="scroll-container" id="scrollContainer">
-  <!-- SLIDE 1 -->
-  <div class="panel slide1" id="slide1">
-    <div class="container">
-      <div class="hero">
-        <div>
-          <div class="section-label">Desde 2008 em Sorocaba</div>
-          <h1>Precisão que <span>move</span> a indústria</h1>
-          <p>A FerroTech nasceu com o propósito de entregar soluções em corte a laser, usinagem CNC e soldagem de alta performance. Com 18 anos de história, nos tornamos referência no maior polo metalmecânico do interior paulista.</p>
-        </div>
-        <div class="stats">
-          <div class="stat-item"><div class="stat-number">18+</div><div class="stat-label">Anos de inovação</div></div>
-          <div class="stat-item"><div class="stat-number">1.200+</div><div class="stat-label">Projetos entregues</div></div>
-          <div class="stat-item"><div class="stat-number">Sorocaba</div><div class="stat-label">Nossa casa</div></div>
-        </div>
-      </div>
+  <header>
+    <div class="logo" id="logoLink">Ferro<span>Tech</span> <small>metalurgia de precisão</small></div>
+    <div class="section-dots" id="sectionDots"></div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
     </div>
+  </header>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" id="progressBar"></div>
   </div>
 
-  <!-- SLIDE 2 – TIMELINE COM FOTOS -->
-  <div class="panel slide2">
-    <div class="container">
-      <div class="section-label">Nossa trajetória</div>
-      <h2>Linha do tempo</h2>
-      <div class="timeline-vertical">
-        <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-year">2008</div>
-            <div class="timeline-desc"><strong>Fundação</strong><br>Iniciamos as atividades em uma pequena oficina em Sorocaba, com foco em usinagem convencional e atendimento personalizado.</div>
+  <div class="nav-overlay" id="navOverlay">
+    <button class="nav-close-btn" id="closeNavBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14">
+        <path d="M18 6L6 18M6 6l12 12" />
+      </svg>
+      Fechar
+    </button>
+    <nav>
+      <a data-nav="1">A FerroTech</a>
+      <a data-nav="2">Nossa História</a>
+      <a data-nav="3">Princípios</a>
+      <a data-nav="4">Orçamento</a>
+    </nav>
+    <p class="nav-footer">Sorocaba/SP • 18 anos • Excelência em metalurgia</p>
+  </div>
+
+  <div class="scroll-container" id="scrollContainer">
+    <!-- SLIDE 1 -->
+    <div class="panel slide1" id="slide1">
+      <div class="container">
+        <div class="hero">
+          <div>
+            <div class="section-label">Desde 2008 em Sorocaba</div>
+            <h1>Precisão que <span>move</span> a indústria</h1>
+            <p>A FerroTech nasceu com o propósito de entregar soluções em corte a laser, usinagem CNC e soldagem de alta
+              performance. Com 18 anos de história, nos tornamos referência no maior polo metalmecânico do interior
+              paulista.</p>
           </div>
-          <div class="timeline-right">
-            <img src="imagens/oficina2008.png" alt="Oficina em 2008">
-            <div class="image-caption">Primeira sede: 200 m² e 3 tornos mecânicos.</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-year">2012</div>
-            <div class="timeline-desc"><strong>Chegada do corte a laser</strong><br>Aquisição do primeiro equipamento de corte a laser de alta potência da região, dobrando a capacidade produtiva.</div>
-          </div>
-          <div class="timeline-right">
-            <img src="imagens/corte_laser.png" alt="Máquina de corte a laser">
-            <div class="image-caption">Primeira máquina a laser – precisão e velocidade.</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-year">2016</div>
-            <div class="timeline-desc"><strong>Expansão da usinagem CNC</strong><br>Inauguração da nova fábrica com 3.000 m² e aquisição de centros de usinagem 5 eixos.</div>
-          </div>
-          <div class="timeline-right">
-            <img src="imagens/nova_fabrica.png" alt="Nova fábrica">
-            <div class="image-caption">Parque fabril ampliado e equipe qualificada.</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-year">2020</div>
-            <div class="timeline-desc"><strong>Soldagem robotizada</strong><br>Implementação de células de soldagem com robôs, garantindo repetibilidade e alta resistência estrutural.</div>
-          </div>
-          <div class="timeline-right">
-            <img src="imagens/robo_solda.png" alt="Robô de solda">
-            <div class="image-caption">Primeira célula robotizada de soldagem.</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-year">2025</div>
-            <div class="timeline-desc"><strong>18 anos de excelência</strong><br>Consolidados como parceiros estratégicos das maiores indústrias do setor automotivo, agrícola e de máquinas.</div>
-          </div>
-          <div class="timeline-right">
-            <img src="imagens/equipeferrotech.png" alt="Equipe atual">
-            <div class="image-caption">Time atual: mais de 80 colaboradores e tecnologia de ponta.</div>
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-number">18+</div>
+              <div class="stat-label">Anos de inovação</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">1.200+</div>
+              <div class="stat-label">Projetos entregues</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">Sorocaba</div>
+              <div class="stat-label">Nossa casa</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- SLIDE 3 – PRINCÍPIOS -->
-  <div class="panel slide3">
-    <div class="container">
-      <div class="section-label">Nossa essência</div>
-      <h2>Princípios que nos guiam</h2>
-      <div class="principles-grid">
-        <div class="principle-card"><div class="principle-icon">🎯</div><h3>Precisão Absoluta</h3><p>Cada peça, cada solda, cada corte executado com tolerâncias rigorosas e controle total.</p></div>
-        <div class="principle-card"><div class="principle-icon">🤝</div><h3>Parceria Genuína</h3><p>Atuamos junto ao cliente desde a engenharia de aplicação até a entrega, construindo soluções sob medida.</p></div>
-        <div class="principle-card"><div class="principle-icon">⚙️</div><h3>Inovação Constante</h3><p>Investimos continuamente em tecnologia de ponta e capacitação da nossa equipe.</p></div>
-        <div class="principle-card"><div class="principle-icon">🌱</div><h3>Sustentabilidade</h3><p>Processos otimizados que reduzem desperdícios e respeitam o meio ambiente.</p></div>
-        <div class="principle-card"><div class="principle-icon">🏭</div><h3>Excelência Operacional</h3><p>Gestão enxuta e melhoria contínua para garantir entregas no prazo com a máxima qualidade.</p></div>
-        <div class="principle-card"><div class="principle-icon">💡</div><h3>Valorização Humana</h3><p>Nossos colaboradores são a base do nosso sucesso; investimos em desenvolvimento e segurança.</p></div>
+    <!-- SLIDE 2 – TIMELINE COM FOTOS -->
+    <div class="panel slide2">
+      <div class="container">
+        <div class="section-label">Nossa trajetória</div>
+        <h2>Linha do tempo</h2>
+        <div class="timeline-vertical">
+          <div class="timeline-item">
+            <div class="timeline-left">
+              <div class="timeline-year">2008</div>
+              <div class="timeline-desc"><strong>Fundação</strong><br>Iniciamos as atividades em uma pequena oficina em
+                Sorocaba, com foco em usinagem convencional e atendimento personalizado.</div>
+            </div>
+            <div class="timeline-right">
+              <img src="imagens/oficina2008.png" alt="Oficina em 2008">
+              <div class="image-caption">Primeira sede: 200 m² e 3 tornos mecânicos.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-left">
+              <div class="timeline-year">2012</div>
+              <div class="timeline-desc"><strong>Chegada do corte a laser</strong><br>Aquisição do primeiro equipamento
+                de corte a laser de alta potência da região, dobrando a capacidade produtiva.</div>
+            </div>
+            <div class="timeline-right">
+              <img src="imagens/corte_laser.png" alt="Máquina de corte a laser">
+              <div class="image-caption">Primeira máquina a laser – precisão e velocidade.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-left">
+              <div class="timeline-year">2016</div>
+              <div class="timeline-desc"><strong>Expansão da usinagem CNC</strong><br>Inauguração da nova fábrica com
+                3.000 m² e aquisição de centros de usinagem 5 eixos.</div>
+            </div>
+            <div class="timeline-right">
+              <img src="imagens/nova_fabrica.png" alt="Nova fábrica">
+              <div class="image-caption">Parque fabril ampliado e equipe qualificada.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-left">
+              <div class="timeline-year">2020</div>
+              <div class="timeline-desc"><strong>Soldagem robotizada</strong><br>Implementação de células de soldagem
+                com robôs, garantindo repetibilidade e alta resistência estrutural.</div>
+            </div>
+            <div class="timeline-right">
+              <img src="imagens/robo_solda.png" alt="Robô de solda">
+              <div class="image-caption">Primeira célula robotizada de soldagem.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-left">
+              <div class="timeline-year">2025</div>
+              <div class="timeline-desc"><strong>18 anos de excelência</strong><br>Consolidados como parceiros
+                estratégicos das maiores indústrias do setor automotivo, agrícola e de máquinas.</div>
+            </div>
+            <div class="timeline-right">
+              <img src="imagens/equipeferrotech.png" alt="Equipe atual">
+              <div class="image-caption">Time atual: mais de 80 colaboradores e tecnologia de ponta.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 – PRINCÍPIOS -->
+    <div class="panel slide3">
+      <div class="container">
+        <div class="section-label">Nossa essência</div>
+        <h2>Princípios que nos guiam</h2>
+        <div class="principles-grid">
+          <div class="principle-card">
+            <div class="principle-icon">🎯</div>
+            <h3>Precisão Absoluta</h3>
+            <p>Cada peça, cada solda, cada corte executado com tolerâncias rigorosas e controle total.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-icon">🤝</div>
+            <h3>Parceria Genuína</h3>
+            <p>Atuamos junto ao cliente desde a engenharia de aplicação até a entrega, construindo soluções sob medida.
+            </p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-icon">⚙️</div>
+            <h3>Inovação Constante</h3>
+            <p>Investimos continuamente em tecnologia de ponta e capacitação da nossa equipe.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-icon">🌱</div>
+            <h3>Sustentabilidade</h3>
+            <p>Processos otimizados que reduzem desperdícios e respeitam o meio ambiente.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-icon">🏭</div>
+            <h3>Excelência Operacional</h3>
+            <p>Gestão enxuta e melhoria contínua para garantir entregas no prazo com a máxima qualidade.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-icon">💡</div>
+            <h3>Valorização Humana</h3>
+            <p>Nossos colaboradores são a base do nosso sucesso; investimos em desenvolvimento e segurança.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4 – CALL TO ACTION COM LINK PARA paginaNegocios.html -->
+    <div class="panel slide4">
+      <div class="cta-box">
+        <h2>Vamos produzir<br>juntos?</h2>
+        <p>Solicite um orçamento e descubra por que a FerroTech é a escolha certa para seus projetos de precisão.</p>
+        <a href="paginaNegocios.html" class="btn-cta" id="quoteLink"><span>Solicitar Cotação</span> <svg
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg></a>
       </div>
     </div>
   </div>
 
-  <!-- SLIDE 4 – CALL TO ACTION COM LINK PARA paginaNegocios.html -->
-  <div class="panel slide4">
-    <div class="cta-box">
-      <h2>Vamos produzir<br>juntos?</h2>
-      <p>Solicite um orçamento e descubra por que a FerroTech é a escolha certa para seus projetos de precisão.</p>
-      <a href="paginaNegocios.html" class="btn-cta" id="quoteLink"><span>Solicitar Cotação</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
-  </div>
-</div>
+  <script>
+    const panels = document.querySelectorAll('.panel');
+    const progressBar = document.getElementById('progressBar');
+    const dotsContainer = document.getElementById('sectionDots');
+    const hamburger = document.getElementById('hamburger');
+    const navOverlay = document.getElementById('navOverlay');
+    const logoLink = document.getElementById('logoLink');
 
-<script>
-  const panels = document.querySelectorAll('.panel');
-  const progressBar = document.getElementById('progressBar');
-  const dotsContainer = document.getElementById('sectionDots');
-  const hamburger = document.getElementById('hamburger');
-  const navOverlay = document.getElementById('navOverlay');
-  const logoLink = document.getElementById('logoLink');
+    let current = 0;
+    let isAnimating = false;
+    const total = panels.length;
 
-  let current = 0;
-  let isAnimating = false;
-  const total = panels.length;
+    // Criar dots
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.dataset.index = i;
+      dot.addEventListener('click', () => goToPanel(i));
+      dotsContainer.appendChild(dot);
+    }
+    const dots = document.querySelectorAll('.dot');
 
-  // Criar dots
-  for (let i = 0; i < total; i++) {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if (i === 0) dot.classList.add('active');
-    dot.dataset.index = i;
-    dot.addEventListener('click', () => goToPanel(i));
-    dotsContainer.appendChild(dot);
-  }
-  const dots = document.querySelectorAll('.dot');
+    function updateUI() {
+      const pct = total === 1 ? 100 : (current / (total - 1)) * 100;
+      progressBar.style.width = pct + '%';
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+        d.classList.toggle('done', i < current);
+      });
+      panels.forEach((p, i) => {
+        p.style.transform = `translateX(${(i - current) * 100}vw)`;
+      });
+    }
 
-  function updateUI() {
-    const pct = total === 1 ? 100 : (current / (total - 1)) * 100;
-    progressBar.style.width = pct + '%';
-    dots.forEach((d, i) => {
-      d.classList.toggle('active', i === current);
-      d.classList.toggle('done', i < current);
+    function goToPanel(index) {
+      if (isAnimating) return;
+      if (index < 0 || index >= total) return;
+      isAnimating = true;
+      current = index;
+      updateUI();
+      setTimeout(() => { isAnimating = false; }, 750);
+    }
+
+    function next() { goToPanel(current + 1); }
+    function prev() { goToPanel(current - 1); }
+
+    // Navegação por wheel e touch
+    let wheelTimer;
+    window.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      clearTimeout(wheelTimer);
+      wheelTimer = setTimeout(() => {
+        if (e.deltaX > 40 || e.deltaY > 40) next();
+        else if (e.deltaX < -40 || e.deltaY < -40) prev();
+      }, 30);
+    }, { passive: false });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next();
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prev();
+      if (e.key === 'Escape') closeMenu();
     });
-    panels.forEach((p, i) => {
-      p.style.transform = `translateX(${(i - current) * 100}vw)`;
-    });
-  }
 
-  function goToPanel(index) {
-    if (isAnimating) return;
-    if (index < 0 || index >= total) return;
-    isAnimating = true;
-    current = index;
+    let touchStartX = 0;
+    window.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+    window.addEventListener('touchend', (e) => {
+      const dx = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(dx) > 50) dx > 0 ? next() : prev();
+    });
+
+    // Menu overlay
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      navOverlay.classList.remove('open');
+    }
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navOverlay.classList.toggle('open');
+    });
+    document.getElementById('closeNavBtn').addEventListener('click', closeMenu);
+
+    // Navegação via menu overlay
+    document.querySelectorAll('.nav-overlay nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const targetIdx = parseInt(link.getAttribute('data-nav'), 10) - 1;
+        if (!isNaN(targetIdx) && targetIdx >= 0 && targetIdx < total) {
+          goToPanel(targetIdx);
+          closeMenu();
+        }
+      });
+    });
+
+    // Logo: redireciona para página inicial (ou recarrega)
+    logoLink.addEventListener('click', () => {
+      window.location.href = './';
+    });
+
+    // O botão "Solicitar Cotação" já é um link <a> com href="paginaNegocios.html"
+    // Portanto, funcionará normalmente sem necessidade de JavaScript adicional.
+
     updateUI();
-    setTimeout(() => { isAnimating = false; }, 750);
-  }
-
-  function next() { goToPanel(current + 1); }
-  function prev() { goToPanel(current - 1); }
-
-  // Navegação por wheel e touch
-  let wheelTimer;
-  window.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    clearTimeout(wheelTimer);
-    wheelTimer = setTimeout(() => {
-      if (e.deltaX > 40 || e.deltaY > 40) next();
-      else if (e.deltaX < -40 || e.deltaY < -40) prev();
-    }, 30);
-  }, { passive: false });
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next();
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prev();
-    if (e.key === 'Escape') closeMenu();
-  });
-
-  let touchStartX = 0;
-  window.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
-  window.addEventListener('touchend', (e) => {
-    const dx = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(dx) > 50) dx > 0 ? next() : prev();
-  });
-
-  // Menu overlay
-  function closeMenu() {
-    hamburger.classList.remove('open');
-    navOverlay.classList.remove('open');
-  }
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    navOverlay.classList.toggle('open');
-  });
-  document.getElementById('closeNavBtn').addEventListener('click', closeMenu);
-
-  // Navegação via menu overlay
-  document.querySelectorAll('.nav-overlay nav a').forEach(link => {
-    link.addEventListener('click', (e) => {
-      const targetIdx = parseInt(link.getAttribute('data-nav'), 10) - 1;
-      if (!isNaN(targetIdx) && targetIdx >= 0 && targetIdx < total) {
-        goToPanel(targetIdx);
-        closeMenu();
-      }
-    });
-  });
-
-  // Logo: redireciona para página inicial (ou recarrega)
-  logoLink.addEventListener('click', () => {
-    window.location.href = './';
-  });
-
-  // O botão "Solicitar Cotação" já é um link <a> com href="paginaNegocios.html"
-  // Portanto, funcionará normalmente sem necessidade de JavaScript adicional.
-
-  updateUI();
-</script>
+  </script>
 </body>
+
 </html>

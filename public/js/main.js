@@ -2,13 +2,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebas
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB3ximM7Zis1dDpb3Rs_LtCqLbxtwkRgBg",
-  authDomain: "paginametalurgia.firebaseapp.com",
-  projectId: "paginametalurgia",
-  storageBucket: "paginametalurgia.firebasestorage.app",
-  messagingSenderId: "1088193424815",
-  appId: "1:1088193424815:web:d50e37ef0119847ee8935a",
-  measurementId: "G-51ZF8TEN6X"
+    apiKey: "AIzaSyB3ximM7Zis1dDpb3Rs_LtCqLbxtwkRgBg",
+    authDomain: "paginametalurgia.firebaseapp.com",
+    projectId: "paginametalurgia",
+    storageBucket: "paginametalurgia.firebasestorage.app",
+    messagingSenderId: "1088193424815",
+    appId: "1:1088193424815:web:d50e37ef0119847ee8935a",
+    measurementId: "G-51ZF8TEN6X"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -33,7 +33,7 @@ async function enviarParaFirebase(event, colecao) {
 
         // Salva apenas o texto no Firestore
         await addDoc(collection(db, colecao), dados);
-        
+
         alert("Dados salvos no sistema!");
         form.reset();
 
@@ -60,4 +60,3 @@ if (formCandidato) {
 
 
 
-    

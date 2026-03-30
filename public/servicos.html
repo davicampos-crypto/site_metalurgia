@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
@@ -7,7 +8,9 @@
     <!-- Font Awesome Icons (necessário para ícones) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts (melhor tipografia) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <style>
         /* =========================================
            CONFIGURAÇÕES GERAIS E RESETS
@@ -30,7 +33,8 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             width: 100%;
             overflow-x: hidden;
             scroll-behavior: smooth;
@@ -40,7 +44,8 @@
             font-family: var(--font-body);
             background-color: #0f172a;
             color: var(--color-white);
-            padding-top: 80px; /* espaço para header fixo */
+            padding-top: 80px;
+            /* espaço para header fixo */
         }
 
         /* --- HEADER REFATORADO (FIXO, MAIS ORGANIZADO) --- */
@@ -56,13 +61,13 @@
             transition: all 0.3s ease;
         }
 
-      
+
 
         /* Logo responsivo */
         .logo img {
-            
+
             height: auto;
-            max-height:100px;
+            max-height: 100px;
             width: auto;
             transition: all 0.2s;
         }
@@ -84,7 +89,8 @@
             padding: 5px 0;
         }
 
-        .nav-link:hover, .nav-link.active {
+        .nav-link:hover,
+        .nav-link.active {
             color: var(--color-gold);
         }
 
@@ -99,7 +105,8 @@
             transition: 0.3s;
         }
 
-        .nav-link:hover::after, .nav-link.active::after {
+        .nav-link:hover::after,
+        .nav-link.active::after {
             width: 100%;
         }
 
@@ -123,7 +130,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             padding: 4px 12px;
             border-radius: 40px;
         }
@@ -194,7 +201,7 @@
             backdrop-filter: blur(12px);
             z-index: 999;
             padding: 20px;
-            border-bottom: 1px solid rgba(255,184,0,0.3);
+            border-bottom: 1px solid rgba(255, 184, 0, 0.3);
             transform: translateY(-100%);
             transition: transform 0.3s ease;
         }
@@ -222,7 +229,8 @@
             transition: 0.2s;
         }
 
-        .mobile-nav-list li a:hover, .mobile-nav-list li a.active {
+        .mobile-nav-list li a:hover,
+        .mobile-nav-list li a.active {
             color: var(--color-gold);
         }
 
@@ -329,8 +337,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
         }
 
         /* INTRO BREAK */
@@ -428,7 +443,7 @@
         .servico-info .numero {
             font-size: 4rem;
             font-weight: 900;
-            color: rgba(255,255,255,0.05);
+            color: rgba(255, 255, 255, 0.05);
             line-height: 1;
         }
 
@@ -520,7 +535,8 @@
             transition: 0.2s;
         }
 
-        .footer-links h3, .footer-contact h3 {
+        .footer-links h3,
+        .footer-contact h3 {
             color: var(--color-gold);
             font-size: 1rem;
             margin-bottom: 20px;
@@ -563,372 +579,380 @@
             text-align: center;
             margin-top: 50px;
             padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 0.7rem;
             color: #64748b;
         }
 
-          /* =========================================
+        /* =========================================
    MELHORIAS DE RESPONSIVIDADE PARA CELULAR
    ========================================= */
-    @media (max-width: 768px) {
-        body {
-            padding-top: 70px;
-            /* Ajuste para header menor */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+                /* Ajuste para header menor */
+            }
+
+            /* HEADER */
+            .header-main {
+                height: auto;
+                padding: 10px 0;
+            }
+
+            .header-container {
+
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .header-left .logo img {
+                height: 100px !important;
+                width: auto;
+            }
+
+            .top-actions {
+                gap: 10px;
+            }
+
+            .header-accessibility {
+                gap: 8px;
+                padding-right: 8px;
+                margin-right: 8px;
+            }
+
+            .access-btn {
+                font-size: 0.7rem;
+            }
+
+            .btn-business {
+                padding: 8px 16px;
+                font-size: 0.75rem;
+            }
+
+            /* HERO */
+            .hero-visual {
+                height: 40vh;
+            }
+
+            .hero-content {
+                padding: 30px 20px;
+            }
+
+            .hero-headline {
+                font-size: 1.5rem;
+            }
+
+            .hero-subtext {
+                font-size: 0.9rem;
+            }
+
+            .milestone-year {
+                font-size: 3rem;
+                -webkit-text-stroke: 0.5px var(--color-platinum);
+            }
+
+            .hero-logo {
+                max-height: 80px !important;
+            }
+
+            .hero-footer {
+                gap: 15px;
+            }
+
+            .btn-cta {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+
+            /* SEÇÃO BOAS PRÁTICAS */
+            .ferrotech-practices {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .practice-headline {
+                font-size: 1.4rem;
+            }
+
+            .practice-text {
+                font-size: 0.95rem;
+            }
+
+            .btn-more {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+
+            .arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .control-counter {
+                font-size: 1.4rem;
+            }
+
+            /* SEÇÃO GENTE DA FERROTECH */
+            .ferrotech-team {
+                padding: 60px 0;
+            }
+
+            .team-title {
+                font-size: 2rem;
+            }
+
+            .team-description {
+                font-size: 1rem;
+            }
+
+            .team-question {
+                font-size: 1.1rem;
+            }
+
+            .team-actions {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
+
+            .btn-team {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+            }
+
+            .team-visual-composition {
+                margin-top: 30px;
+            }
+
+            .img-workers {
+                width: 100%;
+            }
+
+            /* GRID DE SERVIÇOS */
+            .ferrotech-grid-services {
+                padding: 60px 0;
+            }
+
+            .grid-main-title {
+                font-size: 1.8rem;
+            }
+
+            .service-card {
+                height: auto;
+                min-height: 320px;
+                padding: 30px 20px;
+            }
+
+            .card-number {
+                font-size: 3rem;
+            }
+
+            .card-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .card-content p {
+                font-size: 0.9rem;
+            }
+
+            /* FOOTER */
+            .footer-main {
+                padding: 50px 20px 20px;
+                margin-top: 60px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-brand p {
+                max-width: 100%;
+            }
+
+            .footer-links h3,
+            .footer-contact h3 {
+                font-size: 1rem;
+                margin-bottom: 15px;
+            }
+
+            .footer-links li {
+                margin-bottom: 8px;
+            }
+
+            .footer-contact p {
+                font-size: 0.9rem;
+            }
+
+            .footer-bottom {
+                margin-top: 40px;
+                font-size: 0.7rem;
+            }
         }
 
-        /* HEADER */
-        .header-main {
-            height: auto;
-            padding: 10px 0;
+        /* Telas muito pequenas (<=480px) */
+        @media (max-width: 480px) {
+            .header-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .header-left {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .header-right {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .top-actions {
+                order: 2;
+            }
+
+            .btn-business {
+                order: 1;
+            }
+
+            .hero-headline {
+                font-size: 1.3rem;
+            }
+
+            .hero-subtext {
+                font-size: 0.85rem;
+            }
+
+            .milestone-year {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .practice-headline {
+                font-size: 1.2rem;
+            }
+
+            .arrow {
+                width: 35px;
+                height: 35px;
+            }
+
+            .team-title {
+                font-size: 1.8rem;
+            }
         }
 
-        .header-container {
-            
-            flex-wrap: wrap;
-            gap: 10px;
+        footer {
+            margin-top: 0px !important;
+
         }
 
-        .header-left .logo img {
-            height: 100px !important;
-            width: auto;
+        /* --- CONFIGURAÇÃO PARA DESKTOP (IGUAL AO SEU) --- */
+        .menu-mobile-btn {
+            display: none;
+            /* Esconde o botão no PC */
         }
 
-        .top-actions {
-            gap: 10px;
+        @media (max-width: 768px) {
+
+            /* 1. Ajuste do Container para não quebrar o layout */
+            .header-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 20px;
+            }
+
+            /* 2. Botão Hambúrguer - Ajustando cores */
+            .menu-mobile-btn {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 20px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                order: 2;
+                /* Garante que fique na direita */
+            }
+
+            .menu-mobile-btn span {
+                width: 100%;
+                height: 3px;
+                background-color: #ffcc00;
+                /* Amarelo da logo para destaque */
+                border-radius: 2px;
+            }
+
+            /* 3. O Menu em si (A parte que estava branca) */
+            .nav-desktop {
+                display: none;
+                position: absolute;
+                top: 70px;
+                /* Ajuste para ficar logo abaixo do header */
+                left: 0;
+                width: 100%;
+                background-color: #1a2433;
+                /* Azul escuro combinando com a marca */
+                z-index: 1000;
+                border-bottom: 3px solid #ffcc00;
+            }
+
+            .nav-desktop.open {
+                display: block;
+            }
+
+            .nav-desktop ul {
+                flex-direction: column;
+                padding: 0;
+                margin: 0;
+            }
+
+            .nav-desktop ul li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            /* 4. Ajuste dos links (Para ficarem visíveis) */
+            .nav-desktop ul li a {
+                display: block;
+                padding: 15px;
+                color: #ffffff !important;
+                /* Texto branco */
+                text-decoration: none;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .nav-desktop ul li a:hover {
+                background-color: #253244;
+                color: #ffcc00 !important;
+                /* Amarelo ao passar o mouse */
+            }
+
+            /* 5. Esconder elementos que não cabem no mobile */
+            .header-right {
+                display: none;
+            }
         }
-
-        .header-accessibility {
-            gap: 8px;
-            padding-right: 8px;
-            margin-right: 8px;
-        }
-
-        .access-btn {
-            font-size: 0.7rem;
-        }
-
-        .btn-business {
-            padding: 8px 16px;
-            font-size: 0.75rem;
-        }
-
-        /* HERO */
-        .hero-visual {
-            height: 40vh;
-        }
-
-        .hero-content {
-            padding: 30px 20px;
-        }
-
-        .hero-headline {
-            font-size: 1.5rem;
-        }
-
-        .hero-subtext {
-            font-size: 0.9rem;
-        }
-
-        .milestone-year {
-            font-size: 3rem;
-            -webkit-text-stroke: 0.5px var(--color-platinum);
-        }
-
-        .hero-logo {
-            max-height: 80px !important;
-        }
-
-        .hero-footer {
-            gap: 15px;
-        }
-
-        .btn-cta {
-            width: 100%;
-            text-align: center;
-            padding: 12px;
-            font-size: 0.9rem;
-        }
-
-        /* SEÇÃO BOAS PRÁTICAS */
-        .ferrotech-practices {
-            padding: 60px 0;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-        }
-
-        .section-subtitle {
-            font-size: 1rem;
-        }
-
-        .practice-headline {
-            font-size: 1.4rem;
-        }
-
-        .practice-text {
-            font-size: 0.95rem;
-        }
-
-        .btn-more {
-            padding: 10px 20px;
-            font-size: 0.8rem;
-        }
-
-        .arrow {
-            width: 40px;
-            height: 40px;
-            font-size: 1.2rem;
-        }
-
-        .control-counter {
-            font-size: 1.4rem;
-        }
-
-        /* SEÇÃO GENTE DA FERROTECH */
-        .ferrotech-team {
-            padding: 60px 0;
-        }
-
-        .team-title {
-            font-size: 2rem;
-        }
-
-        .team-description {
-            font-size: 1rem;
-        }
-
-        .team-question {
-            font-size: 1.1rem;
-        }
-
-        .team-actions {
-            flex-direction: column;
-            gap: 15px;
-            width: 100%;
-        }
-
-        .btn-team {
-            width: 100%;
-            text-align: center;
-            padding: 12px;
-        }
-
-        .team-visual-composition {
-            margin-top: 30px;
-        }
-
-        .img-workers {
-            width: 100%;
-        }
-
-        /* GRID DE SERVIÇOS */
-        .ferrotech-grid-services {
-            padding: 60px 0;
-        }
-
-        .grid-main-title {
-            font-size: 1.8rem;
-        }
-
-        .service-card {
-            height: auto;
-            min-height: 320px;
-            padding: 30px 20px;
-        }
-
-        .card-number {
-            font-size: 3rem;
-        }
-
-        .card-content h3 {
-            font-size: 1.3rem;
-        }
-
-        .card-content p {
-            font-size: 0.9rem;
-        }
-
-        /* FOOTER */
-        .footer-main {
-            padding: 50px 20px 20px;
-            margin-top: 60px;
-        }
-
-        .footer-container {
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-
-        .footer-brand p {
-            max-width: 100%;
-        }
-
-        .footer-links h3,
-        .footer-contact h3 {
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
-
-        .footer-links li {
-            margin-bottom: 8px;
-        }
-
-        .footer-contact p {
-            font-size: 0.9rem;
-        }
-
-        .footer-bottom {
-            margin-top: 40px;
-            font-size: 0.7rem;
-        }
-    }
-
-    /* Telas muito pequenas (<=480px) */
-    @media (max-width: 480px) {
-        .header-container {
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .header-left {
-            width: 100%;
-            justify-content: space-between;
-        }
-
-        .header-right {
-            width: 100%;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .top-actions {
-            order: 2;
-        }
-
-        .btn-business {
-            order: 1;
-        }
-
-        .hero-headline {
-            font-size: 1.3rem;
-        }
-
-        .hero-subtext {
-            font-size: 0.85rem;
-        }
-
-        .milestone-year {
-            font-size: 2.5rem;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-        }
-
-        .practice-headline {
-            font-size: 1.2rem;
-        }
-
-        .arrow {
-            width: 35px;
-            height: 35px;
-        }
-
-        .team-title {
-            font-size: 1.8rem;
-        }
-    }
-
-    footer{
-margin-top: 0px !important;
-
-    }
-
-/* --- CONFIGURAÇÃO PARA DESKTOP (IGUAL AO SEU) --- */
-.menu-mobile-btn {
-    display: none; /* Esconde o botão no PC */
-}
-
-@media (max-width: 768px) {
-    /* 1. Ajuste do Container para não quebrar o layout */
-    .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-    }
-
-    /* 2. Botão Hambúrguer - Ajustando cores */
-    .menu-mobile-btn {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 20px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        order: 2; /* Garante que fique na direita */
-    }
-
-    .menu-mobile-btn span {
-        width: 100%;
-        height: 3px;
-        background-color: #ffcc00; /* Amarelo da logo para destaque */
-        border-radius: 2px;
-    }
-
-    /* 3. O Menu em si (A parte que estava branca) */
-    .nav-desktop {
-        display: none; 
-        position: absolute;
-        top: 70px; /* Ajuste para ficar logo abaixo do header */
-        left: 0;
-        width: 100%;
-        background-color: #1a2433; /* Azul escuro combinando com a marca */
-        z-index: 1000;
-        border-bottom: 3px solid #ffcc00;
-    }
-
-    .nav-desktop.open {
-        display: block;
-    }
-
-    .nav-desktop ul {
-        flex-direction: column;
-        padding: 0;
-        margin: 0;
-    }
-
-    .nav-desktop ul li {
-        width: 100%;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    /* 4. Ajuste dos links (Para ficarem visíveis) */
-    .nav-desktop ul li a {
-        display: block;
-        padding: 15px;
-        color: #ffffff !important; /* Texto branco */
-        text-decoration: none;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .nav-desktop ul li a:hover {
-        background-color: #253244;
-        color: #ffcc00 !important; /* Amarelo ao passar o mouse */
-    }
-
-    /* 5. Esconder elementos que não cabem no mobile */
-    .header-right {
-        display: none; 
-    }
-}
 
         /* HIGH CONTRAST STYLES */
         body.high-contrast {
@@ -962,393 +986,404 @@ margin-top: 0px !important;
         /* =========================================
    PADRONIZAÇÃO DO HEADER (CONFORME PÁGINA SUSTENTABILIDADE)
    ========================================= */
-.header-main {
-    background-color: rgba(15, 23, 42, 0.96);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
+        .header-main {
+            background-color: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
 
-.header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-   
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
 
-    .header-left {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-        flex-wrap: wrap;
-        min-width: 0;
-    }
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
 
-    .nav-desktop {
-        display: flex;
-        align-items: center;
-        min-width: 0;
-    }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            min-width: 0;
+        }
 
-    .nav-desktop ul {
-        display: flex;
-        gap: 28px;
-        list-style: none;
-        flex-wrap: wrap;
-    }
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            min-width: 0;
+        }
 
-/* Ajuste do botão hambúrguer e menu mobile */
-.menu-mobile-btn {
-    display: none;
-    background: none;
-    border: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
-    cursor: pointer;
-    order: 2;
-}
+        .nav-desktop ul {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
 
-.menu-mobile-btn span {
-    width: 100%;
-    height: 3px;
-    background-color: var(--color-gold, #FFB703);
-    border-radius: 2px;
-}
+        /* Ajuste do botão hambúrguer e menu mobile */
+        .menu-mobile-btn {
+            display: none;
+            background: none;
+            border: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            order: 2;
+        }
 
-/* Header right mantido como na sustentabilidade */
-.header-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
-}
+        .menu-mobile-btn span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--color-gold, #FFB703);
+            border-radius: 2px;
+        }
 
-.top-actions {
-    display: flex;
-    gap: 18px;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-}
+        /* Header right mantido como na sustentabilidade */
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
 
-.header-accessibility {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: rgba(255,255,255,0.05);
-    padding: 4px 12px;
-    border-radius: 40px;
-}
+        .top-actions {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
 
-.access-btn {
-    background: none;
-    border: none;
-    color: #e2e8f0;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    transition: 0.2s;
-}
+        .header-accessibility {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 12px;
+            border-radius: 40px;
+        }
 
-.access-btn:hover {
-    color: var(--color-gold);
-}
+        .access-btn {
+            background: none;
+            border: none;
+            color: #e2e8f0;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
 
-.lang-selector {
-    color: #e2e8f0;
-    font-size: 0.75rem;
-    font-weight: 600;
-}
+        .access-btn:hover {
+            color: var(--color-gold);
+        }
 
-.lang-selector .active {
-    color: var(--color-gold);
-}
+        .lang-selector {
+            color: #e2e8f0;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
 
-.btn-business {
-    background-color: var(--color-gold);
-    color: var(--color-navy, #1B263B);
-    text-decoration: none;
-    font-family: var(--font-heading, 'Montserrat', sans-serif);
-    font-weight: 800;
-    font-size: 0.75rem;
-    padding: 10px 22px;
-    border-radius: 40px;
-    transition: all 0.2s;
-    white-space: nowrap;
-}
+        .lang-selector .active {
+            color: var(--color-gold);
+        }
 
-.btn-business:hover {
-    filter: brightness(1.05);
-    transform: scale(1.02);
-}
+        .btn-business {
+            background-color: var(--color-gold);
+            color: var(--color-navy, #1B263B);
+            text-decoration: none;
+            font-family: var(--font-heading, 'Montserrat', sans-serif);
+            font-weight: 800;
+            font-size: 0.75rem;
+            padding: 10px 22px;
+            border-radius: 40px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
 
-/* =========================================
+        .btn-business:hover {
+            filter: brightness(1.05);
+            transform: scale(1.02);
+        }
+
+        /* =========================================
    RESPONSIVIDADE (IGUAL ÀS CORREÇÕES ANTERIORES)
    ========================================= */
-@media (max-width: 768px) {
-    body {
-        padding-top: 70px;
-    }
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
 
-    /* Header mobile */
-    .header-container {
-        padding: 10px 20px;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
+            /* Header mobile */
+            .header-container {
+                padding: 10px 20px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
 
-    .menu-mobile-btn {
-        display: flex;
-    }
+            .menu-mobile-btn {
+                display: flex;
+            }
 
-    .nav-desktop {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: #1a2433;
-        z-index: 1000;
-        border-bottom: 3px solid #ffcc00;
-    }
+            .nav-desktop {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #1a2433;
+                z-index: 1000;
+                border-bottom: 3px solid #ffcc00;
+            }
 
-    .nav-desktop.open {
-        display: block;
-    }
+            .nav-desktop.open {
+                display: block;
+            }
 
-    .nav-desktop ul {
-        flex-direction: column;
-        padding: 0;
-        margin: 0;
-    }
+            .nav-desktop ul {
+                flex-direction: column;
+                padding: 0;
+                margin: 0;
+            }
 
-    .nav-desktop ul li {
-        width: 100%;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
+            .nav-desktop ul li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
 
-    .nav-desktop ul li a {
-        display: block;
-        padding: 15px;
-        color: #ffffff !important;
-        text-decoration: none;
-        font-weight: bold;
-        text-align: center;
-    }
+            .nav-desktop ul li a {
+                display: block;
+                padding: 15px;
+                color: #ffffff !important;
+                text-decoration: none;
+                font-weight: bold;
+                text-align: center;
+            }
 
-    .nav-desktop ul li a:hover {
-        background-color: #253244;
-        color: #ffcc00 !important;
-    }
+            .nav-desktop ul li a:hover {
+                background-color: #253244;
+                color: #ffcc00 !important;
+            }
 
-    .header-right {
-        display: none;
-    }
+            .header-right {
+                display: none;
+            }
 
-    /* Ajustes do hero e seções da página serviços */
-    .hero-servicos {
-        flex-direction: column;
-        min-height: auto;
-    }
+            /* Ajustes do hero e seções da página serviços */
+            .hero-servicos {
+                flex-direction: column;
+                min-height: auto;
+            }
 
-    .servicos-visual {
-        height: 45vh;
-        min-height: 280px;
-    }
+            .servicos-visual {
+                height: 45vh;
+                min-height: 280px;
+            }
 
-    .servicos-visual img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+            .servicos-visual img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
 
-    .servicos-intro {
-        padding: 40px 24px;
-    }
+            .servicos-intro {
+                padding: 40px 24px;
+            }
 
-    .servicos-intro h1 {
-        font-size: 1.8rem;
-    }
+            .servicos-intro h1 {
+                font-size: 1.8rem;
+            }
 
-    .precision-badge {
-        bottom: 20px;
-        right: 20px;
-        padding: 12px 18px;
-    }
+            .precision-badge {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 18px;
+            }
 
-    .precision-badge .value {
-        font-size: 1.3rem;
-    }
+            .precision-badge .value {
+                font-size: 1.3rem;
+            }
 
-    .servico-container {
-        flex-direction: column;
-        gap: 30px;
-    }
+            .servico-container {
+                flex-direction: column;
+                gap: 30px;
+            }
 
-    .servico-detalhe.reverse .servico-container {
-        flex-direction: column;
-    }
+            .servico-detalhe.reverse .servico-container {
+                flex-direction: column;
+            }
 
-    .servico-image img {
-        box-shadow: 8px 8px 0px -2px var(--color-gold);
-    }
+            .servico-image img {
+                box-shadow: 8px 8px 0px -2px var(--color-gold);
+            }
 
-    .servico-info h2 {
-        font-size: 1.8rem;
-    }
+            .servico-info h2 {
+                font-size: 1.8rem;
+            }
 
-    .servico-info .numero {
-        font-size: 2.5rem;
-    }
+            .servico-info .numero {
+                font-size: 2.5rem;
+            }
 
-    .intro-break h2 {
-        font-size: 1.8rem;
-    }
+            .intro-break h2 {
+                font-size: 1.8rem;
+            }
 
-    .intro-break p {
-        font-size: 0.95rem;
-    }
+            .intro-break p {
+                font-size: 0.95rem;
+            }
 
-    /* Footer */
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
+            /* Footer */
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
 
-    .footer-brand p {
-        max-width: 100%;
-    }
-}
+            .footer-brand p {
+                max-width: 100%;
+            }
+        }
 
-@media (max-width: 480px) {
-    .servicos-intro h1 {
-        font-size: 1.5rem;
-    }
+        @media (max-width: 480px) {
+            .servicos-intro h1 {
+                font-size: 1.5rem;
+            }
 
-    .hero-servicos {
-        flex-direction: column;
-    }
+            .hero-servicos {
+                flex-direction: column;
+            }
 
-    .servicos-visual {
-        height: 35vh;
-        min-height: 220px;
-    }
+            .servicos-visual {
+                height: 35vh;
+                min-height: 220px;
+            }
 
-    .precision-badge {
-        display: none; /* esconde badge em telas muito pequenas */
-    }
+            .precision-badge {
+                display: none;
+                /* esconde badge em telas muito pequenas */
+            }
 
-    .servico-info h2 {
-        font-size: 1.5rem;
-    }
+            .servico-info h2 {
+                font-size: 1.5rem;
+            }
 
-    .check-list li {
-        font-size: 0.85rem;
-    }
+            .check-list li {
+                font-size: 0.85rem;
+            }
 
-    .cta-servico, .btn-primary {
-        width: 100%;
-        text-align: center;
-    }
-}
+            .cta-servico,
+            .btn-primary {
+                width: 100%;
+                text-align: center;
+            }
+        }
 
 
-@media (max-width: 768px) {
-    /* 1. Garante que os itens fiquem na mesma linha */
-    .header-container {
-        display: flex !important;
-        flex-direction: row !important; /* Força a linha */
-        justify-content: space-between; /* Joga um pra cada ponta */
-        align-items: center; /* Alinha verticalmente no meio */
-        padding: 10px 20px;
-        width: 100%;
-        box-sizing: border-box;
-    }
+        @media (max-width: 768px) {
 
-    /* 2. Ajuste as divs internas para não ocuparem 100% da largura */
-    .header-left {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%; /* Isso faz o logo e o botão ocuparem a linha toda */
-    }
+            /* 1. Garante que os itens fiquem na mesma linha */
+            .header-container {
+                display: flex !important;
+                flex-direction: row !important;
+                /* Força a linha */
+                justify-content: space-between;
+                /* Joga um pra cada ponta */
+                align-items: center;
+                /* Alinha verticalmente no meio */
+                padding: 10px 20px;
+                width: 100%;
+                box-sizing: border-box;
+            }
 
-    .logo {
-        margin: 0;
-    }
+            /* 2. Ajuste as divs internas para não ocuparem 100% da largura */
+            .header-left {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                /* Isso faz o logo e o botão ocuparem a linha toda */
+            }
 
-    .logo img {
-        max-width: 200px; /* Ajuste o tamanho do logo se ele estiver muito grande */
-        height: auto;
-    }
+            .logo {
+                margin: 0;
+            }
 
-    /* 3. O botão hambúrguer */
-    .menu-mobile-btn {
-        display: flex; /* Garante que ele apareça */
-        margin-left: auto; /* Empurra ele para a direita se necessário */
-    }
-}
+            .logo img {
+                max-width: 200px;
+                /* Ajuste o tamanho do logo se ele estiver muito grande */
+                height: auto;
+            }
 
-/* Botão flutuante para cotação (mobile) */
-.fab-cotacao {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 56px;
-    height: 56px;
-    background-color: var(--color-gold, #FFB703);
-    color: #1B263B;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    z-index: 999;
-    text-decoration: none;
-}
+            /* 3. O botão hambúrguer */
+            .menu-mobile-btn {
+                display: flex;
+                /* Garante que ele apareça */
+                margin-left: auto;
+                /* Empurra ele para a direita se necessário */
+            }
+        }
 
-.fab-cotacao:hover {
-    transform: scale(1.1);
-    background-color: #e6a500;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
+        /* Botão flutuante para cotação (mobile) */
+        .fab-cotacao {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            background-color: var(--color-gold, #FFB703);
+            color: #1B263B;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 999;
+            text-decoration: none;
+        }
 
-/* Esconde o botão em telas maiores que 768px (desktop) */
-@media (min-width: 769px) {
-    .fab-cotacao {
-        display: none;
-    }
-}
+        .fab-cotacao:hover {
+            transform: scale(1.1);
+            background-color: #e6a500;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
 
-/* Ajuste para dispositivos muito pequenos */
-@media (max-width: 480px) {
-    .fab-cotacao {
-        width: 48px;
-        height: 48px;
-        font-size: 1.4rem;
-        bottom: 16px;
-        right: 16px;
-    }
-}
+        /* Esconde o botão em telas maiores que 768px (desktop) */
+        @media (min-width: 769px) {
+            .fab-cotacao {
+                display: none;
+            }
+        }
 
-/* Suporte para alto contraste */
-body.high-contrast .fab-cotacao {
-    background-color: #fff !important;
-    color: #000 !important;
-    border: 2px solid #ff0 !important;
-}
+        /* Ajuste para dispositivos muito pequenos */
+        @media (max-width: 480px) {
+            .fab-cotacao {
+                width: 48px;
+                height: 48px;
+                font-size: 1.4rem;
+                bottom: 16px;
+                right: 16px;
+            }
+        }
+
+        /* Suporte para alto contraste */
+        body.high-contrast .fab-cotacao {
+            background-color: #fff !important;
+            color: #000 !important;
+            border: 2px solid #ff0 !important;
+        }
     </style>
 </head>
+
 <body>
 
- <header class="header-main">
+    <header class="header-main">
         <div class="header-container">
             <div class="header-left">
                 <div class="logo">
@@ -1366,10 +1401,10 @@ body.high-contrast .fab-cotacao {
                     </ul>
                 </nav>
                 <button class="menu-mobile-btn" onclick="toggleMobileMenu()">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-</button>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
             </div>
 
 
@@ -1393,212 +1428,220 @@ body.high-contrast .fab-cotacao {
         </div>
     </header>
 
-<section class="hero-servicos">
-    <div class="servicos-intro">
-        <div class="content-wrapper">
-            <span class="intro-badge" style="margin-bottom: 15px; display: inline-flex;">NOSSA EXPERTISE</span>
-            <h1>ENGENHARIA DE <br><span class="highlight">ALTA PERFORMANCE</span></h1>
-            <p>Transformamos matéria-prima em componentes de precisão com tecnologia de ponta. Soluções customizadas para demandas industriais complexas.</p>
-            <div class="servicos-links">
-                <a href="#corte-laser" class="s-link"><i class="fas fa-bolt"></i> Corte a Laser</a>
-                <a href="#usinagem-cnc" class="s-link"><i class="fas fa-microchip"></i> Usinagem CNC</a>
-                <a href="#soldagem" class="s-link"><i class="fas fa-fire"></i> Soldagem High-Tech</a>
-            </div>
-            <a href="#" class="btn-primary">VER CATÁLOGO TÉCNICO</a>
-        </div>
-    </div>
-    <div class="servicos-visual">
-        <div class="image-overlay"></div>
-        <img src="imagens/heroservicos.png" alt="Maquinário FerroTech">
-        <div class="precision-badge">
-            <span class="value">0.01mm</span>
-            <span class="label">Tolerância Máxima</span>
-        </div>
-    </div>
-</section>
-
-<section class="intro-break">
-    <div class="intro-container">
-        <div class="intro-badge"><i class="fas fa-microchip"></i> TECNOLOGIA 4.0</div>
-        <h2>MAIS QUE USINAGEM, <br><span>ENTREGAMOS ESTRATÉGIA.</span></h2>
-        <p>Na FerroTech, unimos a força da indústria pesada com a inteligência de dados. Nossa planta em Sorocaba é equipada para atender desde protótipos rápidos até linhas de produção em escala.</p>
-        <div class="divider-line"></div>
-    </div>
-</section>
-
-<section id="corte-laser" class="servico-detalhe">
-    <div class="servico-container">
-        <div class="servico-image">
-            <img src="imagens/cortelaser2.png" alt="Corte a Laser">
-            <div class="tech-tag">Fibra Óptica</div>
-        </div>
-        <div class="servico-info">
-            <span class="numero">01</span>
-            <h2>Corte a <span class="highlight">Laser</span></h2>
-            <p>Utilizamos tecnologia de fibra óptica de última geração, permitindo cortes extremamente complexos em chapas de aço carbono, inox e alumínio com bordas perfeitas e sem necessidade de acabamento posterior.</p>
-            <ul class="check-list">
-                <li><i class="fas fa-check"></i> Espessuras de até 25mm</li>
-                <li><i class="fas fa-check"></i> Aproveitamento máximo de matéria-prima</li>
-                <li><i class="fas fa-check"></i> Velocidade industrial superior</li>
-            </ul>
-            <a href="paginaCotacao.html" class="cta-servico" data-firebase="interesse_laser">SOLICITAR ORÇAMENTO LASER</a>
-        </div>
-    </div>
-</section>
-
-<section id="usinagem-cnc" class="servico-detalhe reverse">
-    <div class="servico-container">
-        <div class="servico-image">
-            <img src="imagens/usinagemcnc.png" alt="Usinagem CNC">
-            <div class="tech-tag">4 Eixos</div>
-        </div>
-        <div class="servico-info">
-            <span class="numero">02</span>
-            <h2>Usinagem <span class="highlight">CNC</span></h2>
-            <p>Nossos centros de usinagem operam com tolerâncias decimais para a criação de moldes, matrizes e componentes mecânicos de alta complexidade geométrica.</p>
-            <ul class="check-list">
-                <li><i class="fas fa-check"></i> Fresagem e Torneamento</li>
-                <li><i class="fas fa-check"></i> Repetibilidade garantida</li>
-                <li><i class="fas fa-check"></i> Acabamento de superfície premium</li>
-            </ul>
-            <a href="paginaCotacao.html" class="cta-servico" data-firebase="interesse_cnc">PROJETAR MINHA PEÇA</a>
-        </div>
-    </div>
-</section>
-
-<section id="soldagem" class="servico-detalhe">
-    <div class="servico-container">
-        <div class="servico-image">
-            <img src="imagens/soldagem.png" alt="Soldagem Especializada">
-            <div class="tech-tag">TIG / MIG / MAG</div>
-        </div>
-        <div class="servico-info">
-            <span class="numero">03</span>
-            <h2>Soldagem <span class="highlight">Especializada</span></h2>
-            <p>Unimos resistência e estética. Processos de soldagem certificados para garantir que a estrutura suporte as cargas mais severas da indústria pesada.</p>
-            <ul class="check-list">
-                <li><i class="fas fa-check"></i> Inspeção de qualidade rigorosa</li>
-                <li><i class="fas fa-check"></i> Soldas limpas e estruturais</li>
-                <li><i class="fas fa-check"></i> Especialistas em Inox e Ligas Leves</li>
-            </ul>
-            <a href="comunicacao.html" class="cta-servico" data-firebase="interesse_solda">FALAR COM ENGENHEIRO</a>
-        </div>
-    </div>
-</section>
-
-<footer class="footer-main">
-    <div class="footer-container">
-        <div class="footer-brand">
-            <img src="imagens/logo-ferrotech.png" alt="FerroTech">
-            <p>Excelência em metalurgia de precisão e soluções industriais sustentáveis.</p>
-            <div class="footer-social">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+    <section class="hero-servicos">
+        <div class="servicos-intro">
+            <div class="content-wrapper">
+                <span class="intro-badge" style="margin-bottom: 15px; display: inline-flex;">NOSSA EXPERTISE</span>
+                <h1>ENGENHARIA DE <br><span class="highlight">ALTA PERFORMANCE</span></h1>
+                <p>Transformamos matéria-prima em componentes de precisão com tecnologia de ponta. Soluções customizadas
+                    para demandas industriais complexas.</p>
+                <div class="servicos-links">
+                    <a href="#corte-laser" class="s-link"><i class="fas fa-bolt"></i> Corte a Laser</a>
+                    <a href="#usinagem-cnc" class="s-link"><i class="fas fa-microchip"></i> Usinagem CNC</a>
+                    <a href="#soldagem" class="s-link"><i class="fas fa-fire"></i> Soldagem High-Tech</a>
+                </div>
+                <a href="#" class="btn-primary">VER CATÁLOGO TÉCNICO</a>
             </div>
         </div>
-        <div class="footer-links">
-            <h3>Serviços</h3>
-            <ul>
-                <li><a href="servicos.html#corte-laser">Corte a Laser</a></li>
-                <li><a href="servicos.html#usinagem-cnc">Usinagem CNC</a></li>
-                <li><a href="servicos.html#soldagem">Soldagem Especializada</a></li>
-            </ul>
+        <div class="servicos-visual">
+            <div class="image-overlay"></div>
+            <img src="imagens/heroservicos.png" alt="Maquinário FerroTech">
+            <div class="precision-badge">
+                <span class="value">0.01mm</span>
+                <span class="label">Tolerância Máxima</span>
+            </div>
         </div>
-        <div class="footer-contact">
-            <h3>Contato Direto</h3>
-            <p><i class="fas fa-phone"></i> (15) 3224-XXXX</p>
-            <p><i class="fas fa-envelope"></i> comercial@ferrotech.com.br</p>
-            <p><i class="fas fa-map-marker-alt"></i> Sorocaba, SP - Distrito Industrial</p>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2026 FerroTech Industrial - Todos os direitos reservados.</p>
-    </div>
-</footer>
-<!-- Botão flutuante de cotação (visível apenas em mobile) -->
-<a href="paginaNegocios.html" class="fab-cotacao" aria-label="Solicitar cotação">
-    <i class="fas fa-dollar-sign"></i>
-</a>
-<script>
-    // Menu mobile toggle
-    const toggleBtn = document.getElementById('mobileMenuToggle');
-    const mobileMenu = document.getElementById('mobileNavContainer');
+    </section>
 
-    if(toggleBtn && mobileMenu) {
-        toggleBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            mobileMenu.classList.toggle('open');
-            const icon = toggleBtn.querySelector('i');
-            if(mobileMenu.classList.contains('open')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+    <section class="intro-break">
+        <div class="intro-container">
+            <div class="intro-badge"><i class="fas fa-microchip"></i> TECNOLOGIA 4.0</div>
+            <h2>MAIS QUE USINAGEM, <br><span>ENTREGAMOS ESTRATÉGIA.</span></h2>
+            <p>Na FerroTech, unimos a força da indústria pesada com a inteligência de dados. Nossa planta em Sorocaba é
+                equipada para atender desde protótipos rápidos até linhas de produção em escala.</p>
+            <div class="divider-line"></div>
+        </div>
+    </section>
+
+    <section id="corte-laser" class="servico-detalhe">
+        <div class="servico-container">
+            <div class="servico-image">
+                <img src="imagens/cortelaser2.png" alt="Corte a Laser">
+                <div class="tech-tag">Fibra Óptica</div>
+            </div>
+            <div class="servico-info">
+                <span class="numero">01</span>
+                <h2>Corte a <span class="highlight">Laser</span></h2>
+                <p>Utilizamos tecnologia de fibra óptica de última geração, permitindo cortes extremamente complexos em
+                    chapas de aço carbono, inox e alumínio com bordas perfeitas e sem necessidade de acabamento
+                    posterior.</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-check"></i> Espessuras de até 25mm</li>
+                    <li><i class="fas fa-check"></i> Aproveitamento máximo de matéria-prima</li>
+                    <li><i class="fas fa-check"></i> Velocidade industrial superior</li>
+                </ul>
+                <a href="paginaCotacao.html" class="cta-servico" data-firebase="interesse_laser">SOLICITAR ORÇAMENTO
+                    LASER</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="usinagem-cnc" class="servico-detalhe reverse">
+        <div class="servico-container">
+            <div class="servico-image">
+                <img src="imagens/usinagemcnc.png" alt="Usinagem CNC">
+                <div class="tech-tag">4 Eixos</div>
+            </div>
+            <div class="servico-info">
+                <span class="numero">02</span>
+                <h2>Usinagem <span class="highlight">CNC</span></h2>
+                <p>Nossos centros de usinagem operam com tolerâncias decimais para a criação de moldes, matrizes e
+                    componentes mecânicos de alta complexidade geométrica.</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-check"></i> Fresagem e Torneamento</li>
+                    <li><i class="fas fa-check"></i> Repetibilidade garantida</li>
+                    <li><i class="fas fa-check"></i> Acabamento de superfície premium</li>
+                </ul>
+                <a href="paginaCotacao.html" class="cta-servico" data-firebase="interesse_cnc">PROJETAR MINHA PEÇA</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="soldagem" class="servico-detalhe">
+        <div class="servico-container">
+            <div class="servico-image">
+                <img src="imagens/soldagem.png" alt="Soldagem Especializada">
+                <div class="tech-tag">TIG / MIG / MAG</div>
+            </div>
+            <div class="servico-info">
+                <span class="numero">03</span>
+                <h2>Soldagem <span class="highlight">Especializada</span></h2>
+                <p>Unimos resistência e estética. Processos de soldagem certificados para garantir que a estrutura
+                    suporte as cargas mais severas da indústria pesada.</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-check"></i> Inspeção de qualidade rigorosa</li>
+                    <li><i class="fas fa-check"></i> Soldas limpas e estruturais</li>
+                    <li><i class="fas fa-check"></i> Especialistas em Inox e Ligas Leves</li>
+                </ul>
+                <a href="comunicacao.html" class="cta-servico" data-firebase="interesse_solda">FALAR COM ENGENHEIRO</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-main">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="imagens/logo-ferrotech.png" alt="FerroTech">
+                <p>Excelência em metalurgia de precisão e soluções industriais sustentáveis.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Serviços</h3>
+                <ul>
+                    <li><a href="servicos.html#corte-laser">Corte a Laser</a></li>
+                    <li><a href="servicos.html#usinagem-cnc">Usinagem CNC</a></li>
+                    <li><a href="servicos.html#soldagem">Soldagem Especializada</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contato Direto</h3>
+                <p><i class="fas fa-phone"></i> (15) 3224-XXXX</p>
+                <p><i class="fas fa-envelope"></i> comercial@ferrotech.com.br</p>
+                <p><i class="fas fa-map-marker-alt"></i> Sorocaba, SP - Distrito Industrial</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FerroTech Industrial - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <!-- Botão flutuante de cotação (visível apenas em mobile) -->
+    <a href="paginaNegocios.html" class="fab-cotacao" aria-label="Solicitar cotação">
+        <i class="fas fa-dollar-sign"></i>
+    </a>
+    <script>
+        // Menu mobile toggle
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileNavContainer');
+
+        if (toggleBtn && mobileMenu) {
+            toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('open');
+                const icon = toggleBtn.querySelector('i');
+                if (mobileMenu.classList.contains('open')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            // Fechar menu ao clicar em link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    const icon = toggleBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        }
+
+        // Ativar link ativo no menu mobile baseado na página atual
+        const currentPage = window.location.pathname.split("/").pop();
+        const allNavLinks = document.querySelectorAll(".nav-link, .mobile-nav-list a");
+        allNavLinks.forEach(link => {
+            if (link.getAttribute("href") === currentPage) {
+                link.classList.add("active");
+            } else if (currentPage === "" && link.getAttribute("href") === "index.html") {
+                link.classList.add("active");
             }
         });
-        // Fechar menu ao clicar em link
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
+
+        // Controle de contraste
+        function toggleContrast() {
+            document.body.classList.toggle('high-contrast');
+            const isEnabled = document.body.classList.contains('high-contrast');
+            localStorage.setItem('ferrotech-contrast', isEnabled ? 'enabled' : 'disabled');
+        }
+
+        let fontSizePercent = parseInt(localStorage.getItem('ferrotech-fontsize')) || 100;
+        function applyFontSize() {
+            document.documentElement.style.fontSize = `${fontSizePercent}%`;
+            localStorage.setItem('ferrotech-fontsize', fontSizePercent);
+        }
+        function changeFontSize(delta) {
+            let newSize = fontSizePercent + (delta * 10);
+            if (newSize >= 80 && newSize <= 150) {
+                fontSizePercent = newSize;
+                applyFontSize();
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('ferrotech-contrast') === 'enabled') {
+                document.body.classList.add('high-contrast');
+            }
+            applyFontSize();
+        });
+
+        function toggleMobileMenu() {
+            const nav = document.querySelector('.nav-desktop');
+            nav.classList.toggle('open');
+        }
+
+        // Opcional: Fecha o menu automaticamente ao clicar em um link
+        document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                const icon = toggleBtn.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                document.querySelector('.nav-desktop').classList.remove('open');
             });
         });
-    }
-
-    // Ativar link ativo no menu mobile baseado na página atual
-    const currentPage = window.location.pathname.split("/").pop();
-    const allNavLinks = document.querySelectorAll(".nav-link, .mobile-nav-list a");
-    allNavLinks.forEach(link => {
-        if(link.getAttribute("href") === currentPage) {
-            link.classList.add("active");
-        } else if(currentPage === "" && link.getAttribute("href") === "index.html") {
-            link.classList.add("active");
-        }
-    });
-
-    // Controle de contraste
-    function toggleContrast() {
-        document.body.classList.toggle('high-contrast');
-        const isEnabled = document.body.classList.contains('high-contrast');
-        localStorage.setItem('ferrotech-contrast', isEnabled ? 'enabled' : 'disabled');
-    }
-
-    let fontSizePercent = parseInt(localStorage.getItem('ferrotech-fontsize')) || 100;
-    function applyFontSize() {
-        document.documentElement.style.fontSize = `${fontSizePercent}%`;
-        localStorage.setItem('ferrotech-fontsize', fontSizePercent);
-    }
-    function changeFontSize(delta) {
-        let newSize = fontSizePercent + (delta * 10);
-        if(newSize >= 80 && newSize <= 150) {
-            fontSizePercent = newSize;
-            applyFontSize();
-        }
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-        if(localStorage.getItem('ferrotech-contrast') === 'enabled') {
-            document.body.classList.add('high-contrast');
-        }
-        applyFontSize();
-    });
-
-     function toggleMobileMenu() {
-    const nav = document.querySelector('.nav-desktop');
-    nav.classList.toggle('open');
-}
-
-// Opcional: Fecha o menu automaticamente ao clicar em um link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        document.querySelector('.nav-desktop').classList.remove('open');
-    });
-});
-</script>
+    </script>
 </body>
+
 </html>

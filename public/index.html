@@ -51,11 +51,12 @@
     /* =========================================
    ESTILOS DO SECTION HERO
    ========================================= */
-   .hero {
-    display: flex;
-    overflow: hidden;
-    min-height: calc(100vh - 100px); /* corrige o calc e define altura mínima */
-}
+    .hero {
+        display: flex;
+        overflow: hidden;
+        min-height: calc(100vh - 100px);
+        /* corrige o calc e define altura mínima */
+    }
 
     .hero-container {
         display: flex;
@@ -64,15 +65,16 @@
     }
 
     /* --- BLOCO ESQUERDO: VISUAL --- */
-   .hero-visual {
-    flex: 0 0 60%;
-    position: relative;
-    background-color: #222;
-    overflow: hidden;
-}
+    .hero-visual {
+        flex: 0 0 60%;
+        position: relative;
+        background-color: #222;
+        overflow: hidden;
+    }
+
     .hero-worker-img {
         width: 100%;
-       height: 100%;
+        height: 100%;
         object-fit: cover;
         /* Faz a imagem preencher o espaço sem distorcer */
         display: block;
@@ -101,7 +103,7 @@
         background-color: var(--color-navy);
         color: var(--color-white);
         display: flex;
-         align-items: center; 
+        align-items: center;
         /* Centraliza verticalmente o conteúdo */
         justify-content: center;
         padding: 70px 40px;
@@ -294,139 +296,141 @@
         }
     }
 
-      /* =========================================
+    /* =========================================
            HEADER FIXO (JÁ EXISTENTE)
         ========================================= */
-        .header-main {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
+    .header-main {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
 
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-             /* padding: 15px 40px; */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .header-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        /* padding: 15px 40px; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
 
-        .nav-desktop ul {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
+    .nav-desktop ul {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+    }
 
-        .nav-link {
-            text-decoration: none;
-            color: #cbd5e1;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: 0.3s;
-            position: relative;
-            padding: 5px 0;
-        }
+    .nav-link {
+        text-decoration: none;
+        color: #cbd5e1;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: 0.3s;
+        position: relative;
+        padding: 5px 0;
+    }
 
-        .nav-link:hover, .nav-link.active {
-            color: var(--color-gold);
-        }
+    .nav-link:hover,
+    .nav-link.active {
+        color: var(--color-gold);
+    }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--color-gold);
-            transition: 0.3s;
-        }
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--color-gold);
+        transition: 0.3s;
+    }
 
-        .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
-        }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        width: 100%;
+    }
 
-        .header-right {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 12px;
-        }
+    .header-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+    }
 
-        .top-actions {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
+    .top-actions {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
 
-        .header-accessibility {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 0.8rem;
-            color: var(--color-white);
-            border-right: 1px solid rgba(255, 255, 255, 0.2);
-            padding-right: 15px;
-            margin-right: 15px;
-        }
+    .header-accessibility {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 0.8rem;
+        color: var(--color-white);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        padding-right: 15px;
+        margin-right: 15px;
+    }
 
-        .access-btn {
-            background: none;
-            border: none;
-            color: inherit;
-            cursor: pointer;
-            font-weight: 600;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
+    .access-btn {
+        background: none;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+    }
 
-        .access-btn:hover {
-            color: var(--color-gold);
-        }
+    .access-btn:hover {
+        color: var(--color-gold);
+    }
 
-        .lang-selector {
-            color: var(--color-white);
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
+    .lang-selector {
+        color: var(--color-white);
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
 
-        .lang-selector .active {
-            color: var(--color-gold);
-        }
+    .lang-selector .active {
+        color: var(--color-gold);
+    }
 
-        .btn-business {
-            background-color: var(--color-gold);
-            color: var(--color-navy);
-            text-decoration: none;
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 0.85rem;
-            padding: 12px 30px;
-            border-radius: 30px;
-            transition: transform 0.2s ease, filter 0.3s ease;
-        }
+    .btn-business {
+        background-color: var(--color-gold);
+        color: var(--color-navy);
+        text-decoration: none;
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 0.85rem;
+        padding: 12px 30px;
+        border-radius: 30px;
+        transition: transform 0.2s ease, filter 0.3s ease;
+    }
 
-        .btn-business:hover {
-            filter: brightness(1.1);
-            transform: scale(1.02);
-        }
+    .btn-business:hover {
+        filter: brightness(1.1);
+        transform: scale(1.02);
+    }
 
-        header img {
-            height: 100px;
-        }
+    header img {
+        height: 100px;
+    }
 
     /* =========================================
    ESTILOS DA SEÇÃO DE BOAS PRÁTICAS
@@ -1120,7 +1124,7 @@
         border: 2px solid #FFFF00 !important;
     }
 
-    
+
     /* =========================================
    MELHORIAS DE RESPONSIVIDADE PARA CELULAR
    ========================================= */
@@ -1396,144 +1400,151 @@
         }
     }
 
-    footer{
-margin-top: 0px !important;
+    footer {
+        margin-top: 0px !important;
 
     }
 
-/* --- CONFIGURAÇÃO PARA DESKTOP (IGUAL AO SEU) --- */
-.menu-mobile-btn {
-    display: none; /* Esconde o botão no PC */
-}
-
-@media (max-width: 768px) {
-    /* 1. Ajuste do Container para não quebrar o layout */
-    .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-    }
-
-    /* 2. Botão Hambúrguer - Ajustando cores */
+    /* --- CONFIGURAÇÃO PARA DESKTOP (IGUAL AO SEU) --- */
     .menu-mobile-btn {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 20px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        order: 2; /* Garante que fique na direita */
-    }
-
-    .menu-mobile-btn span {
-        width: 100%;
-        height: 3px;
-        background-color: #ffcc00; /* Amarelo da logo para destaque */
-        border-radius: 2px;
-    }
-
-    /* 3. O Menu em si (A parte que estava branca) */
-    .nav-desktop {
-        display: none; 
-        position: absolute;
-        top: 70px; /* Ajuste para ficar logo abaixo do header */
-        left: 0;
-        width: 100%;
-        background-color: #1a2433; /* Azul escuro combinando com a marca */
-        z-index: 1000;
-        border-bottom: 3px solid #ffcc00;
-    }
-
-    .nav-desktop.open {
-        display: block;
-    }
-
-    .nav-desktop ul {
-        flex-direction: column;
-        padding: 0;
-        margin: 0;
-    }
-
-    .nav-desktop ul li {
-        width: 100%;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    /* 4. Ajuste dos links (Para ficarem visíveis) */
-    .nav-desktop ul li a {
-        display: block;
-        padding: 15px;
-        color: #ffffff !important; /* Texto branco */
-        text-decoration: none;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .nav-desktop ul li a:hover {
-        background-color: #253244;
-        color: #ffcc00 !important; /* Amarelo ao passar o mouse */
-    }
-
-    /* 5. Esconder elementos que não cabem no mobile */
-    .header-right {
-        display: none; 
-    }
-}
-/* Botão flutuante para cotação (mobile) */
-.fab-cotacao {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 56px;
-    height: 56px;
-    background-color: var(--color-gold, #FFB703);
-    color: #1B263B;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    z-index: 999;
-    text-decoration: none;
-}
-
-.fab-cotacao:hover {
-    transform: scale(1.1);
-    background-color: #e6a500;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
-/* Esconde o botão em telas maiores que 768px (desktop) */
-@media (min-width: 769px) {
-    .fab-cotacao {
         display: none;
+        /* Esconde o botão no PC */
     }
-}
 
-/* Ajuste para dispositivos muito pequenos */
-@media (max-width: 480px) {
+    @media (max-width: 768px) {
+
+        /* 1. Ajuste do Container para não quebrar o layout */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        /* 2. Botão Hambúrguer - Ajustando cores */
+        .menu-mobile-btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            order: 2;
+            /* Garante que fique na direita */
+        }
+
+        .menu-mobile-btn span {
+            width: 100%;
+            height: 3px;
+            background-color: #ffcc00;
+            /* Amarelo da logo para destaque */
+            border-radius: 2px;
+        }
+
+        /* 3. O Menu em si (A parte que estava branca) */
+        .nav-desktop {
+            display: none;
+            position: absolute;
+            top: 70px;
+            /* Ajuste para ficar logo abaixo do header */
+            left: 0;
+            width: 100%;
+            background-color: #1a2433;
+            /* Azul escuro combinando com a marca */
+            z-index: 1000;
+            border-bottom: 3px solid #ffcc00;
+        }
+
+        .nav-desktop.open {
+            display: block;
+        }
+
+        .nav-desktop ul {
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-desktop ul li {
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* 4. Ajuste dos links (Para ficarem visíveis) */
+        .nav-desktop ul li a {
+            display: block;
+            padding: 15px;
+            color: #ffffff !important;
+            /* Texto branco */
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .nav-desktop ul li a:hover {
+            background-color: #253244;
+            color: #ffcc00 !important;
+            /* Amarelo ao passar o mouse */
+        }
+
+        /* 5. Esconder elementos que não cabem no mobile */
+        .header-right {
+            display: none;
+        }
+    }
+
+    /* Botão flutuante para cotação (mobile) */
     .fab-cotacao {
-        width: 48px;
-        height: 48px;
-        font-size: 1.4rem;
-        bottom: 16px;
-        right: 16px;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 56px;
+        height: 56px;
+        background-color: var(--color-gold, #FFB703);
+        color: #1B263B;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        z-index: 999;
+        text-decoration: none;
     }
-}
 
-/* Suporte para alto contraste */
-body.high-contrast .fab-cotacao {
-    background-color: #fff !important;
-    color: #000 !important;
-    border: 2px solid #ff0 !important;
-}
+    .fab-cotacao:hover {
+        transform: scale(1.1);
+        background-color: #e6a500;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    }
 
+    /* Esconde o botão em telas maiores que 768px (desktop) */
+    @media (min-width: 769px) {
+        .fab-cotacao {
+            display: none;
+        }
+    }
 
+    /* Ajuste para dispositivos muito pequenos */
+    @media (max-width: 480px) {
+        .fab-cotacao {
+            width: 48px;
+            height: 48px;
+            font-size: 1.4rem;
+            bottom: 16px;
+            right: 16px;
+        }
+    }
+
+    /* Suporte para alto contraste */
+    body.high-contrast .fab-cotacao {
+        background-color: #fff !important;
+        color: #000 !important;
+        border: 2px solid #ff0 !important;
+    }
 </style>
 
 <body>
@@ -1556,10 +1567,10 @@ body.high-contrast .fab-cotacao {
                     </ul>
                 </nav>
                 <button class="menu-mobile-btn" onclick="toggleMobileMenu()">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-</button>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
             </div>
 
 
@@ -1819,10 +1830,10 @@ body.high-contrast .fab-cotacao {
             <p>&copy; 2026 FerroTech Industrial - Todos os direitos reservados.</p>
         </div>
     </footer>
-<!-- Botão flutuante de cotação (visível apenas em mobile) -->
-<a href="paginaNegocios.html" class="fab-cotacao" aria-label="Solicitar cotação">
-    <i class="fas fa-dollar-sign"></i>
-</a>
+    <!-- Botão flutuante de cotação (visível apenas em mobile) -->
+    <a href="paginaNegocios.html" class="fab-cotacao" aria-label="Solicitar cotação">
+        <i class="fas fa-dollar-sign"></i>
+    </a>
     <script type="module" src="js/main.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -1888,22 +1899,22 @@ body.high-contrast .fab-cotacao {
             applyFontSize();
         });
 
-     function toggleMobileMenu() {
-    const nav = document.querySelector('.nav-desktop');
-    nav.classList.toggle('open');
-}
+        function toggleMobileMenu() {
+            const nav = document.querySelector('.nav-desktop');
+            nav.classList.toggle('open');
+        }
 
-// Opcional: Fecha o menu automaticamente ao clicar em um link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        document.querySelector('.nav-desktop').classList.remove('open');
-    });
-});
+        // Opcional: Fecha o menu automaticamente ao clicar em um link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-desktop').classList.remove('open');
+            });
+        });
 
-</script>
-    
+    </script>
 
-  
+
+
 
 </body>
 
