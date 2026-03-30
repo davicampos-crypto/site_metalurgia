@@ -56,21 +56,24 @@
             transition: all 0.3s ease;
         }
 
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 12px 40px;
+      
+
+        .header-left {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            gap: 24px;
+            flex-wrap: nowrap;
+        }
+
+        .nav-desktop {
+            display: flex;
+            align-items: center;
         }
 
         /* Logo responsivo */
         .logo img {
-            
             height: auto;
-            max-height: 58px;
+            max-height:100px;
             width: auto;
             transition: all 0.2s;
         }
@@ -592,13 +595,13 @@
         }
 
         .header-container {
-            padding: 10px 20px;
+            
             flex-wrap: wrap;
             gap: 10px;
         }
 
         .header-left .logo img {
-            height: 50px !important;
+            height: 100px !important;
             width: auto;
         }
 
@@ -979,7 +982,7 @@ margin-top: 0px !important;
 .header-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 12px 40px;
+   
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -987,7 +990,7 @@ margin-top: 0px !important;
 }
 
 .logo img {
-    max-height: 58px;
+    max-height: 100px;
     width: auto;
 }
 
@@ -1271,8 +1274,10 @@ margin-top: 0px !important;
     .header-left {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        width: 100%; /* Isso faz o logo e o botão ocuparem a linha toda */
+        justify-content: flex-start;
+        gap: 20px;
+        flex: 1 1 auto;
+        min-width: 0;
     }
 
     .logo {
@@ -1280,7 +1285,7 @@ margin-top: 0px !important;
     }
 
     .logo img {
-        max-width: 120px; /* Ajuste o tamanho do logo se ele estiver muito grande */
+        max-width: 200px; /* Ajuste o tamanho do logo se ele estiver muito grande */
         height: auto;
     }
 
@@ -1514,7 +1519,7 @@ body.high-contrast .fab-cotacao {
     </div>
 </footer>
 <!-- Botão flutuante de cotação (visível apenas em mobile) -->
-<a href="paginaCotacao.html" class="fab-cotacao" aria-label="Solicitar cotação">
+<a href="paginaNegocios.html" class="fab-cotacao" aria-label="Solicitar cotação">
     <i class="fas fa-dollar-sign"></i>
 </a>
 <script>
