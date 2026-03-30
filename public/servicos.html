@@ -58,20 +58,9 @@
 
       
 
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            flex-wrap: nowrap;
-        }
-
-        .nav-desktop {
-            display: flex;
-            align-items: center;
-        }
-
         /* Logo responsivo */
         .logo img {
+            
             height: auto;
             max-height:100px;
             width: auto;
@@ -989,15 +978,26 @@ margin-top: 0px !important;
     gap: 20px;
 }
 
-.logo img {
-    max-height: 100px;
-    width: auto;
-}
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        min-width: 0;
+    }
 
-/* Remove o menu mobile duplicado que não existe na sustentabilidade */
-.mobile-nav-container {
-    display: none !important;
-}
+    .nav-desktop {
+        display: flex;
+        align-items: center;
+        min-width: 0;
+    }
+
+    .nav-desktop ul {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+        flex-wrap: wrap;
+    }
 
 /* Ajuste do botão hambúrguer e menu mobile */
 .menu-mobile-btn {
@@ -1274,10 +1274,8 @@ margin-top: 0px !important;
     .header-left {
         display: flex;
         align-items: center;
-        justify-content: flex-start;
-        gap: 20px;
-        flex: 1 1 auto;
-        min-width: 0;
+        justify-content: space-between;
+        width: 100%; /* Isso faz o logo e o botão ocuparem a linha toda */
     }
 
     .logo {
@@ -1491,7 +1489,7 @@ body.high-contrast .fab-cotacao {
 <footer class="footer-main">
     <div class="footer-container">
         <div class="footer-brand">
-            <img src="logo-ferrotech-white.png" alt="FerroTech">
+            <img src="imagens/logo-ferrotech.png" alt="FerroTech">
             <p>Excelência em metalurgia de precisão e soluções industriais sustentáveis.</p>
             <div class="footer-social">
                 <a href="#"><i class="fab fa-linkedin"></i></a>

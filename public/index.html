@@ -51,13 +51,11 @@
     /* =========================================
    ESTILOS DO SECTION HERO
    ========================================= */
-    .hero {
-        width: 100%;
-        height: 100vh;
-        /* Ocupa a altura total da tela */
-        display: flex;
-        overflow: hidden;
-    }
+   .hero {
+    display: flex;
+    overflow: hidden;
+    min-height: calc(100vh - 100px); /* corrige o calc e define altura mínima */
+}
 
     .hero-container {
         display: flex;
@@ -66,17 +64,15 @@
     }
 
     /* --- BLOCO ESQUERDO: VISUAL --- */
-    .hero-visual {
-        flex: 0 0 60%;
-        /* 60% da largura em desktop */
-        position: relative;
-        background-color: #222;
-        /* Fundo de segurança caso a imagem falhe */
-    }
-
+   .hero-visual {
+    flex: 0 0 60%;
+    position: relative;
+    background-color: #222;
+    overflow: hidden;
+}
     .hero-worker-img {
         width: 100%;
-        height: 100%;
+       height: 100%;
         object-fit: cover;
         /* Faz a imagem preencher o espaço sem distorcer */
         display: block;
@@ -105,10 +101,10 @@
         background-color: var(--color-navy);
         color: var(--color-white);
         display: flex;
-        align-items: center;
+         align-items: center; 
         /* Centraliza verticalmente o conteúdo */
         justify-content: center;
-        padding: 60px 40px;
+        padding: 70px 40px;
         /* Padding interno para o wrapper */
         position: relative;
     }
@@ -298,121 +294,139 @@
         }
     }
 
-    /* --- HEADER STYLES --- */
-    .header-main {
-        background-color: var(--color-navy);
-        /* Azul Marinho Profundo */
-        width: 100%;
-        height: 100px;
-        display: flex;
-        align-items: center;
-        border-bottom: 2px solid var(--color-gold);
-        /* Linha fina dourada para separar do Hero */
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-
-    .header-container {
-        max-width: 1400px;
-        margin: 0 auto;
-        width: 95%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    /* Lado Esquerdo */
-    .header-left {
-        display: flex;
-        align-items: center;
-        gap: 40px;
-    }
-
-    .nav-desktop ul {
-        display: flex;
-        list-style: none;
-        gap: 20px;
-    }
-
-    .nav-desktop ul li a {
-        color: var(--color-white);
-        text-decoration: none;
-        font-size: 0.9rem;
-        font-weight: 500;
-        font-family: var(--font-body);
-        transition: color 0.3s ease;
-    }
-
-    .nav-desktop ul li a:hover {
-        color: var(--color-gold);
-    }
-
-    /* Lado Direito */
-    .header-right {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 12px;
-    }
-
-    .top-actions {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-    }
-
-    .action-link {
-        color: var(--color-white);
-        text-decoration: none;
-        font-size: 0.8rem;
-        border: 1px solid var(--color-white);
-        padding: 4px 12px;
-        border-radius: 20px;
-        transition: all 0.3s ease;
-    }
-
-    .action-link:hover {
-        background-color: var(--color-white);
-        color: var(--color-navy);
-    }
-
-    .lang-selector {
-        color: var(--color-white);
-        font-size: 0.8rem;
-        font-weight: 700;
-    }
-
-    .lang-selector .active {
-        color: var(--color-gold);
-    }
-
-    /* Botão Principal Estilo Gerdau */
-    .btn-business {
-        background-color: var(--color-gold);
-        color: var(--color-navy);
-        text-decoration: none;
-        font-family: var(--font-heading);
-        font-weight: 700;
-        font-size: 0.85rem;
-        padding: 12px 30px;
-        border-radius: 30px;
-        transition: transform 0.2s ease, filter 0.3s ease;
-    }
-
-    .btn-business:hover {
-        filter: brightness(1.1);
-        transform: scale(1.02);
-    }
-
-    /* Responsividade Básica */
-    @media (max-width: 1024px) {
-        .nav-desktop {
-            display: none;
+      /* =========================================
+           HEADER FIXO (JÁ EXISTENTE)
+        ========================================= */
+        .header-main {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
 
-        /* Em um site real, você faria um menu hambúrguer aqui */
-    }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+             /* padding: 15px 40px; */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-desktop ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #cbd5e1;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--color-gold);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-gold);
+            transition: 0.3s;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+        }
+
+        .top-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .header-accessibility {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: var(--color-white);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            padding-right: 15px;
+            margin-right: 15px;
+        }
+
+        .access-btn {
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .access-btn:hover {
+            color: var(--color-gold);
+        }
+
+        .lang-selector {
+            color: var(--color-white);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .lang-selector .active {
+            color: var(--color-gold);
+        }
+
+        .btn-business {
+            background-color: var(--color-gold);
+            color: var(--color-navy);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 12px 30px;
+            border-radius: 30px;
+            transition: transform 0.2s ease, filter 0.3s ease;
+        }
+
+        .btn-business:hover {
+            filter: brightness(1.1);
+            transform: scale(1.02);
+        }
+
+        header img {
+            height: 100px;
+        }
 
     /* =========================================
    ESTILOS DA SEÇÃO DE BOAS PRÁTICAS
@@ -1106,80 +1120,7 @@
         border: 2px solid #FFFF00 !important;
     }
 
-    /* Header Fixo */
-    .header-main {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        background-color: rgba(15, 23, 42, 0.95);
-        /* Azul marinho com leve transparência */
-        backdrop-filter: blur(10px);
-        /* Efeito de vidro moderno */
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        transition: all 0.3s ease;
-    }
-
-    /* Container alinhado */
-    .header-container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 15px 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    /* Estilização dos Links */
-    .nav-desktop ul {
-        display: flex;
-        gap: 25px;
-        list-style: none;
-    }
-
-    .nav-link {
-        text-decoration: none;
-        color: #cbd5e1;
-        font-weight: 600;
-        font-size: 0.9rem;
-        transition: 0.3s;
-        position: relative;
-        padding: 5px 0;
-    }
-
-    .nav-link:hover,
-    .nav-link.active {
-        color: #ffb800;
-        /* Amarelo FerroTech */
-    }
-
-    /* Linha animada embaixo do link ativo */
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: #ffb800;
-        transition: 0.3s;
-    }
-
-    .nav-link:hover::after,
-    .nav-link.active::after {
-        width: 100%;
-    }
-
-    /* Espaçamento para o conteúdo não ficar embaixo do header */
-    body {
-        padding-top: 80px;
-    }
-
-    header img {
-        height: 150px;
-    }
-
+    
     /* =========================================
    MELHORIAS DE RESPONSIVIDADE PARA CELULAR
    ========================================= */
@@ -1591,6 +1532,8 @@ body.high-contrast .fab-cotacao {
     color: #000 !important;
     border: 2px solid #ff0 !important;
 }
+
+
 </style>
 
 <body>
