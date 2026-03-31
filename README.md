@@ -1,4 +1,4 @@
-```markdown
+
 # 🔧 Ferrotech Metalurgia de Precisão – Site Institucional
 
 ![Status](https://img.shields.io/badge/status-concluído-brightgreen) ![Firebase](https://img.shields.io/badge/Firebase-Hosting%20%7C%20Firestore-orange) ![Responsivo](https://img.shields.io/badge/Responsivo-Sim-blue)
