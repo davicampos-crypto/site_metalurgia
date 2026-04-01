@@ -268,7 +268,7 @@ firebase deploy
 
 *Utilizei de referencia o site da gerdau, me inspirando em como eles apresentam a empresa para o comprador e mostram seus produtos, e tentei implementar algo parecido com o gerdau mais, que tem uma estética diferente do site principal da gerdau, focado em negócios, apliquei no meu site uma estética mais limpa para a parte de negocios. também me inspirei no site da Hardox, principalmente no setor de sobre nós, que eles fazem o usuario scrolar para a direita, inves de para baixo, tentei implementar isso no meu site, inicialmente queria para todas as sub-paginas, mas pela dificuldade optei apenas pela pagina de sobre nós*
 
-*Acabei gostando muito da estética do site, misturando inspiração no site das duas empresas*
+*Acabei gostando muito da estética do site, misturando inspiração no site das duas empresas, também busquei inspiração em empresas de medio porte em sorocaba, como a industria metalurgica atlanta, tentei buscar pontos da estetica do site deles pra implementar no meu*
 
 ---
 
