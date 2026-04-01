@@ -22,7 +22,7 @@ Site institucional profissional para a **Ferrotech Metalurgia de Precisão**, de
 - [Deploy e hospedagem](#deploy-e-hospedagem)
 - [Links úteis](#links-úteis)
 - [Autor](#autor)
-- [Inspirações](#inspirações)]
+- [Inspirações](#inspirações)
 ---
 
 ## Sobre o projeto
