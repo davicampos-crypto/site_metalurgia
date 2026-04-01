@@ -22,7 +22,7 @@ Site institucional profissional para a **Ferrotech Metalurgia de Precisão**, de
 - [Deploy e hospedagem](#deploy-e-hospedagem)
 - [Links úteis](#links-úteis)
 - [Autor](#autor)
-
+- [Inspirações](#inspirações)
 ---
 
 ## Sobre o projeto
@@ -47,7 +47,7 @@ O site foi criado para a **Ferrotech Metalurgia de Precisão** e tem como objeti
 | **Nome** | Ferrotech Metalurgia de Precisão |
 | **Slogan** | *Precisão que transforma indústrias* |
 | **Posicionamento** | Empresa especializada em soluções metalúrgicas de alta complexidade para os setores automotivo, aeronáutico, energético e de máquinas industriais |
-| **História** | Fundada em 2010 na região metropolitana de São Paulo, a Ferrotech nasceu com o propósito de oferecer serviços metalúrgicos com tolerâncias rigorosas e atendimento personalizado. Ao longo de 15 anos, consolidou-se como referência em usinagem CNC, soldagem especializada e corte a laser, atendendo grandes indústrias nacionais e multinacionais. |
+| **História** | Fundada em 2008 na região metropolitana de Sorocaba, a Ferrotech nasceu com o propósito de oferecer serviços metalúrgicos com tolerâncias rigorosas e atendimento personalizado. Ao longo de 18 anos, consolidou-se como referência em usinagem CNC, soldagem especializada e corte a laser, atendendo grandes indústrias nacionais e multinacionais. |
 | **Missão** | Entregar soluções metalúrgicas de alta precisão com agilidade, qualidade e compromisso |
 | **Visão** | Ser referência nacional em manufatura de precisão para indústrias de alta complexidade técnica |
 | **Valores** | Excelência operacional, inovação contínua, transparência com o cliente, sustentabilidade e valorização das pessoas |
@@ -142,13 +142,13 @@ Destinada ao formulário de "Trabalhe Conosco" para recrutamento.
 Abaixo estão exemplos da estrutura de dados armazenada no Firebase Firestore com os leads capturados pelo site:
 
 ### Coleção `orcamentos_completos`
-![Coleção orcamentos_completos no Firestore](./Captura%20de%20tela%202026-03-31%20164925.png)
+![Coleção orcamentos_completos no Firestore](./public/imagens/orçamentosdb.png)
 
 ### Coleção `comunicacoes`
-![Coleção comunicacoes no Firestore](./Captura%20de%20tela%202026-03-31%20164958.png)
+![Coleção comunicacoes no Firestore](./public/imagens/comunicaçaodb.png)
 
-### Visão geral das coleções
-![Visão geral do Firestore](./Captura%20de%20tela%202026-03-31%20165016.png)
+### Coleção `candidatos`
+![candidatos](./public/imagens/printdb.png)
 
 ---
 
@@ -185,9 +185,9 @@ service cloud.firestore {
 
 | Desafio | Solução adotada |
 |---------|-----------------|
-| *[A ser preenchido pelo autor]* | |
-| *[A ser preenchido pelo autor]* | |
-| *[A ser preenchido pelo autor]* | |
+| *em dispositivos tipo laptop com telas pequenas o hero ficava cortado* | aumentei o padding-top do hero, ajustei o tamanho da imagem |
+| *formulario de comunicação não abria* | identificado problema de referenciamento do script e corrigido|
+| *dificuldade na implementação de varios formularios a um java script centralizador* | criação de uma pasta com diferentes scripts para cada back end|
 
 ---
 
@@ -200,13 +200,10 @@ service cloud.firestore {
 | **Validação avançada de formulário** | Impedir envios com dados inválidos (telefone curto, e-mail sem "@", campos obrigatórios vazios) com mensagens amigáveis e feedback visual | Alta |
 | **Integração com WhatsApp API** | Botão flutuante de contato com mensagem pré-preenchida para orçamentos rápidos | Média |
 | **Galeria de projetos realizados** | Portfólio visual com filtros por tipo de serviço, cliente e setor da indústria | Média |
-| **Certificados e selos de qualidade** | Seção dedicada com certificações (ISO 9001, EN ISO 3834, AWS D1.1) e selos de parceiros | Média |
 | **Blog técnico** | Artigos sobre processos metalúrgicos, estudos de caso e inovações do setor para fortalecer autoridade | Média |
-| **Rastreamento de conversões (GA4)** | Monitorar quais CTAs e páginas geram mais orçamentos e qual a origem dos visitantes | Média |
 | **Mapa de localização interativo** | Mapa integrado com endereço da planta industrial e tempo de deslocamento para grandes centros | Baixa |
 | **SEO e acessibilidade** | Meta tags otimizadas, schema.org para empresas industriais, contraste adequado e navegação por teclado | Baixa |
-| **Modo escuro** | Alternativa visual para melhor experiência em ambientes com pouca luz | Baixa |
-| *[A ser complementado pelo autor]* | | |
+
 
 ---
 
@@ -251,7 +248,7 @@ firebase deploy
 
 ## Links úteis
 
-- **Repositório no GitHub:** [https://github.com/davicampos-crypto/ferrotech-site](https://github.com/davicampos-crypto/ferrotech-site)
+- **Repositório no GitHub:** [https://github.com/davicampos-crypto/ferrotech-site](https://github.com/davicampos-crypto/site_metalurgia)
 - **Site ao vivo:** [https://paginametalurgia.web.app/](https://paginametalurgia.web.app/)
 - **Firebase Console:** Projeto `paginametalurgia`
 
@@ -267,9 +264,11 @@ firebase deploy
 
 ---
 
-## Extras
+## Inspirações
 
-*[A ser complementado pelo autor - referências de mercado, funcionalidades especiais, etc.]*
+*Utilizei de referencia o site da gerdau, me inspirando em como eles apresentam a empresa para o comprador e mostram seus produtos, e tentei implementar algo parecido com o gerdau mais, que tem uma estética diferente do site principal da gerdau, focado em negócios, apliquei no meu site uma estética mais limpa para a parte de negocios. também me inspirei no site da Hardox, principalmente no setor de sobre nós, que eles fazem o usuario scrolar para a direita, inves de para baixo, tentei implementar isso no meu site, inicialmente queria para todas as sub-paginas, mas pela dificuldade optei apenas pela pagina de sobre nós*
+
+*Acabei gostando muito da estética do site, misturando inspiração no site das duas empresas, também busquei inspiração em empresas de medio porte em sorocaba, como a industria metalurgica atlanta, tentei buscar pontos da estetica do site deles pra implementar no meu*
 
 ---
 
