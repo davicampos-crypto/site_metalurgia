@@ -185,7 +185,7 @@ service cloud.firestore {
 
 | Desafio | Solução adotada |
 |---------|-----------------|
-| *em dispositivos tipo laptop com telas pequenas o hero ficava cortado* | aumentei o padding-top do hero, ajustei o tamanho da imagem |
+| *em dispositivos tipo laptop com telas pequenas o hero ficava cortado* | aumentei o padding-top do hero, ajustei o tamanho da imagem e ajustei a unidade do titulo do hero para viewport height |
 | *formulario de comunicação não abria* | identificado problema de referenciamento do script e corrigido|
 | *dificuldade na implementação de varios formularios a um java script centralizador* | criação de uma pasta com diferentes scripts para cada back end|
 
