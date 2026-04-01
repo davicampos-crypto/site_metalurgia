@@ -47,7 +47,7 @@ O site foi criado para a **Ferrotech Metalurgia de Precisão** e tem como objeti
 | **Nome** | Ferrotech Metalurgia de Precisão |
 | **Slogan** | *Precisão que transforma indústrias* |
 | **Posicionamento** | Empresa especializada em soluções metalúrgicas de alta complexidade para os setores automotivo, aeronáutico, energético e de máquinas industriais |
-| **História** | Fundada em 2010 na região metropolitana de São Paulo, a Ferrotech nasceu com o propósito de oferecer serviços metalúrgicos com tolerâncias rigorosas e atendimento personalizado. Ao longo de 15 anos, consolidou-se como referência em usinagem CNC, soldagem especializada e corte a laser, atendendo grandes indústrias nacionais e multinacionais. |
+| **História** | Fundada em 2008 na região metropolitana de Sorocaba, a Ferrotech nasceu com o propósito de oferecer serviços metalúrgicos com tolerâncias rigorosas e atendimento personalizado. Ao longo de 18 anos, consolidou-se como referência em usinagem CNC, soldagem especializada e corte a laser, atendendo grandes indústrias nacionais e multinacionais. |
 | **Missão** | Entregar soluções metalúrgicas de alta precisão com agilidade, qualidade e compromisso |
 | **Visão** | Ser referência nacional em manufatura de precisão para indústrias de alta complexidade técnica |
 | **Valores** | Excelência operacional, inovação contínua, transparência com o cliente, sustentabilidade e valorização das pessoas |
