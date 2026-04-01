@@ -142,13 +142,13 @@ Destinada ao formulário de "Trabalhe Conosco" para recrutamento.
 Abaixo estão exemplos da estrutura de dados armazenada no Firebase Firestore com os leads capturados pelo site:
 
 ### Coleção `orcamentos_completos`
-![Coleção orcamentos_completos no Firestore](./Captura%20de%20tela%202026-03-31%20164925.png)
+![Coleção orcamentos_completos no Firestore](./public/imagens/orçamentosdb.png)
 
 ### Coleção `comunicacoes`
-![Coleção comunicacoes no Firestore](./Captura%20de%20tela%202026-03-31%20164958.png)
+![Coleção comunicacoes no Firestore](./public/imagens/comunicaçaodb.png)
 
-### Visão geral das coleções
-![Visão geral do Firestore](./Captura%20de%20tela%202026-03-31%20165016.png)
+### Coleção `candidatos`
+![candidatos](./public/imagens/printdb.png)
 
 ---
 
